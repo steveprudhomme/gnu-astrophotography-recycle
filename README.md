@@ -6,7 +6,7 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha — cadrage et documentation. Aucun moteur d’analyse ni exécutable n’est encore disponible.**
+**Statut : Alpha — premier inventaire exécutable depuis les sources. Les mesures astronomiques et la distribution portable restent à développer.**
 
 ## Mission
 
@@ -18,7 +18,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 
 | Étape | Résultat attendu | État |
 |---|---|---|
-| Inventaire FITS | Métadonnées, anomalies et rapports CSV/JSON/PNG | À développer, phase 1 |
+| Inventaire FITS | SHA-256, chaque HDU, anomalies, CSV/JSON et synthèse Markdown/SVG | Première version disponible, phase 1 |
 | Alignement et contrôle qualité | Rotation, dérive, WCS et horodatages vérifiés | À développer, phase 2 |
 | Objets mobiles | Trajectoires candidates, vitesses et GIF | Recherche, phase 3 |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
@@ -30,11 +30,20 @@ Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas u
 
 ## Démarrer
 
-Les documents sont lisibles immédiatement, sans installation. Pour la future application : Windows 11 x64, Python et bibliothèques scientifiques libres ; versions exactes et besoins mémoire à fixer après le pilote. Une distribution portable sans droits administrateur est un objectif à valider.
+Les documents sont lisibles immédiatement. L’inventaire a été testé avec Python 3.13.6, Astropy 7.2.0 et NumPy 2.4.1 sur Windows. Le lanceur `scripts/gar-inventory.bat` utilise votre Python ou l’environnement `.venv` du projet ; voir [INSTALL.md](INSTALL.md). Il n’est pas encore autonome.
 
 1. Lire le [dossier de lancement](docs/DOSSIER-LANCEMENT.md).
 2. Suivre la [feuille de route](ROADMAP.md) et le [protocole pilote](docs/VALIDATION-PILOTE.md).
 3. Consulter [INSTALL.md](INSTALL.md) et [CONTRIBUTING.md](CONTRIBUTING.md).
+4. Suivre le [tutoriel illustré](docs/TUTORIEL.md) pour produire un exemple synthétique et lire les rapports.
+
+Depuis PowerShell, à la racine du projet, avec les dépendances installées :
+
+```powershell
+.\scripts\gar-inventory.bat "D:\ArchivesFITS" --output ".\local\premier-inventaire"
+```
+
+Choisir une sortie nouvelle et extérieure aux archives. Le calcul SHA-256 lit tous les fichiers et peut prendre du temps. Les rapports contiennent potentiellement des informations privées ; ils restent locaux. Voir le [contrat des sorties et codes de retour](docs/CONTRAT-INVENTAIRE.md).
 
 Les FITS personnels, coordonnées d’observation et paramètres locaux ne doivent pas être joints aux contributions publiques. Voir la [politique des données](docs/DONNEES.md).
 

@@ -32,8 +32,15 @@ Sources officielles consultées le **15 novembre 2026**. Les liens `stable`, `la
 | Windows 11, local, GPL et phases | Exigences des prompts ; pas des capacités déjà livrées |
 | Texte de la licence | Téléchargé officiellement ; octets conservés dans COPYING |
 | Bibliothèques | Licences principales consultées ; versions et dépendances transitives non auditées |
-| Métadonnées S50, Bayer, calibrations, heure et WCS | Inconnues sur les archives de l’utilisateur ; contrôle pilote requis |
+| Métadonnées S50, Bayer, calibrations, heure et WCS | Présence de mots-clés examinée localement ; traitement effectif, exactitude horaire et validité WCS restent à qualifier |
 | Algorithmes, seuils et performances | Propositions d’architecture ; pas de résultats expérimentaux |
 | Aptitude AAVSO/MPC/ALCDEF | Objectif ultérieur conditionné par la validation, pas une certification |
 
 Les règles de préservation, contrats de modules, budgets d’erreurs et contrôles par injections sont des décisions d’ingénierie proposées. Elles devront être confrontées aux images et revues par des contributeurs scientifiques. Le cadrage privilégie Python/Windows/S50 conformément à la demande et ne prétend pas comparer toutes les solutions existantes.
+
+## Références du premier inventaire
+
+- [Astropy — ouverture des FITS et options de lecture](https://docs.astropy.org/en/stable/io/fits/api/files.html) et [unités HDU](https://docs.astropy.org/en/stable/io/fits/api/hdus.html) : lecture seule, parcours des unités et informations de stockage. Les comportements effectivement utilisés sont couverts par les tests de la version 7.2.0 installée.
+- [pytest — configuration](https://docs.pytest.org/en/stable/reference/customize.html) : configuration du répertoire de tests et du chemin des sources.
+- [NumPy 2.4.1 sur PyPI](https://pypi.org/project/numpy/2.4.1/) : version de remplacement retenue après l’avertissement de retrait de NumPy 2.4.0 lors de l’installation. Les versions directes de développement sont consignées dans `requirements/dev-tested.txt` ; cela ne vaut pas verrouillage complet ni audit de redistribution.
+- [Contrat d’inventaire 1.0](CONTRAT-INVENTAIRE.md) et [tutoriel illustré](TUTORIEL.md) : comportement réel, provenance, exemples synthétiques et limites.

@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Steve Prud'Homme
+# GNU Astrophotography Recycle: command-line orchestration and provenance.
+# This program is free software under the GNU GPL, version 3 or later.
+# It is distributed WITHOUT ANY WARRANTY. See COPYING for the full license.
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+import platform
+import subprocess
+import sys
+import uuid
+
+import astropy
+import numpy
+
+from . import __version__
+from .contracts import SCHEMA_VERSION
+from .inventory import check_paths, inventory
+from .reports import summarize, write_reports
+
+
+def source_commit():
+    try:
+        result = subprocess.run(["git", "rev-parse", "HEAD"],
+                                cwd=Path(__file__).resolve().parents[2],
+                                capture_output=True, text=True, timeout=5, check=True)
+        dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=normal"],
+                               cwd=Path(__file__).resolve().parents[2], capture_output=True,
+                               text=True, timeout=5, check=True)
+        return {"commit": result.stdout.strip(), "working_tree_dirty": bool(dirty.stdout)}
+    except (OSError, subprocess.SubprocessError):
+        return {"commit": None, "working_tree_dirty": None}
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Inventaire FITS local, en lecture seule.")
+    parser.add_argument("--version", action="version", version=__version__)
+    sub = parser.add_subparsers(dest="command", required=True)
+    command = sub.add_parser("inventory", help="Hacher et relever les en-têtes FITS.")
+    command.add_argument("source", type=Path, help="Dossier des archives originales.")
+    command.add_argument("--output", required=True, type=Path, help="Nouveau dossier de rapports, hors des archives.")
+    args = parser.parse_args(argv)
+    try:
+        root, output = check_paths(args.source, args.output)
+        started = datetime.now(timezone.utc).isoformat()
+        files, incidents = inventory(root, progress=lambda done, total: print(
+            f"Inventaire : {done}/{total}", file=sys.stderr, flush=True))
+        document = {"schema_version": SCHEMA_VERSION, "run_id": str(uuid.uuid4()),
+                    "started_at_utc": started, "finished_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "program_version": __version__, "source_revision": source_commit(),
+                    "environment": {"python": platform.python_version(), "system": platform.system(),
+                                    "astropy": astropy.__version__, "numpy": numpy.__version__},
+                    "input_root": str(root), "read_mode": "readonly", "hash_algorithm": "SHA-256",
+                    "pixels_loaded": False, "files": files, "traversal_incidents": incidents,
+                    "summary": summarize(files, incidents)}
+        write_reports(output, document)
+    except (ValueError, OSError) as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+    summary = document["summary"]
+    print(f"{summary['files']} fichiers, {summary['hdus']} HDU, {summary['duplicates']} doublon(s).")
+    print(f"Rapports locaux : {output}")
+    if (not files or incidents or any(file["status"] != "ok" for file in files)):
+        return 2
+    return 0

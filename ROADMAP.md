@@ -33,16 +33,18 @@ L’inspection exploratoire locale a révélé des poses mosaïquées, des empil
 
 Avant chaque nouveau lot : examiner les sous-étapes, compléter cette feuille de route, puis **faire un commit de planification avant l’implémentation**. Tenir le [tutoriel illustré](docs/TUTORIEL.md) et les autres Markdown concernés à jour. Ces règles sont également consignées dans `AGENTS.md`.
 
-| Sous-étape | Travail et critère de sortie | État initial |
+| Sous-étape | Travail et critère de sortie | État du lot |
 |---|---|---|
-| P1-A | Définir le contrat v1 : fichiers/HDU, SHA-256, provenance, statuts, unités et inconnues explicites | Planifié |
-| P1-B | Ajouter une commande locale, ses arguments et un lanceur Windows ; refuser les sorties dans les entrées, les liens/jonctions et l’écrasement de rapports | Planifié |
-| P1-C | Parcourir les FITS sans charger les pixels ; inventorier chaque HDU, y compris les primaires vides et extensions ; enregistrer les erreurs sans arrêter le lot | Planifié |
-| P1-D | Hacher les fichiers entiers, détecter les doublons et changements pendant lecture ; distinguer présence WCS et validation, Bayer déclaré et pixels réellement mosaïqués | Planifié |
-| P1-E | Produire manifeste JSON, table CSV, synthèse Markdown et graphique SVG local ; provenance et avertissements ; aucune conversion temporelle présumée | Planifié |
-| P1-F | Tester avec fichiers synthétiques : multi-HDU, vide, tronqué, invalide, doublon, dates ambiguës, erreurs d’accès, chemins Unicode, liens et sorties dangereuses | Planifié |
-| P1-G | Exécuter sur le pilote local retenu ; comparer comptages et empreintes avant/après ; conserver les résultats privés | Planifié |
-| P1-H | Illustrer le tutoriel avec schéma et exemple synthétique réellement produit ; actualiser README, INSTALL, validation, sources et limites | Planifié |
-| P1-I | Relire les fichiers destinés à Git, faire un commit de réalisation avec preuves de validation ; publication distante distincte | Planifié |
+| P1-A | Définir le contrat v1 : fichiers/HDU, SHA-256, provenance, statuts, unités et inconnues explicites | Fait — contrat 1.0 documenté |
+| P1-B | Ajouter une commande locale, ses arguments et un lanceur Windows ; refuser les sorties dans les entrées, les liens/jonctions et l’écrasement de rapports | Fait — CLI, module, paquet modifiable et `.bat` vérifiés |
+| P1-C | Parcourir les FITS sans charger les pixels ; inventorier chaque HDU, y compris les primaires vides et extensions ; enregistrer les erreurs sans arrêter le lot | Fait — cas synthétiques vérifiés |
+| P1-D | Hacher les fichiers entiers, détecter les doublons et changements pendant lecture ; distinguer présence WCS et validation, Bayer déclaré et pixels réellement mosaïqués | Fait — limites des heuristiques documentées |
+| P1-E | Produire manifeste JSON, table CSV, synthèse Markdown et graphique SVG local ; provenance et avertissements ; aucune conversion temporelle présumée | Fait — exemple synthétique reproductible |
+| P1-F | Tester avec fichiers synthétiques : multi-HDU, vide, tronqué, invalide, doublon, dates ambiguës, erreurs d’accès, chemins Unicode, liens et sorties dangereuses | Fait — 25 cas passent, aussi dans l’environnement isolé corrigé |
+| P1-G | Exécuter sur le pilote local retenu ; comparer comptages et empreintes avant/après ; conserver les résultats privés | Fait — toutes les empreintes du pilote concordent |
+| P1-H | Illustrer le tutoriel avec schéma et exemple synthétique réellement produit ; actualiser README, INSTALL, validation, sources et limites | Fait — diagramme SVG, rapport SVG et illustration PNG |
+| P1-I | Relire les fichiers destinés à Git, faire un commit de réalisation avec preuves de validation ; publication distante distincte | Livré dans le commit de réalisation de ce lot |
 
 Ce lot couvre un premier inventaire utilisable depuis les sources. L’audit complet des roues natives, le verrouillage avec empreintes, la distribution portable, le regroupement automatique des séances et la qualification scientifique des heures/WCS restent des travaux ouverts ; ils ne sont pas déclarés terminés par ce lot.
+
+Plan initial enregistré avant développement : **`6c79043`**. Lors de l’essai d’installation, le retrait de NumPy 2.4.0 a conduit au choix de 2.4.1 et à une nouvelle exécution des tests. La protection CSV contre les formules de tableur a été ajoutée au contrat des rapports. Ces ajustements relèvent des sous-étapes de robustesse et d’installation ci-dessus.

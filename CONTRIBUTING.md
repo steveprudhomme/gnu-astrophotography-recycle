@@ -20,6 +20,8 @@ Les candidats astronomiques ne se valident pas dans une simple issue : joindre l
 
 En proposant une contribution, confirmer disposer des droits nécessaires et accepter `GPL-3.0-or-later` pour les contenus originaux concernés. Chaque personne conserve ses droits ; aucune cession globale n’est demandée. Préserver les avis des tiers et documenter toute nouvelle dépendance avant son intégration.
 
-Préférer des interfaces petites et des fichiers d’échange explicites. Ne pas ajouter de dépendance circulaire, de téléchargement implicite, de télémétrie ou de modification des entrées. Les tests futurs utiliseront `pytest` ; leur plan figure dans [VALIDATION-PILOTE.md](docs/VALIDATION-PILOTE.md).
+Préférer des interfaces petites et des fichiers d’échange explicites. Ne pas ajouter de dépendance circulaire, de téléchargement implicite, de télémétrie ou de modification des entrées. Les tests d’inventaire utilisent `pytest` ; exécuter `python -m pytest -q` depuis la racine. Leur portée figure dans [VALIDATION-PILOTE.md](docs/VALIDATION-PILOTE.md).
+
+Avant de coder un nouveau lot, détailler ses sous-étapes dans `ROADMAP.md` et faire un commit du plan. Documenter les opérations dans [TUTORIEL.md](docs/TUTORIEL.md), avec des images explicatives ou des résultats synthétiques réels. Mettre à jour les autres Markdown concernés. Les règles persistantes sont dans [AGENTS.md](AGENTS.md).
 
 Les échanges doivent rester respectueux. Critiquer les méthodes et les résultats, sans attaques personnelles. Le mainteneur motive les décisions et consigne les désaccords techniques.

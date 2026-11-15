@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="325" viewBox="0 0 960 325">
+<title>Inventaire : catégories de HDU, doublons inclus</title>
+<rect width="960" height="325" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="30" y="40" font-size="24">Inventaire FITS — catégories de HDU</text>
+<text x="30" y="75" font-size="17">5 fichiers · 6 HDU · 1 doublon(s)</text>
+<text x="30" y="128" font-size="17">empty_primary</text>
+<rect x="300" y="105" width="130.00" height="32" rx="4" fill="#75c9e8"/>
+<text x="850" y="128" font-size="18">1</text>
+<text x="30" y="183" font-size="17">image_2d_candidate</text>
+<rect x="300" y="160" width="520.00" height="32" rx="4" fill="#75c9e8"/>
+<text x="850" y="183" font-size="18">4</text>
+<text x="30" y="238" font-size="17">stacked_candidate</text>
+<rect x="300" y="215" width="130.00" height="32" rx="4" fill="#75c9e8"/>
+<text x="850" y="238" font-size="18">1</text>
+<text x="30" y="305" font-size="15">Classification indicative ; chaque HDU et chaque copie sont comptées.</text></g></svg>

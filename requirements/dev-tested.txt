@@ -1,0 +1,5 @@
+# Combinaison de développement testée avec Python 3.13.6 sur Windows.
+# Pas un verrouillage exhaustif : dépendances transitives et roues à auditer.
+astropy==7.2.0
+numpy==2.4.1
+pytest==7.4.4

@@ -1,6 +1,6 @@
 # Dossier de lancement — GNU Astrophotography Recycle
 
-Version de cadrage du 15 novembre 2026. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Aucun échantillon FITS n’a encore été analysé. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
+Version de cadrage du 15 novembre 2026, actualisée lors du premier module. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; elle ne constitue pas une validation scientifique des archives. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
 
 ## 1. Identité du projet et modèle de README
 
@@ -14,7 +14,7 @@ Le [README livré](../README.md) est directement réutilisable. Il présente en 
 
 ## 2. Arborescence unifiée et composants
 
-Les fichiers racines, modèles GitHub et documents ci-dessous sont livrés. Les répertoires applicatifs annotés « futur » sont une cible, pas du code existant.
+Les fichiers racines, modèles GitHub et documents ci-dessous sont livrés. L’arborescence suivante reste la cible modulaire à terme. Le premier module utilise pour l’instant `src/gar/contracts.py`, `inventory.py`, `reports.py` et `cli.py`, avec `__main__.py`, le lanceur `scripts/gar-inventory.bat`, `tests/test_inventory.py` et `examples/make_demo.py`. Son interface réelle est décrite dans [CONTRAT-INVENTAIRE.md](CONTRAT-INVENTAIRE.md) ; les futurs modules scientifiques ne sont pas encore implémentés.
 
 ```text
 gnu-astrophotography-recycle/
@@ -171,6 +171,6 @@ Le [protocole détaillé](VALIDATION-PILOTE.md) lance les phases 1 et 2 avec une
 | Photométrie possible | Flux linéaires qualifiés, comparaisons et contrôle indépendants, budget d’incertitude |
 | Export possible | Critères scientifiques et spécification exacte du destinataire vérifiés |
 
-La première version sera évaluée sur des données synthétiques puis réelles ; aucun résultat ni test scientifique n’est annoncé comme réussi aujourd’hui.
+Le premier inventaire est vérifié par 25 cas synthétiques et un pilote privé avec comparaison des empreintes. Cela ne qualifie pas encore les temps, les solutions WCS ou les mesures scientifiques ; les critères correspondants restent ouverts.
 
 **Biais et limites du cadrage :** priorité donnée à Windows 11, Python et au S50 selon la demande ; ce n’est pas une comparaison exhaustive de logiciels. Les archives disponibles peuvent favoriser les belles images plutôt que les meilleures séries scientifiques. Le pilote peut échouer faute de calibrations, de références ou d’heure fiable. Ces résultats devront être consignés aussi soigneusement qu’un succès.

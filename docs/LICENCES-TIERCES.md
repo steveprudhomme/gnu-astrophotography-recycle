@@ -1,6 +1,6 @@
 # Préaudit des licences et procédure de distribution
 
-État au 15 novembre 2026 : sources officielles consultées, mais aucune combinaison de versions ni aucun paquet portable audité. Une licence principale n’épuise pas les obligations des composants embarqués. Les conclusions ci-dessous sont des orientations à confirmer sur les artefacts exacts.
+État au 15 novembre 2026 : sources officielles consultées et première combinaison de développement spécifiée dans `requirements/dev-tested.txt`. Les dépendances transitives, roues natives et paquet portable n’ont pas encore fait l’objet d’un audit exhaustif de redistribution. Une licence principale n’épuise pas les obligations des composants embarqués. Les conclusions ci-dessous sont des orientations à confirmer sur les artefacts exacts.
 
 | Élément | Preuve officielle | Compatibilité envisagée / action |
 |---|---|---|

@@ -2,19 +2,29 @@
 
 ## Ce qui fonctionne aujourd’hui
 
-Cette version contient la documentation de lancement. Ouvrir `README.md` avec un lecteur Markdown ou un éditeur de texte. Aucun paquet à installer pour la lire. Aucun programme de traitement des FITS n’est livré.
+Cette version contient un inventaire FITS en lecture seule et sa documentation. Le lanceur Windows exécute le code Python depuis `src/` ; aucun traitement scientifique des pixels n’est livré.
 
-## Environnement de développement prévu
+## Environnement depuis les sources
 
-Après la sélection d’une combinaison Python/Astropy/Photutils vérifiée sous Windows 11 x64 :
+Combinaison testée sur Windows : Python 3.13.6, Astropy 7.2.0, NumPy 2.4.1 et pytest 7.4.4. Photutils n’est pas nécessaire à l’inventaire. Sous PowerShell, à la racine du projet :
 
-1. Installer Python pour l’utilisateur courant, sans installation système ni droits administrateur.
-2. Créer un environnement virtuel dans le dossier de travail.
-3. Installer les versions verrouillées et leurs dépendances à partir du futur fichier de verrouillage avec empreintes.
-4. Exécuter les contrôles automatisés sur des images synthétiques ; les instructions exactes seront publiées avec le premier module exécutable.
-5. Placer les archives originales en dehors du dépôt ; choisir un autre dossier pour les sorties.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements/dev-tested.txt
+.\.venv\Scripts\python.exe -m pytest -q
+.\scripts\gar-inventory.bat "D:\ArchivesFITS" --output ".\local\inventaire-01"
+```
 
-Les versions et commandes d’installation applicative ne sont pas encore publiées : aucun `requirements.txt`, paquet PyPI ou exécutable ne doit être supposé disponible.
+Installer Python pour l’utilisateur courant. L’appel explicite à l’interpréteur évite de modifier la politique d’exécution PowerShell. L’installation des dépendances nécessite Internet ou un dépôt de paquets préparé à l’avance ; l’inventaire lui-même est local. Le fichier `requirements/dev-tested.txt` décrit les versions directes testées, **pas un verrouillage complet ni un audit des roues distribuées**.
+
+Si votre Python dispose déjà des versions nécessaires, le lanceur fonctionne sans créer `.venv`. Pour appeler le module directement :
+
+```powershell
+$env:PYTHONPATH = Join-Path $PWD 'src'
+python -m gar inventory "D:\ArchivesFITS" --output ".\local\inventaire-02"
+```
+
+L’installation locale modifiable du paquet a aussi été vérifiée : après les dépendances, exécuter `.\.venv\Scripts\python.exe -m pip install --no-deps -e .`, puis `.\.venv\Scripts\gar.exe --version`. Cette étape peut télécharger l’outil de construction setuptools. Les autres combinaisons de versions restent à valider. Aucun paquet PyPI ni binaire portable n’est publié. Le [tutoriel](docs/TUTORIEL.md) décrit un premier essai entièrement synthétique ; le [contrat](docs/CONTRAT-INVENTAIRE.md) détaille les erreurs, limites et sorties.
 
 ## Distribution portable prévue
 
