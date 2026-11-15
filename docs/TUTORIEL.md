@@ -71,3 +71,7 @@ Le succès des tests d’inventaire ne prouve ni l’exactitude de l’horloge, 
 ## 5. Retenir une méthode de travail pour la suite
 
 Pour chaque nouveau lot : planifier les sous-étapes, compléter `ROADMAP.md`, faire un commit du plan, implémenter, tester, enrichir ce tutoriel avec des visuels vérifiables et actualiser les autres Markdown. Faire ensuite un commit de réalisation. Une publication GitHub est une action distincte ; les rapports personnels demeurent exclus de Git.
+
+## 6. Plan du regroupement des séances
+
+Le lot S1 à S9 de `ROADMAP.md` prépare une nouvelle commande qui lira le manifeste JSON, sans rouvrir les observations. Elle séparera les cibles, filtres, configurations, dates déclarées et grandes interruptions ; les empilements et copies binaires seront exclus des sommes d’exposition. Les heures conserveront leur statut non qualifié. Ce plan doit être committé avant le développement ; l’exemple illustré et les résultats seront ajoutés après vérification.
