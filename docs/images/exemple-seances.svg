@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390">
+<title>Séances candidates : nombre de HDU regroupées</title>
+<rect width="960" height="390" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="30" y="40" font-size="24">Séances candidates — aucune conversion horaire</text>
+<text x="30" y="76" font-size="17">5 groupe(s) · 6 HDU retenues · 3 exclues</text>
+<text x="30" y="123" font-size="16">Groupe 01</text>
+<rect x="220" y="100" width="560.00" height="30" rx="4" fill="#83d7b7"/>
+<text x="820" y="123" font-size="17">2</text>
+<text x="30" y="165" font-size="16">Groupe 02</text>
+<rect x="220" y="142" width="280.00" height="30" rx="4" fill="#83d7b7"/>
+<text x="820" y="165" font-size="17">1</text>
+<text x="30" y="207" font-size="16">Groupe 03</text>
+<rect x="220" y="184" width="280.00" height="30" rx="4" fill="#83d7b7"/>
+<text x="820" y="207" font-size="17">1</text>
+<text x="30" y="249" font-size="16">Groupe 04</text>
+<rect x="220" y="226" width="280.00" height="30" rx="4" fill="#83d7b7"/>
+<text x="820" y="249" font-size="17">1</text>
+<text x="30" y="291" font-size="16">Groupe 05</text>
+<rect x="220" y="268" width="280.00" height="30" rx="4" fill="#83d7b7"/>
+<text x="820" y="291" font-size="17">1</text>
+<text x="30" y="355" font-size="15">5 groupe(s) affiché(s), dans l’ordre du JSON ; copies et empilements exclus.</text>
+<text x="30" y="378" font-size="15">Le découpage par date déclarée ne définit pas une nuit astronomique.</text></g></svg>

@@ -44,3 +44,7 @@ Les règles de préservation, contrats de modules, budgets d’erreurs et contr�
 - [pytest — configuration](https://docs.pytest.org/en/stable/reference/customize.html) : configuration du répertoire de tests et du chemin des sources.
 - [NumPy 2.4.1 sur PyPI](https://pypi.org/project/numpy/2.4.1/) : version de remplacement retenue après l’avertissement de retrait de NumPy 2.4.0 lors de l’installation. Les versions directes de développement sont consignées dans `requirements/dev-tested.txt` ; cela ne vaut pas verrouillage complet ni audit de redistribution.
 - [Contrat d’inventaire 1.0](CONTRAT-INVENTAIRE.md) et [tutoriel illustré](TUTORIEL.md) : comportement réel, provenance, exemples synthétiques et limites.
+
+## Regroupement indicatif
+
+Le [contrat des séances 1.0](CONTRAT-SEANCES.md) définit les choix d’ingénierie : métadonnées exactes, dossiers et dates séparés, seuil configurable, exclusion des copies et absence de conversion horaire. Ce regroupement n’est pas un standard de soumission astronomique. Sa référence est le comportement couvert par les cas synthétiques, pas une promesse de reconstruire les nuits réelles de l’instrument. L’exemple illustré du tutoriel provient du générateur public `examples/make_sessions_demo.py` et des rapports effectivement produits.

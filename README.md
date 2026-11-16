@@ -6,7 +6,7 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha — premier inventaire exécutable depuis les sources. Les mesures astronomiques et la distribution portable restent à développer.**
+**Statut : Alpha 0.2 — inventaire et regroupement indicatif des séances exécutables depuis les sources. Les mesures astronomiques et la distribution portable restent à développer.**
 
 ## Mission
 
@@ -19,6 +19,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Étape | Résultat attendu | État |
 |---|---|---|
 | Inventaire FITS | SHA-256, chaque HDU, anomalies, CSV/JSON et synthèse Markdown/SVG | Première version disponible, phase 1 |
+| Séances candidates | Regroupement depuis un manifeste local, exclusions et résumés CSV/JSON/SVG | Première version disponible, phase 1 |
 | Alignement et contrôle qualité | Rotation, dérive, WCS et horodatages vérifiés | À développer, phase 2 |
 | Objets mobiles | Trajectoires candidates, vitesses et GIF | Recherche, phase 3 |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
@@ -44,6 +45,14 @@ Depuis PowerShell, à la racine du projet, avec les dépendances installées :
 ```
 
 Choisir une sortie nouvelle et extérieure aux archives. Le calcul SHA-256 lit tous les fichiers et peut prendre du temps. Les rapports contiennent potentiellement des informations privées ; ils restent locaux. Voir le [contrat des sorties et codes de retour](docs/CONTRAT-INVENTAIRE.md).
+
+Pour regrouper un manifeste déjà présent sur l’ordinateur, sans rouvrir les FITS :
+
+```powershell
+.\scripts\gar-sessions.bat ".\local\premier-inventaire\manifest.json" --output ".\local\seances-01"
+```
+
+Les dates déclarées et les configurations restent séparées ; les interruptions de plus de 30 minutes coupent un groupe par défaut. Les copies, empilements et dates inutilisables sont expliqués dans les exclusions. Le [contrat des séances](docs/CONTRAT-SEANCES.md) précise les limites et le code de retour `2`, qui peut signaler des exclusions attendues. Aucun fichier n’est déplacé. Choisir la destination locale indiquée pour ne rien écrire sur le support externe des observations.
 
 Les FITS personnels, coordonnées d’observation et paramètres locaux ne doivent pas être joints aux contributions publiques. Voir la [politique des données](docs/DONNEES.md).
 

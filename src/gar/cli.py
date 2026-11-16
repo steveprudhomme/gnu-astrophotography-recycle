@@ -18,6 +18,8 @@ from . import __version__
 from .contracts import SCHEMA_VERSION
 from .inventory import check_paths, inventory
 from .reports import summarize, write_reports
+from .sessions import check_session_output, group_sessions, load_manifest
+from .session_reports import write_session_reports
 
 
 def source_commit():
@@ -40,7 +42,14 @@ def main(argv=None):
     command = sub.add_parser("inventory", help="Hacher et relever les en-têtes FITS.")
     command.add_argument("source", type=Path, help="Dossier des archives originales.")
     command.add_argument("--output", required=True, type=Path, help="Nouveau dossier de rapports, hors des archives.")
+    sessions_command = sub.add_parser("sessions", help="Regrouper les poses d’un manifeste existant.")
+    sessions_command.add_argument("manifest", type=Path, help="manifest.json issu de l’inventaire.")
+    sessions_command.add_argument("--output", required=True, type=Path, help="Nouveau dossier de rapports privés.")
+    sessions_command.add_argument("--gap-seconds", type=float, default=1800,
+                                  help="Séparer après un intervalle strictement supérieur au seuil (défaut : 1800 s).")
     args = parser.parse_args(argv)
+    if args.command == "sessions":
+        return run_sessions(args)
     try:
         root, output = check_paths(args.source, args.output)
         started = datetime.now(timezone.utc).isoformat()
@@ -64,3 +73,26 @@ def main(argv=None):
     if (not files or incidents or any(file["status"] != "ok" for file in files)):
         return 2
     return 0
+
+
+def run_sessions(args):
+    try:
+        manifest, digest = load_manifest(args.manifest)
+        output = check_session_output(args.manifest, args.output, manifest)
+        document = group_sessions(manifest, args.gap_seconds)
+        document.update(run_id=str(uuid.uuid4()), created_at_utc=datetime.now(timezone.utc).isoformat(),
+                        program_version=__version__, source_revision=source_commit(),
+                        input_manifest_sha256=digest, input_manifest_path=str(args.manifest.resolve()),
+                        input_inventory_run_id=manifest.get('run_id'),
+                        input_inventory_revision=manifest.get('source_revision'))
+        write_session_reports(output, document)
+    except (ValueError, OSError) as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+    summary = document['summary']
+    print(f"{summary['session_count']} séance(s) candidate(s), {summary['grouped_hdus']} HDU retenues, {summary['excluded_hdus']} exclues.")
+    print(f"Rapports locaux : {output}")
+    issues = (not document['sessions'] or summary['excluded_hdus'] or summary['file_incidents']
+              or summary['inventory_traversal_incidents']
+              or any(s['unknown_exposure_count'] or s['duplicate_timestamp_count'] for s in document['sessions']))
+    return 2 if issues else 0

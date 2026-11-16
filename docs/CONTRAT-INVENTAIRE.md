@@ -43,4 +43,4 @@ Le manifeste enregistre un identifiant d’exécution, les heures UTC du **progr
 - `1` : erreur de configuration ou d’écriture des rapports.
 - `2` : fichier en erreur/modifié, avertissement, lien ignoré, incident de parcours ou aucun FITS trouvé ; lire le manifeste.
 
-Un dossier de sortie existant ou situé dans les archives est refusé. Si l’écriture échoue, un dossier de rapports partiel peut rester : conserver le diagnostic et relancer vers un nouveau dossier. Le regroupement automatique en séances n’est pas implémenté dans le contrat 1.0.
+Un dossier de sortie existant ou situé dans les archives est refusé. Si l’écriture échoue, un dossier de rapports partiel peut rester : conserver le diagnostic et relancer vers un nouveau dossier. Le regroupement indicatif est une commande distincte qui consomme ce manifeste sans modifier le contrat d’inventaire 1.0 : voir [CONTRAT-SEANCES.md](CONTRAT-SEANCES.md).

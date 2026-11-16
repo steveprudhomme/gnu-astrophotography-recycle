@@ -45,24 +45,26 @@ Avant chaque nouveau lot : examiner les sous-étapes, compléter cette feuille d
 | P1-H | Illustrer le tutoriel avec schéma et exemple synthétique réellement produit ; actualiser README, INSTALL, validation, sources et limites | Fait — diagramme SVG, rapport SVG et illustration PNG |
 | P1-I | Relire les fichiers destinés à Git, faire un commit de réalisation avec preuves de validation ; publication distante distincte | Livré dans le commit de réalisation de ce lot |
 
-Ce lot couvre un premier inventaire utilisable depuis les sources. L’audit complet des roues natives, le verrouillage avec empreintes, la distribution portable, le regroupement automatique des séances et la qualification scientifique des heures/WCS restent des travaux ouverts ; ils ne sont pas déclarés terminés par ce lot.
+Ce premier lot couvre l’inventaire depuis les sources. Il ne terminait pas le regroupement, livré séparément ci-dessous. L’audit complet des roues natives, le verrouillage avec empreintes, la distribution portable et la qualification scientifique des heures/WCS restent ouverts.
 
 Plan initial enregistré avant développement : **`6c79043`**. Lors de l’essai d’installation, le retrait de NumPy 2.4.0 a conduit au choix de 2.4.1 et à une nouvelle exécution des tests. La protection CSV contre les formules de tableur a été ajoutée au contrat des rapports. Ces ajustements relèvent des sous-étapes de robustesse et d’installation ci-dessus.
 
 ## Lot de travail 2 — regroupement indicatif des séances
 
-Plan du 15 novembre 2026, à committer avant l’implémentation. La commande travaillera **sur un manifeste existant**, sans relire ni modifier les FITS. Une séance est un regroupement de travail, pas une qualification des heures ou une nuit astronomique certifiée.
+Plan du 15 novembre 2026, enregistré dans **`1523035` avant l’implémentation**. La commande travaille **sur un manifeste existant**, sans relire ni modifier les FITS. Une séance est un regroupement de travail, pas une qualification des heures ou une nuit astronomique certifiée.
 
 | Sous-étape | Travail et critère de sortie | État |
 |---|---|---|
-| S1 | Définir le contrat : identité de la cible, instrument, filtre, dimensions, Bayer, mode de monture et échelle temporelle déclarée ; ne pas fusionner des métadonnées inconnues de dossiers différents | Planifié |
-| S2 | Exclure les fichiers en erreur/modifiés, les HDU non candidates, empilements, copies binaires et horodatages absents ou ambigus ; expliquer chaque exclusion | Planifié |
-| S3 | Parser strictement les dates complètes sans déduire UTC, fuseau, début ou milieu de pose ; séparer les dates déclarées et les interruptions selon un seuil configurable | Planifié |
-| S4 | Détecter les horodatages dupliqués, les durées inconnues et métadonnées absentes ; produire identifiants stables et provenance du manifeste SHA-256 | Planifié |
-| S5 | Ajouter `gar sessions` et un lanceur Windows ; refuser les sorties existantes ou situées dans les archives déclarées ; contrôler le format du manifeste | Planifié |
-| S6 | Produire `sessions.json`, résumé CSV, rapport Markdown et graphique SVG ; distinguer couverture entre horodatages et intégration cumulée déclarée | Planifié |
-| S7 | Tester regroupements, interruptions, nuits distinctes, filtres, doublons, extensions, temps invalides, secondes intercalaires non prises en charge et manifeste incorrect | Planifié |
-| S8 | Générer un exemple synthétique multi-séances illustré ; vérifier sur le manifeste privé du pilote et rapprocher les comptages de l’inventaire exploratoire | Planifié |
-| S9 | Actualiser tutoriel, README, INSTALL, contrat, validation et feuille de route ; commit de réalisation après vérifications | Planifié |
+| S1 | Définir le contrat : cible, instrument, filtre, dimensions, Bayer, mode, site et échelle temporelle déclarée ; garder les dossiers distincts | Fait — contrat des séances 1.0 |
+| S2 | Exclure erreurs, HDU non candidates, empilements, copies et dates inutilisables ; expliquer chaque exclusion | Fait — réconciliation des HDU et motifs explicites |
+| S3 | Parser les dates complètes sans conversion ; séparer dates déclarées et interruptions selon un seuil configurable | Fait — seuil par défaut de 1 800 s et limites du parseur documentées |
+| S4 | Détecter dates dupliquées, durées inconnues et métadonnées absentes ; identifiants stables et provenance SHA-256 | Fait — temps et intégrations non qualifiés restent signalés |
+| S5 | Ajouter `gar sessions` et un lanceur Windows ; contrôler manifeste et sorties | Fait — essais CLI et chemins avec espaces/accents |
+| S6 | Produire JSON, CSV, Markdown et SVG ; distinguer couverture et intégration déclarée | Fait — aucun total fabriqué si des durées manquent |
+| S7 | Tester les configurations, dates, seuils, doublons, extensions et erreurs | Fait — 42 nouveaux cas ; 67 tests au total |
+| S8 | Exemple synthétique illustré et comparaison au manifeste privé du pilote | Fait — cinq groupes synthétiques attendus ; membres privés réconciliés sans relire les FITS |
+| S9 | Actualiser les Markdown et le tutoriel, vérifier les illustrations et faire le commit de réalisation | Livré dans le commit de réalisation de ce lot |
 
 Choix prudent : découper à minuit de la date **déclarée** pour ce premier regroupement ; cela peut diviser une véritable séance passant minuit. Ne pas appeler ce découpage « nuit locale » ou UTC lorsque l’échelle est absente. La validation instrumentale des heures reste en phase 2. Les groupes incomplets sont signalés ; aucune exposition manquante n’est remplacée par zéro ou par une valeur supposée.
+
+Version du lot : **0.2.0a1**. Les variations exactes du site ou du gain restent séparées, même si elles pourraient provenir d’un bruit de métadonnées : aucune tolérance ni fusion géographique n’est supposée. Le support USB demeure inchangé ; ce lot s’appuie uniquement sur des manifestes locaux. Les résultats détaillés réels restent exclus de Git.

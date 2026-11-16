@@ -16,6 +16,8 @@ Le [README livré](../README.md) est directement réutilisable. Il présente en 
 
 Les fichiers racines, modèles GitHub et documents ci-dessous sont livrés. L’arborescence suivante reste la cible modulaire à terme. Le premier module utilise pour l’instant `src/gar/contracts.py`, `inventory.py`, `reports.py` et `cli.py`, avec `__main__.py`, le lanceur `scripts/gar-inventory.bat`, `tests/test_inventory.py` et `examples/make_demo.py`. Son interface réelle est décrite dans [CONTRAT-INVENTAIRE.md](CONTRAT-INVENTAIRE.md) ; les futurs modules scientifiques ne sont pas encore implémentés.
 
+Le lot suivant ajoute `sessions.py`, `session_reports.py`, `scripts/gar-sessions.bat`, les tests et le générateur d’exemple multi-séances. Cette commande travaille sur le manifeste local existant ; elle ne rouvre pas les archives. Son [contrat spécifique](CONTRAT-SEANCES.md) décrit un regroupement indicatif, avec dates et configurations déclarées, sans qualification scientifique des heures. La suite réunit désormais 67 cas synthétiques.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites
