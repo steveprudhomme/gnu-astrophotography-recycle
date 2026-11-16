@@ -193,3 +193,7 @@ Les liens, avis de confidentialité et illustrations ont été vérifiés. Aucun
 *Illustration traduite, vérifiée visuellement ; schéma conceptuel, pas une mesure ou une capture d’écran.*
 
 La vérification porte sur la fidélité de la traduction, les mots-clés FITS inchangés, les liens et la lisibilité des images PNG/SVG. Aucun code applicatif ni donnée d’observation ne change. La traduction est enregistrée dans un commit documentaire local pour relecture et partage par le fondateur.
+
+## 9. Plan du diagnostic WCS
+
+Le lot W1 à W9 prévoit le contrôle des champs WCS conservés dans les manifestes locaux. Le plan doit être committé avant le code. Le contexte complet n’est pas disponible dans le manifeste 1.0 : un bloc de paramètres numériquement cohérent ne sera pas présenté comme une solution céleste correcte. Les commandes, exemples illustrés et vérifications seront ajoutés après l’implémentation.
