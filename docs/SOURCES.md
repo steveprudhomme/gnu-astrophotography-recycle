@@ -48,3 +48,7 @@ Les règles de préservation, contrats de modules, budgets d’erreurs et contr�
 ## Regroupement indicatif
 
 Le [contrat des séances 1.0](CONTRAT-SEANCES.md) définit les choix d’ingénierie : métadonnées exactes, dossiers et dates séparés, seuil configurable, exclusion des copies et absence de conversion horaire. Ce regroupement n’est pas un standard de soumission astronomique. Sa référence est le comportement couvert par les cas synthétiques, pas une promesse de reconstruire les nuits réelles de l’instrument. L’exemple illustré du tutoriel provient du générateur public `examples/make_sessions_demo.py` et des rapports effectivement produits.
+
+## Diagnostic temporel
+
+Le [contrat des horodatages](CONTRAT-HORODATAGES.md) référence le standard FITS 4.0 et les pages officielles Seestar/ZWO consultées le 15 novembre 2026. Les valeurs par défaut du standard sont distinguées des déclarations et des preuves instrumentales. Aucune précision applicable au firmware de l’utilisateur n’a été établie dans les sources examinées ; les cas d’autres caméras ne sont pas transposés au S50. Les graphiques publics proviennent du générateur fictif `examples/make_timing_demo.py` et de rapports réellement produits, pas d’observations personnelles.

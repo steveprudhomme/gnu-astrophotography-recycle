@@ -12,6 +12,8 @@ Le mainteneur peut assurer plusieurs rôles au démarrage. Cette concentration d
 
 Les décisions d’architecture sont proposées dans une issue, discutées puis consignées dans la documentation avec statut et justification. Une décision de rejet doit être motivée. Les modifications de méthode ou de format nécessitent une proposition de fusion dédiée ; les mesures publiées doivent rester reproductibles avec leur version d’origine.
 
+Un diagnostic non conclusif est un résultat à conserver : le contrôle temporel 0.3 distingue des métadonnées cohérentes d’une horloge scientifiquement qualifiée. Les éléments probants et rapports privés ne sont pas publiés implicitement avec les versions du logiciel.
+
 `main` représente l’état relu, pas une garantie scientifique. Avant une version applicative : contrôles réussis, changements documentés, licences auditées et limites annoncées. Les versions suivent une numérotation `0.x.y` pendant l’Alpha ; aucune date de livraison n’est promise.
 
 ## GitHub : plan de création

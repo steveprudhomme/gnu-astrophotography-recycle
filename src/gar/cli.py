@@ -20,6 +20,8 @@ from .inventory import check_paths, inventory
 from .reports import summarize, write_reports
 from .sessions import check_session_output, group_sessions, load_manifest
 from .session_reports import write_session_reports
+from .timing import audit_timing
+from .timing_reports import write_timing_reports
 
 
 def source_commit():
@@ -47,9 +49,16 @@ def main(argv=None):
     sessions_command.add_argument("--output", required=True, type=Path, help="Nouveau dossier de rapports privés.")
     sessions_command.add_argument("--gap-seconds", type=float, default=1800,
                                   help="Séparer après un intervalle strictement supérieur au seuil (défaut : 1800 s).")
+    timing_command = sub.add_parser("timing", help="Diagnostiquer les heures sans qualifier l’horloge.")
+    timing_command.add_argument("manifest", type=Path, help="Manifeste local d’inventaire.")
+    timing_command.add_argument("--output", required=True, type=Path, help="Nouveau dossier local de rapports privés.")
+    timing_command.add_argument("--gap-seconds", type=float, default=1800,
+                               help="Signaler les interruptions au-delà de ce seuil (défaut : 1800 s).")
     args = parser.parse_args(argv)
     if args.command == "sessions":
         return run_sessions(args)
+    if args.command == "timing":
+        return run_timing(args)
     try:
         root, output = check_paths(args.source, args.output)
         started = datetime.now(timezone.utc).isoformat()
@@ -96,3 +105,25 @@ def run_sessions(args):
               or summary['inventory_traversal_incidents']
               or any(s['unknown_exposure_count'] or s['duplicate_timestamp_count'] for s in document['sessions']))
     return 2 if issues else 0
+
+
+def run_timing(args):
+    try:
+        manifest, digest = load_manifest(args.manifest)
+        output = check_session_output(args.manifest, args.output, manifest)
+        grouped = group_sessions(manifest, args.gap_seconds)
+        document = audit_timing(manifest, grouped, args.gap_seconds)
+        document.update(run_id=str(uuid.uuid4()), created_at_utc=datetime.now(timezone.utc).isoformat(),
+                        program_version=__version__, source_revision=source_commit(),
+                        input_manifest_sha256=digest, input_manifest_path=str(args.manifest.resolve()),
+                        input_inventory_run_id=manifest.get('run_id'),
+                        input_inventory_revision=manifest.get('source_revision'))
+        write_timing_reports(output, document)
+    except (ValueError, OSError) as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+    summary = document['summary']
+    print(f"{summary['candidate_hdus']} HDU candidates, {summary['cadence_hdus']} retenues pour cadence, 0 heure scientifiquement qualifiée.")
+    print(f"Rapports locaux : {output}")
+    # This version never turns header consistency into clock certification.
+    return 2

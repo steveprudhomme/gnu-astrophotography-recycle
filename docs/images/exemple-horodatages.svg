@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+<title>Diagnostic temporel : contrôles distincts, non additionnables</title>
+<rect width="1100" height="520" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="30" y="40" font-size="24">Diagnostic temporel — horloge non qualifiée</text>
+<text x="30" y="103" font-size="16">HDU candidates</text>
+<rect x="400" y="80" width="560.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="103" font-size="18">10</text>
+<text x="30" y="151" font-size="16">Retenues pour cadence</text>
+<rect x="400" y="128" width="336.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="151" font-size="18">6</text>
+<text x="30" y="199" font-size="16">Dates invalides/non prises en charge</text>
+<rect x="400" y="176" width="168.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="199" font-size="18">3</text>
+<text x="30" y="247" font-size="16">Conflits de durée</text>
+<rect x="400" y="224" width="56.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="247" font-size="18">1</text>
+<text x="30" y="295" font-size="16">Interruptions</text>
+<rect x="400" y="272" width="56.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="295" font-size="18">1</text>
+<text x="30" y="343" font-size="16">Intervalles courts</text>
+<rect x="400" y="320" width="56.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="343" font-size="18">1</text>
+<text x="30" y="391" font-size="16">Dates dupliquées</text>
+<rect x="400" y="368" width="56.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="391" font-size="18">1</text>
+<text x="30" y="439" font-size="16">Heures scientifiquement qualifiées</text>
+<rect x="400" y="416" width="0.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="990" y="439" font-size="18">0</text>
+<text x="30" y="495" font-size="15">Ces contrôles se recouvrent : ne pas additionner les barres. Aucun UTC effectif ni milieu de pose calculé.</text></g></svg>

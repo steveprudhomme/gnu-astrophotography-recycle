@@ -71,18 +71,20 @@ Version du lot : **0.2.0a1**. Les variations exactes du site ou du gain restent 
 
 ## Lot de travail 3 — diagnostic des horodatages
 
-Plan du 15 novembre 2026, à committer avant développement. Objectif : distinguer forme lisible, convention déclarée, défaut du standard et exactitude instrumentale **non démontrée**. Les manifestes locaux sont les seules entrées d’observation ; aucun FITS du support externe n’est rouvert. Ce lot ne promet pas de certifier une horloge à partir de ses seuls en-têtes.
+Plan du 15 novembre 2026, enregistré dans **`e21a5e8` avant développement**. Objectif : distinguer forme lisible, convention déclarée, défaut du standard et exactitude instrumentale **non démontrée**. Les manifestes locaux sont les seules entrées d’observation ; aucun FITS du support externe n’est rouvert. Ce lot ne promet pas de certifier une horloge à partir de ses seuls en-têtes.
 
 | Sous-étape | Travail et critère de sortie | État |
 |---|---|---|
-| T1 | Examiner les sources officielles FITS et Seestar ; séparer recommandations normatives, preuves instrumentales et informations manquantes | Planifié |
-| T2 | Définir le contrat d’un audit temporel : forme de date, résolution d’écriture, échelle déclarée/défaut normatif, commentaire DATE-OBS, convention et précision réelles inconnues | Planifié |
-| T3 | Ajouter `gar timing` sur manifeste local et lanceur Windows, provenance SHA-256, contrôles des entrées et destinations | Planifié |
-| T4 | Auditer chaque HDU candidate : date absente/invalide/non prise en charge, échelle inconnue, commentaires ambigus, durée manquante ou contradictoire EXPTIME/EXPOSURE | Planifié |
-| T5 | Calculer seulement des diagnostics relatifs par configuration/date : cadence, doublons, interruptions configurables, intervalles plus courts que l’exposition déclarée ; aucun milieu de pose ou JD inventé | Planifié |
-| T6 | Produire JSON, CSV, rapport Markdown et SVG avec raisons et limites ; horloge, UTC effectif et convention restent non qualifiés sans preuve indépendante | Planifié |
-| T7 | Tester synthétiquement seuils, changement de date, secondes intercalaires et précisions non prises en charge, échelles, commentaires, doublons, durées, exclusions et absence d’accès aux FITS | Planifié |
-| T8 | Générer un exemple public illustré ; rapprocher le diagnostic du manifeste privé existant et vérifier son intégrité, sans écrire sur le support externe | Planifié |
-| T9 | Actualiser les Markdown et le tutoriel, installer/vérifier la version, commit de réalisation et publication du lot sans données personnelles | Planifié |
+| T1 | Examiner les sources officielles FITS et Seestar ; séparer recommandations, preuves instrumentales et inconnues | Fait — références et limites documentées, précision S50 non établie |
+| T2 | Définir le contrat : forme, résolution écrite, échelle, commentaire et exactitude inconnue | Fait — contrat des horodatages 1.0 |
+| T3 | Ajouter `gar timing`, lanceur, provenance SHA-256 et contrôles des entrées/sorties | Fait — manifestes ambigus également refusés |
+| T4 | Auditer dates, échelles, commentaires et durées contradictoires | Fait — déclarations conservées, aucun milieu de pose inventé |
+| T5 | Diagnostiquer cadence, doublons, interruptions et intervalles courts | Fait — comparaisons limitées à une configuration et une date |
+| T6 | Produire JSON, CSV, Markdown et SVG avec raisons et limites | Fait — heures restent non qualifiées, code de retour 2 explicite |
+| T7 | Tester les cas temporels et l’absence d’accès aux FITS | Fait — 33 nouveaux cas ; 100 tests au total |
+| T8 | Exemple public illustré et rapprochement du manifeste privé | Fait — anomalies synthétiques attendues ; manifeste privé inchangé |
+| T9 | Actualiser les Markdown, vérifier la version et faire le commit/publication sans données privées | Livré avec le commit de réalisation de ce lot |
 
 Pour lever les inconnues instrumentales, il faudra une documentation applicable au firmware ou une mesure indépendante de synchronisation/déclenchement. Une longue série régulière ou six décimales de seconde ne démontre pas l’exactitude de l’heure. Les résultats négatifs ou non conclusifs seront conservés explicitement.
+
+Version du lot : **0.3.0a1**. Le diagnostic est terminé, la qualification instrumentale reste ouverte. Une collecte future des champs non sélectionnés (firmware, DATE-BEG/END, erreurs temporelles déclarées), si nécessaire et autorisée, devra faire l’objet d’un autre plan préalable ; aucune relecture de la clé USB n’est effectuée ici.

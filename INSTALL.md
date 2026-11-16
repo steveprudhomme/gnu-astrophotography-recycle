@@ -2,7 +2,7 @@
 
 ## Ce qui fonctionne aujourd’hui
 
-Cette version contient un inventaire FITS en lecture seule, un regroupement indicatif depuis son manifeste et leur documentation. Les lanceurs Windows exécutent le code Python depuis `src/` ; aucun traitement scientifique des pixels n’est livré.
+Cette version contient un inventaire FITS en lecture seule, un regroupement indicatif et un diagnostic temporel depuis son manifeste. Les lanceurs Windows exécutent le code Python depuis `src/` ; aucun traitement scientifique des pixels n’est livré.
 
 ## Environnement depuis les sources
 
@@ -36,6 +36,17 @@ Aucune dépendance supplémentaire n’est nécessaire. Les commandes suivantes 
 ```
 
 Le seuil est en secondes ; une séparation se produit au-delà du seuil, et aussi lors d’un changement de date déclarée ou de configuration. Les sorties ne doivent pas exister ni se trouver dans les archives. Un code `2` signale des exclusions ou anomalies à examiner dans les rapports, même si ceux-ci ont bien été créés. Voir le [tutoriel illustré](docs/TUTORIEL.md) et le [contrat des séances](docs/CONTRAT-SEANCES.md).
+
+## Diagnostiquer les horodatages depuis un manifeste local
+
+Aucun paquet supplémentaire n’est requis. Ne pas relancer l’inventaire sur le support externe pour cette étape :
+
+```powershell
+.\scripts\gar-timing.bat ".\local\inventaire-01\manifest.json" --output ".\local\horodatages-01"
+.\.venv\Scripts\python.exe -m gar timing ".\local\inventaire-01\manifest.json" --gap-seconds 900 --output ".\local\horodatages-seuil-900"
+```
+
+Choisir une sortie nouvelle sur l’ordinateur. Le code de retour `2` accompagne un diagnostic produit mais non qualifié scientifiquement ; examiner `report.md`, `timing.json`, `timing.csv` et `timing.svg`. Une cadence régulière ne certifie pas l’horloge. Voir le [contrat des horodatages](docs/CONTRAT-HORODATAGES.md).
 
 ## Distribution portable prévue
 

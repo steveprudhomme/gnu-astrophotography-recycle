@@ -5,16 +5,16 @@
 # It is distributed WITHOUT ANY WARRANTY. See COPYING for the full license.
 """Group declared dates; never read FITS or assert an astronomical time scale."""
 from collections import Counter, defaultdict
-from datetime import datetime
 import hashlib
 import json
 import math
 from pathlib import Path, PurePosixPath
 import re
 
+from .contracts import parse_declared_time
+
 CONFIG_KEYS = ('OBJECT', 'INSTRUME', 'FILTER', 'BAYERPAT', 'EQMODE', 'TIMESYS',
                'GAIN', 'BITPIX', 'BUNIT', 'BSCALE', 'BZERO', 'SITELAT', 'SITELONG')
-DATE_PATTERN = re.compile(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?\Z')
 HASH_PATTERN = re.compile(r'[0-9a-f]{64}\Z')
 
 
@@ -42,11 +42,16 @@ def validate_manifest(document):
         raise ValueError('La liste files est absente ou incorrecte.')
     if not isinstance(document.get('traversal_incidents', []), list):
         raise ValueError('La liste des incidents est incorrecte.')
+    paths = set()
     for file in document['files']:
         if (not isinstance(file, dict) or not isinstance(file.get('path'), str)
+                or not isinstance(file.get('status'), str)
                 or file.get('status') not in {'ok', 'warning', 'error', 'changed'}
                 or not isinstance(file.get('hdus'), list)):
             raise ValueError('Enregistrement de fichier incorrect.')
+        if not file['path'] or file['path'] in paths:
+            raise ValueError('Chemin de fichier vide ou répété dans le manifeste.')
+        paths.add(file['path'])
         if file['hdus'] and not HASH_PATTERN.fullmatch(str(file.get('sha256', ''))):
             raise ValueError('Empreinte SHA-256 de fichier incorrecte.')
         indices = set()
@@ -67,6 +72,9 @@ def validate_manifest(document):
                 raise ValueError('Les métadonnées doivent contenir des valeurs simples.')
             if any(isinstance(v, float) and not math.isfinite(v) for v in meta.values()):
                 raise ValueError('Métadonnée numérique non finie.')
+            if 'raw_cards' in hdu and (not isinstance(hdu['raw_cards'], list) or
+                                      any(not isinstance(c, dict) for c in hdu['raw_cards'])):
+                raise ValueError('Les cartes brutes doivent être une liste de cartes JSON.')
 
 
 def check_session_output(manifest, output, document):
@@ -82,15 +90,11 @@ def check_session_output(manifest, output, document):
     return output
 
 
-def parse_declared_time(value):
-    # Restrict precision rather than silently truncating fractional seconds.
-    if not isinstance(value, str) or not DATE_PATTERN.fullmatch(value):
-        raise ValueError('Date complète sans suffixe, avec au plus 6 décimales, attendue.')
-    return datetime.fromisoformat(value)
-
-
 def _exposure(value):
-    return value if type(value) in (int, float) and math.isfinite(value) and value > 0 else None
+    try:
+        return value if type(value) in (int, float) and math.isfinite(value) and value > 0 else None
+    except OverflowError:
+        return None
 
 
 def group_sessions(document, gap_seconds=1800):
