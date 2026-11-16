@@ -52,3 +52,7 @@ Le [contrat des séances 1.0](CONTRAT-SEANCES.md) définit les choix d’ingéni
 ## Diagnostic temporel
 
 Le [contrat des horodatages](CONTRAT-HORODATAGES.md) référence le standard FITS 4.0 et les pages officielles Seestar/ZWO consultées le 15 novembre 2026. Les valeurs par défaut du standard sont distinguées des déclarations et des preuves instrumentales. Aucune précision applicable au firmware de l’utilisateur n’a été établie dans les sources examinées ; les cas d’autres caméras ne sont pas transposés au S50. Les graphiques publics proviennent du générateur fictif `examples/make_timing_demo.py` et de rapports réellement produits, pas d’observations personnelles.
+
+## Note communautaire sur les FITS Seestar
+
+La [note de propositions](PROPOSITIONS-SEESTAR-S50.md) ajoute des références primaires : [interopérabilité FITS et Bayer dans Siril](https://siril.readthedocs.io/en/stable/file-formats/FITS.html), [guide DSLR de l’AAVSO](https://www.aavso.org/sites/default/files/publications_files/dslr_manual/AAVSO_DSLR_Observing_Manual_V1-4.pdf) et [conventions FITS de contrôle d’intégrité](https://science.data.nasa.gov/fits/documentation/conventions). Ces références expliquent les usages ; elles ne prouvent pas un défaut général du S50. Les priorités et critères de vérification sont des propositions du projet, fondées sur son objectif de réutilisation scientifique.

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="350" viewBox="0 0 1050 350" role="img" aria-labelledby="title desc">
+<title id="title">Priorités proposées pour les métadonnées Seestar</title>
+<desc id="desc">Commencer par documenter les champs, puis clarifier les heures et le traitement des pixels, enfin enrichir la géométrie et la provenance.</desc>
+<rect width="1050" height="350" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="35" y="46" font-size="25" font-weight="bold">Des FITS plus faciles à comprendre et à vérifier</text>
+<g fill="#1c3655" stroke="#75c9e8" stroke-width="2">
+<rect x="35" y="85" width="305" height="155" rx="12"/>
+<rect x="372" y="85" width="305" height="155" rx="12"/>
+<rect x="709" y="85" width="305" height="155" rx="12"/>
+</g>
+<g text-anchor="middle">
+<text x="187" y="124" font-size="22" fill="#83d7b7">1 · Documenter</text>
+<text x="187" y="165" font-size="18">Définitions et unités</text>
+<text x="187" y="196" font-size="18">Exemples par firmware</text>
+<text x="524" y="124" font-size="22" fill="#83d7b7">2 · Clarifier</text>
+<text x="524" y="165" font-size="18">Heures et synchronisation</text>
+<text x="524" y="196" font-size="18">Pixels bruts, corrigés ou RGB</text>
+<text x="861" y="124" font-size="22" fill="#83d7b7">3 · Enrichir</text>
+<text x="861" y="165" font-size="18">Géométrie et empilements</text>
+<text x="861" y="196" font-size="18">Provenance et intégrité</text>
+</g>
+<text x="35" y="285" font-size="18">Première demande : un dictionnaire public et trois exemples représentatifs.</text>
+<text x="35" y="323" font-size="15" fill="#b9cce1">Schéma conceptuel de propositions · Aucune mesure de performance · Aucune donnée personnelle</text>
+</g>
+</svg>

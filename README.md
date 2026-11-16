@@ -70,3 +70,5 @@ Les FITS personnels, coordonnées d’observation et paramètres locaux ne doive
 Proposer un objectif, produire un changement limité, ouvrir une proposition de fusion, attendre la revue et itérer. Toute évolution scientifique doit préciser ses hypothèses, ses références et ses critères de validation. Les décisions sont consignées publiquement ; les données privées restent locales.
 
 Voir [gouvernance](GOVERNANCE.md), [licences tierces](docs/LICENCES-TIERCES.md) et [sources](docs/SOURCES.md).
+
+Une [note de propositions pour les métadonnées Seestar S50](docs/PROPOSITIONS-SEESTAR-S50.md) rassemble les demandes de clarification et améliorations à discuter avec la communauté, en séparant constats limités et recommandations.

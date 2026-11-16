@@ -93,9 +93,9 @@ Version du lot : **0.3.0a1**. Le diagnostic est terminé, la qualification instr
 
 Demande du fondateur : consigner des suggestions constructives qu’il pourra transmettre lui-même à la communauté. Préparer cette note sans nouvelle lecture du support externe et sans publier d’observations personnelles.
 
-- C1 : vérifier les constats dans les manifestes locaux et les distinguer des champs non collectés.
-- C2 : consulter les références officielles FITS et AAVSO ; hiérarchiser les améliorations de documentation, datation, traitement, géométrie et provenance.
-- C3 : rédiger une note autonome avec demandes concrètes, bénéfices et critères de vérification ; illustrer les priorités par un schéma explicitement conceptuel.
-- C4 : relier la note au tutoriel et aux sources, vérifier la confidentialité et les liens, puis faire un commit documentaire. La transmission à la communauté reste l’action du fondateur.
+- C1 — fait : constats vérifiés dans les manifestes locaux et distingués des champs non collectés.
+- C2 — fait : références officielles FITS, Siril et AAVSO consultées ; priorités hiérarchisées.
+- C3 — fait : note autonome, demandes concrètes, bénéfices, critères et schémas conceptuels PNG/SVG.
+- C4 — livré dans le commit documentaire : liens au tutoriel et aux sources, revue de confidentialité et des illustrations. La transmission à la communauté reste l’action du fondateur.
 
-Ce plan est à enregistrer avant la rédaction finale. Il ne constitue pas une nouvelle fonctionnalité applicative et n’annonce aucune non-conformité générale des fichiers Seestar.
+Plan enregistré dans **`2f3302c` avant la rédaction finale**. La [note communautaire](docs/PROPOSITIONS-SEESTAR-S50.md) ne constitue pas une nouvelle fonctionnalité applicative et n’annonce aucune non-conformité générale des fichiers Seestar.
