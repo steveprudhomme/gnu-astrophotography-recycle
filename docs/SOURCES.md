@@ -56,3 +56,5 @@ Le [contrat des horodatages](CONTRAT-HORODATAGES.md) référence le standard FIT
 ## Note communautaire sur les FITS Seestar
 
 La [note de propositions](PROPOSITIONS-SEESTAR-S50.md) ajoute des références primaires : [interopérabilité FITS et Bayer dans Siril](https://siril.readthedocs.io/en/stable/file-formats/FITS.html), [guide DSLR de l’AAVSO](https://www.aavso.org/sites/default/files/publications_files/dslr_manual/AAVSO_DSLR_Observing_Manual_V1-4.pdf) et [conventions FITS de contrôle d’intégrité](https://science.data.nasa.gov/fits/documentation/conventions). Ces références expliquent les usages ; elles ne prouvent pas un défaut général du S50. Les priorités et critères de vérification sont des propositions du projet, fondées sur son objectif de réutilisation scientifique.
+
+La [version anglaise](SEESTAR-S50-FITS-RECOMMENDATIONS.en.md) conserve les mêmes références et limites ; elle ne constitue pas une enquête supplémentaire sur les appareils ou firmwares.

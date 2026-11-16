@@ -1,5 +1,7 @@
 # FITS du Seestar S50 : propositions pour faciliter leur réutilisation scientifique
 
+[English version](SEESTAR-S50-FITS-RECOMMENDATIONS.en.md)
+
 **Note de discussion — 15 novembre 2026.** Préparée dans le cadre de GNU Astrophotography Recycle, projet indépendant de ZWO. Destinée au partage par son fondateur avec la communauté ; aucun message n’a été envoyé automatiquement.
 
 ## L’idée en quelques mots

@@ -104,8 +104,8 @@ Plan enregistré dans **`2f3302c` avant la rédaction finale**. La [note communa
 
 À la demande du fondateur : ajouter une traduction complète, sans remplacer le français.
 
-- EN1 : traduire les huit propositions, les précautions et les références sans ajouter de constat technique.
-- EN2 : produire l’illustration en anglais, ajouter les liens réciproques et les accès depuis le README/tutoriel.
-- EN3 : vérifier cohérence, images, liens et confidentialité, puis faire un commit documentaire local.
+- EN1 — fait : huit propositions, précautions et références traduites sans constat technique supplémentaire.
+- EN2 — fait : illustration anglaise PNG/SVG, liens réciproques et accès depuis le README/tutoriel.
+- EN3 — livré dans le commit documentaire local : cohérence, illustrations, liens et confidentialité vérifiés.
 
-Ce plan doit être committé avant la traduction finale. Aucun accès aux archives et aucun changement applicatif ne sont nécessaires.
+Plan enregistré dans **`76c7e56` avant la traduction finale**. La [version anglaise](docs/SEESTAR-S50-FITS-RECOMMENDATIONS.en.md) préserve la note française ; aucun accès aux archives ni changement applicatif n’a été nécessaire.

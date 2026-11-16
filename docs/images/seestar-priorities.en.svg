@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="350" viewBox="0 0 1050 350" role="img" aria-labelledby="title desc">
+<title id="title">Proposed priorities for Seestar metadata</title>
+<desc id="desc">Start by documenting the fields, clarify timestamps and pixel processing, then improve geometry and provenance.</desc>
+<rect width="1050" height="350" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="35" y="46" font-size="25" font-weight="bold">FITS files that are easier to interpret and verify</text>
+<g fill="#1c3655" stroke="#75c9e8" stroke-width="2">
+<rect x="35" y="85" width="305" height="155" rx="12"/>
+<rect x="372" y="85" width="305" height="155" rx="12"/>
+<rect x="709" y="85" width="305" height="155" rx="12"/>
+</g>
+<g text-anchor="middle">
+<text x="187" y="124" font-size="22" fill="#83d7b7">1 · Document</text>
+<text x="187" y="165" font-size="18">Definitions and units</text>
+<text x="187" y="196" font-size="18">Examples by firmware</text>
+<text x="524" y="124" font-size="22" fill="#83d7b7">2 · Clarify</text>
+<text x="524" y="165" font-size="18">Timestamps and synchronization</text>
+<text x="524" y="196" font-size="18">Raw, corrected, or RGB pixels</text>
+<text x="861" y="124" font-size="22" fill="#83d7b7">3 · Enrich</text>
+<text x="861" y="165" font-size="18">Geometry and stacking</text>
+<text x="861" y="196" font-size="18">Provenance and integrity</text>
+</g>
+<text x="35" y="285" font-size="18">First request: a public dictionary and three representative examples.</text>
+<text x="35" y="323" font-size="15" fill="#b9cce1">Conceptual proposals · No performance measurements · No personal data</text>
+</g>
+</svg>

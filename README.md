@@ -72,3 +72,5 @@ Proposer un objectif, produire un changement limité, ouvrir une proposition de 
 Voir [gouvernance](GOVERNANCE.md), [licences tierces](docs/LICENCES-TIERCES.md) et [sources](docs/SOURCES.md).
 
 Une [note de propositions pour les métadonnées Seestar S50](docs/PROPOSITIONS-SEESTAR-S50.md) rassemble les demandes de clarification et améliorations à discuter avec la communauté, en séparant constats limités et recommandations.
+
+[English version — Seestar S50 FITS recommendations](docs/SEESTAR-S50-FITS-RECOMMENDATIONS.en.md), including the translated illustration and references.
