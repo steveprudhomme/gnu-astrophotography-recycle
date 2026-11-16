@@ -99,3 +99,13 @@ Demande du fondateur : consigner des suggestions constructives qu’il pourra tr
 - C4 — livré dans le commit documentaire : liens au tutoriel et aux sources, revue de confidentialité et des illustrations. La transmission à la communauté reste l’action du fondateur.
 
 Plan enregistré dans **`2f3302c` avant la rédaction finale**. La [note communautaire](docs/PROPOSITIONS-SEESTAR-S50.md) ne constitue pas une nouvelle fonctionnalité applicative et n’annonce aucune non-conformité générale des fichiers Seestar.
+
+### Version anglaise de la note communautaire
+
+À la demande du fondateur : ajouter une traduction complète, sans remplacer le français.
+
+- EN1 : traduire les huit propositions, les précautions et les références sans ajouter de constat technique.
+- EN2 : produire l’illustration en anglais, ajouter les liens réciproques et les accès depuis le README/tutoriel.
+- EN3 : vérifier cohérence, images, liens et confidentialité, puis faire un commit documentaire local.
+
+Ce plan doit être committé avant la traduction finale. Aucun accès aux archives et aucun changement applicatif ne sont nécessaires.
