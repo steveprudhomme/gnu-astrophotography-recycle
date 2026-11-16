@@ -68,3 +68,21 @@ Plan du 15 novembre 2026, enregistré dans **`1523035` avant l’implémentation
 Choix prudent : découper à minuit de la date **déclarée** pour ce premier regroupement ; cela peut diviser une véritable séance passant minuit. Ne pas appeler ce découpage « nuit locale » ou UTC lorsque l’échelle est absente. La validation instrumentale des heures reste en phase 2. Les groupes incomplets sont signalés ; aucune exposition manquante n’est remplacée par zéro ou par une valeur supposée.
 
 Version du lot : **0.2.0a1**. Les variations exactes du site ou du gain restent séparées, même si elles pourraient provenir d’un bruit de métadonnées : aucune tolérance ni fusion géographique n’est supposée. Le support USB demeure inchangé ; ce lot s’appuie uniquement sur des manifestes locaux. Les résultats détaillés réels restent exclus de Git.
+
+## Lot de travail 3 — diagnostic des horodatages
+
+Plan du 15 novembre 2026, à committer avant développement. Objectif : distinguer forme lisible, convention déclarée, défaut du standard et exactitude instrumentale **non démontrée**. Les manifestes locaux sont les seules entrées d’observation ; aucun FITS du support externe n’est rouvert. Ce lot ne promet pas de certifier une horloge à partir de ses seuls en-têtes.
+
+| Sous-étape | Travail et critère de sortie | État |
+|---|---|---|
+| T1 | Examiner les sources officielles FITS et Seestar ; séparer recommandations normatives, preuves instrumentales et informations manquantes | Planifié |
+| T2 | Définir le contrat d’un audit temporel : forme de date, résolution d’écriture, échelle déclarée/défaut normatif, commentaire DATE-OBS, convention et précision réelles inconnues | Planifié |
+| T3 | Ajouter `gar timing` sur manifeste local et lanceur Windows, provenance SHA-256, contrôles des entrées et destinations | Planifié |
+| T4 | Auditer chaque HDU candidate : date absente/invalide/non prise en charge, échelle inconnue, commentaires ambigus, durée manquante ou contradictoire EXPTIME/EXPOSURE | Planifié |
+| T5 | Calculer seulement des diagnostics relatifs par configuration/date : cadence, doublons, interruptions configurables, intervalles plus courts que l’exposition déclarée ; aucun milieu de pose ou JD inventé | Planifié |
+| T6 | Produire JSON, CSV, rapport Markdown et SVG avec raisons et limites ; horloge, UTC effectif et convention restent non qualifiés sans preuve indépendante | Planifié |
+| T7 | Tester synthétiquement seuils, changement de date, secondes intercalaires et précisions non prises en charge, échelles, commentaires, doublons, durées, exclusions et absence d’accès aux FITS | Planifié |
+| T8 | Générer un exemple public illustré ; rapprocher le diagnostic du manifeste privé existant et vérifier son intégrité, sans écrire sur le support externe | Planifié |
+| T9 | Actualiser les Markdown et le tutoriel, installer/vérifier la version, commit de réalisation et publication du lot sans données personnelles | Planifié |
+
+Pour lever les inconnues instrumentales, il faudra une documentation applicable au firmware ou une mesure indépendante de synchronisation/déclenchement. Une longue série régulière ou six décimales de seconde ne démontre pas l’exactitude de l’heure. Les résultats négatifs ou non conclusifs seront conservés explicitement.

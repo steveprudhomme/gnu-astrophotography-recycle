@@ -119,3 +119,7 @@ Les 42 nouveaux cas couvrent les changements de configuration, dates, dossiers, 
 Le pilote a été vérifié sur son **manifeste local uniquement** : tous les membres retenus se réconcilient avec l’inventaire, sans perte ni doublon, et l’empreinte du manifeste est inchangée. Les détails restent privés. Des variations de `SITELAT`/`SITELONG` peuvent créer plusieurs groupes : cela ne prouve pas un déplacement réel du télescope. Le regroupement utilise les valeurs exactes et ne corrige pas implicitement une position GPS.
 
 Le découpage à minuit peut diviser une véritable séance. Les dates seules, suffixes de fuseau, secondes intercalaires et fractions de seconde de plus de six décimales sont explicitement non prises en charge par ce premier parseur, plutôt que converties ou arrondies silencieusement. Ce sont des limites de regroupement, pas une validation scientifique des heures. Voir le [contrat des séances candidates](CONTRAT-SEANCES.md).
+
+## 7. Plan du diagnostic temporel
+
+Le lot T1 à T9 de la feuille de route prépare l’examen des horodatages depuis les manifestes locaux. Le plan doit être committé avant l’implémentation. Le diagnostic distinguera ce que prévoit le standard FITS, ce que déclare l’en-tête et ce qui reste à mesurer sur l’instrument. Ni régularité de cadence ni nombre de décimales ne seront présentés comme une preuve d’exactitude d’horloge. Les commandes, références, résultats et illustrations seront ajoutés après vérification.
