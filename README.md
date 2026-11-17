@@ -74,6 +74,8 @@ Ce lot ajoute 42 tests fictifs : **423 tests réussis en 139,60 s**, depuis le c
 
 Le [diagnostic des absences de maxima](docs/ABSENCES-MAXIMA.md) suit ensuite convolution, comparaison locale, masque, bord, seuil strict et plateaux/égalités, sans modifier les règles. Dans 105 des 115 situations, aucune réponse échantillonnée proche ne dépasse le seuil aux deux rayons ; dans les dix autres, une réponse le dépasse mais un voisin plus haut est enregistré et aucun maximum local proche n'est proposé. Cela décrit des obstacles numériques, sans démontrer une cause physique unique. Les premières portes vides changent dans 22 situations quand le cercle s'élargit : les deux lectures restent visibles. Trois agents ont travaillé sur un nouveau banc fictif, les tests et le tutoriel illustré ; les rapports réels restent privés.
 
+Ce complément ajoute 48 tests fictifs, soit **471 tests réussis en 172,63 s**. Reproduction depuis le commit propre `f1f159f` : trois commandes aux codes 0, douze images et traces fictives et deux PNG identiques, mêmes 136 traces réelles et mêmes cohortes 115/21. Les 380 entrées et traces surveillées et les cinq médias CC0 restent intacts, sans accès USB ou nouvelle injection réelle ; aucun moteur, seuil ou score modifié.
+
 ## Démarrer
 
 Les documents sont lisibles immédiatement. L’inventaire a été testé avec Python 3.13.6, Astropy 7.2.0 et NumPy 2.4.1 sur Windows. Le lanceur `scripts/gar-inventory.bat` utilise votre Python ou l’environnement `.venv` du projet ; voir [INSTALL.md](INSTALL.md). Il n’est pas encore autonome.
