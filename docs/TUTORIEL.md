@@ -1419,4 +1419,11 @@ Les 77 nouveaux tests fictifs passent en 23,37 secondes. La suite complète donn
 Ces tests vérifient le logiciel. Ils ne transforment pas les critères réservés manqués en validation scientifique.
 Les sept sources historiques contrôlées restent identiques. Les cinq médias réels déjà autorisés conservent leurs empreintes.
 La revue porte sur 237 fichiers publics, leurs liens, leurs avis de licence et le schéma SVG.
-La reproduction depuis un commit propre et le contrôle final de GitHub restent à consigner après leur exécution.
+La reproduction depuis le commit propre `6f9950f` confirme les mêmes résultats sur les quatre fonds.
+Les neuf commandes gardent leurs codes : `0, 0, 0, 2, 0, 0, 0, 2, 0`.
+Les deux codes 2 signalent les critères fictifs manqués. Ils ne sont pas remplacés par des codes de réussite.
+Les seize FITS inventés sont identiques. Chaque contexte conserve les mêmes 104 dérivés et treize rapports candidats.
+Les scores et quatre figures par fond sont identiques, y compris les illustrations publiques.
+Les 571 fichiers du premier essai restent intacts. La reproduction ne relit pas le support et ne répète pas les copies source.
+Les gardes confirment encore les 838 anciens fichiers et les cinq médias CC0 préservés.
+Le contrôle final de GitHub reste à consigner après l'intégration.

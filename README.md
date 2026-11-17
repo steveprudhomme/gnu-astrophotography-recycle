@@ -12,7 +12,7 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle, prototype synthétique et premier pilote exploratoire sur huit poses Seestar réelles. Sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel publié sous CC0. L'horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
+**Statut : développement expérimental, 0.11.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et deux profils de recherche de mobiles. Le profil lent est nouveau et séparé. Les 594 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
@@ -167,7 +167,7 @@ Pour essayer les mobiles sans observation réelle ni accès USB :
 .\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
 ```
 
-Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **381 tests logiciels passent**, avec les bancs de recherche, la préparation de série, le pilote, les injections conditionnelles et leur diagnostic. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n'est qualifié par cet exercice.
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. Au lot 19, 381 tests logiciels passent avec les bancs, le pilote, les injections et leur diagnostic. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents. Cinq injections faibles ou très lentes sont manquées. Cet exercice ne qualifie aucun résultat réel ou horodatage instrumental.
 
 ![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
 

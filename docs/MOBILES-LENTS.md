@@ -312,3 +312,10 @@ Ce contrôle local des couleurs ne constitue pas un audit WCAG de la page entiè
 Les liens des nouveaux guides et le XML du schéma sont vérifiés.
 Le premier dessin de développement conserve son bilan négatif ; il ne remplace pas les deux fonds réservés.
 Les essais réservés restent séparés du développement. Aucun réglage postérieur ne vise à transformer leur échec en réussite.
+
+La suite complète passe : **594 tests en 230,44 secondes**.
+La reproduction depuis le commit propre `6f9950f` conserve les neuf codes, les résultats et les quatre médias de chaque fond.
+Elle compare aussi seize FITS fictifs, 104 dérivés et treize rapports candidats par contexte.
+Les deux fonds réels reproduisent 6/12 et 9/12, sans accès au support ou répétition des copies source.
+Les 571 fichiers du premier essai et les 838 anciens fichiers surveillés restent intacts.
+Ces preuves de logiciel reproductible ne certifient pas la détection scientifique de tous les mobiles lents.

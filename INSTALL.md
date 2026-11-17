@@ -2,7 +2,7 @@
 
 ## Ce qui fonctionne aujourd’hui
 
-L’Alpha 0.10 contient l’inventaire, le regroupement, les diagnostics, les copies vérifiées, les contrôles stellaires, la préparation temporelle et un prototype de mobiles sur données synthétiques. L’installation depuis le code source est disponible ; le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
+La version de développement [0.11.0-alpha.1](VERSION) contient l'inventaire, le regroupement, les diagnostics et les copies vérifiées. Elle comprend aussi les contrôles stellaires, la préparation temporelle et les profils expérimentaux de mobiles. L'installation depuis le code source est disponible. Le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
 
 ## Environnement depuis les sources
 
@@ -169,6 +169,18 @@ Le [lot 21 sur les absences de maxima](docs/ABSENCES-MAXIMA.md) ajoute des recet
 ## Essais de mouvements angulaires représentatifs
 
 Le [lot 22](docs/MOBILES-REALISTES.md) ajoute une recette séparée pour générer des dérivés, analyser sans réponses, puis scorer et dessiner. Les dépendances restent celles du projet ; prévoir environ 320 Mo par contexte réel pour 19 séries de huit dérivés, davantage pour une reproduction dans de nouveaux dossiers. Les quatre vitesses angulaires sont des scénarios, pas des éphémérides d'objets identifiés. L'échelle issue des en-têtes reste nominale, les heures déclarées non qualifiées. Une aptitude négative du moteur pour les mouvements lents est conservée ; les sorties complètes et les indisponibles ne sont pas confondus. Seules les copies locales préparées servent aux analyses.
+
+## Essayer le profil lent séparé
+
+Le [guide illustré des mobiles lents](docs/MOBILES-LENTS.md) fournit neuf commandes, avec les outils déjà installés pour les analyses et les figures.
+Il commence par créer deux fonds fictifs. Aucun support externe n'est nécessaire pour l'exercice.
+Le nouveau contrat demande huit poses sur 30 à 45 minutes déclarées. Le contrat historique reste inchangé.
+Les sorties restent dans de nouveaux dossiers sous `local/`.
+
+Un résultat de score peut donner le code 2 : le critère fictif prévu n'est pas atteint, même si le calcul termine.
+Le guide explique les deux échecs observés, les images fixes et l'animation facultative.
+Prévoir de l'espace pour 104 nouveaux plans de travail par contexte et pour chaque reproduction conservée.
+Le paquet installé affiche `0.11.0a1`, équivalent Python de la version SemVer `0.11.0-alpha.1`.
 
 ## Distribution portable prévue
 
