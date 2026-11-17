@@ -146,6 +146,10 @@ La [recette de recalage puis recherche](docs/RECALAGE-MOBILES-SYNTHETIQUES.md) r
 
 La [comparaison des contrôles spatiaux](docs/CONTROLES-SPATIAUX.md) utilise encore les mêmes dépendances. Ses 400 FITS fictifs demandent environ 108 Mo, plus les rapports et figures. Les trois commandes de la [mission illustrée](docs/DEMARRER-DE-ZERO.md#13-quater-mission--répartir-les-étoiles-de-contrôle) donnent 0 sur le jeu livré, tout en gardant le code 2 de l’ancienne mission sur son ancien jeu. La méthode reste une recette expérimentale séparée des commandes habituelles. Le [passage aux images Seestar](docs/PASSAGE-AUX-IMAGES-SEESTAR.md) exige une préparation de série et une adaptation réelle distinctes, pas un réétiquetage en données fictives.
 
+## Préparer une série réelle et refaire l’exercice fictif
+
+La [préparation de huit poses réelles](docs/PREPARER-SERIE-SEESTAR.md) ajoute trois recettes d’exemple, sans nouvelle dépendance ni modification de version. Les six commandes de la [nouvelle mission pédagogique](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--préparer-huit-poses-seestar) reproduisent sélection→copie→audit→aperçu avec douze FITS fictifs et aucune clé USB. Les rendus réels publics sont des PNG autorisés [CC0](docs/images/reels/LICENCE.md), pas les FITS de l’exercice. Une série réelle locale est préparée ; sa recherche de mobiles demande encore un traitement explicitement adapté.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

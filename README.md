@@ -6,6 +6,8 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
+Exception documentaire : les deux [images Seestar réelles autorisées](docs/images/reels/LICENCE.md) sont mises à disposition sous **CC0 1.0** ; leur notice précise les fichiers concernés. Le code conserve GPL-3.0-or-later.
+
 **Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle et prototype de mobiles sur images synthétiques. L’horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
@@ -44,6 +46,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Limites du détecteur | Nouveau jeu de 120 séquences fictives, luminosité/vitesse/bruit/géométrie | Bilan descriptif disponible ; moteur inchangé, cas non alignés séparés |
 | Recalage puis mobiles | Comparaison des mêmes positions avant/après sur 40 séquences fictives | Expérimental : bénéfice sur séquences disponibles, critères globaux non tous satisfaits |
 | Contrôles spatiaux | Comparaison de deux partitions sur 50 nouvelles séquences fictives | Expérimental : 20/20 principales disponibles, quinze négatifs refusés ; comportement habituel inchangé |
+| Série Seestar réelle | Sélection hors ligne puis copies vérifiées, audit et aperçu locaux | Huit poses réelles préparées ; recalage et recherche exploratoire sur cette série encore à réaliser |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -129,7 +132,7 @@ Pour essayer les mobiles sans observation réelle ni accès USB :
 .\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
 ```
 
-Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **297 tests logiciels passent**, avec les bancs de limites, recalage/mobiles et contrôles spatiaux. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **316 tests logiciels passent**, avec les bancs de recherche et la préparation de série. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
 
 ![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
 
@@ -149,7 +152,11 @@ La [chaîne recalage puis recherche](docs/RECALAGE-MOBILES-SYNTHETIQUES.md) comp
 
 La [répartition spatiale des contrôles](docs/CONTROLES-SPATIAUX.md) est comparée à l’ancienne sur **50 nouvelles séquences fictives** : 20/20 principales disponibles contre 17/20 sur ces mêmes images, vingt mobiles retrouvés sans faux candidat, quinze négatifs toujours refusés. Les critères sont inchangés et la commande habituelle de recalage n’est pas remplacée. Les anciens résultats restent conservés. La [mission pédagogique illustrée](docs/DEMARRER-DE-ZERO.md#13-quater-mission--répartir-les-étoiles-de-contrôle) permet de reproduire l’essai.
 
-**Quand les images Seestar ?** Elles servent déjà à certains diagnostics sur copies. Le [prochain jalon proposé](docs/PASSAGE-AUX-IMAGES-SEESTAR.md) est de préparer une série réelle compatible, puis un pilote exploratoire distinct ; l’échantillon actuel est trop court. Les temps scientifiques et le traitement des pixels réels restent à qualifier. Aucun accès USB n’a été nécessaire à ce lot.
+**Les images Seestar sont maintenant là :** [huit poses réelles ont été préparées en copies locales vérifiées](docs/PREPARER-SERIE-SEESTAR.md), avec lecture seule du support. Le prochain lot pourra adapter le recalage et la recherche exploratoire à cette série ; les temps scientifiques et le traitement des pixels restent à qualifier. Le [tutoriel dès 10 ans](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--préparer-huit-poses-seestar) permet de refaire la préparation avec douze images fictives, sans clé USB.
+
+![Huit vraies poses Seestar, exemple autorisé CC0](docs/images/reels/seestar-serie-cc0.png)
+
+*Images réelles partagées sous [CC0 1.0](docs/images/reels/LICENCE.md) avec autorisation explicite du mainteneur. Moyenne 2×2 et étirement d’affichage ; aucun FITS réécrit, aucune détection scientifique validée. Le code conserve sa licence GPL-3.0-or-later.*
 
 ## Contribuer et vérifier
 

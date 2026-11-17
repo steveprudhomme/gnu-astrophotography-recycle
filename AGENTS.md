@@ -6,4 +6,5 @@
 - Préserver les archives en lecture seule. Données, chemins privés, coordonnées d’observation et rapports réels restent dans les répertoires ignorés ; ne pas les publier.
 - Ne jamais déplacer, modifier ou supprimer de fichier sur les supports externes de l’utilisateur, ni y créer de rapport, cache ou dossier. Pour le regroupement des séances, utiliser uniquement les manifestes locaux déjà disponibles.
 - Utiliser des données synthétiques pour les tests et illustrations publics. Donner à chaque source Python un avis GPL-3.0-or-later et un titulaire.
+- Exception expressément autorisée par le mainteneur le 17 novembre 2026 : les deux PNG réels listés dans `docs/images/reels/LICENCE.md` peuvent être publiés sous CC0-1.0 et utilisés dans le tutoriel. Cette exception ne publie pas les FITS, en-têtes, coordonnées terrestres, chemins ou rapports privés ; les tests restent entièrement synthétiques.
 - Un commit local n’est pas une publication distante. Ne pas présenter des tests d’inventaire comme une validation astrométrique ou photométrique.

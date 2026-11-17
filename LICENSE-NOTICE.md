@@ -1,10 +1,12 @@
 # Application de la licence au projet
 
-Les contenus originaux de ce dépôt sont proposés sous **GNU General Public License, version 3 ou, à votre choix, toute version ultérieure** : identifiant SPDX `GPL-3.0-or-later`.
+Les contenus originaux de ce dépôt sont proposés sous **GNU General Public License, version 3 ou, à votre choix, toute version ultérieure** : identifiant SPDX `GPL-3.0-or-later`, à l’exception des deux images réelles expressément listées sous [CC0-1.0](docs/images/reels/LICENCE.md).
 
 Le fichier [COPYING](COPYING) contient le texte officiel intégral, téléchargé depuis https://www.gnu.org/licenses/gpl-3.0.txt le 15 novembre 2026. Il est conservé sans modification ; le choix « ou ultérieure » est exprimé ici et dans les avis des fichiers, sans réécrire la licence.
 
 Les dépendances, citations et autres éléments tiers conservent leurs droits et licences propres. Aucune donnée d’observation personnelle n’est concédée par cette déclaration. La GPL du logiciel ne s’applique pas automatiquement aux observations et résultats produits.
+
+Le mainteneur a autorisé le 17 novembre 2026 la diffusion de ces deux PNG rendus sous **CC0 1.0 Universal**. Leur notice séparée décrit le périmètre, la provenance et le rendu. Cette dédicace ne s’étend pas aux archives FITS, en-têtes, chemins ou rapports privés et ne relicencie pas le code.
 
 Copyright (C) 2026 Steve Prud'Homme pour les contenus originaux initiaux du projet. Les contributions ultérieures conservent leurs titulaires respectifs.
 

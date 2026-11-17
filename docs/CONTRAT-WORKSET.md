@@ -34,4 +34,6 @@ Code `0` : copies et collecte terminées, sans certification scientifique. Code 
 
 Le programme ne choisit pas silencieusement une association poses/empilement. Même cible, filtre et nombre de poses ne prouvent pas la liste exacte des sources d’un empilement.
 
+La [préparation de série du lot 15](PREPARER-SERIE-SEESTAR.md) utilise ce contrat sans le modifier : sélection explicite issue d’un manifeste local, racine source explicitement liée, puis huit copies vérifiées par `gar workset`. Son audit ultérieur n’ouvre que les copies locales et ne qualifie ni recalage, ni heure, ni mobile. Les deux rendus documentaires réels autorisés sont identifiés séparément sous [CC0](images/reels/LICENCE.md) ; le workset et les en-têtes restent privés.
+
 Références : [en-têtes Astropy](https://docs.astropy.org/en/stable/io/fits/api/headers.html), [construction WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html). La compatibilité du manifeste d’inventaire 1.0 et de ses anciens diagnostics est conservée ; les en-têtes complets sont un produit séparé.

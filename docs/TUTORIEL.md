@@ -2,7 +2,7 @@
 
 **Tu commences, même à 10 ans ? Ouvre d’abord [Construire l’application, pas à pas](DEMARRER-DE-ZERO.md).** Ce parcours fait partie du tutoriel : images à chaque grande mission, mots expliqués, installation depuis zéro, commandes à copier, résultats attendus et dépannage pour tous les modules disponibles. Le présent fichier est le carnet détaillé des étapes de développement ; les contrats permettent ensuite d’approfondir.
 
-Ce guide suit les modules livrés jusqu’à l’Alpha 0.10. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
+Ce guide suit les modules livrés jusqu’à l’Alpha 0.10. Les figures publiques sont des schémas identifiés, des résultats synthétiques ou les deux [rendus Seestar réels expressément autorisés sous CC0](images/reels/LICENCE.md). Les FITS exacts, en-têtes, coordonnées et rapports restent privés ; les tests sont entièrement synthétiques.
 
 Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales), [fiche de campagne](#16-préparer-la-fiche-opérationnelle-de-campagne-temporelle).
 
@@ -66,7 +66,7 @@ Une date brute sans convention confirmée n’est pas un temps de milieu de pose
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18, le banc de limites 19, la chaîne recalage/mobiles 17 et les contrôles spatiaux 20, soit **297 tests réussis au total**.
+L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18, le banc de limites 19, la chaîne recalage/mobiles 17, les contrôles spatiaux 20 et la préparation de série 19, soit **316 tests réussis au total**.
 
 Les tests ont révélé un problème de guillemets dans l’appel de test du lanceur Windows ; cet appel a été corrigé puis la suite relancée avec succès. Dans l’environnement de travail contrôlé, les tests de jonctions et de permissions ont nécessité une exécution avec accès au dossier temporaire ; cela ne démontre pas une exigence d’administrateur de l’application. La distribution autonome sur compte standard reste à valider.
 
@@ -873,3 +873,56 @@ Cette reproduction a abouti depuis **`74b57b0`**, sans modification suivie, dans
 Les vraies observations servent déjà à l’inventaire et aux contrôles stellaires sur copies locales. Le manifeste local existant confirme seulement le petit échantillon déjà documenté ; aucun FITS réel ou chemin USB n’a été ouvert dans ce lot. Il ne suffit pas à notre chaîne de suivi. Le [document de passage au Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) propose **le prochain lot pour préparer une série réelle compatible**, en consultant d’abord les manifestes locaux et les copies disponibles. Si cette série convient, planifier et exécuter un pilote exploratoire distinct ; sinon, préciser les fichiers à copier avant d’avancer.
 
 Un essai réel ne doit pas attendre toutes les fonctions du projet, mais il doit établir le traitement des pixels Bayer/mono/RGB, l’ordre des poses, le recalage et ses contrôles. Les heures scientifiques et le budget d’erreur restent à qualifier avant des vitesses physiques ou des soumissions. Les observations réelles ne doivent jamais être réétiquetées comme synthétiques pour contourner les protections. L’autorisation USB reste en lecture seule et n’a pas été utilisée ici ; seules les illustrations fictives/conceptuelles choisies sont publiées.
+
+## 21. Préparer huit poses réelles et publier les exemples autorisés
+
+Le plan **`594c19e`**, du 17 novembre 2026, a été committé, publié et vérifié avant le code et les copies. Le complément **`ae07304`** a ensuite été publié avant le code de diffusion, après l’autorisation explicite du mainteneur de partager les images réelles sous Creative Commons Public Domain, mise en œuvre par **CC0 1.0 Universal**. La [préparation détaillée](PREPARER-SERIE-SEESTAR.md) donne le contrat ; la [mission dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--préparer-huit-poses-seestar) permet de refaire les étapes sur des images fictives sans clé USB.
+
+### Sélectionner sans regarder les pixels
+
+Nous avons utilisé uniquement le manifeste local existant pour regrouper les séances avec le module déjà livré. Les groupes admissibles sont classés par nombre de membres décroissant, puis identifiant ; le premier bloc chronologique de huit primaires 2D distinctes avec écarts déclarés positifs ≤30 s est retenu. Les configurations restent séparées ; les compteurs d’empilement incompatibles et les chemins dangereux sont refusés. Aucun parcours récursif nouveau de la clé et aucune sélection fondée sur la beauté des images ou sur un mobile détecté.
+
+La racine source est fournie explicitement dans le plan privé ; la commande de planification ne la sonde pas et ne rouvre pas automatiquement l’ancien chemin de l’inventaire. Elle produit `plan.json`, `selection.json` et un rapport local, ou un manque de données explicite (code 2). Les dates, chemins, coordonnées et noms d’observation restent dans les répertoires ignorés.
+
+### Copier seulement les huit fichiers de la liste
+
+Après publication du plan, le support et le dossier déclaré ont été vérifiés. `gar workset` a lu uniquement les sources sélectionnées en `rb`, vers des destinations locales neuves en `xb`. Pour les huit poses, les empreintes historiques, source avant, copie et source relue après concordent ; taille et date de modification source sont contrôlées pendant la copie. Les en-têtes complets sont collectés sur les copies. Aucun fichier FITS n’est réécrit, aucun cache/rapport/dossier n’est créé sur le support et aucune source n’est déplacée ou supprimée.
+
+`prepare_seestar_series.py audit` n’ouvre ensuite que ces copies locales. Il vérifie les empreintes, la correspondance au plan, HDU primaire, dimensions, configuration observée, dates et durées déclarées, puis la lecture des pixels et les valeurs finies. Les champs absents restent inconnus ; le comptage ≥65 000 est descriptif, sans saturation étalonnée supposée. Les huit fichiers ont terminé ce contrôle, avec `copies_prepared: true`. Ce statut ne valide ni un champ commun sur étoiles, ni un recalage, ni l’heure, ni un mobile.
+
+### Refaire les six commandes avec des données fictives
+
+Utiliser des dossiers neufs depuis la racine et les outils graphiques déjà installés :
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_series_demo.py local/serie-demo-archives
+.\.venv\Scripts\gar.exe inventory local/serie-demo-archives --output local/serie-demo-inventaire
+.\.venv\Scripts\python.exe examples/prepare_seestar_series.py plan local/serie-demo-inventaire/manifest.json --source-root local/serie-demo-archives --output local/serie-demo-plan
+.\.venv\Scripts\gar.exe workset local/serie-demo-plan/selection.json --output local/serie-demo-copies
+.\.venv\Scripts\python.exe examples/prepare_seestar_series.py audit local/serie-demo-plan/plan.json local/serie-demo-copies/workset.json --output local/serie-demo-audit
+.\.venv\Scripts\python.exe examples/plot_series_preview.py local/serie-demo-audit/series.json local/serie-demo-apercu
+```
+
+**Résultat attendu : six codes 0**, douze poses fictives inventoriées, huit sélectionnées/copiées/contrôlées, aperçu fictif produit. Les refus de sélection donnent un code 2 et pas de sélection inventée ; les problèmes de lecture/intégrité peuvent laisser un rapport incomplet, à conserver. Choisir une nouvelle sortie après résolution, sans nettoyage des sources.
+
+![Aperçu réellement calculé sur les copies fictives de l’exercice public](images/exemple-preparation-serie.png)
+
+*Douze images ont été inventées pour cet exercice, huit sont retenues. Les tests n’utilisent pas les observations personnelles, même pour vérifier les branches de code destinées aux entrées réelles.*
+
+### Regarder une vraie série, avec son autorisation de diffusion
+
+![Huit poses réelles Seestar rendues en gris et diffusées sous CC0](images/reels/seestar-serie-cc0.png)
+
+![Première pose réelle de la même série, exemple CC0](images/reels/seestar-pose-01-cc0.png)
+
+*Vraies observations, pas des pixels synthétiques ou des captures d’écran. La [notice CC0](images/reels/LICENCE.md) liste exactement ces deux PNG et décrit leur provenance. Une moyenne 2×2 puis un étirement asinh, fixé depuis la première pose, servent à l’affichage gris commun. Les FITS exacts ne sont pas modifiés ; aucun dématriçage/calibration scientifique ou candidat de mobile n’est validé par ces images.*
+
+Les aperçus réels sont privés par défaut. À la suite de l’autorisation explicite du mainteneur, `--public-cc0` a produit deux rendus avec titres neutres et réencodage RGB sans EXIF, texte ou métadonnées PNG héritées. Les deux PNG uniquement ont été copiés dans le dossier public dédié, avec notice CC0 1.0 et empreintes de ces PNG. Les FITS, en-têtes complets, dates/coordonnées, chemins et rapports restent sous `local/`. Les pixels célestes sont volontairement publics, sans promesse d’anonymisation du champ. Le code et les autres documents conservent leur régime GPL-3.0-or-later.
+
+### Vérifications et limites conservées
+
+Les **316 tests logiciels passent en 56,97 secondes**, dont 19 nouveaux cas : planification sans accès aux sources, sélection déterministe et chronologique, groupes incompatibles, doublons, dates/gaps, manque de huit poses, chemins dangereux, modification de source, audit strictement local, en-têtes divergents, interruption et export CC0 sans métadonnées. Les tests du mode d’entrée réelle emploient eux aussi des images inventées. Ces vérifications logicielles sont distinctes du constat réel de copie et ne qualifient pas les mesures astronomiques.
+
+Les six nouvelles commandes pédagogiques, leurs images et rapports sont reproduits depuis le code committé avant publication ; les 33 commandes antérieures gardent leur vérification documentée au lot précédent, leurs sources n’étant pas modifiées. L’audit et les rendus de la vraie série sont revérifiés depuis les seules copies locales, sans nouvelle lecture USB. La notice des PNG, les liens, l’absence de métadonnées et les fichiers destinés à Git sont contrôlés.
+
+La série réelle existe maintenant localement pour le prochain lot : adapter le traitement Bayer et les coordonnées, recaler avec contrôles réservés, puis chercher et revoir les candidats avec une chronologie explicitement non qualifiée. La recette fictive ne peut pas recevoir directement les FITS Seestar de plus grande taille et ne doit pas les réétiqueter en synthétiques. Le [document de passage au réel](PASSAGE-AUX-IMAGES-SEESTAR.md) distingue cette préparation terminée du pilote exploratoire encore à réaliser. Aucun résultat scientifique ou export n’est annoncé.

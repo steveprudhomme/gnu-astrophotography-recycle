@@ -43,3 +43,9 @@ Le banc de limites du lot 12 ne change ni moteur ni dépendances. Les nouvelles 
 La recette recalage/mobiles du lot 13 réutilise les mêmes paquets et reste dans ce périmètre. Les sources Python nouvelles portent GPL-3.0-or-later et le titulaire ; figures et GIF sont produits depuis les pixels et mesures synthétiques du projet, sans média externe. Aucun binaire tiers n’est redistribué et l’audit exhaustif des roues natives reste à faire.
 
 Le lot 14 de partition spatiale ne change pas les dépendances. Ses nouvelles sources et tests sont GPL-3.0-or-later avec titulaire ; schéma conceptuel, images et GIF sont des productions originales calculées localement. Aucun média d’observation, paquet binaire ou catalogue n’est publié. Le résultat expérimental ne remplace pas l’audit de redistribution du futur portable.
+
+## Images réelles du projet autorisées sous CC0
+
+Le mainteneur a expressément autorisé le 17 novembre 2026 la publication des deux PNG listés dans [images/reels/LICENCE.md](images/reels/LICENCE.md) sous **CC0 1.0 Universal**. Leur notice précise auteur de la mise à disposition, provenance et rendu, périmètre exact et empreintes des PNG, avec liens vers le [résumé CC0](https://creativecommons.org/publicdomain/zero/1.0/) et le [texte juridique](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Les sources officielles distinguent CC0, dédicace par le titulaire, du Public Domain Mark, qui signale une œuvre déjà libre de droits connus.
+
+Cette exception d’images du projet ne relicencie pas le code ou les autres documents GPL-3.0-or-later et ne diffuse pas les FITS, en-têtes ou rapports. Matplotlib/Pillow produisent le rendu et suppriment les métadonnées PNG ; aucune nouvelle dépendance ou distribution binaire n’est ajoutée. Les tests du lot 15 restent synthétiques, y compris la simulation de la branche de diffusion réelle.

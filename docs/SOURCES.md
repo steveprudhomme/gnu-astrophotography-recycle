@@ -100,3 +100,9 @@ Sources primaires revues le 17 novembre 2026 : [Photutils DAOStarFinder](https:/
 ## Partition spatiale et préparation des images Seestar
 
 API [SciPy cKDTree](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html) revue le 17 novembre 2026 ; algorithmes et versions antérieurs réutilisés. La [partition du lot 14](CONTROLES-SPATIAUX.md), le parcours des quadrants/cellules, les profils et critères sont des choix propres au projet, sans nouvelle prescription instrumentale. Le [passage au réel](PASSAGE-AUX-IMAGES-SEESTAR.md) s’appuie sur les contrats et le pilote déjà documentés, plus le seul manifeste local existant ; aucun FITS réel, fournisseur ou support USB n’est consulté. Les délais restent conditionnels à la disponibilité des copies et au traitement adapté, pas aux seuls résultats fictifs.
+
+## Préparation d’une série Seestar et exemples CC0
+
+Le [lot 15](PREPARER-SERIE-SEESTAR.md) réutilise les contrats séances/workset et [Astropy FITS](https://docs.astropy.org/en/stable/io/fits/api/files.html). Les paramètres de sélection (huit poses, groupe le plus fourni et premier bloc, écarts déclarés ≤30 s) sont des choix du projet, pas un standard de validation instrumentale. Les données réelles restent locales et les deux PNG autorisés ont une provenance décrite dans leur [notice](images/reels/LICENCE.md), sans publication des en-têtes ou chemins.
+
+Sources primaires Creative Commons consultées le 17 novembre 2026 : [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) et [outils du domaine public](https://creativecommons.org/public-domain/). Elles expliquent la dédicace CC0 employée à la demande explicite du mainteneur. Les tests et l’exercice reproductible utilisent des pixels fictifs ; l’exemple réel diffusé n’est pas une mesure scientifique validée.

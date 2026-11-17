@@ -1,25 +1,25 @@
 # Quand essayer les images du Seestar S50 ?
 
-**Le prochain jalon proposé est un essai exploratoire sur une série réelle copiée localement.** Il n’est pas nécessaire d’attendre la photométrie, les exports scientifiques ou l’application portable. Nous devons d’abord disposer d’une série compatible et adapter explicitement la recette aux images réelles. Aucune date fiable ne peut être annoncée avant cette vérification ; le nombre de tests logiciels n’est pas une date de disponibilité instrumentale.
+**Une série de huit poses Seestar réelles est désormais préparée en copies locales vérifiées.** Le [lot 15](PREPARER-SERIE-SEESTAR.md) a réalisé la sélection, la copie en lecture seule et l’audit local. Le prochain jalon est d’adapter puis exécuter le recalage et la recherche exploratoire sur cette série. Il n’est pas nécessaire d’attendre la photométrie, les exports ou le portable ; le pilote réel n’a pas encore été lancé et aucune date ou découverte n’est promise.
 
 ![Trois jalons pour préparer le pilote réel puis les mesures scientifiques](images/passage-seestar-pilote.png)
 
-*Schéma conceptuel, pas une mesure ou une capture d’écran. La préparation de série est le prochain travail proposé ; l’essai réel dépend de son résultat.*
+*Schéma conceptuel, pas une mesure ou une capture d’écran. La première étape est maintenant réalisée pour huit poses ; la deuxième reste à adapter et exécuter.*
 
 ## Ce qui utilise déjà les observations
 
-Le projet a déjà utilisé des données Seestar pour l’inventaire, les diagnostics de métadonnées, le recalage et les comparaisons sur étoiles, avec rapports privés et fichiers sources préservés. L’échantillon de copies locales documenté comprend **trois poses individuelles et un empilement**. Ces essais ne constituent pas une recherche validée d’objets mobiles sur une série réelle ; ils sont décrits dans le [protocole pilote](VALIDATION-PILOTE.md).
+Le projet a déjà utilisé des données Seestar pour l’inventaire, les diagnostics de métadonnées, le recalage et les comparaisons sur étoiles, avec rapports privés et fichiers sources préservés. L’échantillon antérieur de **trois poses et un empilement** reste conservé ; il est complété par une nouvelle série de **huit poses individuelles**. Ces préparations ne constituent pas une recherche validée d’objets mobiles ; les contrôles précédents sont décrits dans le [protocole pilote](VALIDATION-PILOTE.md).
 
-Le lot de répartition des contrôles relit uniquement le manifeste local et la documentation pour cette préparation. Il n’ouvre aucun FITS réel et n’accède pas à la clé USB.
+Le lot 14 de répartition des contrôles n’avait lu que le manifeste et les documents. Le lot 15 a ensuite utilisé l’autorisation de lecture du support pour les huit copies sélectionnées ; les audits et aperçus ont travaillé sur ces copies, sans écrire sur le support.
 
 ## Deux étapes concrètes pour arriver au premier essai réel
 
 | Étape | Travail | Condition pour avancer |
 |---|---|---|
-| Prochain lot proposé : préparer la série | Examiner les manifestes locaux existants, identifier une séance et les copies disponibles, relever les manques | Série cohérente, accessible localement et avec provenance vérifiée ; sinon liste précise des copies à préparer |
-| Pilote exploratoire réel | Adapter les entrées réelles, la voie de détection et l’ordre des images, puis exécuter et revoir les candidats | Rapports privés, originaux inchangés, alignement contrôlé et limites explicites ; un résultat sans candidat reste utile |
+| Préparer la série — fait | Huit poses sélectionnées depuis le manifeste, copiées et contrôlées localement | Identité des octets et configuration observée vérifiées ; qualité scientifique non déduite |
+| Pilote exploratoire réel — prochain lot | Adapter les entrées réelles, la voie de détection et l’ordre des images, puis exécuter et revoir les candidats | Alignement contrôlé, limites explicites et rapports privés ; un résultat sans candidat reste utile |
 
-La première étape peut commencer après le lot de contrôles spatiaux, même si elle conclut que des données manquent. Le démarrage de la seconde dépend de la série et du traitement compatibles, pas d’une promesse de succès sur un objet astronomique.
+La série préparée lève le manque initial d’images locales pour ce premier essai. Le démarrage de la seconde étape dépend encore d’un traitement réel adapté, notamment au Bayer et à la taille des images, pas d’une promesse de succès sur un objet astronomique.
 
 ## Série à préparer
 
@@ -48,6 +48,6 @@ La commande actuelle pour images synthétiques **ne doit pas recevoir de vérita
 
 ## Ce que l’on décide après ce lot
 
-Préparer la revue de faisabilité de la série réelle comme prochain lot, avec son plan avant code. Si des copies suffisantes sont présentes et compatibles, planifier le pilote exploratoire. Sinon, préciser ce qui manque et comment obtenir des copies locales en préservant les archives. Les rapports, coordonnées et images personnelles restent sous `local/` ; aucun envoi public d’observations n’est implicite.
+Planifier maintenant un module d’essai exploratoire réel pour la série locale préparée, avec son plan avant code. Vérifier la voie de pixels et le recalage, puis examiner les candidats sans qualifier artificiellement l’heure. Les rapports, coordonnées, FITS et en-têtes restent sous `local/`.
 
-L’autorisation de lecture seule USB demeure respectée. Le travail de contrôle spatial et ce document n’en ont pas fait usage.
+Le mainteneur a explicitement autorisé deux images rendues comme exemples publics sous [CC0 1.0](images/reels/LICENCE.md). Elles figurent dans le tutoriel, sans en-têtes ou métadonnées privées. Cette exception n’est pas une diffusion des archives FITS ou rapports. L’autorisation USB reste exclusivement en lecture pour les outils du projet ; aucun fichier source n’a été réécrit.

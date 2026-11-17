@@ -16,6 +16,8 @@ La [recette recalage/mobiles du lot 13](RECALAGE-MOBILES-SYNTHETIQUES.md) ajoute
 
 Le [lot 14](CONTROLES-SPATIAUX.md) ajoute vingt cas, soit **297 tests**, et une partition spatiale expérimentale séparée du module habituel. Sur cinquante nouvelles séquences fictives, elle atteint 20/20 principales disponibles contre 17/20 pour l’ancienne partition sur les mêmes images, sans faux candidat et en bloquant les quinze négatifs. Le [prochain jalon Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) proposé est la préparation d’une série réelle et d’un pilote exploratoire distinct ; l’échantillon actuel est trop court et les temps scientifiques restent à qualifier.
 
+Le [lot 15](PREPARER-SERIE-SEESTAR.md) prépare désormais huit poses réelles en copies locales vérifiées, sans modifier le support source. Il ajoute 19 tests synthétiques, soit **316 tests**, et six commandes d’exercice public. Deux PNG réels sont diffusés avec l’autorisation du mainteneur sous [CC0 1.0](images/reels/LICENCE.md), avec provenance et métadonnées retirées ; le code reste GPL. Les FITS et rapports restent privés. Le prochain lot pourra adapter le recalage et la recherche exploratoire aux copies préparées, avec traitement des pixels et temps non qualifié explicités.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants

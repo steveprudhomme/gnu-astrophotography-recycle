@@ -93,7 +93,7 @@ New-Item -ItemType Directory -Path local/parcours -Force
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-**Tu dois voir :** `297 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 297 contrôles logiciels ont réussi, y compris ceux des nouveaux bancs d’essai. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : la nouvelle répartition des contrôles est une recette de recherche séparée des commandes habituelles.
+**Tu dois voir :** `316 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 316 contrôles logiciels ont réussi, y compris la préparation des séries. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : les nouvelles recettes complètent les commandes habituelles.
 
 La première ligne prépare les boîtes `local` et `parcours` pour les essais. `-Force` permet de garder ces dossiers s’ils existent déjà ; cette commande ne vide pas leur contenu. Il faut les créer avant les tests : le programme de test ne crée pas tout seul les dossiers parents de son espace temporaire.
 
@@ -405,6 +405,72 @@ Nous en utilisons déjà pour certains diagnostics sur copies locales. Pour cher
 
 Si une commande échoue, conserve le message et le dossier créé. `progress.json` indique ce qui est terminé ; un résultat indisponible n’est pas un zéro erreur. Reprends dans de nouveaux dossiers après avoir compris le problème. Cet exercice ne demande pas de clé USB et ne change aucune observation personnelle.
 
+## Nouvelle mission : préparer huit poses Seestar
+
+**Nous avons maintenant huit vraies poses Seestar copiées et vérifiées sur l’ordinateur.** La clé a été lue pour ces copies ; rien n’y a été écrit, déplacé ou supprimé. Nous n’avons pas encore cherché de mobile dans cette série.
+
+![Montage de huit vraies poses Seestar partagé avec autorisation sous CC0](images/reels/seestar-serie-cc0.png)
+
+*Vraies observations, différentes des jeux fictifs des missions précédentes. Le mainteneur a autorisé ces deux exemples publics sous [CC0 1.0](images/reels/LICENCE.md). L’affichage est gris et étiré pour regarder les pixels ; il n’est pas calibré scientifiquement. Les fichiers FITS et leurs étiquettes privées restent locaux.*
+
+### Comprendre les boîtes avant de copier
+
+La boîte d’origine garde les photos du télescope. Nous préparons une **liste de copie**, puis une deuxième boîte sur l’ordinateur. Pour chaque fichier, nous comparons son **empreinte** avant et après la copie : les trois empreintes doivent être identiques. L’empreinte est calculée sur tous les octets, pas seulement sur ce que voit ton œil.
+
+Dans l’exercice ci-dessous, les originaux sont **inventés et déjà sur l’ordinateur**. Tu peux donc tout refaire sans clé USB. N’utilise pas les chemins de tes observations personnelles pour ce petit exercice.
+
+### 1. Fabriquer et compter douze photos inventées
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_series_demo.py local/parcours/serie-archives
+.\.venv\Scripts\gar.exe inventory local/parcours/serie-archives --output local/parcours/serie-inventaire
+```
+
+**Tu dois voir :** douze fichiers et aucun doublon. Ce sont de petites images fictives, avec une fausse mosaïque ressemblant à la disposition des pixels d’un capteur couleur. Elles ne reproduisent pas toute la réalité du Seestar.
+
+### 2. Préparer une liste de huit copies
+
+```powershell
+.\.venv\Scripts\python.exe examples/prepare_seestar_series.py plan local/parcours/serie-inventaire/manifest.json --source-root local/parcours/serie-archives --output local/parcours/serie-plan
+```
+
+Le programme lit seulement l’inventaire local. Il cherche un groupe compatible et prend le premier bloc de huit photos successives qui respecte les règles prévues, sans regarder quelles images sont les plus jolies. `--source-root` indique explicitement la boîte des originaux. Cette étape ne l’ouvre pas et ne prouve pas encore qu’elle soit disponible.
+
+**Tu dois voir :** une sélection disponible (`True`) et le fichier `local/parcours/serie-plan/selection.json`. Si aucune sélection n’existe, le code 2 indique le manque ; il faut lire le rapport plutôt qu’inventer des photos.
+
+### 3. Faire les copies et vérifier les empreintes
+
+```powershell
+.\.venv\Scripts\gar.exe workset local/parcours/serie-plan/selection.json --output local/parcours/serie-copies
+```
+
+**Tu dois voir :** huit copies vérifiées. C’est cette commande qui lit les originaux de la liste et écrit les nouveaux fichiers dans la boîte locale. Elle refuse les fichiers qui ont changé depuis l’inventaire. Elle ne déplace pas les originaux.
+
+### 4. Examiner les copies puis dessiner un aperçu
+
+```powershell
+.\.venv\Scripts\python.exe examples/prepare_seestar_series.py audit local/parcours/serie-plan/plan.json local/parcours/serie-copies/workset.json --output local/parcours/serie-audit
+.\.venv\Scripts\python.exe examples/plot_series_preview.py local/parcours/serie-audit/series.json local/parcours/serie-apercu
+```
+
+**Tu dois voir :** huit fichiers contrôlés, préparation `True`, puis un aperçu de nature fictive `True`. Les six commandes de cette mission retournent 0 sur l’exercice. Ouvre `local/parcours/serie-apercu/series-preview.png` et le rapport `local/parcours/serie-audit/report.md`.
+
+![Les huit copies fictives de l’exercice, avec le même réglage d’affichage](images/exemple-preparation-serie.png)
+
+*Images synthétiques réellement calculées. Les deux mots « fictif » et « réel » dans les légendes sont importants : ils disent d’où viennent les pixels.*
+
+L’aperçu fait la moyenne de quatre pixels voisins pour afficher en gris. Il garde le même réglage de contraste, calculé sur la première photo, pour regarder les huit. Cela ne change aucun FITS et ne transforme pas l’image en mesure scientifique.
+
+### 5. Comprendre le résultat
+
+« Copies préparées » veut dire que les fichiers correspondent et que leurs pixels sont lisibles avec la configuration observée. Cela ne veut pas encore dire que les étoiles sont recalées, que l’horloge est exacte ou qu’un point mobile a été trouvé. Si une erreur arrive, garde le message et les résultats partiels, puis choisis un nouveau dossier après avoir compris le problème.
+
+![Première vraie pose Seestar, exemple autorisé CC0](images/reels/seestar-pose-01-cc0.png)
+
+*Exemple réel partagé sous [CC0](images/reels/LICENCE.md). Le grain visible n’est pas effacé pour promettre une précision ; ce rendu sert à apprendre. Les tests automatiques emploient toujours des données fictives.*
+
+Le prochain travail pourra maintenant adapter la recherche exploratoire à la vraie série préparée : traiter correctement les pixels, recaler les positions et examiner les candidats. Les [détails de la préparation](PREPARER-SERIE-SEESTAR.md) expliquent les contrôles. L’[état du passage au Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) distingue la préparation faite et l’analyse qui reste à réaliser.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -423,6 +489,7 @@ Tu as maintenant installé l’application entière depuis ses recettes publique
 | `examples/moving_limits.py` | Essayer les limites, en gardant le chercheur inchangé |
 | `examples/moving_registration.py` | Relier les positions recalées au chercheur, en conservant les refus |
 | `examples/spatial_controls.py`, `compare_spatial_controls.py` | Répartir les contrôles avant ajustement et comparer les deux méthodes |
+| `examples/prepare_seestar_series.py` | Préparer la liste, puis examiner les copies locales sans rouvrir les originaux |
 
 Le [tutoriel de référence](TUTORIEL.md) raconte les décisions et les critères avant chaque lot de code. Les contrats expliquent les formats exacts. Pour apprendre à modifier l’application, commence par une copie de travail du code et un petit changement d’explication ; fais les contrôles avant de proposer ce changement. Tu n’as pas besoin de publier des observations personnelles pour apprendre.
 
@@ -448,3 +515,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *Le complément « recalage puis recherche » ajoute 17 contrôles, soit 277 tests réussis. Les 30 commandes du parcours ont été rejouées dans des dossiers fictifs neufs depuis le code committé : le code 2 de la nouvelle analyse est bien conservé, avec les critères non satisfaits. Les 320 images, les 40 rapports de modèles/candidats et les cinq figures de cette mission sont reproduits à l’identique. Aucun essai utilisateur avec un enfant ou sur un ordinateur vierge n’est revendiqué.*
 
 *Le complément de contrôle spatial ajoute 20 cas, soit 297 tests réussis. Les 33 commandes de ce parcours ont été rejouées dans des dossiers fictifs neufs depuis le code committé : les codes attendus sont conservés, dont 2 pour l’ancienne mission et 0 pour la nouvelle. Les 400 images, les cinquante rapports de modèles/candidats des deux méthodes, le bilan et les cinq illustrations de ce complément sont reproduits à l’identique. Aucun essai utilisateur avec un enfant ou sur Windows vierge n’est revendiqué.*
+
+*La préparation de série ajoute 19 cas, soit 316 tests réussis. Les six commandes de cette nouvelle mission sont vérifiées séparément sur un nouveau jeu fictif ; les 33 commandes antérieures et leurs versions restent documentées ci-dessus. Les images réelles autorisées sont des exemples visuels CC0, pas les données des tests. Aucun essai avec un enfant ou sur un ordinateur Windows vierge n’est revendiqué.*
