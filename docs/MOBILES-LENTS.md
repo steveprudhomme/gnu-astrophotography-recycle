@@ -71,7 +71,8 @@ Ce cas ne franchit pas la limite de 1,5 pixel et reste refusé par cette règle.
 ### Pour approfondir le calcul
 
 Le programme forme des hypothèses avec deux photos séparées d'au moins la moitié de la durée totale.
-Il associe la mesure la plus proche dans chaque photo, puis ajuste deux fois un trajet linéaire.
+Il associe la mesure la plus proche dans chaque photo, puis réajuste deux fois les associations.
+Un ajustement final sert ensuite à mesurer les écarts au trajet.
 Il conserve les hypothèses acceptées selon un ordre déterministe. Les points partagés servent au dédoublonnage.
 
 Pour `n` mesures, `SSE_fixe` additionne les écarts carrés au modèle fixe.
