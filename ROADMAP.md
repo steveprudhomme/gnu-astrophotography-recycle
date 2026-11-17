@@ -231,3 +231,11 @@ Réalisation **0.8.0a1**, plan préalable **`93c13cb`** :
 - G8 — livré dans le commit de réalisation : tutoriel illustré, contrat, Markdown, installation et confidentialité ; publication du code et des exemples synthétiques uniquement.
 
 Le budget absolu complet, les calibrations photométriques et la qualification temporelle restent ouverts. Le contrôle Gaia ne transforme pas ces résultats en certificat de précision de chaque étoile ou d’aptitude MPC.
+
+## Actualisation documentaire et GitHub — Alpha 0.8
+
+Plan documentaire du 16 novembre 2026, à enregistrer avant les modifications. La branche distante `main` contient déjà la réalisation Gaia `9bcf431`, vérifiée via GitHub ; aucun nouveau traitement scientifique n’est nécessaire.
+
+- D1 : actualiser le cadrage et la gouvernance devenus historiques, conserver les limites scientifiques et donner un accès direct aux exemples illustrés depuis le README.
+- D2 : compléter le tutoriel avec la procédure de publication, ses commandes, un schéma explicitement conceptuel et la distinction commit local/publication distante ; ne publier aucune donnée ou figure réelle.
+- D3 : vérifier les liens, illustrations, différences et confidentialité, committer la documentation, envoyer à GitHub puis contrôler le commit distant. Aucun accès USB ni relance des mesures ; les 197 tests précédents restent identifiés comme résultats du lot applicatif 0.8.
