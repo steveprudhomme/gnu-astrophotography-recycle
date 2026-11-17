@@ -1247,3 +1247,51 @@ Depuis le commit propre **`f1f159f`**, les **471 tests passent en 172,63 seconde
 La revue publique porte sur 211 fichiers, 45 ancres, notices et liens. Les 58 anciennes commandes gardent leurs preuves sans être toutes rejouées ; aucune nouvelle injection réelle. Les erreurs donnent le code 1 et peuvent laisser un état incomplet ; le code 0 signifie seulement que le diagnostic ou le dessin est terminé. Version applicative, moteurs, seuils et scores inchangés. Branche dédiée, PR et revue interne avant intégration puis contrôle distant/local ; aucun contrôle automatique GitHub configuré, essai enfant/Windows vierge ou qualification scientifique indépendante annoncé.
 
 La [PR nº 4](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/4) rassemble les 23 fichiers revus. La fusion vers `main` conserve le plan publié avant code ; le coordinateur vérifie ensuite le commit distant et la synchronisation locale.
+
+## 28. Vérifier la détection à des vitesses astronomiques représentatives
+
+Le plan [**`082e162`**](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/082e1623b6881eebb4c6903dd24f9964643c80ff) a été committé, publié et contrôlé avant le code. Trois agents travaillent sur l'expérience, le banc et les tests, puis les dessins et la pédagogie ; le coordinateur intègre et vérifie la publication. La revue reste interne.
+
+### Le domaine est une condition d'aptitude
+
+Nous conservons les moteurs et les bornes 0,1–1,5 pixel natif par seconde déclarée. L'échelle nominale est calculée par `206264,806247 × taille_pixel_mm / focale_mm`, depuis les déclarations cohérentes des copies. À 2,9 µm et 250 mm, elle vaut environ 2,393″/pixel natif ; la borne basse correspond à environ 861″/h. Les scénarios 10/30/60″/h sont hors de ce domaine, et 900″/h est un contraste rapide. Ce ne sont ni des éphémérides d'objets connus ni une calibration céleste ou horaire.
+
+![Schéma conceptuel du domaine et des unités, sans observation réelle](images/exemple-realistes-domaine.svg)
+
+Un test logiciel qui confirme ces exclusions ne rend pas le moteur apte à ces mouvements lents. Le retrait stationnaire peut également supprimer des points peu mobiles. Nous ne changeons pas ces règles après les résultats pour faire réussir l'expérience.
+
+### Fabrication, recherche et score séparés
+
+Chaque contexte comporte huit poses et 19 séries : un témoin sans ajout, seize cas angulaires (quatre vitesses, deux pics, deux trajets fixés) et deux contrôles techniques brillants à 0,5 pixel/s sans traînée. Les pics 6/12 fois le sigma initial réduit ne sont pas des magnitudes ou rapports signal/bruit photométriques. Les masques originaux et les modèles de recalage acceptés restent gelés ; aucune étoile n'est retirée grâce aux réponses connues.
+
+Les seize cas angulaires utilisent une gaussienne sigma natif 2,2, moyennée sur sept positions pendant l'exposition déclarée. Le flux du modèle est conservé ; le pic peut s'étaler. Cette traînée simplifiée ne simule pas une PSF instrumentale exacte, la couleur Bayer ou le bruit de photons ajouté. Elle ne prouve pas que DATE-OBS soit un milieu de pose UTC.
+
+Les nouveaux dérivés float32 sont écrits localement, sans réécrire de FITS. La génération range la vérité séparément ; l'analyse ne la reçoit pas et gèle les 19 résultats avec leurs empreintes. Le score ouvre ensuite les réponses et reprend l'appariement mathématique du protocole : cinq points, RMS de position ≤1 pixel natif et erreur vectorielle de vitesse ≤0,05 pixel/s déclarée. Retrouvé, manqué, indisponible et candidat non associé restent distingués ; un non-associé sur fond réel n'est pas automatiquement un faux candidat.
+
+### Nouveau parcours fictif et nouvelles copies réelles
+
+Le générateur fabrique deux fonds Bayer indépendamment inventés, graines 2026111901/2026111902, avec cadence fictive de 10 s, dérive et rotation. Les paramètres de fabrication et les deux trajets sont fixés avant analyse. Le [parcours dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--chercher-à-la-bonne-vitesse) donne neuf commandes : fabrication commune, puis génération/analyse/score/dessin pour chacun des deux contextes. Les [instructions détaillées](MOBILES-REALISTES.md) donnent également les chemins de sortie et les limites.
+
+Pour le réel, le coordinateur utilise le pilote local et des blocs déterministes issus des manifestes existants. L'autorisation nouvelle permet seulement la lecture des fichiers sélectionnés et leur copie locale, avec SHA historique/source avant/copie/source après, tailles et dates contrôlées. Aucun parcours récursif nouveau ou rapport/cache/dossier sur le support. Les analyses et reproductions suivantes utilisent les copies, avec refus du contexte si audit ou recalage insuffisant. Des blocs d'un même champ ne constituent pas automatiquement des nuits indépendantes.
+
+Le [complément de plan `e823f6c`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/e823f6c) a été publié avant la suite de l'expérience : le contexte C, bien que recalé et naturellement sans candidat, couvre 139,4 secondes déclarées, contre au plus 120 admises par la recette d'injection gelée. Les contextes A/B couvrent 88,3/87,6 secondes. Le refus C est conservé avec 18 injections indisponibles, sans raccourcir la série, assouplir le contrat ou choisir un autre bloc pour réussir. Un premier contrôle préparatoire s'est interrompu avant génération et est conservé ; la reprise garde le constat explicite. Seize nouvelles copies ont été préparées et revérifiées, sans écritures sur le support ; la suite ne consulte que les copies.
+
+Les nouvelles figures publiques sont entièrement fictives ; les nouveaux détails, dérivés et médias réels restent locaux. Les cinq médias CC0 existants sont préservés. Aucun catalogue applicable d'objets connus n'est disponible localement pour ce lot : le contrôle positif naturel n'est pas réalisé et aucune identité n'est attribuée aux ajouts. Aucune requête privée n'est envoyée à SkyBoT ou Horizons. Une liste de candidats ou un GIF ne constitue pas une découverte ou qualification scientifique.
+
+### Dessiner les résultats gelés
+
+![Couverture du domaine et récupération calculées sur le premier contexte fictif](images/exemple-realistes-bilan.png)
+
+![Exemples fictifs de déplacement, première vue](images/exemple-realistes-premiere-vue.png)
+
+![Animation de huit vues, entièrement fictive](images/exemple-realistes-animation.gif)
+
+Le dessin choisit avant résultat le témoin, les cas 30/900″/h à pic 12 et premier trajet, puis le premier contrôle technique. Les cercles verts révèlent les réponses après score ; les croix cyan montrent seulement les points des candidats associés. Les pixels sont interpolés pour l'affichage, avec contraste commun fixé au premier témoin, sans modifier les positions mesurées. La lecture du GIF à 600 ms par pose est artificielle.
+
+Les trois sorties calculées et leurs empreintes sont conservées dans `figures.json`. Le dessinateur vérifie les rapports et leurs liens, les candidats gelés avant lecture des réponses, les trajets, le score mathématique et les bilans. Il ne relance aucune détection, suppression stationnaire, association ou injection. Une sortie incomplète n'est pas acceptée comme complète, une sortie existante n'est pas écrasée. Les états indisponibles restent indiqués au lieu d'être transformés en zéros.
+
+### Constats sur les fonds réels
+
+Les contextes A/B retrouvent respectivement **5/18 et 4/18 ajouts**, avec 13/14 manqués et aucun indisponible pour ces contextes admissibles. Chacun retrouve ses deux contrôles techniques mais **aucun des douze ajouts lents à 10/30/60″/h**. À 900″/h, A donne 3/4 (pic 6 : 1/2 ; pic 12 : 2/2) et B 2/4 (pic 6 : 0/2 ; pic 12 : 2/2). Les témoins reproduisent les pilotes naturels sans candidat et aucun candidat non associé n'est relevé. C conserve 18 injections indisponibles, sans mesure de récupération.
+
+Ce résultat confirme l'inadéquation actuelle du domaine aux vitesses lentes choisies. Il ne prouve pas que les images soient dépourvues de mobiles, ni qu'un contrôle technique retrouvé soit un astéroïde identifié. Les blocs réutilisent le même champ et ne sont pas une population indépendante de nuits ; l'aptitude réelle globale n'est pas validée. Les données, nouveaux rapports et figures mixtes restent locaux, avec copies et anciens résultats préservés.
