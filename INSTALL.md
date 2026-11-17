@@ -142,6 +142,10 @@ Le [banc de limites du détecteur](docs/LIMITES-DETECTEUR.md) réutilise ces mê
 
 La [recette de recalage puis recherche](docs/RECALAGE-MOBILES-SYNTHETIQUES.md) réutilise également les mêmes outils et la version 0.10.0a1. Prévoir environ 86 Mo pour ses 320 FITS fictifs, plus les produits. Sa commande d’analyse retourne **2 sur le jeu livré**, car certaines branches sont bloquées et les critères ne sont pas tous satisfaits ; les rapports complets permettent ensuite le dessin. Les commandes et explications sont dans la [mission pédagogique](docs/DEMARRER-DE-ZERO.md#13-ter-mission--stabiliser-les-positions-avant-de-chercher). Aucun nouveau paquet ou accès USB n’est nécessaire.
 
+## Répartition expérimentale des contrôles
+
+La [comparaison des contrôles spatiaux](docs/CONTROLES-SPATIAUX.md) utilise encore les mêmes dépendances. Ses 400 FITS fictifs demandent environ 108 Mo, plus les rapports et figures. Les trois commandes de la [mission illustrée](docs/DEMARRER-DE-ZERO.md#13-quater-mission--répartir-les-étoiles-de-contrôle) donnent 0 sur le jeu livré, tout en gardant le code 2 de l’ancienne mission sur son ancien jeu. La méthode reste une recette expérimentale séparée des commandes habituelles. Le [passage aux images Seestar](docs/PASSAGE-AUX-IMAGES-SEESTAR.md) exige une préparation de série et une adaptation réelle distinctes, pas un réétiquetage en données fictives.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

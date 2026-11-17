@@ -66,7 +66,7 @@ Une date brute sans convention confirmée n’est pas un temps de milieu de pose
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18, le banc de limites 19 et la chaîne recalage/mobiles 17, soit **277 tests réussis au total**.
+L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18, le banc de limites 19, la chaîne recalage/mobiles 17 et les contrôles spatiaux 20, soit **297 tests réussis au total**.
 
 Les tests ont révélé un problème de guillemets dans l’appel de test du lanceur Windows ; cet appel a été corrigé puis la suite relancée avec succès. Dans l’environnement de travail contrôlé, les tests de jonctions et de permissions ont nécessité une exécution avec accès au dossier temporaire ; cela ne démontre pas une exigence d’administrateur de l’application. La distribution autonome sur compte standard reste à valider.
 
@@ -805,3 +805,69 @@ Les **277 tests passent en 26,55 secondes**, avec 17 nouveaux cas : géométrie,
 Vérification finale depuis **`6235af5`**, sans modification suivie, dans des dossiers neufs et avec le même environnement Python : **30 commandes** du parcours aboutissent aux codes attendus, dont le code **2** de la nouvelle analyse. Les 320 images régénérées ont des empreintes identiques ; les 40 rapports individuels gelés, modèles et candidats sont identiques, et les comptages appariés du bilan final sont réconciliés avec les mêmes mesures. Les quatre PNG et le GIF sont identiques aux cinq illustrations publiques. La provenance du rapport change, pas le résultat expérimental : 15 principales disponibles, cinq bloquées, réduction globale indéfinie et critères globaux faux. Aucun test avec un enfant ou Windows vierge n’est revendiqué ; les traces et données restent sous `local/`.
 
 Le résultat invite à étudier **une sélection des étoiles de contrôle mieux répartie**, dans un autre lot avec nouveau plan et jeu d’évaluation, tout en gardant un contrôle réservé et les exigences spatiales. Il ne faut pas lever les refus simplement parce que le modèle semble précis sur les étoiles présentes. Les difficultés faible/lent, la calibration, l’horloge et le budget céleste absolu restent ouverts ; ce lot ne qualifie aucun usage scientifique réel.
+
+## 20. Réserver des contrôles mieux répartis et préparer le pilote Seestar
+
+Le plan **`bbe9776`**, du 17 novembre 2026, a été committé, publié et vérifié sur GitHub avant le code. La [recette détaillée](CONTROLES-SPATIAUX.md) compare les partitions historique et spatiale sur les mêmes nouvelles images, avec mêmes seuils. Elle est dans les exemples expérimentaux : les commandes habituelles et moteurs gelés restent inchangés, l’application reste 0.10.0a1. La [mission dès 10 ans](DEMARRER-DE-ZERO.md#13-quater-mission--répartir-les-étoiles-de-contrôle) explique le principe en images.
+
+### Réserver avant de chercher le modèle
+
+Une réserve de contrôle doit permettre de vérifier plusieurs endroits du champ. La méthode spatiale classe les centres mesurés dans les intersections des quatre quadrants et des cellules 3×3. Elle permute les indices à l’intérieur des compartiments avec graine fixe, puis parcourt les quadrants et cellules à tour de rôle, en sautant les compartiments vides. Le nombre de contrôles reste le quart entier des détections, avec au moins un point ; les autres servent à l’ajustement.
+
+![Partition réellement calculée sur les mêmes étoiles fictives](images/controles-spatiaux-selection.png)
+
+*Bleu : détections utilisées pour ajuster ; orange : contrôles réservés avant appariement, hypothèses et ajustement. Les titres présentent les associations de contrôle mesurées après gel. Aucune réponse connue ou résidu n’a servi à choisir les contrôles.*
+
+Les fonctions historiques de détection, hypothèses, ajustement, association, métriques et recherche des mobiles sont réutilisées. Aucun seuil n’est abaissé, aucune partition n’est réessayée après un refus. Les contrôles restent réservés par pose et partagent une référence mesurée ; cela ne constitue pas une indépendance statistique de toutes les erreurs. Une seule pose refusée continue à bloquer la branche après de sa séquence.
+
+### Reproduire la comparaison
+
+Les graines nouvelles 1103, 1201, 1301, 1409, 1511 donnent **50 séquences, 400 images et 30 mobiles**. Les huit conditions du lot 13 sont complétées par un quadrant réellement vide et une bande étroite, sans mobile. Toutes les images sont fictives, monoplans, sans Bayer ou modèle calibré du S50. Les champs et bruits sont appariés entre conditions pour une même graine.
+
+Depuis la racine et avec les outils graphiques installés, choisir des dossiers neufs et prévoir environ 108 Mo pour les FITS, plus les rapports :
+
+```powershell
+.\.venv\Scripts\python.exe examples/compare_spatial_controls.py make local/controles-spatiaux-entree
+.\.venv\Scripts\python.exe examples/compare_spatial_controls.py run local/controles-spatiaux-entree/manifest.json local/controles-spatiaux-entree/truth.json local/controles-spatiaux-rapport
+.\.venv\Scripts\python.exe examples/plot_spatial_controls.py local/controles-spatiaux-entree/manifest.json local/controles-spatiaux-rapport/spatial.json local/controles-spatiaux-figures
+```
+
+**Codes attendus : 0, 0, 0 sur ce jeu.** L’analyse annonce `critères exploratoires : True`. Un code 2 signifierait un rapport produit avec critère non satisfait ; 1 une analyse impossible. L’ancien lot garde son code 2 et ses cinq refus principaux sur son propre jeu. Les données nouvelles ne corrigent pas rétroactivement ce résultat.
+
+`spatial.json` contient les deux méthodes par condition/graine, modèles, indices et métriques de contrôles, candidats, erreurs sur appariés, comptages et transitions. `comparison.csv` et `report.md` donnent le bilan lisible. Les cinquante fichiers individuels gardent les deux méthodes avant évaluation ; ils sont gelés avant la première lecture des coordonnées de vérité. `progress.json` garde l’avancement et les interruptions. Un lot incomplet n’est pas présenté comme terminé, une branche indisponible n’est pas un zéro faux candidat. Les entrées et sorties restent sous `local/`, sans liens, écrasements ou accès réseau d’analyse.
+
+### Compter le gain sans mélanger les jeux
+
+![Disponibilité sur les mêmes images, avec les trois types de négatifs conservés](images/controles-spatiaux-disponibilite.png)
+
+Sur les vingt séquences principales de **ce nouveau jeu**, l’ancienne partition en rend 17 disponibles et la spatiale 20. Les vingt mobiles sont retrouvés par la spatiale, sans faux candidat. Les dix-sept principales acceptées des deux côtés conservent leurs dix-sept mobiles, sans nouveau faux candidat. Les trois autres passent de refusées à disponibles. La rotation descriptive 8 degrés et un témoin gagnent chacun une disponibilité ; aucune séquence acceptée ne devient refusée dans cet essai.
+
+Les vingt mobiles principaux de la méthode spatiale donnent P95 d’erreur de position **≈0,0776 pixel**, erreur vectorielle maximale de vitesse **≈0,00110 pixel/s fictive**. Les dix témoins sont acceptés sans candidat ; les quinze négatifs restent bloqués. Les huit critères fixés avant mesure sont satisfaits. Cela démontre un résultat sur ces images, pas une probabilité universelle de réussite ou une précision réelle du télescope.
+
+La comparaison précédente du lot 13 restait à **15/20 sur ses anciennes graines**. Il ne faut pas annoncer « 15 → 20 » entre jeux différents : ici, la comparaison sur les mêmes nouvelles images est **17 → 20**. Les erreurs sont conditionnelles aux sources appariées et les sous-ensembles acceptés diffèrent ; aucune amélioration universelle de précision n’est déduite du seul gain de disponibilité.
+
+### Les vrais manques restent des refus
+
+![Trois cas d’insuffisance réellement présents dans les images fictives](images/controles-spatiaux-negatifs.png)
+
+*Graine 1103, deuxième image des négatifs : douze étoiles, quadrant vide et bande étroite. Orange : contrôles effectivement sélectionnés. Un meilleur parcours des zones ne crée ni étoiles ni surface couverte. Les quinze séquences négatives restent refusées.*
+
+![Huit images fictives montrant les sélections avant ajustement](images/controles-spatiaux-animation.gif)
+
+*Séquence de combinaison et graine 1103 fixées dans le plan. La première image est la référence commune, sans partition ajustée ; les suivantes montrent les contrôles par pose sur leurs pixels fictifs. Ce sont des images synthétiques réellement calculées, pas des captures d’écran.*
+
+### Contrôles logiciels et correction d’une illustration
+
+Les **297 tests passent en 46,51 secondes**, dont vingt nouveaux cas : déterminisme, indices uniques et complémentaires, couverture et vrais manques, séparation avant ajustement, contrôles perturbés avec partition figée, détection partagée, transitions et comparaison appariée, campagnes partielles, lecture seule et vérité après les deux méthodes de toute la campagne. Les empreintes des moteurs historiques et de la recette antérieure sont vérifiées ; les FITS et rapports gelés sont préservés.
+
+L’inspection visuelle a détecté un mauvais raccord de séquence dans le dessin des négatifs : les cercles provenaient d’un autre cas que le fond affiché. Le programme de dessin a été corrigé avant publication et les figures réexaminées. Les résultats de calcul, critères et pixels n’ont pas été changés. Les premiers dessins restent dans les essais locaux. Reproduction du jeu, des modèles/candidats, des mesures, des figures et des commandes pédagogiques depuis le code committé avant publication.
+
+### Quand passer aux images du Seestar ?
+
+![Préparer la série, faire un essai exploratoire, puis qualifier les mesures scientifiques](images/passage-seestar-pilote.png)
+
+*Schéma conceptuel, pas un résultat instrumental ou une capture d’écran. Il décrit des conditions de passage, sans date promise.*
+
+Les vraies observations servent déjà à l’inventaire et aux contrôles stellaires sur copies locales. Le manifeste local existant confirme seulement le petit échantillon déjà documenté ; aucun FITS réel ou chemin USB n’a été ouvert dans ce lot. Il ne suffit pas à notre chaîne de suivi. Le [document de passage au Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) propose **le prochain lot pour préparer une série réelle compatible**, en consultant d’abord les manifestes locaux et les copies disponibles. Si cette série convient, planifier et exécuter un pilote exploratoire distinct ; sinon, préciser les fichiers à copier avant d’avancer.
+
+Un essai réel ne doit pas attendre toutes les fonctions du projet, mais il doit établir le traitement des pixels Bayer/mono/RGB, l’ordre des poses, le recalage et ses contrôles. Les heures scientifiques et le budget d’erreur restent à qualifier avant des vitesses physiques ou des soumissions. Les observations réelles ne doivent jamais être réétiquetées comme synthétiques pour contourner les protections. L’autorisation USB reste en lecture seule et n’a pas été utilisée ici ; seules les illustrations fictives/conceptuelles choisies sont publiées.

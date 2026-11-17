@@ -93,7 +93,7 @@ New-Item -ItemType Directory -Path local/parcours -Force
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-**Tu dois voir :** `277 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 277 contrôles logiciels ont réussi, y compris ceux des nouveaux bancs d’essai. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : les nouvelles recettes d’essai ne changent pas ses moteurs.
+**Tu dois voir :** `297 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 297 contrôles logiciels ont réussi, y compris ceux des nouveaux bancs d’essai. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : la nouvelle répartition des contrôles est une recette de recherche séparée des commandes habituelles.
 
 La première ligne prépare les boîtes `local` et `parcours` pour les essais. `-Force` permet de garder ces dossiers s’ils existent déjà ; cette commande ne vide pas leur contenu. Il faut les créer avant les tests : le programme de test ne crée pas tout seul les dossiers parents de son espace temporaire.
 
@@ -351,6 +351,60 @@ Cet exemple a été choisi dans le plan avant l’essai. Il passe de 79 faux can
 
 **À retenir pour l’exercice :** un petit écart sur quelques étoiles ne garantit pas que toute l’image soit bien contrôlée. Notre prochain travail pourra étudier comment mieux répartir les étoiles de contrôle, avec un nouveau plan. Nous n’avons pas encore testé cette chaîne sur le Seestar réel. Les [détails de l’essai](RECALAGE-MOBILES-SYNTHETIQUES.md) et la [section 19 du tutoriel](TUTORIEL.md#19-relier-le-recalage-à-la-recherche-de-mobiles-fictifs) expliquent les résultats et les limites.
 
+## 13 quater. Mission : répartir les étoiles de contrôle
+
+Dans la mission précédente, certains recalages étaient refusés parce que les étoiles gardées pour vérifier ne couvraient pas toute l’image. Nous allons essayer de mieux répartir ces étoiles, **avant de chercher comment déplacer l’image**.
+
+Imagine une classe où tu veux vérifier le travail dans les quatre coins de la salle. Si tu interroges seulement les enfants près de la porte, tu ne sais pas ce qui se passe ailleurs. Ici, nous faisons le tour des quatre quartiers de l’image, puis des petites cases disponibles, pour réserver des contrôles un peu partout. Les autres étoiles servent à l’ajustement.
+
+### Fabriquer le nouveau jeu et comparer
+
+Prévois environ 108 Mo pour les images, plus les rapports. Depuis le dossier du projet, avec les outils graphiques de l’étape 4 :
+
+```powershell
+.\.venv\Scripts\python.exe examples/compare_spatial_controls.py make local/parcours/controles-spatiaux-entree
+.\.venv\Scripts\python.exe examples/compare_spatial_controls.py run local/parcours/controles-spatiaux-entree/manifest.json local/parcours/controles-spatiaux-entree/truth.json local/parcours/controles-spatiaux-rapport
+.\.venv\Scripts\python.exe examples/plot_spatial_controls.py local/parcours/controles-spatiaux-entree/manifest.json local/parcours/controles-spatiaux-rapport/spatial.json local/parcours/controles-spatiaux-figures
+```
+
+Attends la fin de chaque ligne. Nous fabriquons **50 séquences, soit 400 images fictives**, puis essayons les deux sélections sur les mêmes images. Les trois commandes donnent le code **0** sur cet exercice ; l’analyse annonce `critères exploratoires : True`. Ouvre `local/parcours/controles-spatiaux-rapport/report.md` pour lire le bilan. Si tu lis `None` dans une case, cela signifie « résultat indisponible », pas « zéro erreur ».
+
+Le code 2 de la mission précédente reste attendu sur **son ancien jeu**. Nous gardons ce résultat : les nouvelles images et les nouvelles graines ne changent pas le passé.
+
+### Voir les étoiles réservées
+
+![Mêmes étoiles mesurées, avec deux façons de réserver les contrôles](images/controles-spatiaux-selection.png)
+
+*Image entièrement fictive. Les cercles bleus servent à ajuster ; les orange sont gardés pour vérifier. Le programme les réserve avant l’ajustement, sans regarder les réponses ou les erreurs du résultat.*
+
+La nouvelle méthode prend toujours un quart des points environ, mais elle fait le tour des zones disponibles. Elle n’ajoute pas d’étoile et ne change pas les exigences de qualité.
+
+![Séquences disponibles avec l’ancienne sélection et la sélection spatiale](images/controles-spatiaux-disponibilite.png)
+
+**À attendre :** sur les mêmes vingt séquences principales de ce nouveau jeu, 17 sont disponibles avec l’ancienne sélection et 20 avec la nouvelle. La nouvelle retrouve les 20 mobiles, sans faux candidat. Ce n’est pas une promesse pour toutes les images du ciel.
+
+### Garder les vrais refus
+
+![Trois difficultés réelles dans les images fictives : peu d’étoiles, quadrant vide et bande étroite](images/controles-spatiaux-negatifs.png)
+
+Les quinze séquences prévues pour être insuffisantes restent refusées. S’il manque un coin du ciel, faire le tour de l’image ne crée pas les étoiles absentes. La bande étroite montre aussi qu’avoir des points de chaque côté ne suffit pas à vérifier toute la surface.
+
+Ouvre `local/parcours/controles-spatiaux-figures/spatial-controls.gif` pour suivre la répartition :
+
+![Sélections de contrôle dans les huit images fictives de la même séquence](images/controles-spatiaux-animation.gif)
+
+*Les pixels viennent des images inventées, pas de captures d’écran. La première image est la référence commune ; les sept autres montrent les points sélectionnés avant ajustement.*
+
+### Et les vraies images du Seestar ?
+
+Nous en utilisons déjà pour certains diagnostics sur copies locales. Pour chercher des mobiles, l’échantillon actuel de trois poses et un empilement est trop court pour notre chaîne. **Le prochain jalon proposé est de préparer une série réelle compatible**, puis de réaliser un essai exploratoire : voir les points et vérifier les candidats, sans annoncer trop tôt une vitesse scientifique ou une découverte.
+
+![Préparer une série réelle, réaliser un essai exploratoire, puis qualifier les mesures](images/passage-seestar-pilote.png)
+
+*Schéma conceptuel, pas un résultat de mesure. Le [passage aux images Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) explique ce qu’il faut préparer ; les [détails du contrôle spatial](CONTROLES-SPATIAUX.md) expliquent le nouvel exercice.*
+
+Si une commande échoue, conserve le message et le dossier créé. `progress.json` indique ce qui est terminé ; un résultat indisponible n’est pas un zéro erreur. Reprends dans de nouveaux dossiers après avoir compris le problème. Cet exercice ne demande pas de clé USB et ne change aucune observation personnelle.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -368,6 +422,7 @@ Tu as maintenant installé l’application entière depuis ses recettes publique
 | `examples/` et `tests/` | Fabriquer les essais et vérifier les recettes |
 | `examples/moving_limits.py` | Essayer les limites, en gardant le chercheur inchangé |
 | `examples/moving_registration.py` | Relier les positions recalées au chercheur, en conservant les refus |
+| `examples/spatial_controls.py`, `compare_spatial_controls.py` | Répartir les contrôles avant ajustement et comparer les deux méthodes |
 
 Le [tutoriel de référence](TUTORIEL.md) raconte les décisions et les critères avant chaque lot de code. Les contrats expliquent les formats exacts. Pour apprendre à modifier l’application, commence par une copie de travail du code et un petit changement d’explication ; fais les contrôles avant de proposer ce changement. Tu n’as pas besoin de publier des observations personnelles pour apprendre.
 
@@ -391,3 +446,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *Vérification de l’édition précédente : reconstruction depuis une copie propre du dépôt, nouvel environnement Python, 241 tests et 24 commandes réussis. Le complément « limites » ajoute 19 contrôles, soit 260 tests réussis. Les 27 commandes de cette édition ont été rejouées avec succès dans des dossiers fictifs neufs ; les 960 images du banc de limites, ses mesures et ses cinq figures sont reproduites à l’identique depuis le code committé. Cela ne remplace pas un essai par un enfant débutant sur un ordinateur vierge.*
 
 *Le complément « recalage puis recherche » ajoute 17 contrôles, soit 277 tests réussis. Les 30 commandes du parcours ont été rejouées dans des dossiers fictifs neufs depuis le code committé : le code 2 de la nouvelle analyse est bien conservé, avec les critères non satisfaits. Les 320 images, les 40 rapports de modèles/candidats et les cinq figures de cette mission sont reproduits à l’identique. Aucun essai utilisateur avec un enfant ou sur un ordinateur vierge n’est revendiqué.*
+
+*Le complément de contrôle spatial ajoute 20 cas, soit 297 tests réussis. La reproduction des trois nouvelles commandes, des résultats et illustrations est vérifiée avant publication. Les anciennes missions gardent leurs codes et critères ; aucun essai utilisateur avec un enfant n’est revendiqué.*

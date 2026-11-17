@@ -14,6 +14,8 @@ Le [banc de limites du lot 12](LIMITES-DETECTEUR.md) conserve le moteur 0.10 gel
 
 La [recette recalage/mobiles du lot 13](RECALAGE-MOBILES-SYNTHETIQUES.md) ajoute 17 contrôles, soit **277 tests**, et 40 séquences fictives. Les critères globaux ne sont pas tous satisfaits : cinq séquences principales sont refusées pour couverture de contrôle insuffisante. Les mêmes moteurs et pixels sont conservés ; le tutoriel distingue réduction de faux candidats sur les séquences comparables et indisponibilité sur les autres, avec graphiques et superposition animée de coordonnées.
 
+Le [lot 14](CONTROLES-SPATIAUX.md) ajoute vingt cas, soit **297 tests**, et une partition spatiale expérimentale séparée du module habituel. Sur cinquante nouvelles séquences fictives, elle atteint 20/20 principales disponibles contre 17/20 pour l’ancienne partition sur les mêmes images, sans faux candidat et en bloquant les quinze négatifs. Le [prochain jalon Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) proposé est la préparation d’une série réelle et d’un pilote exploratoire distinct ; l’échantillon actuel est trop court et les temps scientifiques restent à qualifier.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants
