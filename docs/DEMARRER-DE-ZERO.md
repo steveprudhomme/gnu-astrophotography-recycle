@@ -527,7 +527,11 @@ La première commande invente huit photos, leur petit mouvement d'ensemble et un
 
 Pour chercher les points, quatre pixels deviennent une moyenne 2×2 ; les centres trouvés reviennent ensuite dans le repère de la photo originale. Les alignements déplacent les **positions mesurées**. Seul l'affichage du GIF interpole une image pour montrer le résultat ; cette image dessinée ne sert pas à mesurer les mouvements. Les heures viennent des indications des fichiers, sans garantie d'exactitude.
 
-Sur la vraie série, les sept alignements ont passé les contrôles et aucun candidat n'a été trouvé avec les règles fixées avant l'essai. Les GIF et rapports réels restent dans `local/` ; les deux PNG Seestar déjà autorisés sous CC0 restent les exemples réels publics. Les [détails du pilote](PILOTE-MOBILES-SEESTAR.md) expliquent les limites, les noms des fichiers et les codes de retour. Si un essai échoue, garde son message et son dossier partiel ; corrige la cause puis utilise une nouvelle sortie.
+Sur la vraie série, les sept alignements ont passé les contrôles et aucun candidat n'a été trouvé avec les règles fixées avant l'essai. Le propriétaire des images autorise leur publication sous CC0 : voici maintenant le vrai GIF, distinct du jeu inventé de l'exercice. Les rapports, positions et FITS restent dans `local/`. Les [détails du pilote](PILOTE-MOBILES-SEESTAR.md) expliquent les limites, les noms des fichiers et les codes de retour. Si un essai échoue, garde son message et son dossier partiel ; corrige la cause puis utilise une nouvelle sortie.
+
+![Vraies images Seestar publiées sous CC0 : brut à gauche, affichage aligné à droite](images/reels/seestar-pilote-cc0.gif)
+
+*À gauche, regarde les étoiles entre les photos. À droite, l'affichage les ramène près du même endroit. Les images restent bruitées ; aucun point mobile n'a été trouvé par cette recherche. Le film change de photo toutes les 0,6 seconde pour que nous puissions le regarder, sans reproduire la cadence du télescope. La [notice CC0](images/reels/LICENCE.md) permet de savoir quelles images sont publiques et d'où elles viennent.*
 
 ## 14. Comprendre ce que tu as reconstruit
 

@@ -6,6 +6,8 @@ Le [lot 16](PILOTE-MOBILES-SEESTAR.md), plan `8f5a64b` publié avant code, a ex�
 
 Les 19 nouveaux tests sont fictifs : un mobile connu retrouvé, zéro candidat du témoin, refus d'effectif sans faux zéro, transformations natives et domaine commun, masques, audit/intégrité, absence d'accès aux sources et à la vérité, lecture seule et sorties partielles. La suite compte **335 tests réussis**. Les anciennes expériences restent documentées ci-dessous ; leur résultat ne change pas avec ce premier pilote réel.
 
+L'autorisation réaffirmée au lot 17 ajoute la diffusion CC0 du GIF réel et de deux illustrations à la notice des médias. Trois tests fictifs supplémentaires vérifient le mode réel explicite et les métadonnées, soit **338 tests réussis en 78,93 secondes**. Il s'agit d'une vérification de diffusion, sans nouvelle recherche ni qualification scientifique ; les copies et le rapport restent intacts.
+
 ## Objectif et périmètre
 
 Qualifier les archives avant de mesurer. Phases 1 et 2 : inventaire puis contrôle scientifique d’une séance de 30 à plus de 60 minutes, si disponible. Ne pas choisir uniquement les meilleures poses ; conserver celles qui révèlent nuages, dérive et interruptions. Un échantillon privé de trois poses et une référence est désormais disponible en copies locales vérifiées ; il ne représente pas toute la population d’archives.

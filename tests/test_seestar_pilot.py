@@ -11,8 +11,10 @@ import sys
 from unittest.mock import patch
 
 import numpy as np
+from astropy.io import fits
 from PIL import Image
 import pytest
+from gar.workset import digest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'examples'))
 try:
@@ -200,3 +202,46 @@ def test_existing_outputs_preserved(cases):
     with pytest.raises(ValueError):
         pilot.run(folder/'plan/plan.json', folder/'workset/workset.json', folder/'audit/series.json', output, base)
     assert (output/'pilot.json').read_bytes() == before
+
+
+def test_public_real_mode_rejects_synthetic_report(cases):
+    base, _ = cases
+    with pytest.raises(ValueError, match='CC0'):
+        drawing.plot(base/'mobile-analysis/pilot.json', base/'false-real-public', base, public_cc0=True)
+    assert not (base/'false-real-public').exists()
+
+
+def test_public_real_mode_rejects_synthetic_pixels_with_wrong_report_label(cases):
+    base, records = cases
+    result = deepcopy(records['mobile'][1]); result['input_kind'] = 'real_local_copies'
+    rp = base/'wrong-real-label.json'; pilot.save(rp, result)
+    with pytest.raises(ValueError, match='fictive'):
+        drawing.plot(rp, base/'wrong-real-figures', base, public_cc0=True)
+    assert not (base/'wrong-real-figures').exists()
+
+
+def test_public_mode_strips_metadata_and_preserves_unmarked_invented_inputs(cases):
+    # The unmarked real-input branch is simulated with invented pixels only.
+    base, records = cases
+    output = base/'unmarked-invented'; output.mkdir()
+    result = deepcopy(records['control'][1]); result['input_kind'] = 'real_local_copies'
+    for k, item in enumerate(result['copies']):
+        with fits.open(item['local_copy'], mode='readonly', memmap=False) as hdus:
+            header = hdus[0].header.copy(); del header['GARSYNTH']
+            pixels = hdus[0].data.copy()
+        path = output/f'invented-{k}.fit'; fits.writeto(path, pixels, header)
+        item.update(local_copy=str(path), sha256=digest(path))
+    rp = output/'invented-pilot.json'; pilot.save(rp, result)
+    before = {Path(item['local_copy']): item['sha256'] for item in result['copies']}
+    report_hash = digest(rp)
+    drawing.plot(rp, base/'cc0-mode-figures', base, public_cc0=True)
+    for name in ('blink-first.png', 'controls.png'):
+        with Image.open(base/'cc0-mode-figures'/name) as image:
+            assert image.mode == 'RGB' and image.info == {}
+    with Image.open(base/'cc0-mode-figures/blink.gif') as image:
+        assert image.n_frames == 8 and image.info['duration'] == 600 and image.info['loop'] == 0
+        assert set(image.info) <= {'version', 'background', 'loop', 'duration', 'extension'}
+        assert image.info['extension'][0] == b'NETSCAPE2.0'
+    assert all(digest(p) == h for p, h in before.items()) and digest(rp) == report_hash
+    journal = json.loads((base/'cc0-mode-figures/figures.json').read_text(encoding='utf-8'))
+    assert journal['public_cc0_explicitly_requested'] and not journal['real_outputs_private']

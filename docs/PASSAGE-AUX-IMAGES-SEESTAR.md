@@ -1,6 +1,6 @@
 # Quand essayer les images du Seestar S50 ?
 
-**Le premier pilote sur huit poses Seestar réelles est maintenant terminé : sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel local avant/après.** Le [lot 15](PREPARER-SERIE-SEESTAR.md) a préparé les copies et le [lot 16](PILOTE-MOBILES-SEESTAR.md) les a analysées avec une voie d'intensité adaptée et des contrôles réservés. Ce premier essai ne qualifie pas les performances de détection ni les mesures scientifiques.
+**Le premier pilote sur huit poses Seestar réelles est maintenant terminé : sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel avant/après publié sous CC0.** Le [lot 15](PREPARER-SERIE-SEESTAR.md) a préparé les copies et le [lot 16](PILOTE-MOBILES-SEESTAR.md) les a analysées avec une voie d'intensité adaptée et des contrôles réservés. Ce premier essai ne qualifie pas les performances de détection ni les mesures scientifiques.
 
 ![Trois jalons pour préparer le pilote réel puis les mesures scientifiques](images/passage-seestar-pilote.png)
 
@@ -48,6 +48,6 @@ La commande pour images synthétiques **ne doit pas recevoir de véritables obse
 
 ## Ce que l’on décide après ce lot
 
-Conserver ce premier essai et ses seuils. Un prochain protocole pourra mesurer la récupération d'injections sur des dérivés de copies réelles, avec témoins et vérité séparée, puis envisager une série plus longue ou d'autres conditions selon les résultats. Cela reste à planifier avant code ; aucune nouvelle archive ne sera consultée automatiquement. Les rapports, coordonnées, FITS, en-têtes et nouveaux GIF réels restent sous `local/`.
+Conserver ce premier essai et ses seuils. Un prochain protocole pourra mesurer la récupération d'injections sur des dérivés de copies réelles, avec témoins et vérité séparée, puis envisager une série plus longue ou d'autres conditions selon les résultats. Cela reste à planifier avant code ; aucune nouvelle archive ne sera consultée automatiquement. Les rapports, coordonnées, FITS et en-têtes restent sous `local/`. Les médias réels expressément autorisés sont publiés selon la notice CC0.
 
-Le mainteneur a explicitement autorisé deux images rendues comme exemples publics sous [CC0 1.0](images/reels/LICENCE.md). Elles figurent dans le tutoriel, sans en-têtes ou métadonnées privées. Cette exception n’est pas une diffusion des archives FITS ou rapports. L’autorisation USB reste exclusivement en lecture pour les outils du projet ; aucun fichier source n’a été réécrit.
+Le mainteneur a réaffirmé son autorisation de publier les images réelles comme exemples publics sous [CC0 1.0](images/reels/LICENCE.md), y compris le GIF du pilote et ses illustrations. Elles figurent dans le tutoriel, sans en-têtes ou métadonnées privées. Cette exception n’est pas une diffusion des archives FITS ou rapports. L’autorisation USB reste exclusivement en lecture pour les outils du projet ; aucun fichier source n’a été réécrit.

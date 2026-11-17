@@ -6,9 +6,9 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-Exception documentaire : les deux [images Seestar réelles autorisées](docs/images/reels/LICENCE.md) sont mises à disposition sous **CC0 1.0** ; leur notice précise les fichiers concernés. Le code conserve GPL-3.0-or-later.
+Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle, prototype synthétique et premier pilote exploratoire sur huit poses Seestar réelles. Sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel local disponible. L’horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
+**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle, prototype synthétique et premier pilote exploratoire sur huit poses Seestar réelles. Sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel publié sous CC0. L'horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
@@ -52,7 +52,11 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 
 ## Limites
 
-Le [premier pilote Seestar](docs/PILOTE-MOBILES-SEESTAR.md), plan publié avant code, ajoute 19 tests fictifs, soit **335 tests réussis**. Le [nouvel exercice illustré dès 10 ans](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--aligner-les-étoiles-et-chercher-un-mobile) reproduit mobile, témoin et refus en neuf commandes. Les GIF réels restent locaux ; les nouvelles animations publiques sont fictives. Zéro candidat sur huit poses ne prouve pas l'absence d'objet mobile.
+Le [premier pilote Seestar](docs/PILOTE-MOBILES-SEESTAR.md), plan publié avant code, ajoute 19 tests fictifs, soit **335 tests réussis** à ce lot. Le [nouvel exercice illustré dès 10 ans](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--aligner-les-étoiles-et-chercher-un-mobile) reproduit mobile, témoin et refus en neuf commandes. L'autorisation réaffirmée du mainteneur permet maintenant de publier aussi le GIF et les illustrations réels sous CC0 ; trois tests de diffusion supplémentaires portent la suite à **338 tests réussis**. Zéro candidat sur huit poses ne prouve pas l'absence d'objet mobile.
+
+![Huit vraies poses Seestar, brutes à gauche et affichage aligné à droite, sous CC0](docs/images/reels/seestar-pilote-cc0.gif)
+
+*Observations réelles, différentes des exercices fictifs. Cadence de lecture artificielle de 0,6 seconde par pose ; interpolation uniquement pour l'affichage. Aucun mobile détecté par cet essai. [Provenance et licence CC0](docs/images/reels/LICENCE.md).*
 
 Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas une mesure scientifique. La qualité des archives, des calibrations, des heures et des catalogues détermine les usages possibles. Le vert Bayer n’est pas automatiquement une mesure Johnson V. Aucun format d’export ni aucune acceptation par un organisme n’est garanti à ce stade. Aucune soumission automatique n’est prévue.
 

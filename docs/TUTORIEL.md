@@ -982,3 +982,37 @@ La vérification finale a abouti depuis le commit propre **`80ada2e`** : **335 t
 Les 39 commandes pédagogiques antérieures conservent leurs preuves précédentes ; elles n'ont pas été toutes rejouées pour ce lot. Les contrôles publics portent sur 175 fichiers et 32 ancres Markdown ; les deux PNG CC0 restent identiques et sans métadonnées intégrées. Les GIF et rapports réels restent sous `local/`, avec leur provenance ; seules les trois nouvelles figures fictives sont copiées dans la documentation. L'autorisation CC0 des deux PNG réels existants ne publie pas les nouveaux GIF ou coordonnées. Aucun essai avec un enfant ou sur un ordinateur vierge n'est revendiqué.
 
 Un résultat zéro dans huit images ne mesure ni taux de faux positifs ni probabilité de retrouver un objet. La luminosité, les vitesses accessibles, les masques, le Bayer et les étoiles proches limitent cette exploration. Le prochain protocole pourra évaluer la récupération d'injections sur copies réelles et la dépendance aux seuils, en conservant ce premier essai inchangé. Aucune découverte ni soumission scientifique n'est annoncée.
+
+## 23. Publier les exemples réels autorisés sous CC0
+
+Le mainteneur a réaffirmé le 17 novembre 2026 que ses images peuvent être publiées dans le domaine public et servir d'exemples. Cette autorisation couvre aussi le GIF du pilote et ses illustrations. Le plan **`5c662ae`** a été committé, publié et vérifié avant le code de diffusion. La [notice CC0](images/reels/LICENCE.md) liste maintenant exactement cinq médias : les deux PNG précédents, le GIF réel avant/après, sa première vue et le graphique réel des contrôles. Les anciens PNG et leurs empreintes sont conservés.
+
+### Regarder le vrai ciel, puis comprendre le dessin
+
+![Huit vraies poses Seestar avant et après alignement, publiées sous CC0](images/reels/seestar-pilote-cc0.gif)
+
+*Observation réelle, pas un exercice inventé ou une capture d'écran. À gauche, les poses brutes ; à droite, leur affichage aligné. Huit vues, 0,6 seconde par vue, répétées en boucle. C'est une cadence de lecture choisie pour regarder, pas la cadence du télescope. Les étoiles sont alignées par les modèles déjà contrôlés ; aucun mobile n'a été détecté par cet essai.*
+
+Imagine que tu remets des feuilles transparentes au même endroit pour comparer leurs points. L'affichage de droite fait quelque chose de semblable. Il utilise une interpolation pour dessiner les pixels à leur nouvelle place ; cette image dessinée ne sert pas à mesurer les trajectoires. La recherche du lot précédent utilisait les positions mesurées, sans réécrire les FITS. Publier le GIF ne relance pas la recherche et ne change pas son résultat : **zéro candidat aux seuils prévus**.
+
+![Contrôles sur les vraies étoiles réservées, illustration CC0](images/reels/seestar-pilote-controles-cc0.png)
+
+À gauche, chaque point mesure le P95 des erreurs sur les étoiles témoins d'une pose, en pixels de la photo originale ; il reste sous la limite rouge. À droite, la barre compte les témoins associés, au-dessus du minimum dix. Les règles demandent aussi une bonne répartition dans le champ. Ce graphique vient du vrai rapport du pilote, sans fabriquer de valeurs et sans fournir ses positions ou en-têtes privés.
+
+### Préparer un rendu autorisé
+
+Le mode habituel garde un titre privé pour les observations réelles. Si le propriétaire autorise leur diffusion sous CC0, l'option explicite prépare un rendu public depuis le rapport et les copies déjà locales :
+
+```powershell
+.\.venv\Scripts\python.exe examples/plot_seestar_pilot.py local/mon-pilote/pilot.json local/mon-pilote-cc0 --public-cc0
+```
+
+Les noms ci-dessus sont des exemples : il faut ses propres résultats réels préparés et une sortie neuve. Ce n'est pas une commande à ajouter à l'exercice fictif ; elle refuse les rapports fictifs et les images marquées comme inventées. Tu peux déjà regarder les médias CC0 fournis dans ce dépôt sans posséder les FITS privés. Les commandes des exercices et leurs réponses restent inchangées.
+
+Le programme vérifie les empreintes, lit les copies en lecture seule et crée des titres « images réelles — CC0 1.0 ». Il enlève les métadonnées héritées des PNG. Le GIF garde les informations nécessaires à ses couleurs, huit vues, durées et boucle, mais ni commentaire, EXIF ou XMP privé. Le journal `figures.json` reste local : il ne faut pas le copier avec les images publiques. La notice donne les noms, empreintes, provenance, transformations et licence des seuls médias diffusés.
+
+### Vérifier avant de publier
+
+Les trois nouveaux tests emploient uniquement des pixels inventés, même pour simuler une entrée réelle sans marqueur : refus d'un rapport fictif, refus d'un rapport mal étiqueté dont les images sont fictives, export sans métadonnées privées et conservation des entrées. Les **338 tests passent en 78,93 secondes**. Les nouveaux PNG réels sont RGB sans métadonnées intégrées ; le GIF a huit vues de 600 ms et une boucle. Les deux PNG initiaux, le rapport du pilote et les huit copies sont inchangés. Les gardes ne relèvent aucune tentative d'accès externe ou d'écriture FITS ; aucune nouvelle analyse n'est exécutée.
+
+Les rendus sont examinés visuellement, puis régénérés depuis le code committé avant publication finale et comparés par empreintes. Les sources des moteurs, le verdict de recherche et les anciennes preuves restent inchangés. Les tests et les exemples fictifs sont distincts des observations CC0 ; les FITS, dates d'observation, chemins, coordonnées et rapports restent ignorés. Les pixels célestes autorisés sont volontairement publics ; ils ne sont pas présentés comme anonymisés.

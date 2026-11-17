@@ -18,7 +18,9 @@ Le [lot 14](CONTROLES-SPATIAUX.md) ajoute vingt cas, soit **297 tests**, et une 
 
 Le [lot 15](PREPARER-SERIE-SEESTAR.md) prépare huit poses réelles en copies locales vérifiées, sans modifier le support source. Il ajoute 19 tests synthétiques, soit **316 tests**, et six commandes d'exercice public. Deux PNG réels sont diffusés avec l'autorisation du mainteneur sous [CC0 1.0](images/reels/LICENCE.md), avec provenance et métadonnées retirées ; le code reste GPL. Les FITS et rapports restent privés.
 
-Le [lot 16](PILOTE-MOBILES-SEESTAR.md) a ensuite exécuté le premier pilote réel : sept alignements contrôlés acceptés, recherche achevée avec zéro candidat et GIF local avant/après. Il ajoute 19 tests fictifs, soit **335 tests**, et neuf commandes pour mobile, témoin et refus. Aucune nouvelle lecture USB ; temps déclarés non qualifiés, performances de détection réelles non validées. Les nouveaux GIF réels et positions restent privés ; trois nouvelles illustrations publiques sont fictives.
+Le [lot 16](PILOTE-MOBILES-SEESTAR.md) a ensuite exécuté le premier pilote réel : sept alignements contrôlés acceptés, recherche achevée avec zéro candidat et GIF local avant/après. Il ajoute 19 tests fictifs, soit **335 tests**, et neuf commandes pour mobile, témoin et refus. Aucune nouvelle lecture USB ; temps déclarés non qualifiés, performances de détection réelles non validées. À ce lot, les nouveaux GIF réels et positions restaient privés ; les trois illustrations publiques étaient fictives. L'autorisation réaffirmée au lot 17 permet maintenant de publier le GIF réel et deux illustrations sous CC0 ; les positions et rapports restent privés.
+
+Le lot 17 porte la suite à **338 tests réussis** et la [notice CC0](images/reels/LICENCE.md) à cinq médias réels exactement listés. Les rendus sont publiés dans le tutoriel dès 10 ans, sans FITS, journal ou chemin privé. Le résultat du pilote reste inchangé : aucune nouvelle recherche ou découverte.
 
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 

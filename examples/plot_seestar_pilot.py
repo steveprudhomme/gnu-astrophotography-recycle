@@ -37,12 +37,14 @@ def render(fig):
         return image.convert('RGB')
 
 
-def plot(result_path, output, base=None):
+def plot(result_path, output, base=None, public_cc0=False):
     base = ROOT/'local' if base is None else base
     rp, output = [local_path(p, base) for p in (result_path, output)]
     result = json.loads(rp.read_text(encoding='utf-8'))
     if result.get('status') != 'complete' or not result.get('input_hashes_unchanged'):
         raise ValueError('Rapport de pilote terminé et entrées intactes requis.')
+    if public_cc0 and result.get('input_kind') != 'real_local_copies':
+        raise ValueError('Le mode réel CC0 exige des observations réelles et une autorisation explicite du titulaire.')
     if output.exists():
         raise ValueError('Choisir une nouvelle sortie de figures.')
     watched = {rp: digest(rp)}
@@ -53,6 +55,8 @@ def plot(result_path, output, base=None):
             raise ValueError('Copie modifiée avant le dessin.')
         watched[path] = item['sha256']
         with fits.open(path, mode='readonly', memmap=False) as hdus:
+            if public_cc0 and hdus[0].header.get('GARSYNTH') is True:
+                raise ValueError('Une image fictive ne doit pas être publiée comme observation réelle CC0.')
             images.append(intensity_plane(hdus[0].data))
     low, high = np.nanpercentile(images[0], [5, 99.7])
     if not np.isfinite([low, high]).all() or high <= low:
@@ -60,7 +64,8 @@ def plot(result_path, output, base=None):
     def stretch(image):
         return np.arcsinh(np.maximum(image-low, 0)/max((high-low)/10, 1))
     output.mkdir(parents=True, exist_ok=False)
-    title = 'IMAGES FICTIVES' if result['input_kind'] == 'synthetic_demo' else 'IMAGES RÉELLES — APERÇU PRIVÉ'
+    title = ('IMAGES RÉELLES — CC0 1.0' if public_cc0 else
+             'IMAGES FICTIVES' if result['input_kind'] == 'synthetic_demo' else 'IMAGES RÉELLES — APERÇU PRIVÉ')
     aligned = [align_for_display(image, m) for image, m in zip(images, result['models'])] if result['registration_available'] else None
     tracks = (result.get('search') or {}).get('tracks', [])
     frames = []
@@ -80,7 +85,10 @@ def plot(result_path, output, base=None):
         status = (f"{result['candidate_count']} candidat(s), non confirmé(s)" if result['motion_searched'] else 'RECHERCHE BLOQUÉE — voir le rapport')
         fig.suptitle(f'{title} — pose {k+1}/{len(images)}\n{status}', fontsize=11)
         fig.supxlabel('Lecture artificielle : 0,6 s/pose · étirement commun · aucune vitesse physique déduite', fontsize=9)
-        frames.append(render(fig))
+        frame = render(fig)
+        if public_cc0:
+            frame.info.clear()
+        frames.append(frame)
     frames[0].save(output/'blink.gif', save_all=True, append_images=frames[1:], duration=600, loop=0, optimize=False)
     frames[0].save(output/'blink-first.png')
 
@@ -95,7 +103,10 @@ def plot(result_path, output, base=None):
     axes[1].axhline(10, color='red', ls='--', label='Minimum 10'); axes[1].legend()
     axes[1].set(xlabel='Pose', ylabel='Étoiles de contrôle associées')
     fig.suptitle(title+'\nContrôles réservés : couverture spatiale et autres critères aussi requis', fontsize=11)
-    image = render(fig); image.save(output/'controls.png')
+    image = render(fig)
+    if public_cc0:
+        image.info.clear()
+    image.save(output/'controls.png')
 
     for track in tracks:
         positions = np.array([[p['x'], p['y']] for p in track['points']])
@@ -111,13 +122,17 @@ def plot(result_path, output, base=None):
                 if p['frame_index'] == k:
                     ax.plot((p['x']-.5)/2, (p['y']-.5)/2, 'o', mfc='none', mec='cyan')
         fig.suptitle(f"{title} — candidat {track['candidate_id']} à revoir\nVignettes alignées pour affichage ; origine astronomique non confirmée", fontsize=11)
-        render(fig).save(output/f"candidate-{track['candidate_id']:02d}-review.png")
+        image = render(fig)
+        if public_cc0:
+            image.info.clear()
+        image.save(output/f"candidate-{track['candidate_id']:02d}-review.png")
     if any(digest(p) != h for p, h in watched.items()):
         raise ValueError('Une entrée a changé pendant le dessin.')
     files = sorted(p for p in output.iterdir() if p.suffix in ('.png', '.gif'))
     (output/'figures.json').write_text(json.dumps(dict(
         input_result_sha256=watched[rp], synthetic_only=result['input_kind'] == 'synthetic_demo',
-        real_outputs_private=True, displayed_frame_count=len(images), gif_duration_ms=600,
+        real_outputs_private=not public_cc0, public_cc0_explicitly_requested=public_cc0,
+        displayed_frame_count=len(images), gif_duration_ms=600,
         stretch_from_first_image=[float(low), float(high)], interpolation_display_only=True,
         measured_positions_resampled=False, fits_pixels_rewritten=False, input_hashes_unchanged=True,
         figures_sha256={p.name: digest(p) for p in files}), indent=2), encoding='utf-8')
@@ -127,4 +142,5 @@ def plot(result_path, output, base=None):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('result', type=Path); parser.add_argument('output', type=Path)
-    args = parser.parse_args(); plot(args.result, args.output)
+    parser.add_argument('--public-cc0', action='store_true', help='Diffusion réelle CC0 explicitement autorisée par le titulaire uniquement')
+    args = parser.parse_args(); plot(args.result, args.output, public_cc0=args.public_cc0)

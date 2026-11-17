@@ -1,6 +1,10 @@
 # Premier pilote exploratoire sur les copies Seestar
 
-**Les huit poses réelles ont été analysées : sept recalages vers la première pose acceptés, recherche terminée avec zéro candidat aux seuils prévus.** Un GIF réel avant/après est disponible dans les résultats locaux. Ce résultat concerne une seule petite série et ne prouve pas qu'aucun mobile soit présent. Il ne mesure pas la sensibilité réelle du détecteur.
+**Les huit poses réelles ont été analysées : sept recalages vers la première pose acceptés, recherche terminée avec zéro candidat aux seuils prévus.** Le GIF réel avant/après est maintenant publié sous CC0 avec l'autorisation réaffirmée du mainteneur. Ce résultat concerne une seule petite série et ne prouve pas qu'aucun mobile soit présent. Il ne mesure pas la sensibilité réelle du détecteur.
+
+![Vraies poses Seestar : brut à gauche, affichage aligné à droite, CC0](images/reels/seestar-pilote-cc0.gif)
+
+*Observation réelle, sans mobile détecté. Huit vues à 600 ms, cadence de lecture artificielle ; interpolation réservée à l'affichage. [Provenance, licence et fichiers couverts](images/reels/LICENCE.md).*
 
 Le plan du lot 16, [commit `8f5a64b`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/8f5a64b819d301f7c495b5e9903f3c622cf30639), a été publié et contrôlé avant le code ou les résultats. Les moteurs historiques, le chemin réservé aux images synthétiques et la version 0.10.0a1 restent inchangés. La nouvelle recette réutilise leurs fonctions mathématiques dans un chemin expérimental distinct. Elle n'ajoute aucun marqueur fictif aux observations.
 
@@ -14,7 +18,7 @@ Un **candidat** est seulement une suite de points qui respecte les règles du pr
 
 ![Exercice fictif : images brutes puis affichage aligné et candidat cerclé](images/exemple-pilote-seestar.gif)
 
-*Images entièrement inventées pour l'exercice public. Le cercle cyan suit le candidat mesuré, sans lire les réponses de génération. La cadence du GIF est artificielle : 0,6 seconde par pose. Le GIF réel est un autre fichier, conservé localement.*
+*Images entièrement inventées pour l'exercice public. Le cercle cyan suit le candidat mesuré, sans lire les réponses de génération. La cadence du GIF est artificielle : 0,6 seconde par pose. Le GIF réel CC0 plus haut est un autre fichier.*
 
 ## Entrées vérifiées, sans accès à la clé
 
@@ -97,7 +101,21 @@ Les sept recalages ont été acceptés. Selon la pose, **64 à 77 étoiles rése
 
 La série est courte, les seuils limitent les vitesses et luminosités accessibles, les étoiles proches peuvent masquer des objets lents et le traitement Bayer/bruit n'est pas étalonné. Les biais de détection, sources saturées, masques, limites de taille/effectif et recouvrement peuvent laisser des objets non détectés. Un résultat zéro ne prouve donc pas l'absence d'objet. Pour mesurer les performances réelles, il faudra un protocole distinct et des injections contrôlées, sans modifier silencieusement ce premier essai.
 
-Les nouveaux GIF, rapports et positions réels restent sous `local/`. L'exception CC0 existante concerne seulement les deux PNG de la [notice](images/reels/LICENCE.md), pas ces nouveaux produits. Les figures publiques de ce document sont fictives ; les tests aussi. Aucun accès USB, catalogue ou service externe n'est nécessaire à l'analyse.
+Les rapports, positions et FITS réels restent sous `local/`. L'autorisation réaffirmée permet de publier les cinq médias de la [notice CC0](images/reels/LICENCE.md), dont le GIF avant/après, sa première vue et le graphique des contrôles. Les exercices et tests restent fictifs ; les médias réels sont étiquetés comme tels. Aucun accès USB, catalogue ou service externe n'est nécessaire à l'analyse ou au rendu.
+
+## Publier un rendu réel autorisé
+
+Les rendus réels restent privés par défaut. Si le titulaire a autorisé leur diffusion sous CC0, utiliser le rapport déjà local, sans relancer la recherche :
+
+```powershell
+.\.venv\Scripts\python.exe examples/plot_seestar_pilot.py local/mon-pilote/pilot.json local/mon-pilote-cc0 --public-cc0
+```
+
+Ces chemins sont des exemples à remplacer par ses propres résultats, pas un exercice fictif. Le mode refuse les rapports fictifs et les images marquées `GARSYNTH`. Il crée des titres CC0, des PNG sans métadonnées et un GIF conservant seulement ses informations de lecture/couleurs/boucle. Le fichier `figures.json` reste un journal local ; seules les images expressément autorisées vont dans la liste publique de la notice. Le mode ne donne pas lui-même une autorisation de diffusion.
+
+![Graphique des contrôles mesurés sur les vraies poses, publié sous CC0](images/reels/seestar-pilote-controles-cc0.png)
+
+*À gauche, P95 des résidus des étoiles réservées, sous la limite prévue ; à droite, leur nombre. Les exigences de couverture spatiale restent aussi nécessaires. Cette figure réelle n'est pas une calibration absolue.*
 
 ## Reproduction vérifiée
 
