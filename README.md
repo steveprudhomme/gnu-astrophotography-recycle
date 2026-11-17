@@ -2,6 +2,8 @@
 
 **Donner une seconde vie scientifique aux archives du Seestar S50.**
 
+**Version de développement : [0.10.0-alpha.1](VERSION)** — [règles SemVer](VERSIONING.md) et [journal des changements](CHANGELOG.md). Le paquet Python utilise l'écriture équivalente `0.10.0a1` ; aucune release n'est créée par cette adoption.
+
 [Dépôt public et suivi du projet](https://github.com/steveprudhomme/gnu-astrophotography-recycle).
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
@@ -51,6 +53,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Diagnostic des manques | Positions déjà enregistrées suivies aux trois étapes, sans nouvelle recherche | 26 réconciliés : neuf hors vitesse, 17 avec support limité dès les détections ; causes physiques non établies |
 | Trace interne du détecteur | Rejeu comparé aux positions gelées, maxima et filtres expliqués | 17 cas examinés : sur 136 images, 115 sans maximum brut proche et 21 avec point retenu ; seuils inchangés |
 | Création des maxima | Convolution et portes numériques avant les graines proposées | Parmi les 115 absences : 105 cercles sans réponse dépassant le seuil, dix avec réponse dépassant le seuil mais sans maximum local ; obstacles cumulés conservés |
+| Mouvements représentatifs | Scénarios angulaires et traînée sur deux fonds fictifs et des copies réelles | Aptitude lente négative : 0/12 ajouts lents retrouvés par contexte réel admissible ; contrôles rapides 2/2, aucun seuil changé |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -75,6 +78,10 @@ Ce lot ajoute 42 tests fictifs : **423 tests réussis en 139,60 s**, depuis le c
 Le [diagnostic des absences de maxima](docs/ABSENCES-MAXIMA.md) suit ensuite convolution, comparaison locale, masque, bord, seuil strict et plateaux/égalités, sans modifier les règles. Dans 105 des 115 situations, aucune réponse échantillonnée proche ne dépasse le seuil aux deux rayons ; dans les dix autres, une réponse le dépasse mais un voisin plus haut est enregistré et aucun maximum local proche n'est proposé. Cela décrit des obstacles numériques, sans démontrer une cause physique unique. Les premières portes vides changent dans 22 situations quand le cercle s'élargit : les deux lectures restent visibles. Trois agents ont travaillé sur un nouveau banc fictif, les tests et le tutoriel illustré ; les rapports réels restent privés.
 
 Ce complément ajoute 48 tests fictifs, soit **471 tests réussis en 172,63 s**. Reproduction depuis le commit propre `f1f159f` : trois commandes aux codes 0, douze images et traces fictives et deux PNG identiques, mêmes 136 traces réelles et mêmes cohortes 115/21. Les 380 entrées et traces surveillées et les cinq médias CC0 restent intacts, sans accès USB ou nouvelle injection réelle ; aucun moteur, seuil ou score modifié.
+
+L'[essai de mouvements représentatifs](docs/MOBILES-REALISTES.md) confronte enfin les vitesses visées au domaine actuel. L'échelle nominale des en-têtes donne environ 2,393″/pixel et une borne de recherche d'environ 861″/h : les scénarios 10/30/60″/h sont exclus. Sur les deux contextes réels admissibles, 0/12 ajouts lents et 2/2 contrôles techniques sont retrouvés dans chacun ; le contraste à 900″/h donne 3/4 puis 2/4. Le troisième contexte est refusé avant injection pour durée de 139,4 s au-delà des 120 s du contrat, sans changer cette limite. Les seize nouvelles copies ont été prises en lecture seule, toutes analyses ensuite locales. **Le moteur actuel n'est donc pas validé pour les mouvements lents visés.** Aucun objet naturel connu n'a servi de contrôle positif ; les ajouts artificiels ne sont pas des découvertes.
+
+Ce lot ajoute 46 tests fictifs : **517 tests réussis en 210,82 s**. Reproduction depuis `61cac96` propre : neuf commandes aux codes 0, mêmes données, candidats, scores et figures sur deux fonds fictifs et deux réels ; refus du troisième contexte conservé. Les 24 copies réelles, anciens résultats et cinq médias CC0 restent intacts ; aucun accès au support pendant la reproduction. Les tests réussis n'annulent pas le résultat négatif sur les mouvements lents.
 
 ## Démarrer
 

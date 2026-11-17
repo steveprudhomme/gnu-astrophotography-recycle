@@ -696,6 +696,52 @@ Sur le fond réel, le petit cercle donne 69 premières portes vides au maximum l
 
 Dans ces dix situations au-dessus du seuil, le carnet trouve aussi un voisin plus haut dans la comparaison prévue. Il mesure ce voisin ; il ne sait pas pour autant quel objet c'est, ni toute l'histoire physique de l'image.
 
+## Nouvelle mission : chercher à la bonne vitesse
+
+Notre petit chercheur retrouve certains points qui avancent vite. Mais imaginons un point avançant beaucoup moins qu'une case entre deux photos : est-ce que ses règles lui permettent de le retrouver ? Nous allons le vérifier en conservant ses règles, même si la réponse est décevante.
+
+![Vitesses et domaine actuel, schéma conceptuel sans photo réelle](images/exemple-realistes-domaine.svg)
+
+Une **seconde d'arc** mesure un très petit angle dans le ciel. Un **pixel** est une case de l'image. Avec les nombres déclarés dans cet exercice, une case native représente environ 2,393 secondes d'arc. Le programme demande au moins 0,1 case native par seconde déclarée : cela correspond ici à environ 861 secondes d'arc par heure. Les exemples 10, 30 et 60 sont donc trop lents pour sa plage actuelle. Le contraste rapide à 900 y entre, sans garantie de récupération.
+
+Nous fabriquons deux fonds entièrement fictifs de huit photos. Pour chacun, nous gardons un témoin sans ajout, seize ajouts à différentes vitesses et deux contrôles techniques brillants. Ces contrôles avancent à 0,5 case native par seconde, sans traînée. Les autres points sont répartis entre sept positions pendant l'exposition pour représenter une petite traînée. Cela reste un modèle simplifié, pas un véritable astéroïde.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_realistic_motion_demo.py local/parcours/realistes-fonds
+.\.venv\Scripts\python.exe examples/realistic_motions.py generate local/parcours/realistes-fonds/context-s2026111901/pilot/pilot.json local/parcours/realistes-injections-1
+.\.venv\Scripts\python.exe examples/realistic_motions.py analyze local/parcours/realistes-injections-1/manifest.json local/parcours/realistes-analyse-1
+.\.venv\Scripts\python.exe examples/realistic_motions.py score local/parcours/realistes-injections-1/manifest.json local/parcours/realistes-injections-1/truth.json local/parcours/realistes-analyse-1/analysis.json local/parcours/realistes-score-1
+.\.venv\Scripts\python.exe examples/plot_realistic_motions.py local/parcours/realistes-score-1/score.json local/parcours/realistes-figures-1
+.\.venv\Scripts\python.exe examples/realistic_motions.py generate local/parcours/realistes-fonds/context-s2026111902/pilot/pilot.json local/parcours/realistes-injections-2
+.\.venv\Scripts\python.exe examples/realistic_motions.py analyze local/parcours/realistes-injections-2/manifest.json local/parcours/realistes-analyse-2
+.\.venv\Scripts\python.exe examples/realistic_motions.py score local/parcours/realistes-injections-2/manifest.json local/parcours/realistes-injections-2/truth.json local/parcours/realistes-analyse-2/analysis.json local/parcours/realistes-score-2
+.\.venv\Scripts\python.exe examples/plot_realistic_motions.py local/parcours/realistes-score-2/score.json local/parcours/realistes-figures-2
+```
+
+La fabrication prépare les deux pilotes fictifs. `generate` ajoute les points et range les réponses à part ; `analyze` cherche sans les lire ; `score` compare les candidats gelés aux réponses ; le dernier outil dessine sans refaire la recherche. Ouvre les `report.md` des deux scores avant de regarder les dessins. Un zéro candidat ne prouve pas que le ciel ne contient rien.
+
+![Vitesses et comptes réellement calculés sur le premier fond fictif](images/exemple-realistes-bilan.png)
+
+En haut, lis si chaque vitesse entre dans la plage du programme. En bas, `0/2` signifie qu'aucun des deux ajouts prévus n'a été retrouvé ; cela ne signifie pas que l'image ne contient aucun objet. Les contrôles techniques et le témoin sont comptés séparément.
+
+![Animation calculée avec des points artificiels sur un fond entièrement fictif](images/exemple-realistes-animation.gif)
+
+Le rond vert montre la réponse que nous avions inventée : **ce n'est pas une détection**. La croix cyan montre un candidat associé. Compare le point lent et le contrôle technique rapide. L'animation joue à une cadence artificielle de 0,6 seconde par photo ; elle ne mesure pas le temps du ciel. Les pixels peuvent être interpolés pour regarder, pas pour mesurer.
+
+Si l'étape s'arrête, conserve le message et son dossier partiel. Une erreur donne le code 1 ; le code 2 conserve un refus ou un contrôle non satisfait. N'efface pas le résultat décevant pour choisir un meilleur bruit ou une meilleure position. Utilise des sorties neuves après avoir corrigé une vraie erreur.
+
+Retrouver les contrôles techniques montre que le chemin logiciel fonctionne dans certaines conditions. **Cela ne montre pas qu'il sait retrouver les points lents exclus de ses règles.** Les tests réussis et l'aptitude astronomique sont deux questions différentes. Les [explications détaillées](MOBILES-REALISTES.md) gardent les limites, les refus et la distinction entre données fictives, ajouts sur fond réel et véritables objets connus. Le contrôle sur un objet naturel identifié n'a pas été réalisé dans ce lot.
+
+Sur les deux fonds réels admissibles, les essais retrouvent cinq puis quatre ajouts sur dix-huit, dont les deux contrôles techniques à chaque fois. Aucun des douze ajouts lents de chaque fond n'est retrouvé. Le troisième bloc prévu est refusé pour sa durée : ses dix-huit ajouts sont indisponibles, pas dix-huit manqués. Ces résultats restent visibles. Ils montrent qu'il faut revoir séparément l'aptitude aux mouvements lents ; nous n'avons changé aucun seuil pendant cette mission.
+
+## Lire la version de ton application
+
+Notre version de développement s'écrit **0.10.0-alpha.1**. Le mot « alpha » dit que le projet est encore en construction. Python écrit la même version `0.10.0a1` : ce sont deux écritures du même état, pas deux applications différentes. Un numéro de version ne garantit pas que le programme sache déjà trouver tous les astéroïdes.
+
+![Lire une version, schéma conceptuel avec exemple fictif](images/semver-concept.svg)
+
+Les [règles de versionnage](../VERSIONING.md) expliquent les trois nombres et le [journal des changements](../CHANGELOG.md) raconte ce qui change. Les exemples 1.2.3 du dessin ne sont pas des versions déjà publiées.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -754,3 +800,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *Le carnet du détecteur ajoute 42 tests fictifs, soit **423 tests réussis** en 139,60 secondes depuis le commit propre `f6ec207`. Ses trois commandes donnent 0 dans de nouveaux dossiers : les douze images, les douze traces et les deux PNG sont identiques. Sur le fond réel déjà local, les 136 listes et traces des 17 cas sont reproduites, avec les anciens scores et candidats préservés, sans accès USB ou nouvelle injection. Les 55 commandes précédentes conservent leurs preuves sans être toutes rejouées. Les trois agents et leur coordinateur ont fait une revue interne, sans test de compréhension avec un enfant ou qualification scientifique indépendante.*
 
 *La mission sur les absences de maxima ajoute 48 tests fictifs, soit **471 tests réussis** en 172,63 secondes depuis le commit propre `f1f159f`. Ses trois commandes donnent 0 dans de nouveaux dossiers ; douze images et traces et deux PNG sont identiques. Sur le fond réel déjà local, les 136 traces des 17 cas sont reproduites, avec les 115 absences et le contexte 21 inchangés. Les scores, candidats et photos restent intacts, sans USB ou nouvelle injection réelle. Les 58 commandes précédentes conservent leurs preuves sans être toutes rejouées. Les illustrations sont fictives et la revue des trois agents reste interne, sans essai avec un enfant ou qualification scientifique indépendante.*
+
+*La mission des mouvements représentatifs ajoute 46 tests fictifs, soit **517 tests réussis** en 210,82 secondes depuis le commit propre `61cac96`. Ses neuf commandes donnent 0 dans de nouveaux dossiers ; les seize photos fictives, 152 dérivés et 19 résultats par fond, bilans et trois figures sont reproduits à l'identique. Sur deux fonds réels, les contrôles techniques sont retrouvés mais les douze ajouts lents par fond restent manqués. Un troisième bloc est indisponible pour durée trop longue, pas renommé « rien trouvé ». Les seize copies autorisées ont été prises en lecture seule ; la reproduction ne relit pas le support. Les 61 commandes précédentes gardent leurs preuves sans être toutes rejouées. Les illustrations sont fictives ; pas de contrôle positif naturel, test avec un enfant ou qualification scientifique indépendante revendiqué.*

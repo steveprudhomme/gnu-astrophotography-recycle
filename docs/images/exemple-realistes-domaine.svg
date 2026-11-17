@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="790" viewBox="0 0 1480 790" role="img" aria-labelledby="title desc">
+ <title id="title">Un mobile peut avancer trop lentement pour les règles actuelles</title>
+ <desc id="desc">Schéma conceptuel avec échelle nominale, sans observation. Dix, trente et soixante secondes d'arc par heure sont sous la borne actuelle. Neuf cents est un contraste rapide. Un contrôle technique n'est pas un objet astronomique.</desc>
+ <rect width="1480" height="790" fill="#f4f7fb"/>
+ <g font-family="DejaVu Sans,Arial,sans-serif" fill="#152641">
+  <text x="58" y="64" font-size="34" font-weight="bold">Le point bouge… mais notre chercheur le cherche-t-il à cette vitesse ?</text>
+  <text x="58" y="104" font-size="21">SCHÉMA CONCEPTUEL · échelle nominale · aucun résultat d'observation représenté</text>
+  <rect x="58" y="147" width="1360" height="130" rx="18" fill="white" stroke="#b6c8db"/>
+  <text x="84" y="184" font-size="23" font-weight="bold">Deux façons de mesurer un déplacement</text>
+  <text x="84" y="223" font-size="23">Dans le ciel : secondes d'arc / heure → Dans l'image : pixels natifs / seconde déclarée</text>
+  <text x="84" y="256" font-size="20">Avec 2,9 µm et 250 mm déclarés : environ 2,393 secondes d'arc par pixel. Ce n'est pas une calibration.</text>
+  <rect x="58" y="314" width="760" height="245" rx="18" fill="#fff3d7" stroke="#dfbf70"/>
+  <rect x="850" y="314" width="568" height="245" rx="18" fill="#e2f1ff" stroke="#90b8dd"/>
+  <text x="84" y="356" font-size="26" font-weight="bold">10 · 30 · 60 secondes d'arc / heure</text>
+  <text x="84" y="400" font-size="23">Environ 0,0012 · 0,0035 · 0,0070 pixel / s</text>
+  <text x="84" y="445" font-size="23">Ces exemples lents sont sous la borne actuelle.</text>
+  <text x="84" y="485" font-size="23">Un manque ne signifie pas que le point n'existe pas.</text>
+  <text x="84" y="526" font-size="20">Les règles ne sont pas changées pour réussir l'essai.</text>
+  <text x="876" y="356" font-size="26" font-weight="bold">900 secondes d'arc / heure</text>
+  <text x="876" y="400" font-size="23">Environ 0,1045 pixel / s</text>
+  <text x="876" y="445" font-size="23">Ce contraste rapide entre dans la plage.</text>
+  <text x="876" y="485" font-size="23">Cela ne garantit pas sa récupération.</text>
+  <text x="876" y="526" font-size="20">Ce n'est pas une vitesse typique de tous les astéroïdes.</text>
+  <path d="M58 597H1418" stroke="#8297b1" stroke-width="2"/>
+  <text x="58" y="638" font-size="25" font-weight="bold">Borne actuelle : 0,1 pixel / seconde, soit environ 861 secondes d'arc / heure</text>
+  <text x="58" y="680" font-size="22">Un témoin ne reçoit aucun ajout. Un contrôle technique brillant avance à 0,5 pixel / s sans traînée.</text>
+  <text x="58" y="718" font-size="22">Retrouver ce contrôle vérifie un chemin logiciel ; cela ne qualifie pas la détection des mouvements lents.</text>
+  <text x="58" y="755" font-size="20">Heures et échelle déclarées, pas d'UTC ou d'astrométrie absolue qualifiée · aucune magnitude limite annoncée</text>
+ </g>
+</svg>

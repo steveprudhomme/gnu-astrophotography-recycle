@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="480" viewBox="0 0 1120 480" role="img" aria-labelledby="title desc">
+<title id="title">Lire un numéro de version SemVer</title>
+<desc id="desc">Schéma conceptuel avec exemple 1.2.3 : changement incompatible, nouvelle fonction compatible, correction compatible. Alpha signifie version de développement.</desc>
+<rect width="1120" height="480" fill="#f4f7fb"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" text-anchor="middle" fill="#14243b">
+<text x="560" y="52" font-size="29" font-weight="bold">Lire la version d'un logiciel</text>
+<text x="560" y="86" font-size="18">SCHÉMA CONCEPTUEL · exemple fictif après la version 1.0.0</text>
+<rect x="40" y="120" width="320" height="230" rx="16" fill="#dceafd"/>
+<rect x="400" y="120" width="320" height="230" rx="16" fill="#d9f2e5"/>
+<rect x="760" y="120" width="320" height="230" rx="16" fill="#fff0cd"/>
+<text x="200" y="195" font-size="64" font-weight="bold">1</text>
+<text x="560" y="195" font-size="64" font-weight="bold">2</text>
+<text x="920" y="195" font-size="64" font-weight="bold">3</text>
+<text x="200" y="240" font-size="23">MAJOR</text><text x="560" y="240" font-size="23">MINOR</text><text x="920" y="240" font-size="23">PATCH</text>
+<text x="200" y="283" font-size="18">Changement incompatible</text><text x="200" y="311" font-size="17">Il faut adapter son utilisation.</text>
+<text x="560" y="283" font-size="18">Nouvelle fonction compatible</text><text x="560" y="311" font-size="17">L'utilisation existante reste valable.</text>
+<text x="920" y="283" font-size="18">Correction compatible</text><text x="920" y="311" font-size="17">On répare un problème.</text>
+<text x="560" y="397" font-size="21">Notre version : 0.10.0-alpha.1</text>
+<text x="560" y="433" font-size="18">0 : développement · alpha.1 : préversion · Python écrit l'équivalent 0.10.0a1</text>
+</g></svg>
