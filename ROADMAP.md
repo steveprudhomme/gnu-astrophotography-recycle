@@ -241,3 +241,19 @@ Plan documentaire du 16 novembre 2026, à enregistrer avant les modifications. L
 - D3 : vérifier les liens, illustrations, différences et confidentialité, committer la documentation, envoyer à GitHub puis contrôler le commit distant. Aucun accès USB ni relance des mesures ; les 197 tests précédents restent identifiés comme résultats du lot applicatif 0.8.
 
 Plan préalable **`835eac9`**. D1/D2 réalisés : README illustré, accès directs au tutoriel, cadrage/gouvernance actualisés et schéma conceptuel de publication PNG/SVG. D3 est livré avec le commit documentaire : contrôles de liens, illustrations et confidentialité, puis publication distante vérifiée séparément. Cette maintenance ne change ni le code applicatif ni les résultats scientifiques.
+
+## Lot de travail 9 — préparer la qualification temporelle
+
+Plan du 16 novembre 2026, à committer avant développement. Entrée exclusive : workset local et copies déjà vérifiées, sans accès USB, sans consultation des chemins sources historiques et sans nouvelle acquisition d’observations. Ce lot prépare les preuves nécessaires ; il ne certifie pas une horloge à partir des seuls en-têtes.
+
+- H1 : consulter les références FITS/Astropy applicables et définir un contrat distinguant présence de champs complets, cohérence déclarative, défaut normatif, preuve instrumentale et applicabilité aux archives anciennes.
+- H2 : ajouter `gar time-evidence`, lecture des en-têtes de toutes les HDU des copies uniquement, sans pixels ; contrôler périmètres locaux, liens, SHA-256 des copies et du workset avant/après, sorties nouvelles et indices/provenance valides.
+- H3 : conserver cartes temporelles et indices de logiciel/firmware avec commentaires et doublons : dates début/milieu/fin/création, coordonnées numériques, origine/échelle/unité, durées et erreurs déclarées. Une valeur PROGRAM/CREATOR ne prouve pas un firmware exact ; une absence est confirmée seulement dans les en-têtes locaux examinés.
+- H4 : diagnostiquer dates prises en charge, conflits et intervalles calendaires naïfs, sans convertir en UTC/JD/BJD ou inventer un milieu de pose. Distinguer durée d’exposition, temps écoulé et empilement ; toute incertitude écrite reste une déclaration, jamais une mesure indépendante.
+- H5 : produire un dossier JSON/CSV/Markdown/SVG et un canevas de preuves à compléter, sans ingestion ni approbation automatique de mesures. Statuts temporels/export restent faux et précision réelle inconnue ; code 2 après dossier produit, code 1 si impossible.
+- H6 : rédiger un protocole illustré : référence de temps indépendante et traçable, début/fin d’exposition, décalage/dérive/jitter, durée, incertitudes et dépendances, répétitions/configurations, critères fixés avant essai et exigences de rattachement aux anciennes archives. Une mesure future ne certifie pas rétroactivement ces archives.
+- H7 : tests synthétiques des dates, doublons, échelles/unités/erreurs et durées, distinctions pose/empilement/extension, intégrité, chemins refusés, absence de réseau/pixels et maintien du refus de qualification même avec en-têtes riches ; illustrations publiques synthétiques ou conceptuelles seulement.
+- H8 : exécuter le dossier sur les quatre copies locales, inspecter les produits privés, vérifier empreintes et reproductibilité ; consigner les éléments établis/inconnus sans publier les données réelles.
+- H9 : mettre à jour tutoriel illustré, README, installation, contrats, validation et sources ; vérifier version, dépendances et confidentialité, committer la réalisation et publier sur GitHub code/documentation/exemples synthétiques uniquement.
+
+La disponibilité d’un dossier de préparation n’achève pas la qualification temporelle. Sans preuves indépendantes applicables au firmware, au mode et à l’époque des observations, `time_validated`, `exposure_reference_verified` et `scientific_time_export_allowed` restent faux ; `clock_accuracy_seconds` et `mid_exposure_utc` restent inconnus.
