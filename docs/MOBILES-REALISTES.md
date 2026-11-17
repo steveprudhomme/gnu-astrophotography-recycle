@@ -96,3 +96,13 @@ Des tests logiciels réussis peuvent démontrer que le programme respecte ses r�
 - les refus ou indisponibilités, qui ne sont jamais renommés « rien trouvé ».
 
 Zéro candidat naturel ne prouve pas l'absence d'objet. Une récupération artificielle ne constitue pas une découverte. Cette étude est conditionnelle au recalage gelé et à un modèle simplifié ; elle ne fournit ni probabilité universelle, limite en magnitude ou qualification scientifique complète. Les nouvelles figures publiques sont fictives ; les nouveaux détails et médias réels restent locaux, avec les cinq médias CC0 existants inchangés.
+
+## Vérifications et reproduction
+
+Les **46 nouveaux tests fictifs** passent en **37,02 s** : unités et domaine, traînée/flux du modèle, masques, réponses séparées, intégrité, refus de durée et de sorties existantes, inconnues `None`, mutation de candidats et dessins sans recherche. La revue interne a renforcé les empreintes finales des 19 candidats et la cohérence des groupes. Les deux contextes fictifs donnent 3/18 et 2/18 récupérations, 2/2 contrôles et 0/12 lents chacun, avec témoins identiques à zéro ; les critères logiciels sont vrais, la couverture lente et l'aptitude scientifique restent fausses.
+
+Depuis le commit propre **`61cac96`**, **517 tests réussissent en 210,82 secondes**. Les neuf commandes du parcours donnent 0 dans de nouveaux dossiers. Les seize FITS fictifs et, pour chacun des quatre fonds analysés, les 152 dérivés, 19 rapports de candidats, scores et trois figures sont reproduits à l'identique. Les résultats réels restent A5/18, B4/18, contrôles 2/2 et lents 0/12 chacun, C refusé avec 18 indisponibles. Les 379 entrées et anciens dérivés surveillés, les 24 copies réelles et les cinq médias CC0 sont préservés.
+
+La copie initiale des seize sources autorisées a vérifié les empreintes historique/avant/copie/après et la taille/date de modification, sans écriture du support. Les analyses et la reproduction bloquent ensuite tout accès externe/réseau, écriture FITS et écriture d'ancien dérivé NPY ; les nouveaux dérivés locaux sont les seuls NPY écrits. Les gardes restent à zéro. La reproduction ne répète pas les copies et ne relit pas le support. Les 220 fichiers publics et 46 ancres sont contrôlés, sans FITS/NPY privés dans Git.
+
+Les 61 anciennes commandes conservent leurs preuves sans réexécution générale. Publication par branche dédiée et PR, revue interne et contrôle distant/local ; tests locaux, aucun contrôle automatique GitHub configuré. Version et moteurs inchangés. Aucun objet naturel connu, précision d'horloge, essai enfant/Windows vierge ou validation scientifique indépendante n'est annoncé ; le résultat négatif d'aptitude lente n'est pas effacé par les tests réussis.

@@ -79,6 +79,8 @@ Ce complément ajoute 48 tests fictifs, soit **471 tests réussis en 172,63 s**.
 
 L'[essai de mouvements représentatifs](docs/MOBILES-REALISTES.md) confronte enfin les vitesses visées au domaine actuel. L'échelle nominale des en-têtes donne environ 2,393″/pixel et une borne de recherche d'environ 861″/h : les scénarios 10/30/60″/h sont exclus. Sur les deux contextes réels admissibles, 0/12 ajouts lents et 2/2 contrôles techniques sont retrouvés dans chacun ; le contraste à 900″/h donne 3/4 puis 2/4. Le troisième contexte est refusé avant injection pour durée de 139,4 s au-delà des 120 s du contrat, sans changer cette limite. Les seize nouvelles copies ont été prises en lecture seule, toutes analyses ensuite locales. **Le moteur actuel n'est donc pas validé pour les mouvements lents visés.** Aucun objet naturel connu n'a servi de contrôle positif ; les ajouts artificiels ne sont pas des découvertes.
 
+Ce lot ajoute 46 tests fictifs : **517 tests réussis en 210,82 s**. Reproduction depuis `61cac96` propre : neuf commandes aux codes 0, mêmes données, candidats, scores et figures sur deux fonds fictifs et deux réels ; refus du troisième contexte conservé. Les 24 copies réelles, anciens résultats et cinq médias CC0 restent intacts ; aucun accès au support pendant la reproduction. Les tests réussis n'annulent pas le résultat négatif sur les mouvements lents.
+
 ## Démarrer
 
 Les documents sont lisibles immédiatement. L’inventaire a été testé avec Python 3.13.6, Astropy 7.2.0 et NumPy 2.4.1 sur Windows. Le lanceur `scripts/gar-inventory.bat` utilise votre Python ou l’environnement `.venv` du projet ; voir [INSTALL.md](INSTALL.md). Il n’est pas encore autonome.
