@@ -69,6 +69,8 @@ Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas u
 
 La [trace interne du détecteur](docs/TRACE-DETECTEUR.md) approfondit les 17 manques en rejouant les pixels des seuls dérivés locaux, avec égalité exigée aux positions enregistrées. Les 115 absences de maximum proche ne permettent pas de séparer seuil, voisinage, séparation, masque ou bord ; aucun rejet de forme ou de marge proche n'est observé dans ces cas. Les deux rayons donnent les mêmes constats, sans nouvelle trajectoire ou changement de seuil. Un nouveau banc indépendant de douze images fictives et trois commandes pédagogiques illustre les portes. Trois agents ont travaillé en parallèle avec intégration et revue internes ; aucune validation scientifique indépendante n'est annoncée.
 
+Ce lot ajoute 42 tests fictifs : **423 tests réussis en 139,60 s**, depuis le commit propre `f6ec207`. Les trois commandes, douze images et traces fictives, deux figures et 136 traces réelles ont été reproduites ; scores, candidats, copies et cinq médias CC0 sont intacts. Version et moteurs inchangés. Les essais sont locaux, sans nouvel accès USB ni nouvelle injection réelle.
+
 ## Démarrer
 
 Les documents sont lisibles immédiatement. L’inventaire a été testé avec Python 3.13.6, Astropy 7.2.0 et NumPy 2.4.1 sur Windows. Le lanceur `scripts/gar-inventory.bat` utilise votre Python ou l’environnement `.venv` du projet ; voir [INSTALL.md](INSTALL.md). Il n’est pas encore autonome.
