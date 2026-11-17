@@ -26,6 +26,8 @@ Le [lot 18](INJECTIONS-SEESTAR.md) mesure descriptivement la récupération de p
 
 Le [lot 19](DIAGNOSTIC-MANQUES.md) lit ensuite les positions gelées sans changer les seuils : les 26 manques sont réconciliés en neuf hors plage de vitesse et 17 avec moins de cinq images contenant un point enregistré proche dès la détection, aux deux rayons de diagnostic. Les étapes de champ commun et de filtre n'enlèvent pas de support supplémentaire observé dans ces 17 cas. Deux commandes et vignettes dès 10 ans complètent le parcours ; les causes physiques restent non établies. Les candidats, scores, copies et moteurs sont préservés, sans accès USB ou nouvelle recherche.
 
+Ses 24 nouveaux tests entièrement fictifs portent la suite à **381 tests réussis**. La reproduction depuis `234c439` conserve les diagnostics des 36 injections de chaque fond et les figures, sans régénérer les injections ou modifier les anciens résultats.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants
