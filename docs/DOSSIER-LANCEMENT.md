@@ -32,6 +32,10 @@ Le [lot 20](TRACE-DETECTEUR.md), plan `08219f0` et mandat des trois agents publi
 
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
+Le [lot 21](ABSENCES-MAXIMA.md), plan `4a5bd4b` publié avant code, poursuit la cohorte fixe des 115 absences avec trois agents. Les cartes sont calculées sans réponses forcées puis rapprochées aux deux rayons préexistants : 105 cercles sans réponse au-dessus du seuil et dix avec réponse au-dessus mais sans maximum local proche, avec voisin plus haut enregistré. Les premières portes vides diffèrent dans 22 situations entre les deux rayons ; les obstacles simultanés restent visibles. Aucune cause physique exclusive, changement de seuil, nouvelle association ou injection réelle. Nouveau banc indépendant et illustrations fictives, détails réels privés ; copies, candidats et cinq médias CC0 préservés.
+
+Ses 48 tests nouveaux portent la suite à **471 tests réussis en 172,63 s**. La reproduction depuis `f1f159f` propre donne trois commandes aux codes 0, douze images et traces fictives et deux figures identiques, mêmes 17 cas et 136 traces réels, cohorte 115/contexte 21 conservés. Les 380 entrées et traces surveillées restent intactes ; 211 fichiers publics et 45 ancres contrôlés. Revue interne et tests locaux, sans qualification scientifique indépendante.
+
 ## 2. Arborescence unifiée et composants
 
 Les fichiers racines, modèles GitHub et documents ci-dessous sont livrés. L’arborescence suivante reste la cible modulaire à terme ; les paragraphes par version décrivent les composants effectivement disponibles. Le premier module a introduit `src/gar/contracts.py`, `inventory.py`, `reports.py` et `cli.py`, avec `__main__.py`, le lanceur `scripts/gar-inventory.bat`, `tests/test_inventory.py` et `examples/make_demo.py`. Son interface est décrite dans [CONTRAT-INVENTAIRE.md](CONTRAT-INVENTAIRE.md). Le recalage et les comparaisons stellaires exploratoires sont désormais livrés ; les mesures de mobiles et la photométrie restent à développer.

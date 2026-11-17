@@ -662,6 +662,40 @@ Les [explications détaillées](TRACE-DETECTEUR.md) montrent comment appliquer c
 
 Sur les 17 ajouts manqués du fond réel, le carnet regarde huit photos pour chacun : cela fait 136 situations à observer. Il retrouve les mêmes listes finales. Dans 115 situations, aucun sommet brut n'est proposé assez près ; dans 21, un centre proche est conservé. Nous n'observons pas de rejet de forme ou de marge proche pour ce lot. Cela **ne prouve pas pourquoi les 115 sommets manquent**. Les mêmes photos servent plusieurs fois et ces 136 situations ne sont pas 136 expériences indépendantes. Aucun nouveau mobile n'est découvert.
 
+## Nouvelle mission : comprendre pourquoi aucun sommet n'est proposé
+
+Nous avons ajouté un carnet aux contrôles de forme. Maintenant, nous ouvrons la page d'avant : **comment le programme propose-t-il un sommet ?** Imagine une carte de montagnes en petits carrés. Un carré clair peut avoir un voisin plus haut. Un sommet peut aussi être interdit par un masque, trop près d'un bord, ou ne pas dépasser la barre demandée.
+
+![Les portes avant un sommet proposé, schéma conceptuel](images/exemple-maxima-portes.svg)
+
+Le programme calcule une **réponse convoluée** avec son petit modèle de forme. Ce nom compliqué désigne simplement une nouvelle carte de nombres. Elle ne donne pas une luminosité calibrée. Le programme compare les voisins, enlève les centres interdits et le bord, puis exige une hauteur **plus grande** que le seuil : égale ne suffit pas. Il regroupe aussi les plateaux et départage les égalités selon ses règles.
+
+Nous gardons les mêmes réglages et fabriquons douze images entièrement fictives : six situations pour deux graines prévues. Elles montrent un point isolé brillant, un faible, un voisin brillant, un masque, le bord et un plateau. Les noms disent ce que nous fabriquons, pas ce que le programme doit forcément répondre. Le bruit d'une même graine est partagé entre situations ; ce ne sont pas douze expériences indépendantes.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_peak_absence_demo.py local/parcours/maxima-images
+.\.venv\Scripts\python.exe examples/trace_peak_creation.py local/parcours/maxima-images/manifest.json local/parcours/maxima-images/truth.json local/parcours/maxima-bilan
+.\.venv\Scripts\python.exe examples/plot_peak_absences.py local/parcours/maxima-bilan/trace.json local/parcours/maxima-figures
+```
+
+Les trois codes attendus sont **0**. La première commande fabrique les images et sépare les réponses. La deuxième remplit les cartes sans recevoir ces positions, vérifie la même liste de sommets que la bibliothèque, puis regarde les réponses. La troisième dessine le carnet déjà terminé, sans rappeler le détecteur. Utilise des sorties nouvelles à chaque essai.
+
+Ouvre `local/parcours/maxima-bilan/report.md`, puis `gates.png` et `examples.png` dans `local/parcours/maxima-figures`. Chaque colonne du tableau représente une image. Chaque ligne compte les centres proches qui passent une porte. Nous regardons dans les mêmes cercles de 1,5 puis 3 pixels natifs ; cela ne change pas le détecteur.
+
+![Portes calculées sur les douze images entièrement fictives](images/exemple-maxima-portes-calcul.png)
+
+![Six situations entièrement fictives et leurs échantillons de réponse](images/exemple-maxima-situations.png)
+
+Le rond vert marque la réponse inventée, **pas une détection**. Les petits centres examinés et leurs valeurs viennent du carnet ; une graine proposée n'est pas un objet astronomique identifié. Quand une ligne devient vide, nous notons cette première porte, mais nous gardons aussi les autres obstacles. Un voisin peut être plus haut alors que la réponse est également sous le seuil.
+
+Les petits carrés bleus dépassent le seuil ; les oranges ne le dépassent pas. Le nombre compare la meilleure valeur examinée au seuil. Plus grand que 1 ne suffit pas : regarde le voisin plus brillant, qui peut avoir une valeur plus haute ailleurs. Un nombre négatif appartient à cette carte calculée, pas à une luminosité physique négative. Les tableaux utilisent 1,5 pixel et les vignettes montrent le contexte à 3 pixels ; le rapport garde les deux.
+
+Les [explications détaillées](ABSENCES-MAXIMA.md) reprennent les caches locaux déjà préparés. Les 115 situations sans maximum du fond réel sont fixées par le lot précédent ; ce ne sont pas 115 objets. Les 21 autres situations restent en contexte. Une erreur, une bibliothèque différente ou des listes divergentes doivent arrêter le bilan. Garde le message et la sortie partielle ; corrige la cause et choisis un nouveau dossier. Aucun accès USB ou nouveau réglage n'est nécessaire.
+
+Sur le fond réel, le petit cercle donne 69 premières portes vides au maximum local et 46 au seuil ; le cercle plus large donne 47 et 68. Cela fait toujours 115 absences. Dans 22 situations, le nom de la première porte change quand nous regardons plus large. Pour chaque rayon, 105 situations n'ont aucun centre de carré au-dessus du seuil et dix en ont, mais aucun maximum local proche. **N'additionne pas ces deux façons de compter : elles décrivent les mêmes situations.** Nous gardons les autres obstacles et les causes physiques inconnues.
+
+Dans ces dix situations au-dessus du seuil, le carnet trouve aussi un voisin plus haut dans la comparaison prévue. Il mesure ce voisin ; il ne sait pas pour autant quel objet c'est, ni toute l'histoire physique de l'image.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -718,3 +752,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *Le diagnostic ajoute 24 tests fictifs, soit 381 tests réussis depuis le commit propre `234c439`. Ses deux commandes donnent 0 sur les résultats de l'exercice déjà préparé. Les diagnostics des 36 ajouts de chaque fond et les figures sont reproduits à l'identique ; les scores, candidats et photos restent intacts. Les 53 commandes précédentes gardent leurs preuves sans être toutes rejouées. Aucune recherche ou injection réelle n'est relancée et aucune compréhension par un enfant ou qualification scientifique indépendante n'est revendiquée.*
 
 *Le carnet du détecteur ajoute 42 tests fictifs, soit **423 tests réussis** en 139,60 secondes depuis le commit propre `f6ec207`. Ses trois commandes donnent 0 dans de nouveaux dossiers : les douze images, les douze traces et les deux PNG sont identiques. Sur le fond réel déjà local, les 136 listes et traces des 17 cas sont reproduites, avec les anciens scores et candidats préservés, sans accès USB ou nouvelle injection. Les 55 commandes précédentes conservent leurs preuves sans être toutes rejouées. Les trois agents et leur coordinateur ont fait une revue interne, sans test de compréhension avec un enfant ou qualification scientifique indépendante.*
+
+*La mission sur les absences de maxima ajoute 48 tests fictifs, soit **471 tests réussis** en 172,63 secondes depuis le commit propre `f1f159f`. Ses trois commandes donnent 0 dans de nouveaux dossiers ; douze images et traces et deux PNG sont identiques. Sur le fond réel déjà local, les 136 traces des 17 cas sont reproduites, avec les 115 absences et le contexte 21 inchangés. Les scores, candidats et photos restent intacts, sans USB ou nouvelle injection réelle. Les 58 commandes précédentes conservent leurs preuves sans être toutes rejouées. Les illustrations sont fictives et la revue des trois agents reste interne, sans essai avec un enfant ou qualification scientifique indépendante.*
