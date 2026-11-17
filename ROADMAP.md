@@ -131,3 +131,18 @@ Plan du 15 novembre 2026, enregistré dans **`a7044f1` avant le code** ; finalis
 Une résolution astrométrique ou une validation contre catalogue demandera ensuite des images locales de travail et une collecte complète du contexte WCS, avec un nouveau plan. Ce lot n’implique ni résolution d’images, ni qualification temporelle, ni autorisation de modifier les archives.
 
 Version : **0.4.0a1**. L’interruption initiale de l’exécution des tests n’a pas été présentée comme un succès ; les 136 cas ont été exécutés avec succès lors de la reprise.
+
+## Lot de travail 5 — échantillon local et en-têtes complets
+
+Plan du 16 novembre 2026, à committer avant développement. Lecture et copie de quelques fichiers explicitement sélectionnés, jamais déplacement ni écriture sur le support source. Tous les nouveaux produits restent dans `local/` du projet, exclu de Git.
+
+- L1 : sélectionner depuis les manifestes trois poses (début/milieu/fin) et un empilement compatible ; documenter que cette association ne prouve pas la liste exacte de ses sources.
+- L2 : ajouter `gar workset` sur une sélection JSON explicite ; refuser liens/jonctions, destinations hors du `local/` du projet, sortie existante et sélections ambiguës.
+- L3 : copier octet par octet en ouvrant les sources en lecture seule ; comparer SHA-256 avant copie, copie et source après copie ; vérifier les empreintes historiques lorsqu’elles existent.
+- L4 : lire uniquement les copies pour exporter les en-têtes complets de chaque HDU (cartes, commentaires, ordre et représentation textuelle), sans modifier les copies.
+- L5 : relever unités, référentiel, distorsions, logiciel/firmware et historique ; essayer la construction d’un modèle céleste depuis l’en-tête complet, sans transformation ni comparaison au catalogue et sans certification.
+- L6 : tester refus des sorties et liens, collisions, sources changées, empreintes erronées, extensions et préservation ; produire un exemple synthétique illustré.
+- L7 : exécuter sur la sélection autorisée, vérifier les quatre fichiers et conserver les rapports privés ; actualiser contrats, tutoriel, README, INSTALL et sources.
+- L8 : vérifier installation, suite de tests et confidentialité ; commit et publication sans FITS, en-têtes personnels ni chemins privés.
+
+La résolution d’images sans solution et la validation sur un catalogue restent des étapes ultérieures. La présence d’un modèle construit par une bibliothèque ne prouve pas son exactitude.
