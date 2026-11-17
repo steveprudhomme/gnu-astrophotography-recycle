@@ -533,6 +533,72 @@ Sur la vraie série, les sept alignements ont passé les contrôles et aucun can
 
 *À gauche, regarde les étoiles entre les photos. À droite, l'affichage les ramène près du même endroit. Les images restent bruitées ; aucun point mobile n'a été trouvé par cette recherche. Le film change de photo toutes les 0,6 seconde pour que nous puissions le regarder, sans reproduire la cadence du télescope. La [notice CC0](images/reels/LICENCE.md) permet de savoir quelles images sont publiques et d'où elles viennent.*
 
+## Nouvelle mission : retrouver des points ajoutés exprès
+
+Nous avons essayé huit vraies images et trouvé zéro candidat. Mais le programme aurait-il retrouvé un point faible s'il y en avait eu un ? Pour le vérifier, nous ajoutons exprès des points dont nous connaissons les positions. Cela s'appelle une **injection**. Les points ajoutés sont inventés, même quand leur fond vient d'une vraie photo.
+
+Tu peux refaire cet exercice sans observations personnelles. Nous fabriquons d'abord tout le fond, puis nous gardons son alignement déjà calculé. Nous ajoutons ensuite un seul point mobile par série. Il y a trois luminosités, quatre vitesses et trois départs : `3 × 4 × 3 = 36` séries, plus un **témoin** sans point ajouté.
+
+![Exercice entièrement fictif : témoin, ajout faible et ajout plus brillant](images/exemple-injections-animation.gif)
+
+*Vert : nous révélons la position ajoutée après la recherche. Cyan : le programme a effectivement associé un candidat au point. Un cercle vert tout seul n'est pas une détection. Les trois morceaux d'image ont les mêmes limites de champ et le même contraste ; le film avance toutes les 0,6 seconde pour le regarder.*
+
+### 1 — Préparer un fond d'entraînement
+
+Dans PowerShell, depuis la racine du dépôt, avec les installations déjà expliquées. Prévoir environ 100 Mo pour l'exercice et choisir des noms de sortie neufs.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_injection_background.py local/parcours/injections-fond
+```
+
+Cette commande invente cent étoiles, le bruit et huit photos avec un petit mouvement de caméra. Elle prépare les copies puis calcule les alignements. Les passages des points de test sont dégagés dans cet exercice pour vérifier des cas simples ; les vraies images ne sont pas aussi faciles.
+
+**Tu dois voir :** huit copies préparées, recherche sans mobile à zéro candidat, puis un fond fictif prêt. Les fichiers FITS sont des images inventées pour apprendre.
+
+### 2 — Ajouter les points sans toucher aux FITS
+
+```powershell
+.\.venv\Scripts\python.exe examples/injection_recovery.py generate local/parcours/injections-fond/pilot/pilot.json local/parcours/injections-suite
+```
+
+**Tu dois voir :** 37 séquences préparées. Les dérivés sont des tableaux `.npy` dans `planes/`, des petites feuilles de nombres pour ce test. Le programme garde les photos FITS intactes. Il écrit aussi `truth.json`, la feuille des réponses.
+
+### 3 — Laisser chercher sans montrer les réponses
+
+```powershell
+.\.venv\Scripts\python.exe examples/injection_recovery.py analyze local/parcours/injections-suite/manifest.json local/parcours/injections-analyse
+```
+
+**Tu dois voir :** 37 analyses gelées et terminées. Regarde la commande : elle ne reçoit pas `truth.json`. Le programme doit d'abord trouver ses candidats et enregistrer leurs empreintes. Nous n'utilisons pas la feuille des réponses pour l'aider à chercher.
+
+### 4 — Compter les réussites et les manques
+
+```powershell
+.\.venv\Scripts\python.exe examples/injection_recovery.py score local/parcours/injections-suite/manifest.json local/parcours/injections-suite/truth.json local/parcours/injections-analyse/analysis.json local/parcours/injections-bilan
+```
+
+Le programme peut maintenant lire les réponses et comparer. Pour cet exercice, **tu dois voir 12 points retrouvés sur 36, 24 manqués et zéro indisponible**. Le témoin sans ajout reste sans candidat. Nous gardons les manques : il ne faut pas changer les règles seulement pour transformer tous les résultats en réussites.
+
+Un point très lent est volontairement sous la vitesse minimale prévue par le chercheur. D'autres points sont trop faibles dans cet essai. « Indisponible » voudrait dire que le test n'a pas pu avoir lieu, par exemple parce que le point sort du champ ; cela diffère d'un point testé et manqué.
+
+### 5 — Regarder le bilan
+
+```powershell
+.\.venv\Scripts\python.exe examples/plot_injection_recovery.py local/parcours/injections-bilan/score.json local/parcours/injections-figures
+```
+
+Les cinq commandes de cette mission retournent **0** sur l'exercice livré. Ouvre `local/parcours/injections-figures/recovery-grid.png`, puis `injection-comparison.gif`. Le rapport lisible est `local/parcours/injections-bilan/report.md`.
+
+![Carte des récupérations sur le jeu entièrement fictif](images/exemple-injections-carte.png)
+
+Chaque case compte les points retrouvés parmi trois départs fixés. Par exemple, `3/3` veut dire que les trois ajouts de cette case sont retrouvés ; cela ne promet pas de trouver tous les objets du ciel. Si des cas sont bloqués, le bilan le signale avec le code 2 et des nombres inconnus `null` ; une erreur de fichier peut donner le code 1 et un dossier incomplet à conserver. Après correction, utiliser une nouvelle sortie.
+
+### Et sur le fond réel du Seestar ?
+
+Le même protocole, appliqué aux dérivés des huit copies réelles, a retrouvé **10 ajouts artificiels sur 36**, avec 26 manques et aucun cas bloqué. Le témoin sans ajout reproduit exactement le premier résultat naturel, zéro candidat. Nous n'avons donc pas découvert dix objets : nous avons retrouvé dix points que nous avions nous-mêmes ajoutés. Les images, bruits et temps des deux fonds diffèrent ; leurs comptages ne constituent pas une comparaison statistique de capteurs.
+
+Ce test garde le recalage déjà accepté et ne le recalcule pas. Il ne vérifie ni une heure exacte, ni une magnitude limite ou tous les comportements d'une vraie étoile. Les [détails des injections](INJECTIONS-SEESTAR.md) donnent les règles, les résultats individuels attendus et les limites. Les nouvelles figures publiques sont fictives ; les animations mixtes sur fond réel et leurs rapports restent locaux. Les cinq médias réels CC0 déjà autorisés restent dans la documentation.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -583,3 +649,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *Le pilote exploratoire ajoute 19 cas, soit 335 tests réussis en 83,31 secondes depuis le commit propre `80ada2e`. Ses neuf commandes ont été rejouées dans des dossiers neufs avec les codes attendus, y compris 2 pour le refus ; les modèles/positions/candidat du nominal et les trois illustrations sont identiques. L'essai réel reproduit garde sept modèles acceptés, zéro candidat, huit copies intactes et le même GIF, sans accès USB. Les 39 commandes précédentes gardent leurs preuves sans être toutes rejouées. Ce sont des vérifications de reproduction, pas un test de compréhension avec un enfant ou sur un ordinateur vierge.*
 
 *La diffusion réelle CC0 ajoute trois tests fictifs, soit 338 tests réussis. Depuis le commit propre `305eeed`, les trois nouveaux médias réels ont été reproduits à l'identique ; les deux PNG initiaux et les trois rendus privés par défaut sont inchangés, ainsi que le rapport et les huit copies. Les cinq médias autorisés sont listés dans leur notice CC0. Aucun nouvel essai de recherche ni nouvelle exécution de tous les exercices n'est revendiqué pour cette diffusion.*
+
+*Les injections ajoutent 19 tests fictifs, soit 357 tests réussis depuis le commit propre `7c663f7`. Les cinq nouvelles commandes ont réussi dans des dossiers neufs : mêmes 296 dérivés et 37 résultats gelés par fond, mêmes bilans et figures. Le fond fictif donne 12/36 points artificiels retrouvés, les dérivés du fond réel 10/36, avec témoin naturel inchangé et copies intactes. Les 48 commandes antérieures gardent leurs preuves, sans être toutes rejouées. Cela vérifie la reproduction de l'exercice, pas sa compréhension par un enfant ou une validation scientifique universelle.*
