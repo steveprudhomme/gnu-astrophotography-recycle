@@ -59,6 +59,16 @@ Aucune dépendance supplémentaire n’est nécessaire. Les observations ne sont
 
 Les sorties sont `wcs.json`, `wcs.csv`, `wcs.svg` et `report.md`. Le code `2` signifie que le diagnostic est produit sans certification astrométrique ; les unités et distorsions non collectées ne sont pas inventées. Voir le [contrat WCS](docs/CONTRAT-WCS.md) et l’exemple du [tutoriel](docs/TUTORIEL.md).
 
+## Préparer des copies locales vérifiées
+
+Avec une sélection JSON locale conforme au [contrat](docs/CONTRAT-WORKSET.md) :
+
+```powershell
+.\.venv\Scripts\python.exe -m gar workset ".\local\selection.json" --output ".\local\echantillon-01"
+```
+
+La sortie doit être nouvelle et dans `local/` du projet. Le code `0` signifie que copies et collecte ont réussi ; il ne certifie aucune WCS. Les originaux sont ouverts en lecture seule ; aucun fichier n’est créé sur leur support. Pour un premier essai sans observation réelle, utiliser le générateur indiqué dans le tutoriel.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

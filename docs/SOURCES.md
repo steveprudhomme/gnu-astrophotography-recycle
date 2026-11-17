@@ -62,3 +62,7 @@ La [version anglaise](SEESTAR-S50-FITS-RECOMMENDATIONS.en.md) conserve les même
 ## Diagnostic WCS sur manifeste partiel
 
 Le [contrat WCS](CONTRAT-WCS.md) s’appuie sur le standard FITS 4.0 et la documentation officielle [Astropy WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html) et [validation](https://docs.astropy.org/en/stable/wcs/validation.html). Le module n’appelle pas une reconstruction WCS en complétant les champs manquants : il inspecte un sous-ensemble déclaré, avec NumPy pour le bloc CD. Les catégories, seuils numériques et prochaines actions sont des choix de diagnostic du projet, sans équivalence avec des résidus astrométriques mesurés.
+
+## Copies locales et en-têtes complets
+
+Le [contrat workset](CONTRAT-WORKSET.md) utilise les API officielles [Header](https://docs.astropy.org/en/stable/io/fits/api/headers.html) et [WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html). Le nouveau produit complet est distinct du manifeste partiel : une construction WCS peut maintenant être tentée sur les copies avec leur contexte HDU. Cela reste une construction de modèle, pas une comparaison à un catalogue. Les graphiques publics proviennent uniquement du générateur fictif.

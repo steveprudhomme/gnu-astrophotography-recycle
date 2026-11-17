@@ -24,6 +24,9 @@ from .timing import audit_timing
 from .timing_reports import write_timing_reports
 from .wcs_audit import audit_wcs
 from .wcs_reports import write_wcs_reports
+from .workset import prepare_workset
+import hashlib
+import json
 
 
 def source_commit():
@@ -61,6 +64,9 @@ def main(argv=None):
     wcs_command.add_argument("--output", required=True, type=Path, help="Nouveau dossier local de rapports privés.")
     wcs_command.add_argument("--max-condition", type=float, default=1e8,
                             help="Seuil de conditionnement numérique du bloc CD, pas de précision astrométrique.")
+    workset_command=sub.add_parser('workset',help='Copier une sélection explicite et capturer les en-têtes complets.')
+    workset_command.add_argument('selection',type=Path,help='Sélection JSON locale, chemins sources absolus.')
+    workset_command.add_argument('--output',required=True,type=Path,help='Nouveau dossier dans local/ du projet.')
     args = parser.parse_args(argv)
     if args.command == "sessions":
         return run_sessions(args)
@@ -68,6 +74,8 @@ def main(argv=None):
         return run_timing(args)
     if args.command == "wcs":
         return run_wcs(args)
+    if args.command == 'workset':
+        return run_workset(args)
     try:
         root, output = check_paths(args.source, args.output)
         started = datetime.now(timezone.utc).isoformat()
@@ -155,3 +163,19 @@ def run_wcs(args):
     print(f"{document['summary']['input_hdus']} HDU examinées, 0 WCS scientifiquement validée.")
     print(f"Rapports locaux : {output}")
     return 2
+
+
+def run_workset(args):
+    try:
+        data=args.selection.read_bytes();selection=json.loads(data)
+        report=prepare_workset(selection,args.output,Path(__file__).resolve().parents[2]/'local')
+        output=args.output.resolve()
+        report.update(program_version=__version__,source_revision=source_commit(),
+                      environment={'python':platform.python_version(),'astropy':astropy.__version__,'numpy':numpy.__version__},
+                      selection_sha256=hashlib.sha256(data).hexdigest(),
+                      created_at_utc=datetime.now(timezone.utc).isoformat())
+        (output/'workset.json').write_text(json.dumps(report,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+    except (ValueError,OSError) as exc:
+        print(f'Erreur : {exc}',file=sys.stderr);return 1
+    print(f"{len(report['files'])} copies vérifiées ; en-têtes complets dans {output}.")
+    return 0

@@ -22,6 +22,8 @@ Le diagnostic temporel ajoute `timing.py`, `timing_reports.py`, `scripts/gar-tim
 
 La version 0.4 ajoute `wcs_audit.py`, `wcs_reports.py` et `scripts/gar-wcs.bat`, leur exemple synthétique et 36 cas supplémentaires, soit 136 au total. Le [diagnostic WCS](CONTRAT-WCS.md) ne consomme que le manifeste partiel ; il ne calcule aucune coordonnée céleste et ne valide pas les solutions sur des étoiles. La collecte complète du contexte et les images de travail seront nécessaires à la suite scientifique.
 
+La version 0.5 ajoute `workset.py` et `gar workset` : sélection explicite, copies locales vérifiées et en-têtes complets, séparés du manifeste 1.0. Les modèles WCS sont construits uniquement depuis les copies et restent non validés. La suite compte 147 tests ; le [contrat workset](CONTRAT-WORKSET.md) décrit les limites, protections et rapports privés.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites
