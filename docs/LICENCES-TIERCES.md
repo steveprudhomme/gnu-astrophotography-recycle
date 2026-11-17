@@ -25,3 +25,7 @@ L’usage de composants permissifs dans un ensemble sous GPL ne supprime pas leu
 8. Archiver le rapport d’audit et sa validation avec la version ; faire signaler automatiquement toute nouvelle dépendance ou changement de licence.
 
 Une vérification automatique ne remplace pas la lecture des conditions. Un cas ambigu sera documenté et résolu avant distribution ; il ne sera pas déclaré compatible par défaut.
+
+## Dépendances ajoutées au contrôle stellaire
+
+Photutils 3.1.1 et SciPy 1.18.1 sont utilisés dans l’environnement de développement (Python ≥3.12). Photutils conserve sa licence BSD 3 clauses ; SciPy annonce une [licence BSD modifiée](https://scipy.org/about/). Cela ne remplace pas l’audit des composants natifs des roues. Aucun binaire de ces bibliothèques n’est redistribué par ce lot. Les données Gaia et leurs obligations de reconnaissance sont distinctes de la licence du code ; l’extrait réel et sa requête ne sont pas inclus dans Git.

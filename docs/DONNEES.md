@@ -11,3 +11,5 @@ Les en-têtes et journaux peuvent contenir lieu d’observation, nom, heures pr�
 Les tests utilisent en priorité des générateurs synthétiques. Un éventuel jeu réel public doit avoir droits de redistribution, licence de données, provenance, consentement pertinent et revue des métadonnées. Préparer une copie de diffusion explicitement autorisée ; conserver l’original local intact.
 
 Les produits scientifiques restent sous la maîtrise de leur auteur. La licence du logiciel ne décide pas à elle seule du statut juridique des observations ou résultats.
+
+La comparaison astrométrique utilise un catalogue local et ne contacte aucun service réseau. L’acquisition séparée d’un extrait par zone du ciel peut révéler la cible observée au fournisseur : elle doit être explicitement autorisée, avec la requête et sa provenance conservées localement. Pour le pilote Gaia, cet accord a été reçu avant l’exécution ; aucune image, en-tête complet ou position terrestre n’a été transmis. Les requêtes et résultats réels ne sont pas publiés sur GitHub.

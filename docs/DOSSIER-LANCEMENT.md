@@ -24,6 +24,8 @@ La version 0.4 ajoute `wcs_audit.py`, `wcs_reports.py` et `scripts/gar-wcs.bat`,
 
 La version 0.5 ajoute `workset.py` et `gar workset` : sélection explicite, copies locales vérifiées et en-têtes complets, séparés du manifeste 1.0. Les modèles WCS sont construits uniquement depuis les copies et restent non validés. La suite compte 147 tests ; le [contrat workset](CONTRAT-WORKSET.md) décrit les limites, protections et rapports privés.
 
+La version 0.6 ajoute `astrometry.py`, `astrometry_reports.py`, Photutils/SciPy et une comparaison hors ligne sur références locales. Les seuils sont fixés avant mesure, sans nouveau modèle ajusté ni écrêtage des résidus après association. La suite compte 156 tests. Le [contrat astrométrique](CONTRAT-ASTROMETRIE.md) limite la conclusion à une compatibilité empirique sur l’échantillon, sans certification de soumission ou qualification temporelle.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites

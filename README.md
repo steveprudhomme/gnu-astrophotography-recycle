@@ -6,7 +6,7 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha 0.5 — inventaire, séances candidates, diagnostics et copies locales vérifiées avec en-têtes complets. Les mesures astronomiques et la distribution portable restent à développer.**
+**Statut : Alpha 0.6 — inventaire, diagnostics, copies vérifiées et comparaison astrométrique exploratoire sur catalogue local. Les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
 
 ## Mission
 
@@ -23,6 +23,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Diagnostic temporel | Forme des dates, déclarations, cadence et anomalies depuis un manifeste local | Disponible ; ne certifie pas l’horloge, phase 2 |
 | Diagnostic WCS | Axes et paramètres observés, contrôles numériques limités et contexte manquant | Disponible ; ne certifie pas l’astrométrie, phase 2 |
 | Échantillon local | Copie de fichiers sélectionnés, SHA-256 et collecte de tous les en-têtes | Disponible, sources préservées ; aucune mesure scientifique |
+| Contrôle sur étoiles | Comparaison de la WCS originale à des références locales, résidus et couverture | Disponible ; critères exploratoires, sans certification de soumission |
 | Alignement et contrôle qualité | Rotation, dérive, WCS et horodatages vérifiés | À développer, phase 2 |
 | Objets mobiles | Trajectoires candidates, vitesses et GIF | Recherche, phase 3 |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
@@ -76,6 +77,8 @@ Le [diagnostic WCS](docs/CONTRAT-WCS.md) ne rouvre pas les FITS et ne calcule au
 Les FITS personnels, coordonnées d’observation et paramètres locaux ne doivent pas être joints aux contributions publiques. Voir la [politique des données](docs/DONNEES.md).
 
 Pour préparer des copies de travail dans `local/`, suivre le [contrat d’échantillon local](docs/CONTRAT-WORKSET.md) et le [tutoriel illustré](docs/TUTORIEL.md). Les sources sont uniquement lues ; les en-têtes complets et modèles construits restent privés et ne certifient pas les positions célestes.
+
+La commande [astrometry](docs/CONTRAT-ASTROMETRIE.md) permet ensuite une comparaison hors ligne sur étoiles, sans réajuster la WCS. Les critères doivent être fixés avant l’évaluation ; l’acquisition éventuelle d’un catalogue réseau est une étape séparée, explicitement autorisée.
 
 ## Contribuer et vérifier
 

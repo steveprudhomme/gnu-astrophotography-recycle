@@ -167,3 +167,15 @@ Un manque de références, une géométrie inadéquate ou une dépendance indisp
 Paramètres fixés avant mesure réelle : détection DAO à 8 écarts-types robustes, FWHM initiale de 3 pixels, marge de 10 pixels, exclusion des pics à au moins 65 000 ADU pour cette image 16 bits et des voisins à moins de 8 pixels ; catalogue G entre 9 et 17,5 et RUWE <1,4, mouvements propres disponibles, références isolées à 16 secondes d’arc. Sur une image à trois plans, utiliser leur moyenne pour la détection uniquement, sans interprétation photométrique des canaux. Si ces paramètres échouent, conserver ce résultat ; tout nouvel essai doit être documenté séparément.
 
 La première requête Gaia a été arrêtée par le contrôle d’approbation avant exécution. Le fondateur a ensuite explicitement autorisé l’envoi de la zone céleste à l’ESA, sans FITS, en-tête complet ni position terrestre. La requête et sa provenance resteront privées.
+
+Réalisation 0.6.0a1 : plan **`d349984`** et paramètres **`fe3b1c4`** préalables aux mesures.
+
+- A1 — fait : catalogue Gaia DR3 acquis après accord, requête et empreinte locales.
+- A2 — fait : critères fixés avant mesure, sans modification après lecture des résultats.
+- A3/A4 — faits : détection Photutils et propagation des références, analyse hors ligne sur copie, WCS originale conservée.
+- A5 — fait : associations uniques, résidus, statistiques, couverture et bootstrap exploratoire ; cartes privées et limites du budget d’erreur documentées.
+- A6 — fait : neuf nouveaux cas, soit 156 tests ; biais synthétique de 0,5″ retrouvé sans réajustement.
+- A7 — fait : critères empiriques satisfaits sur l’empilement privé, empreinte inchangée ; indépendance des références par rapport au solveur initial non établie.
+- A8 — livré avec le commit de réalisation : tutoriel illustré, dépendances et documentation actualisés, publication des données fictives uniquement.
+
+Photutils/SciPy retenus nécessitent désormais Python ≥3.12. Le diagnostic complet du budget d’erreur et l’aptitude des futures mesures à une soumission restent ouverts ; le contrôle ne permet pas de conclure à toutes les sources ni aux objets mobiles.

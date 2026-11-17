@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gnu-astrophotography-recycle"
-version = "0.5.0a1"
+version = "0.6.0a1"
 description = "Local read-only FITS archive inventory"
-requires-python = ">=3.11"
-dependencies = ["astropy>=7.2,<8", "numpy>=2.4.1,<2.5"]
+requires-python = ">=3.12"
+dependencies = ["astropy>=7.2,<8", "numpy>=2.4.1,<2.5", "photutils==3.1.1", "scipy==1.18.1"]
 license = "GPL-3.0-or-later"
 license-files = ["COPYING"]
 readme = "README.md"

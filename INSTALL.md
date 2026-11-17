@@ -69,6 +69,17 @@ Avec une sélection JSON locale conforme au [contrat](docs/CONTRAT-WORKSET.md) :
 
 La sortie doit être nouvelle et dans `local/` du projet. Le code `0` signifie que copies et collecte ont réussi ; il ne certifie aucune WCS. Les originaux sont ouverts en lecture seule ; aucun fichier n’est créé sur leur support. Pour un premier essai sans observation réelle, utiliser le générateur indiqué dans le tutoriel.
 
+## Comparer une copie à un catalogue local
+
+La version 0.6 ajoute Photutils 3.1.1 et SciPy 1.18.1 à `requirements/dev-tested.txt`. Leurs versions retenues nécessitent Python 3.12 ou ultérieur ; les essais du projet utilisent Python 3.13.6. Réinstaller les dépendances si l’environnement provient d’un lot précédent :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements/dev-tested.txt
+.\.venv\Scripts\python.exe -m gar astrometry ".\local\lot\workset.json" --file-index 1 --catalog ".\local\references\catalog.csv" --output ".\local\controle-01"
+```
+
+La commande ne télécharge rien et ne traite que des fichiers dans `local/`. Préparer le catalogue et sa provenance avant l’analyse, suivant le [contrat astrométrique](docs/CONTRAT-ASTROMETRIE.md). Le code `0` désigne uniquement le passage des critères exploratoires, pas une certification MPC ou une qualification d’horloge.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

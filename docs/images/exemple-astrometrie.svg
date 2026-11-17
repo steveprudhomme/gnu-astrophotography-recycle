@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640">
+<title>Positions des associations et résidus tangentiels, sans ajustement</title>
+<rect width="1200" height="640" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="30" y="40" font-size="24">Contrôle de la WCS originale — sans réajustement</text>
+<text x="30" y="80" font-size="18">Positions dans l’image (vert ≤2″, ambre ≤4″, rouge au-delà)</text>
+<text x="690" y="80" font-size="18">Résidus Est/Nord (centre = zéro ; 20 pixels par ″)</text>
+<rect x="40" y="110" width="500" height="450" fill="none" stroke="#b9cce1"/>
+<path d="M700 330H1160 M930 110V550" stroke="#b9cce1" fill="none"/>
+<circle cx="930" cy="330" r="40" fill="none" stroke="#83d7b7"/>
+<circle cx="930" cy="330" r="80" fill="none" stroke="#f0c77d"/>
+<circle cx="88.83" cy="516.05" r="2" fill="#83d7b7"/>
+<circle cx="940.02" cy="329.96" r="2" fill="#83d7b7"/>
+<circle cx="166.95" cy="516.06" r="2" fill="#83d7b7"/>
+<circle cx="939.98" cy="330.06" r="2" fill="#83d7b7"/>
+<circle cx="245.08" cy="516.05" r="2" fill="#83d7b7"/>
+<circle cx="940.03" cy="329.95" r="2" fill="#83d7b7"/>
+<circle cx="323.20" cy="516.05" r="2" fill="#83d7b7"/>
+<circle cx="940.13" cy="330.00" r="2" fill="#83d7b7"/>
+<circle cx="401.33" cy="516.05" r="2" fill="#83d7b7"/>
+<circle cx="940.05" cy="329.99" r="2" fill="#83d7b7"/>
+<circle cx="479.45" cy="516.06" r="2" fill="#83d7b7"/>
+<circle cx="939.97" cy="330.03" r="2" fill="#83d7b7"/>
+<circle cx="88.83" cy="445.74" r="2" fill="#83d7b7"/>
+<circle cx="939.97" cy="329.96" r="2" fill="#83d7b7"/>
+<circle cx="166.95" cy="445.74" r="2" fill="#83d7b7"/>
+<circle cx="939.99" cy="330.03" r="2" fill="#83d7b7"/>
+<circle cx="245.08" cy="445.74" r="2" fill="#83d7b7"/>
+<circle cx="940.04" cy="330.02" r="2" fill="#83d7b7"/>
+<circle cx="323.21" cy="445.74" r="2" fill="#83d7b7"/>
+<circle cx="939.85" cy="330.02" r="2" fill="#83d7b7"/>
+<circle cx="401.33" cy="445.74" r="2" fill="#83d7b7"/>
+<circle cx="939.95" cy="330.06" r="2" fill="#83d7b7"/>
+<circle cx="479.45" cy="445.74" r="2" fill="#83d7b7"/>
+<circle cx="940.10" cy="329.98" r="2" fill="#83d7b7"/>
+<circle cx="88.83" cy="375.43" r="2" fill="#83d7b7"/>
+<circle cx="940.11" cy="330.06" r="2" fill="#83d7b7"/>
+<circle cx="166.95" cy="375.43" r="2" fill="#83d7b7"/>
+<circle cx="940.10" cy="330.06" r="2" fill="#83d7b7"/>
+<circle cx="245.08" cy="375.43" r="2" fill="#83d7b7"/>
+<circle cx="939.88" cy="329.98" r="2" fill="#83d7b7"/>
+<circle cx="323.20" cy="375.43" r="2" fill="#83d7b7"/>
+<circle cx="940.05" cy="329.97" r="2" fill="#83d7b7"/>
+<circle cx="401.33" cy="375.43" r="2" fill="#83d7b7"/>
+<circle cx="940.06" cy="330.06" r="2" fill="#83d7b7"/>
+<circle cx="479.45" cy="375.43" r="2" fill="#83d7b7"/>
+<circle cx="940.02" cy="329.97" r="2" fill="#83d7b7"/>
+<circle cx="88.83" cy="305.12" r="2" fill="#83d7b7"/>
+<circle cx="940.05" cy="329.95" r="2" fill="#83d7b7"/>
+<circle cx="166.95" cy="305.12" r="2" fill="#83d7b7"/>
+<circle cx="940.01" cy="330.01" r="2" fill="#83d7b7"/>
+<circle cx="245.08" cy="305.12" r="2" fill="#83d7b7"/>
+<circle cx="939.98" cy="329.96" r="2" fill="#83d7b7"/>
+<circle cx="323.20" cy="305.12" r="2" fill="#83d7b7"/>
+<circle cx="940.07" cy="330.02" r="2" fill="#83d7b7"/>
+<circle cx="401.33" cy="305.12" r="2" fill="#83d7b7"/>
+<circle cx="939.89" cy="330.03" r="2" fill="#83d7b7"/>
+<circle cx="479.45" cy="305.12" r="2" fill="#83d7b7"/>
+<circle cx="940.07" cy="329.99" r="2" fill="#83d7b7"/>
+<circle cx="88.83" cy="234.80" r="2" fill="#83d7b7"/>
+<circle cx="940.00" cy="329.93" r="2" fill="#83d7b7"/>
+<circle cx="166.95" cy="234.81" r="2" fill="#83d7b7"/>
+<circle cx="939.96" cy="330.10" r="2" fill="#83d7b7"/>
+<circle cx="245.08" cy="234.80" r="2" fill="#83d7b7"/>
+<circle cx="940.05" cy="329.92" r="2" fill="#83d7b7"/>
+<circle cx="323.20" cy="234.81" r="2" fill="#83d7b7"/>
+<circle cx="940.07" cy="330.04" r="2" fill="#83d7b7"/>
+<circle cx="401.33" cy="234.80" r="2" fill="#83d7b7"/>
+<circle cx="940.00" cy="329.97" r="2" fill="#83d7b7"/>
+<circle cx="479.46" cy="234.81" r="2" fill="#83d7b7"/>
+<circle cx="939.89" cy="330.10" r="2" fill="#83d7b7"/>
+<circle cx="88.83" cy="164.49" r="2" fill="#83d7b7"/>
+<circle cx="939.97" cy="330.05" r="2" fill="#83d7b7"/>
+<circle cx="166.95" cy="164.49" r="2" fill="#83d7b7"/>
+<circle cx="940.08" cy="330.05" r="2" fill="#83d7b7"/>
+<circle cx="245.08" cy="164.49" r="2" fill="#83d7b7"/>
+<circle cx="939.97" cy="330.10" r="2" fill="#83d7b7"/>
+<circle cx="323.20" cy="164.49" r="2" fill="#83d7b7"/>
+<circle cx="939.94" cy="330.01" r="2" fill="#83d7b7"/>
+<circle cx="401.33" cy="164.49" r="2" fill="#83d7b7"/>
+<circle cx="939.96" cy="329.90" r="2" fill="#83d7b7"/>
+<circle cx="479.45" cy="164.49" r="2" fill="#83d7b7"/>
+<circle cx="940.03" cy="330.08" r="2" fill="#83d7b7"/>
+<text x="30" y="605" font-size="16">Échantillon sélectionné par rayon de 8″ ; l’intervalle bootstrap ne constitue pas une erreur astrométrique absolue.</text></g></svg>

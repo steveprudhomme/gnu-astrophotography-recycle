@@ -67,6 +67,9 @@ def main(argv=None):
     workset_command=sub.add_parser('workset',help='Copier une sélection explicite et capturer les en-têtes complets.')
     workset_command.add_argument('selection',type=Path,help='Sélection JSON locale, chemins sources absolus.')
     workset_command.add_argument('--output',required=True,type=Path,help='Nouveau dossier dans local/ du projet.')
+    astro=sub.add_parser('astrometry',help='Comparer une copie WCS à un catalogue local, hors ligne.')
+    astro.add_argument('workset',type=Path);astro.add_argument('--file-index',type=int,required=True)
+    astro.add_argument('--catalog',type=Path,required=True);astro.add_argument('--output',type=Path,required=True)
     args = parser.parse_args(argv)
     if args.command == "sessions":
         return run_sessions(args)
@@ -76,6 +79,20 @@ def main(argv=None):
         return run_wcs(args)
     if args.command == 'workset':
         return run_workset(args)
+    if args.command == 'astrometry':
+        from .astrometry import run_comparison
+        try:
+            result=run_comparison(args.workset,args.file_index,args.catalog,args.output,Path(__file__).resolve().parents[2]/'local')
+            import photutils,scipy
+            result.update(program_version=__version__,source_revision=source_commit(),
+                          created_at_utc=datetime.now(timezone.utc).isoformat(),
+                          environment={'python':platform.python_version(),'astropy':astropy.__version__,
+                                       'numpy':numpy.__version__,'photutils':photutils.__version__,'scipy':scipy.__version__})
+            (args.output/'astrometry.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+            print(json.dumps(result['metrics'],ensure_ascii=False))
+            return 0 if result['metrics']['empirical_criteria_passed'] else 2
+        except (ValueError,OSError) as exc:
+            print(f'Erreur : {exc}',file=sys.stderr);return 1
     try:
         root, output = check_paths(args.source, args.output)
         started = datetime.now(timezone.utc).isoformat()

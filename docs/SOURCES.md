@@ -66,3 +66,7 @@ Le [contrat WCS](CONTRAT-WCS.md) s’appuie sur le standard FITS 4.0 et la docum
 ## Copies locales et en-têtes complets
 
 Le [contrat workset](CONTRAT-WORKSET.md) utilise les API officielles [Header](https://docs.astropy.org/en/stable/io/fits/api/headers.html) et [WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html). Le nouveau produit complet est distinct du manifeste partiel : une construction WCS peut maintenant être tentée sur les copies avec leur contexte HDU. Cela reste une construction de modèle, pas une comparaison à un catalogue. Les graphiques publics proviennent uniquement du générateur fictif.
+
+## Comparaison stellaire exploratoire
+
+Références primaires : [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html), [propagation des mouvements propres avec Astropy](https://docs.astropy.org/en/stable/coordinates/apply_space_motion.html), [solution astrométrique Gaia](https://arxiv.org/abs/2012.03380) et archive ESA Gaia pour l’extrait DR3. Le [contrat astrométrique](CONTRAT-ASTROMETRIE.md) distingue les algorithmes publiés des seuils exploratoires choisis par ce projet. L’acquisition a été explicitement autorisée et la requête de champ reste locale, avec son empreinte.
