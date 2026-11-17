@@ -1426,4 +1426,9 @@ Les seize FITS inventés sont identiques. Chaque contexte conserve les mêmes 10
 Les scores et quatre figures par fond sont identiques, y compris les illustrations publiques.
 Les 571 fichiers du premier essai restent intacts. La reproduction ne relit pas le support et ne répète pas les copies source.
 Les gardes confirment encore les 838 anciens fichiers et les cinq médias CC0 préservés.
-Le contrôle final de GitHub reste à consigner après l'intégration.
+La [PR nº 6](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/6) publie les 26 fichiers relus du lot.
+Les derniers ajouts après reproduction concernent seulement les documents Markdown.
+La revue interne vérifie les résultats, les licences et les données à garder privées.
+Les tests sont locaux : aucun contrôle automatique GitHub n'est configuré.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+Cette dernière vérification distingue une publication distante d'un simple commit local.
