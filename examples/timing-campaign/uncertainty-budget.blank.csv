@@ -1,0 +1,8 @@
+component_id,measurand,estimate_seconds,uncertainty_value_seconds,uncertainty_kind,coverage_factor_if_applicable,distribution_or_model,sensitivity_coefficient,correlation_group,evidence_relative_path,configuration_applicability,notes
+REFERENCE,,,,,,,,,,,A documenter avant combinaison
+TRANSITION_PHYSIQUE,,,,,,,,,,,Caracteriser la transition reelle et son enregistrement
+ASSOCIATION_EVENEMENT,,,,,,,,,,,Conserver les ambiguites
+QUANTIFICATION,,,,,,,,,,,Granularite ecrite seule insuffisante
+DECLENCHEMENT_LECTURE,,,,,,,,,,,Ne pas supposer un type de capteur ou de latence
+DERIVE_SYNCHRONISATION,,,,,,,,,,,Caracteriser sur la duree et les conditions visees
+AUTRE_A_JUSTIFIER,,,,,,,,,,,Adapter les contributions au modele et aux correlations

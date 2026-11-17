@@ -62,4 +62,6 @@ Le rattachement aux anciennes archives est une décision séparée. En son absen
 
 Le [contrat de préparation](CONTRAT-PREUVES-TEMPS.md) décrit `gar time-evidence`. Il produit les déclarations collectées, leurs limites, un canevas de preuves et un plan à compléter. Le logiciel n’ingère pas le canevas complété et ne délivre aucune qualification automatique. Les preuves et rapports réels restent privés ; les illustrations publiques sont conceptuelles ou synthétiques.
 
+Pour passer du protocole à une préparation renseignable, utiliser la [fiche opérationnelle de campagne](CAMPAGNE-TEMPORELLE.md) et ses cinq canevas publics. Ils prévoient la configuration, la référence à confirmer, les blocs, un journal vide, le budget et les deux revues. Ils sont copiés dans `local/` avant d’y ajouter des informations personnelles ; remplir ces fichiers ne les transforme pas en preuve ingérée par `gar`.
+
 Les distinctions de champs temporels s’appuient sur [FITS 4.0](https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf) et [Rots et al.](https://arxiv.org/abs/1409.7583). La procédure, le nombre proposé de répétitions et les critères à préenregistrer sont des choix préparatoires du projet ; ils ne sont pas une norme instrumentale du Seestar.

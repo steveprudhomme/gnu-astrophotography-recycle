@@ -113,6 +113,8 @@ La version 0.9 ne change pas les dépendances scientifiques. Après mise à jour
 
 Cette commande lit les en-têtes des copies déjà présentes, sans pixels, réseau ou accès USB. Le code **2 est attendu** après production du dossier : il ne s’agit pas d’un échec d’installation, mais du maintien de la non-qualification temporelle. Code 1 si l’analyse est impossible. Le [contrat des preuves temporelles](docs/CONTRAT-PREUVES-TEMPS.md) et le [protocole illustré](docs/PROTOCOLE-QUALIFICATION-TEMPS.md) précisent les limites et la préparation d’un futur essai. Le SVG est produit sans outil graphique ; Matplotlib est facultatif pour `examples/plot_time_evidence.py`.
 
+La [fiche de campagne](docs/CAMPAGNE-TEMPORELLE.md) fournit ensuite des commandes pour copier les cinq canevas documentaires dans un nouveau dossier `local/`. Cette préparation ne demande aucun paquet supplémentaire ni modification du logiciel. Le journal initial est vide ; les moyens matériels, versions et critères restent à confirmer avant un éventuel essai.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

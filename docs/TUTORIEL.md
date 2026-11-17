@@ -2,7 +2,7 @@
 
 Ce guide suit les modules livrés jusqu’à l’Alpha 0.9. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
 
-Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales).
+Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales), [fiche de campagne](#16-préparer-la-fiche-opérationnelle-de-campagne-temporelle).
 
 ## 1. Planifier avant de coder
 
@@ -584,3 +584,45 @@ Les **223 tests passent**, dont 26 nouveaux cas : déclarations riches sans qual
 ```
 
 Choisir un dossier de tests neuf : pytest peut nettoyer son dossier temporaire. L’installation modifiable 0.9.0a1, l’aide et les dépendances sont vérifiées avant livraison. Le dossier privé a été produit sur les quatre copies locales ; celles-ci et le workset restent inchangés. Les en-têtes examinés ne constituent pas des preuves indépendantes, et leur détail reste dans `local/`. Les figures fictives publiques et le dossier réel privé sont inspectés séparément ; aucun contenu réel n’est destiné à GitHub.
+
+## 16. Préparer la fiche opérationnelle de campagne temporelle
+
+Plan préalable **`0ad755c`**. Le dossier logiciel 0.9 existe déjà : ce complément prépare les documents d’un futur essai, sans refaire l’audit, rouvrir un FITS ou consulter une source historique. Aucun code d’analyse ni version applicative n’est modifié. Les moyens matériels et versions non fournis restent **à confirmer**, sans déduire de l’absence d’information qu’un matériel serait disponible ou absent.
+
+![Schéma conceptuel des documents et décisions à préparer avant une campagne, puis de la revue distincte des archives](images/fiche-campagne-temps.png)
+
+*Schéma de procédure non exécutée, sans capture d’écran ni mesure instrumentale. Les blocs indiquent des travaux à réaliser et des décisions humaines à documenter ; ils ne décrivent pas un essai approuvé. [Version SVG](images/fiche-campagne-temps.svg).*
+
+### Copier et renseigner les canevas
+
+La [fiche opérationnelle](CAMPAGNE-TEMPORELLE.md) fournit les commandes complètes de copie vers un dossier local neuf. Les cinq sources publiques sont :
+
+- [configuration.example.json](../examples/timing-campaign/configuration.example.json) : configuration, usage, référence, critères et état historique ; valeurs inconnues nulles.
+- [planned-runs.example.csv](../examples/timing-campaign/planned-runs.example.csv) : proposition non exécutée de trois blocs de dix répétitions ; durées et positions dans la séance restent vides.
+- [measurement-log.blank.csv](../examples/timing-campaign/measurement-log.blank.csv) : en-tête de journal, sans ligne de mesure.
+- [uncertainty-budget.blank.csv](../examples/timing-campaign/uncertainty-budget.blank.csv) : contributions proposées, sans valeur ni combinaison d’incertitudes.
+- [review.blank.md](../examples/timing-campaign/review.blank.md) : questions de revue avant essai puis après résultats, toutes non renseignées.
+
+Après la copie décrite dans la fiche, ces commandes permettent de consulter la configuration et le planning locaux :
+
+```powershell
+Get-Content -LiteralPath '.\local\ma-campagne-temps-01\configuration.json'
+Import-Csv -LiteralPath '.\local\ma-campagne-temps-01\planned-runs.csv' | Format-Table
+Import-Csv -LiteralPath '.\local\ma-campagne-temps-01\measurement-log.csv' | Measure-Object
+```
+
+Le journal initial doit contenir **zéro ligne de mesure**. Les trois blocs proposent 30 répétitions au total, sans date, durée d’exposition ou référence inventée. Adapter ce planning à une configuration réellement confirmée avant de le figer ; ce nombre n’est ni un standard instrumental ni une garantie de précision. Conserver les lignes rejetées et leurs motifs lors d’un essai futur.
+
+### Préparer les pièces et la revue
+
+Renseigner l’usage, le mesurande, la tolérance et sa définition ; documenter ensuite la référence indépendante disponible, sa traçabilité, son incertitude et la méthode reliant l’événement physique au timestamp. Les versions firmware/application et le mode doivent être confirmés avec leurs pièces. Les valeurs PROGRAM/CREATOR de l’ancien dossier ne sont pas transformées en firmware vérifié.
+
+Fixer critères, exclusions, durée de session et blocs avant l’essai. Conserver une version figée et son empreinte avec le responsable et l’instant de revue ; une modification après examen des résultats doit rester une révision explicite. Le budget comporte unités, types d’incertitude, couverture et dépendances à examiner ; les blancs ne valent pas zéro et les contributions ne sont pas combinées automatiquement.
+
+Les décisions pour la configuration/époque testées et pour les anciennes archives restent distinctes. Cocher une revue ou modifier un booléen dans un fichier n’est pas un contrôle logiciel, une preuve de performance ou un déblocage des exports. Les anciennes archives restent non qualifiées sans rattachement applicable.
+
+### Résultats de cette préparation et contrôles
+
+Les canevas JSON/CSV et leurs colonnes sont vérifiés, avec trois blocs cohérents, aucune ligne de mesure, aucun résultat inventé et les statuts de qualification faux. Les commandes de copie PowerShell ont été exécutées dans un dossier local de vérification neuf : cinq fichiers copiés, trois blocs proposés, zéro mesure. Les liens, illustrations PNG/SVG et fichiers destinés à Git sont contrôlés. **Les 223 tests sont ceux du lot applicatif 0.9, sans nouvelle exécution revendiquée dans ce complément documentaire.**
+
+Un dossier privé de travail est préparé à partir du seul rapport temporel local déjà produit, dont l’empreinte est conservée avant/après. Le rapport reste inchangé ; aucun FITS ni chemin source historique n’est ouvert. Les canevas renseignés, informations d’opérateur, pièces de matériel et statut local restent dans `local/`, exclus de Git. La préparation ne réalise aucune acquisition et ne déclare pas la campagne prête à qualifier une horloge.

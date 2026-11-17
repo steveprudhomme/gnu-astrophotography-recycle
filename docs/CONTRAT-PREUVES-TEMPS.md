@@ -30,6 +30,8 @@ La différence avec `TELAPSE` n’est affichée que si `TIMEUNIT = 's'` est expl
 
 Huit exigences structurent `evidence-template.json` : configuration applicable, événement daté, échelle/référence, mesure indépendante, décalage/dérive/dispersion, durée/lecture, budget/critères et rattachement aux archives anciennes. Le canevas ne contient aucune mesure inventée. Il doit être complété séparément et revu ; **la commande n’ingère pas ce fichier comme preuve et n’approuve aucun résultat**. Le [protocole détaillé](PROTOCOLE-QUALIFICATION-TEMPS.md) définit la préparation d’un futur essai.
 
+La [fiche opérationnelle](CAMPAGNE-TEMPORELLE.md) et les canevas de `examples/timing-campaign/` sont des documents complémentaires : ils ne changent ni les six sorties de cette commande ni ses codes de retour. Les paramètres de référence, versions et seuils inconnus restent non renseignés. Aucun fichier de campagne rempli n’est ingéré par le logiciel et aucune revue cochée ne débloque un export.
+
 Même avec toutes les cartes présentes et cohérentes : `time_validated`, `exposure_reference_verified`, `firmware_applicability_verified` et `scientific_time_export_allowed` restent faux ; `clock_accuracy_seconds` et `mid_exposure_utc` restent `null`. Le dossier indique qu’aucune preuve indépendante n’a été fournie à cette analyse ; il n’affirme pas qu’aucune preuve n’existe ailleurs.
 
 ## Commande et produits

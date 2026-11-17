@@ -1,0 +1,4 @@
+configuration_id,block_id,planned_repetitions,planned_exposure_seconds,planned_session_elapsed_seconds,reference_event_pattern_id,block_status,notes
+CFG_A_CONFIRMER,DEBUT,10,,,,draft_not_executed,Proposition a adapter avant essai
+CFG_A_CONFIRMER,MILIEU,10,,,,draft_not_executed,Repartir sur la duree de session a confirmer
+CFG_A_CONFIRMER,FIN,10,,,,draft_not_executed,Conserver les essais manquants ou rejetes dans le journal

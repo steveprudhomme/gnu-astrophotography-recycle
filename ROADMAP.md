@@ -281,3 +281,5 @@ Plan du 16 novembre 2026, à committer avant réalisation. Le dossier logiciel 0
 - CTP6 : committer les documents et canevas publics, publier sur GitHub et vérifier le commit distant ; le dossier privé, les informations de matériel et les réponses de configuration ne sont pas publiés.
 
 Livrable visé : une campagne prête à être renseignée et revue, pas un essai exécuté. Sans référence, versions, tolérance et revue documentées, le départ de la campagne reste à décider par l’opérateur. Les anciennes archives restent temporellement non qualifiées.
+
+Plan préalable **`0ad755c`**. CTP1 : informations non fournies conservées à confirmer, sans hypothèse de matériel. CTP2/CTP3 : fiche de décision et cinq canevas publics créés, blocs proposés sans mesures. CTP4 : dossier privé préparé depuis le rapport local existant, empreinte préservée ; aucun FITS rouvert. CTP5/CTP6 livrés dans le commit documentaire : tutoriel illustré et Markdown, contrôles des canevas/liens/confidentialité, puis publication distante vérifiée. Aucun changement applicatif ni essai instrumental ; les 223 tests restent le résultat du lot 0.9.

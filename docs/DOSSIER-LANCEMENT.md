@@ -32,6 +32,8 @@ La version 0.8 ajoute `gaia_frames.py`, `gaia_frames_reports.py` et `gar gaia-fr
 
 La version 0.9 ajoute `time_evidence.py`, `time_evidence_reports.py` et `gar time-evidence` : en-têtes complets des copies, inconnues, canevas de preuves et [protocole illustré](PROTOCOLE-QUALIFICATION-TEMPS.md). Les 223 tests vérifient notamment l’absence d’accès aux pixels/réseau, la préservation et le refus de qualification même avec des déclarations riches. Le [contrat des preuves temporelles](CONTRAT-PREUVES-TEMPS.md) maintient l’horloge et les exports non qualifiés ; aucune mesure physique n’est réalisée et l’applicabilité aux anciennes archives reste à démontrer.
 
+Un complément documentaire fournit la [fiche opérationnelle de campagne](CAMPAGNE-TEMPORELLE.md) et cinq canevas : configuration, blocs proposés, journal vide, budget à renseigner et revue. Il ne change pas la version 0.9 ou le code d’analyse. Les références, versions et critères inconnus restent à confirmer ; aucune acquisition n’est effectuée ou déclarée prête, et les anciennes archives demeurent non qualifiées.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="360pt" viewBox="0 0 864 360" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-16T23:45:53.291823</dc:date>
+    <dc:description>Schéma conceptuel, aucune donnée réelle</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 360
+L 864 360
+L 864 0
+L 0 0
+z
+" style="fill: #f6f8fb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 26.35 165.3
+L 274.01 165.3
+Q 280.842 165.3 280.842 162.5
+L 280.842 82
+Q 280.842 79.2 274.01 79.2
+L 26.35 79.2
+Q 19.518 79.2 19.518 82
+L 19.518 162.5
+Q 19.518 165.3 26.35 165.3
+z
+" clip-path="url(#p49a1143f63)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 308.17 165.3
+L 555.83 165.3
+Q 562.662 165.3 562.662 162.5
+L 562.662 82
+Q 562.662 79.2 555.83 79.2
+L 308.17 79.2
+Q 301.338 79.2 301.338 82
+L 301.338 162.5
+Q 301.338 165.3 308.17 165.3
+z
+" clip-path="url(#p49a1143f63)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 589.99 165.3
+L 837.65 165.3
+Q 844.482 165.3 844.482 162.5
+L 844.482 82
+Q 844.482 79.2 837.65 79.2
+L 589.99 79.2
+Q 583.158 79.2 583.158 82
+L 583.158 162.5
+Q 583.158 165.3 589.99 165.3
+z
+" clip-path="url(#p49a1143f63)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 47.7 312.3
+L 816.3 312.3
+Q 823.132 312.3 823.132 309.5
+L 823.132 274.5
+Q 823.132 271.7 816.3 271.7
+L 47.7 271.7
+Q 40.868 271.7 40.868 274.5
+L 40.868 309.5
+Q 40.868 312.3 47.7 312.3
+z
+" clip-path="url(#p49a1143f63)" style="fill: #e7eef4; stroke: #bdcddb; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #173b50" x="432" y="26" transform="rotate(-0 432 26)">Préparer une campagne temporelle : décisions et documents</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="150.18" y="104.75" transform="rotate(-0 150.18 104.75)">1. Renseigner</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #304d62" transform="translate(77.586875 135.262773)">Configuration et référence</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #304d62" transform="translate(95.705937 150.747852)">Moyens à confirmer</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 280.278956 122.25
+Q 288.955273 122.25 295.954538 122.25
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 291.954538 120.25
+L 295.954538 122.25
+L 291.954538 124.25
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="432" y="104.75" transform="rotate(-0 432 104.75)">2. Figer le plan</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #304d62" transform="translate(358.537188 135.592773)">Usage, critères, exclusions</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #304d62" transform="translate(362.638984 150.417852)">Blocs et durée de séance</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 562.098956 122.25
+Q 570.775273 122.25 577.774538 122.25
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 573.774538 120.25
+L 577.774538 122.25
+L 573.774538 124.25
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="713.82" y="104.75" transform="rotate(-0 713.82 104.75)">3. Revoir avant essai</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #304d62" transform="translate(645.324375 135.262773)">Pièces, méthode, budget</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #304d62" transform="translate(649.597188 150.747852)">Décision de l’opérateur</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #526f83" x="432" y="199.25" transform="rotate(-0 432 199.25)">Informations manquantes → brouillon à compléter ; aucune acquisition décidée par le logiciel.</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #173b50" x="432" y="241.25" transform="rotate(-0 432 241.25)">Essai futur éventuel : journal réel → analyse et budget → revue d’un usage borné</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #304d62" x="432" y="295.255313" transform="rotate(-0 432 295.255313)">Archives anciennes : preuve de rattachement distincte ; aucune qualification rétroactive supposée.</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #647d8e" x="432" y="342.75" transform="rotate(-0 432 342.75)">Schéma conceptuel — canevas non renseignés, aucune capture d’écran ni mesure instrumentale.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p49a1143f63">
+   <rect x="5" y="5" width="854" height="350"/>
+  </clipPath>
+ </defs>
+</svg>

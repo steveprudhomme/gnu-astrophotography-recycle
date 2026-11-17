@@ -1,0 +1,61 @@
+{
+  "campaign_template_version": "1.0",
+  "document_kind": "unexecuted_campaign_draft",
+  "campaign_id": null,
+  "operator": null,
+  "configuration": {
+    "configuration_id": "CFG_A_CONFIRMER",
+    "instrument_model": null,
+    "instrument_identity_private": null,
+    "firmware_version": null,
+    "application_version": null,
+    "acquisition_mode": null,
+    "configuration_evidence_relative_path": null,
+    "supported_exposure_seconds": null,
+    "synchronization_configuration": null
+  },
+  "intended_use": {
+    "description": null,
+    "measurand": null,
+    "time_scale": null,
+    "required_temporal_tolerance_seconds": null,
+    "tolerance_definition_bound_or_uncertainty": null,
+    "intended_session_duration_seconds": null,
+    "scope_of_acceptance": null
+  },
+  "independent_reference": {
+    "availability": "not_provided",
+    "description": null,
+    "independence_evidence_relative_path": null,
+    "traceability_evidence_relative_path": null,
+    "uncertainty_value_seconds": null,
+    "uncertainty_kind": null,
+    "coverage_factor_if_applicable": null,
+    "event_recording_method": null,
+    "optical_transition_characterization": null
+  },
+  "planned_campaign": {
+    "status": "to_be_reviewed_before_acquisition",
+    "proposed_block_count": 3,
+    "proposed_repetitions_per_block": 10,
+    "proposal_is_not_an_instrumental_standard": true,
+    "block_schedule_relative_to_session": null,
+    "supported_exposure_selection": null,
+    "restart_and_sync_conditions": null,
+    "exclusion_rules_fixed_before_measurement": null,
+    "lost_or_ambiguous_records_policy": null,
+    "acceptance_criteria_fixed_before_measurement": null,
+    "immutable_plan_snapshot_sha256": null,
+    "operator_review_reference": null
+  },
+  "archive_evidence": {
+    "time_evidence_report_sha256": null,
+    "historical_configuration_link": null,
+    "historical_applicability": "not_demonstrated"
+  },
+  "measurement_performed": false,
+  "time_validated": false,
+  "historical_time_validated": false,
+  "scientific_time_export_allowed": false,
+  "notice": "Canevas non ingere par gar. Le completer ou cocher une revue ne certifie aucune horloge."
+}

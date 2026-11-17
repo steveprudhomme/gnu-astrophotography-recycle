@@ -12,6 +12,8 @@ Le [contrôle Gaia des poses](docs/CONTRAT-GAIA-POSES.md) est livré dans le [co
 
 L’Alpha 0.9 ajoute [la préparation des preuves temporelles](docs/CONTRAT-PREUVES-TEMPS.md) et un [protocole illustré de mesure future](docs/PROTOCOLE-QUALIFICATION-TEMPS.md). **223 tests** passent ; aucune mesure instrumentale ou qualification d’horloge n’est annoncée.
 
+La [fiche opérationnelle de campagne](docs/CAMPAGNE-TEMPORELLE.md) complète ce protocole avec cinq canevas : configuration, blocs planifiés, journal de mesures vide, budget à renseigner et revue. Les moyens de référence et les versions non fournis restent à confirmer ; aucune acquisition n’est réalisée ou approuvée par le logiciel.
+
 ![Exemple synthétique : trois poses comparées à un catalogue fictif, avec biais connu conservé](docs/images/exemple-gaia-poses.png)
 
 *Résultats réellement calculés sur des données synthétiques, sans observation personnelle. Le [tutoriel de comparaison Gaia](docs/TUTORIEL.md#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles) fournit les commandes, les critères et la lecture de cette figure. La [procédure de publication](docs/TUTORIEL.md#14-mettre-à-jour-github-et-vérifier-la-publication) explique les vérifications avant et après envoi.*
