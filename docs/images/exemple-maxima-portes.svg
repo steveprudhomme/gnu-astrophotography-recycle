@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+ <title id="title">Avant de proposer un sommet lumineux</title>
+ <desc id="desc">Schéma conceptuel des portes inchangées du chercheur de maxima : comparaison locale, masque, bord, seuil strict, plateaux et graines proposées. Plusieurs obstacles peuvent exister ensemble.</desc>
+ <rect width="1500" height="850" fill="#f5f7fb"/>
+ <g font-family="DejaVu Sans,Arial,sans-serif" fill="#14243b">
+  <text x="60" y="65" font-size="34" font-weight="bold">Comment un carré devient-il un sommet proposé ?</text>
+  <text x="60" y="105" font-size="21">SCHÉMA CONCEPTUEL · mêmes règles, mêmes seuils · aucune observation réelle</text>
+  <g fill="white" stroke="#b5c6dc" stroke-width="2">
+   <rect x="60" y="150" width="420" height="220" rx="18"/>
+   <rect x="540" y="150" width="420" height="220" rx="18"/>
+   <rect x="1020" y="150" width="420" height="220" rx="18"/>
+   <rect x="60" y="430" width="420" height="220" rx="18"/>
+   <rect x="540" y="430" width="420" height="220" rx="18"/>
+   <rect x="1020" y="430" width="420" height="220" rx="18"/>
+  </g>
+  <g font-size="25" font-weight="bold">
+   <text x="85" y="195">1. Maximum local</text><text x="565" y="195">2. Masque</text><text x="1045" y="195">3. Bord</text>
+   <text x="85" y="475">4. Seuil strict</text><text x="565" y="475">5. Plateaux et égalités</text><text x="1045" y="475">6. Graines proposées</text>
+  </g>
+  <g font-size="21">
+   <text x="85" y="245">Comparer la hauteur aux voisins</text><text x="85" y="280">dans le cercle prévu.</text><text x="85" y="325">Un voisin plus haut peut compter.</text>
+   <text x="565" y="245">Retirer les centres interdits</text><text x="565" y="280">par le masque existant.</text><text x="565" y="325">La carte est préparée avant.</text>
+   <text x="1045" y="245">Retirer les sommets trop près</text><text x="1045" y="280">du bord de la bibliothèque.</text><text x="1045" y="325">La marge du projet vient après.</text>
+   <text x="85" y="525">La réponse doit être PLUS</text><text x="85" y="560">grande que le seuil effectif.</text><text x="85" y="605">Égale au seuil : pas assez.</text>
+   <text x="565" y="525">Regrouper les zones égales ;</text><text x="565" y="560">départager les sommets liés</text><text x="565" y="605">selon les règles déjà présentes.</text>
+   <text x="1045" y="525">Vérifier la même liste complète</text><text x="1045" y="560">que la bibliothèque et la trace.</text><text x="1045" y="605">Aucune position forcée.</text>
+  </g>
+  <g stroke="#4772a9" stroke-width="4" fill="#4772a9">
+   <path d="M490 260h35m-10-8 10 8-10 8M970 260h35m-10-8 10 8-10 8M490 540h35m-10-8 10 8-10 8M970 540h35m-10-8 10 8-10 8" fill="none"/>
+  </g>
+  <text x="60" y="720" font-size="24" font-weight="bold">Plusieurs obstacles peuvent exister ensemble.</text>
+  <text x="60" y="758" font-size="21">Le premier groupe vide indique une porte ; il ne prouve pas une cause physique unique.</text>
+  <text x="60" y="795" font-size="21">Les réponses connues servent seulement après le calcul, dans les cercles de 1,5 et 3 pixels natifs.</text>
+ </g>
+</svg>

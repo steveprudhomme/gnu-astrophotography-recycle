@@ -26,6 +26,12 @@ Plan `08219f0` publié avant code et trois agents parallèles sur fichiers disti
 
 Les 42 nouveaux tests fictifs vérifient portes connues, inconnues, intégrité, divergences, absence de trajectoires/injections nouvelles et dessin sans redétection. Depuis le commit propre **`f6ec207`**, la suite complète donne **423 tests réussis en 139,60 s** ; trois commandes aux codes 0 reproduisent douze images et traces fictives et deux PNG. Les 136 traces réelles sont identiques, 360 entrées et notices/médias intactes ; gardes à zéro pour association, filtre stationnaire, injection, accès externe/réseau et écriture FITS/NPY. Les pixels sont relus uniquement pour la trace autorisée et l'affichage ; cela ne change pas la preuve sans pixels du lot 19. Les cinq médias CC0 restent inchangés, les nouveaux détails réels privés. Revue interne seulement, aucun essai instrumental ou enfant, aucun contrôle automatique GitHub configuré.
 
+## Absences de maxima, lot 21
+
+Le plan `4a5bd4b` et l'extension du mandat des trois agents sont publiés avant code. Le [diagnostic](ABSENCES-MAXIMA.md) vérifie score, diagnostic 19, 17 traces individuelles et les 136 preuves du lot 20 avant de conserver la cohorte des 115 absences et le contexte 21. Cartes globales et graines sont calculées sans positions imposées ; égalité exigée à la bibliothèque, aux traces et aux positions gelées. Les filtres, seuils et versions restent inchangés.
+
+Au rayon natif 1,5, premières portes vides : comparaison locale 69, seuil 46 ; au rayon 3 : comparaison locale 47, seuil 68. Indépendamment de l'ordre, 105 cercles n'ont aucune réponse dépassant le seuil aux deux rayons, tandis que dix en ont une sans maximum local proche et avec voisin plus haut enregistré. Les obstacles se chevauchent ; 22 premières portes changent entre rayons. Aucune exclusion complète par masque ou bord dans cette cohorte, aucune identité de voisin ou cause physique démontrée. Les 21 centres contextuels ne sont pas nécessairement 21 graines dans le petit cercle. Aucun nouveau candidat ou succès scientifique.
+
 ## Objectif et périmètre
 
 Qualifier les archives avant de mesurer. Phases 1 et 2 : inventaire puis contrôle scientifique d’une séance de 30 à plus de 60 minutes, si disponible. Ne pas choisir uniquement les meilleures poses ; conserver celles qui révèlent nuages, dérive et interruptions. Un échantillon privé de trois poses et une référence est désormais disponible en copies locales vérifiées ; il ne représente pas toute la population d’archives.

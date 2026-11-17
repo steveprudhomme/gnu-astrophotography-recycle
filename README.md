@@ -50,6 +50,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Injections sur fond Seestar | Points artificiels dans les dérivés d'intensité, recalage gelé et réponses séparées | Bilan conditionnel : 10/36 ajouts retrouvés sur le fond réel, 26 manqués ; aucune découverte |
 | Diagnostic des manques | Positions déjà enregistrées suivies aux trois étapes, sans nouvelle recherche | 26 réconciliés : neuf hors vitesse, 17 avec support limité dès les détections ; causes physiques non établies |
 | Trace interne du détecteur | Rejeu comparé aux positions gelées, maxima et filtres expliqués | 17 cas examinés : sur 136 images, 115 sans maximum brut proche et 21 avec point retenu ; seuils inchangés |
+| Création des maxima | Convolution et portes numériques avant les graines proposées | Parmi les 115 absences : 105 cercles sans réponse dépassant le seuil, dix avec réponse dépassant le seuil mais sans maximum local ; obstacles cumulés conservés |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -70,6 +71,8 @@ Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas u
 La [trace interne du détecteur](docs/TRACE-DETECTEUR.md) approfondit les 17 manques en rejouant les pixels des seuls dérivés locaux, avec égalité exigée aux positions enregistrées. Les 115 absences de maximum proche ne permettent pas de séparer seuil, voisinage, séparation, masque ou bord ; aucun rejet de forme ou de marge proche n'est observé dans ces cas. Les deux rayons donnent les mêmes constats, sans nouvelle trajectoire ou changement de seuil. Un nouveau banc indépendant de douze images fictives et trois commandes pédagogiques illustre les portes. Trois agents ont travaillé en parallèle avec intégration et revue internes ; aucune validation scientifique indépendante n'est annoncée.
 
 Ce lot ajoute 42 tests fictifs : **423 tests réussis en 139,60 s**, depuis le commit propre `f6ec207`. Les trois commandes, douze images et traces fictives, deux figures et 136 traces réelles ont été reproduites ; scores, candidats, copies et cinq médias CC0 sont intacts. Version et moteurs inchangés. Les essais sont locaux, sans nouvel accès USB ni nouvelle injection réelle.
+
+Le [diagnostic des absences de maxima](docs/ABSENCES-MAXIMA.md) suit ensuite convolution, comparaison locale, masque, bord, seuil strict et plateaux/égalités, sans modifier les règles. Dans 105 des 115 situations, aucune réponse échantillonnée proche ne dépasse le seuil aux deux rayons ; dans les dix autres, une réponse le dépasse mais un voisin plus haut est enregistré et aucun maximum local proche n'est proposé. Cela décrit des obstacles numériques, sans démontrer une cause physique unique. Les premières portes vides changent dans 22 situations quand le cercle s'élargit : les deux lectures restent visibles. Trois agents ont travaillé sur un nouveau banc fictif, les tests et le tutoriel illustré ; les rapports réels restent privés.
 
 ## Démarrer
 

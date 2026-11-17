@@ -1181,3 +1181,59 @@ Depuis le commit propre **`f6ec207`**, les **423 tests passent en 139,60 seconde
 Les gardes relèvent zéro appel d'association, filtre stationnaire ou injection, zéro accès externe/réseau et zéro écriture FITS/NPY. Le détecteur relit les pixels autorisés pour cette trace ; les dessins ne le rappellent pas. Les 202 fichiers publics, les 44 ancres, les notices et les liens sont revus. Les 55 anciennes commandes gardent leurs preuves sans être toutes rejouées ; aucune nouvelle injection réelle n'est créée. Branche dédiée, PR et revue interne précèdent l'intégration puis le contrôle distant ; les tests sont locaux, aucun contrôle automatique GitHub n'est configuré. Les trois agents n'apportent pas une validation scientifique indépendante et aucun essai avec un enfant ou sur Windows vierge n'est revendiqué.
 
 La [PR nº 3](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/3) permet de relire les 24 fichiers modifiés. La fusion conserve le commit du plan publié avant code, puis le coordinateur vérifie le commit sur GitHub et la copie locale de `main`.
+
+## 27. Suivre les portes avant les maxima proposés
+
+Le plan [**`4a5bd4b`**](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/4a5bd4b9161056e2ac81d429c130e421801bc0be) et le prolongement du mandat de trois agents ont été committés, publiés et contrôlés avant le code. Diagnostic, vérification et pédagogie travaillent sur des fichiers distincts ; le coordinateur intègre et publie après revue. Les [détails du lot](ABSENCES-MAXIMA.md) et la [nouvelle mission dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--comprendre-pourquoi-aucun-sommet-nest-proposé) expliquent les mots et les commandes.
+
+Le lot 20 avait conservé 115 situations sans maximum brut proche et 21 avec point retenu, sur les huit fonds des 17 cas. Le lot 21 suit les portes en amont sans changer ces cohortes, les paramètres ou les scores. Les 115 situations ne sont pas 115 objets ou expériences indépendantes. Une explication interne peut rester incomplète sans devenir une réussite scientifique.
+
+![Les portes avant la proposition d'un maximum, schéma conceptuel](images/exemple-maxima-portes.svg)
+
+### Rejouer toutes les cartes avant de regarder les réponses
+
+La nouvelle recette conserve masque, fond/bruit, noyau et seuil effectif du détecteur. Elle suit comparaison au maximum circulaire, retrait du masque, bord de bibliothèque, comparaison stricte `valeur > seuil`, regroupement des plateaux et départage des égalités. Les fonctions internes de Photutils 3.1.1 et la source de convolution sont identifiées par version et empreintes. Le remplacement des pixels masqués dans le chercheur est conservé ; aucune source n'est forcée aux réponses.
+
+Les graines proposées doivent retrouver la liste complète et ordonnée de la bibliothèque et de la trace précédente. Les positions finales doivent retrouver celles déjà gelées à 10⁻⁹ pixel natif près. Une divergence bloque le bilan ; aucun déplacement ou assouplissement n'est appliqué pour réussir. Les cartes sont calculées sans les positions injectées, qui ne servent ensuite qu'à lire les échantillons dans les rayons natifs de 1,5 et 3 pixels.
+
+Le rapport conserve effectifs par porte, première porte vide, obstacles simultanés, réponse du meilleur échantillon et voisin plus élevé lorsqu'observable. Un premier effectif nul est un constat d'étape, pas une cause physique exclusive. La réponse convoluée n'est ni un flux calibré, un rapport signal/bruit photométrique ou une magnitude. Mesurer un voisin ne prouve pas son identité ou son rôle causal unique.
+
+### Trois commandes sur un nouveau banc fictif
+
+Douze images de 96 × 96 utilisent les graines 2026111801/2026111802 et six fabrications fixées avant analyse : source brillante isolée, faible, voisin plus brillant, masquée, bord de bibliothèque et plateau/égalité. Les bruits sont appariés par graine. Les noms ne garantissent pas le verdict ; les sorties réellement obtenues sont conservées.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_peak_absence_demo.py local/exercice-maxima-images
+.\.venv\Scripts\python.exe examples/trace_peak_creation.py local/exercice-maxima-images/manifest.json local/exercice-maxima-images/truth.json local/exercice-maxima-bilan
+.\.venv\Scripts\python.exe examples/plot_peak_absences.py local/exercice-maxima-bilan/trace.json local/exercice-maxima-figures
+```
+
+Les trois codes attendus sont 0 pour un lot complet et cohérent. Les réponses sont séparées du manifeste d'images ; elles ne sont lues par l'analyse qu'après le calcul des cartes. `trace.json` contient les preuves et `report.md` leur lecture. Le dessin produit `gates.png`, `examples.png` et un journal d'empreintes, sans rappeler le détecteur ni recalculer la convolution. Le schéma des portes est conceptuel ; les deux PNG viennent des pixels et traces fictifs, sans fausse capture d'écran.
+
+Le premier parcours des trois commandes a les codes 0. Sur ce banc, les premières portes vides sont, à 1,5 pixel natif : huit maxima locaux et deux bords, avec deux maxima proposés ; à 3 pixels : cinq maxima locaux, deux bords et un seuil, avec quatre maxima proposés. Cela conserve les différences entre rayons et ne transforme pas les noms de fabrication en verdicts obligatoires. Les essais directs sur des cartes inventées permettent de vérifier séparément les plateaux et égalités, sans prétendre que le cas nommé plateau les illustre forcément dans ses pixels bruités.
+
+![Comptages calculés à chaque porte sur le banc entièrement fictif](images/exemple-maxima-portes-calcul.png)
+
+![Situations fictives, positions inventées et échantillons calculés](images/exemple-maxima-situations.png)
+
+*Vert : réponse inventée, pas une détection. Carrés bleus : réponse au-dessus du seuil ; orange : sous ou égale. Rose : graine proposée ; jaune : voisin plus élevé enregistré. Le nombre est la meilleure valeur utilisée pour les pics divisée par le seuil effectif, sans unité photométrique. Une valeur supérieure à 1 ne garantit pas la comparaison locale ; une valeur négative ne représente pas une luminosité physique négative. La matrice utilise 1,5 pixel et la vue de contexte 3, clairement distingués.*
+
+### Reprendre les caches existants
+
+```powershell
+.\.venv\Scripts\python.exe examples/diagnose_peak_absences.py local/exercice-injections-bilan/score.json local/exercice-diagnostic-manques/diagnostic.json local/exercice-trace-manques/trace.json local/exercice-maxima-manques
+```
+
+Ces chemins sont les exemples fictifs de référence. La recette vérifie les rapports liés et les traces individuelles gelées ; les nouveaux détails réels, positions, valeurs et journaux restent ignorés sous `local/`. Aucun accès USB, association, filtrage stationnaire, recalage ou nouvelle injection réelle n'est nécessaire. Les copies, scores, modèles et candidats sont préservés, avec contrôles d'empreintes avant et après.
+
+Une sortie existante n'est pas écrasée. Une incohérence, entrée modifiée ou erreur donne un refus et peut conserver des produits incomplets. Conserver les messages et choisir une sortie neuve après correction ; une trace incomplète ne peut pas être dessinée comme terminée. Les étapes restent descriptives et la revue des trois agents reste interne, sans qualification scientifique indépendante, test avec un enfant ou essai sur ordinateur vierge revendiqué.
+
+### Constats sur la cohorte réelle fixée
+
+Les 115 absences sont réconciliées : premières portes vides à 1,5 pixel natif, **69 sans maximum local et 46 au seuil** ; à 3 pixels, **47 sans maximum local et 68 au seuil**. Vingt-deux situations changent de première porte avec le rayon, sans réglage différent du programme. Aucun blocage par masque ou bord n'est observé dans ces voisinages.
+
+Les conditions indépendantes donnent, pour chacun des deux rayons, **105 situations sans aucun échantillon au-dessus du seuil**, et dix avec une réponse qui le dépasse mais sans maximum local proche. Ces comptes chevauchent les premières portes : ne pas les additionner ni les transformer en causes physiques exclusives. Les 136 situations utilisent les mêmes huit fonds et ne sont pas des essais indépendants.
+
+Un voisin strictement plus haut est enregistré dans les dix situations au-dessus du seuil, aux deux rayons de lecture. La trace le mesure dans le voisinage prévu par le chercheur de maxima ; elle n'en identifie pas l'objet et n'en fait pas une cause physique unique.
+
+Les 21 centres retenus proches restent en contexte : au petit rayon, vingt graines sont proches et une est hors du cercle malgré un centre ajusté proche ; au grand rayon les 21 graines sont proches. Cette différence de position n'est pas une nouvelle absence ou une modification des candidats. Les scores, modèles et fichiers d'origine restent intacts ; les nouvelles preuves individuelles réelles restent locales, sans publication de coordonnées privées.
