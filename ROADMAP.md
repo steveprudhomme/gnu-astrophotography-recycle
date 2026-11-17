@@ -220,3 +220,14 @@ Plan du 16 novembre 2026, à committer avant code et mesure. Utiliser seulement 
 - G8 : actualiser contrat, tutoriel illustré, README, installation, validation et sources ; vérifier l’installation et la confidentialité, committer la réalisation et publier uniquement code/documentation/illustrations synthétiques.
 
 Un contrôle contre Gaia ne prouve pas que ce catalogue soit indépendant des références du solveur initial. Le contrôle réservé évite leur utilisation dans le recalage actuel, sans supprimer les erreurs héritées de l’empilement. Les heures restent non qualifiées et aucune vitesse de mobile n’est calculée.
+
+Réalisation **0.8.0a1**, plan préalable **`93c13cb`** :
+
+- G1/G2 — faits : provenance et empreintes rapprochées, détections/partition reproduites et contrôle principal réservé, sans chemin source historique consulté.
+- G3/G4 — faits : modèles gelés avec SIP, sélection Gaia et critères conservés sans assouplissement après mesure ; détections non associées/hors recouvrement comptées.
+- G5 — fait : résidus, biais, RMS, percentiles, bootstrap conditionnel, couverture et références communes ; aucun verdict porté par le bilan secondaire.
+- G6 — fait : 20 nouveaux cas, soit 197 tests ; biais fictif de 0,5″ conservé, figures synthétiques publiques et cartes réelles privées inspectées.
+- G7 — fait : les trois copies satisfont séparément les critères ; copies, catalogue et modèle inchangés, aucun accès USB ni téléchargement.
+- G8 — livré dans le commit de réalisation : tutoriel illustré, contrat, Markdown, installation et confidentialité ; publication du code et des exemples synthétiques uniquement.
+
+Le budget absolu complet, les calibrations photométriques et la qualification temporelle restent ouverts. Le contrôle Gaia ne transforme pas ces résultats en certificat de précision de chaque étoile ou d’aptitude MPC.

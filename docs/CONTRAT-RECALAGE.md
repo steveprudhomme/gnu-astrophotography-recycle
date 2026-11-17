@@ -43,3 +43,5 @@ La destination doit être nouvelle. Produits : `registration.json` (modèles, pa
 Codes : `0` si toutes les poses satisfont les critères ; `2` si le rapport est produit mais une pose échoue ; `1` si entrée, intégrité ou production impossible. Les résultats réels, en-têtes sérialisés et figures du champ restent privés dans `local/`.
 
 Références : [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html), [SciPy cKDTree](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html), [Astropy WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html). Le choix des triangles, du modèle rigide et des seuils est une décision du projet, évaluée synthétiquement ; ces pages décrivent les bibliothèques utilisées, pas une validation instrumentale du S50.
+
+La commande distincte [gaia-frames](CONTRAT-GAIA-POSES.md) contrôle ensuite les positions composées contre un catalogue local, sur les détections déjà réservées et sans réajuster le modèle. Elle vérifie la reproduction des détections et leur partition ; les heures et le budget absolu restent non qualifiés.

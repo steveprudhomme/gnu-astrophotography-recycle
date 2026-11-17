@@ -6,6 +6,8 @@
 
 Le CSV doit contenir `source_id`, `ra`, `dec`, `pmra`, `pmdec`, `ref_epoch`, `phot_g_mean_mag` et `ruwe`. Les angles sont en degrés ICRS, les mouvements propres en mas/an (`pmra` inclut cos(dec)), l’époque en années juliennes TCB. Les erreurs disponibles restent dans le fichier source. Le catalogue est privé par défaut : sa requête peut révéler la cible observée.
 
+Depuis la version 0.8, les identifiants de référence doivent être non vides et uniques ; les doublons sont refusés. La sélection et la propagation sont partagées avec le [contrôle Gaia des poses](CONTRAT-GAIA-POSES.md), qui utilise un échantillon réservé et un minimum de 20 associations, distinct de ce contrôle de l’empilement à 30 associations.
+
 Pour l’essai réel, un extrait **Gaia DR3 de l’archive ESA** a été acquis après accord explicite du fondateur. Seule la zone céleste a été transmise, sans FITS, en-tête complet ni position terrestre. La requête, la version et l’empreinte sont conservées dans `provenance.json`, à côté du CSV. Le programme vérifie cette empreinte lorsque ce fichier existe. Un catalogue de 20 000 lignes ou plus est refusé dans cette version pour éviter d’accepter une extraction potentiellement tronquée.
 
 La comparaison ne télécharge pas son catalogue implicitement. Les identifiants relient les associations au catalogue d’origine ; la licence et les obligations de citation des catalogues restent distinctes de la GPL du logiciel. Les données réelles ne sont pas redistribuées dans le dépôt.

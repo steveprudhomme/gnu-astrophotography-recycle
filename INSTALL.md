@@ -91,6 +91,17 @@ La version 0.7 réutilise les dépendances de la comparaison stellaire, sans nou
 
 Les quatre copies sont vérifiées en lecture seule ; les chemins sources ne sont pas consultés. Aucune clé USB n’est nécessaire. Lire le [contrat de recalage](docs/CONTRAT-RECALAGE.md) pour les critères et codes de retour. Les SVG sont produits sans dépendance graphique supplémentaire. Le générateur PNG facultatif `examples/plot_registration.py` nécessite Matplotlib dans l’interpréteur utilisé ; Matplotlib ne fait pas partie des dépendances d’analyse.
 
+## Comparer à Gaia les poses recalées
+
+La version 0.8 conserve les mêmes dépendances scientifiques. Actualiser l’installation modifiable, puis fournir le workset et le recalage déjà produits, ainsi que le catalogue local et sa provenance :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install --no-deps -e .
+.\.venv\Scripts\gar.exe gaia-frames ".\local\lot\workset.json" --registration ".\local\recalage-01\registration.json" --catalog ".\local\references\catalog.csv" --output ".\local\gaia-poses-01"
+```
+
+Ne pas refaire les copies ou consulter les archives externes pour cette étape. Les modèles restent gelés. Le [contrat Gaia des poses](docs/CONTRAT-GAIA-POSES.md) précise les critères, la vérification des entrées et les codes `0`/`2`/`1`. Le [tutoriel](docs/TUTORIEL.md) donne une chaîne d’essai entièrement fictive. Le SVG n’exige pas Matplotlib ; le tracé PNG facultatif `examples/plot_gaia_frames.py` l’utilise séparément.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

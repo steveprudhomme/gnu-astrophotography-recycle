@@ -6,7 +6,7 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha 0.7 — inventaire, diagnostics, copies vérifiées, comparaison stellaire et recalage relatif avec étoiles réservées au contrôle. Les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
+**Statut : Alpha 0.8 — inventaire, diagnostics, copies vérifiées, recalage et comparaison Gaia sur étoiles réservées des poses. Les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
 
 ## Mission
 
@@ -25,6 +25,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Échantillon local | Copie de fichiers sélectionnés, SHA-256 et collecte de tous les en-têtes | Disponible, sources préservées ; aucune mesure scientifique |
 | Contrôle sur étoiles | Comparaison de la WCS originale à des références locales, résidus et couverture | Disponible ; critères exploratoires, sans certification de soumission |
 | Recalage relatif | Rotation/translation vers une référence WCS gelée, contrôle sur étoiles réservées | Disponible ; composition céleste exploratoire, heures non qualifiées |
+| Gaia sur poses | Comparaison des positions composées à un catalogue local, modèles gelés | Disponible ; verdict sur étoiles réservées, budget absolu incomplet |
 | Qualification scientifique complète | Budget d’erreur absolue et horodatages vérifiés | À poursuivre, phase 2 |
 | Objets mobiles | Trajectoires candidates, vitesses et GIF | Recherche, phase 3 |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
@@ -88,6 +89,14 @@ Pour recaler des poses déjà copiées, sans consulter les sources historiques :
 ```
 
 Le [contrat de recalage](docs/CONTRAT-RECALAGE.md) explique les étoiles réservées, les critères, la composition vers la WCS de référence et l’erreur héritée. Aucun FITS n’est modifié ; aucun support externe ni catalogue réseau n’est consulté par cette commande. Le [tutoriel](docs/TUTORIEL.md#12-recaler-trois-poses-locales-avec-un-contrôle-réservé) fournit un exemple entièrement synthétique illustré.
+
+Pour contrôler ensuite les coordonnées composées contre le catalogue local, sans réajuster les modèles :
+
+```powershell
+.\.venv\Scripts\python.exe -m gar gaia-frames ".\local\lot\workset.json" --registration ".\local\recalage-01\registration.json" --catalog ".\local\references\catalog.csv" --output ".\local\gaia-poses-01"
+```
+
+Le [contrat Gaia des poses](docs/CONTRAT-GAIA-POSES.md) distingue le verdict sur étoiles réservées du bilan secondaire sur toutes les détections. Le catalogue doit avoir son `provenance.json` avec SHA-256. Tout est local, sans USB ni téléchargement ; les heures et le budget d’erreur absolue restent non qualifiés.
 
 ## Contribuer et vérifier
 

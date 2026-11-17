@@ -39,7 +39,7 @@ def local_path(path,base):
     return path
 
 
-def residual_statistics(x,y,dx,dy,width,height):
+def residual_statistics(x,y,dx,dy,width,height,*,min_matches=30):
     n=len(x)
     r=np.hypot(dx,dy)
     cells=len(set(zip(np.minimum((np.asarray(x)*3/width).astype(int),2),
@@ -58,7 +58,35 @@ def residual_statistics(x,y,dx,dy,width,height):
             'bias_north_arcsec':float(np.mean(dy)) if n else None,
             'median_bootstrap_95_percent_interval_arcsec':ci,
             'grid_cells_occupied':cells,'quadrants_occupied':quadrants,
-            'empirical_criteria_passed':bool(n>=30 and median<=2 and p95<=4 and cells>=6 and quadrants==4)}
+            'empirical_criteria_passed':bool(n>=min_matches and median<=2 and p95<=4 and cells>=6 and quadrants==4)}
+
+
+def prepare_references(catalog,date_obs):
+    """Quality/epoch/isolation selection shared by frozen-model comparisons."""
+    required=['source_id','ra','dec','pmra','pmdec','ref_epoch','phot_g_mean_mag','ruwe']
+    if any(k not in catalog.colnames for k in required):raise ValueError('Colonnes Gaia requises manquantes.')
+    ids=[str(value).strip() for value in catalog['source_id']]
+    if any(not value for value in ids) or len(set(ids))!=len(ids):raise ValueError('Identifiants de référence absents ou dupliqués.')
+    good=np.ones(len(catalog),dtype=bool)
+    for k in required[1:]:good &= np.isfinite(np.asarray(catalog[k],dtype=float))
+    good &= (np.asarray(catalog['phot_g_mean_mag'])>=9)&(np.asarray(catalog['phot_g_mean_mag'])<=17.5)&(np.asarray(catalog['ruwe'])<1.4)
+    cat=catalog[good]
+    quality_references=len(cat)
+    if len(cat)<2:raise ValueError('Références insuffisantes.')
+    # Calendar date only: epoch propagation does not qualify the instrument clock.
+    epoch=Time(str(date_obs)[:10]+'T12:00:00',format='isot',scale='tcb')
+    coords=SkyCoord(ra=np.asarray(cat['ra'])*u.deg,dec=np.asarray(cat['dec'])*u.deg,
+                    pm_ra_cosdec=np.asarray(cat['pmra'])*u.mas/u.yr,
+                    pm_dec=np.asarray(cat['pmdec'])*u.mas/u.yr,
+                    obstime=Time(np.asarray(cat['ref_epoch']),format='jyear',scale='tcb'),frame='icrs')
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter('always');coords=coords.apply_space_motion(new_obstime=epoch)
+    coords=SkyCoord(ra=coords.ra,dec=coords.dec,frame='icrs')
+    _,nearest,_=coords.match_to_catalog_sky(coords,nthneighbor=2)
+    isolated=nearest.arcsec>=16
+    return cat[isolated],coords[isolated],{'catalog_input':len(catalog),'catalog_after_quality':quality_references,
+        'catalog_after_isolation':int(isolated.sum()),'epoch_approx_tcb':epoch.isot,
+        'propagation_warnings':[str(w.message) for w in caught]}
 
 
 def compare_stars(image,wcs,catalog,date_obs):
@@ -85,26 +113,9 @@ def compare_stars(image,wcs,catalog,date_obs):
     distance,_=cKDTree(np.column_stack([x,y])).query(np.column_stack([x,y]),k=2)
     keep=distance[:,1]>=8;x=x[keep];y=y[keep]
     if not len(x):raise ValueError('Aucune détection isolée.')
-    required=['source_id','ra','dec','pmra','pmdec','ref_epoch','phot_g_mean_mag','ruwe']
-    if any(k not in catalog.colnames for k in required):raise ValueError('Colonnes Gaia requises manquantes.')
-    good=np.ones(len(catalog),dtype=bool)
-    for k in required[1:]:good &= np.isfinite(np.asarray(catalog[k],dtype=float))
-    good &= (np.asarray(catalog['phot_g_mean_mag'])>=9)&(np.asarray(catalog['phot_g_mean_mag'])<=17.5)&(np.asarray(catalog['ruwe'])<1.4)
-    cat=catalog[good]
-    quality_references=len(cat)
-    if len(cat)<2:raise ValueError('Références insuffisantes.')
-    # Calendar date only: epoch propagation is not a qualification of the device clock.
-    epoch=Time(str(date_obs)[:10]+'T12:00:00',format='isot',scale='tcb')
-    coords=SkyCoord(ra=np.asarray(cat['ra'])*u.deg,dec=np.asarray(cat['dec'])*u.deg,
-                    pm_ra_cosdec=np.asarray(cat['pmra'])*u.mas/u.yr,
-                    pm_dec=np.asarray(cat['pmdec'])*u.mas/u.yr,
-                    obstime=Time(np.asarray(cat['ref_epoch']),format='jyear',scale='tcb'),frame='icrs')
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter('always');coords=coords.apply_space_motion(new_obstime=epoch)
-    coords=SkyCoord(ra=coords.ra,dec=coords.dec,frame='icrs')
-    _,nearest,_=coords.match_to_catalog_sky(coords,nthneighbor=2)
+    cat,coords,reference_info=prepare_references(catalog,date_obs)
     cx,cy=wcs.world_to_pixel(coords)
-    inside=(cx>=10)&(cx<width-10)&(cy>=10)&(cy<height-10)&(nearest.arcsec>=16)
+    inside=(cx>=10)&(cx<width-10)&(cy>=10)&(cy<height-10)
     coords=coords[inside];cat=cat[inside]
     if len(cat)==0:raise ValueError('Aucune référence isolée dans le champ.')
     measured=wcs.pixel_to_world(x,y).icrs
@@ -122,7 +133,7 @@ def compare_stars(image,wcs,catalog,date_obs):
     return {'criteria':CRITERIA,'metrics':residual_statistics(x[chosen],y[chosen],dx,dy,width,height),
             'selection_counts':{'detected':detected_count,'after_margin':after_margin,
                                 'after_isolation':len(x),'catalog_input':len(catalog),
-                                'catalog_after_quality':quality_references,'catalog_inside_isolated':len(cat),
+                                'catalog_after_quality':reference_info['catalog_after_quality'],'catalog_inside_isolated':len(cat),
                                 'saturated_pixels':int(np.sum(saturated))},
             'parameters':{'threshold_sigma':8,'fwhm_pixels':3,'margin_pixels':10,
                           'saturation_adu':65000,'detection_isolation_pixels':8,
@@ -130,7 +141,7 @@ def compare_stars(image,wcs,catalog,date_obs):
                           'bootstrap_replicates':500,'image_selection':'mean_of_planes_if_3d'},
             'pairs':pairs,'detections_after_selection':len(x),'references_after_selection':len(cat),
             'image_shape':[height,width],'background':float(background),'noise_sigma':float(noise),
-            'epoch_approx_tcb':epoch.isot,'propagation_warnings':[str(w.message) for w in caught],
+            'epoch_approx_tcb':reference_info['epoch_approx_tcb'],'propagation_warnings':reference_info['propagation_warnings'],
             'wcs_refitted':False,'residuals_clipped':False,'clock_qualified':False,
             'scientific_submission_certified':False}
 

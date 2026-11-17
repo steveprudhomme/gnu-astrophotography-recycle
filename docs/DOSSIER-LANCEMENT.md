@@ -28,6 +28,8 @@ La version 0.6 ajoute `astrometry.py`, `astrometry_reports.py`, Photutils/SciPy 
 
 La version 0.7 ajoute `registration.py`, `registration_reports.py` et `gar register` : recalage rigide sur copies locales, étoiles réservées avant ajustement et composition vers la WCS gelée. La suite compte 177 tests. Le [contrat de recalage](CONTRAT-RECALAGE.md) distingue précision relative et erreur absolue héritée ; aucune WCS FITS n’est copiée ou réécrite et les heures restent non qualifiées. Le tutoriel propose trois injections Bayer fictives et leurs graphiques réellement calculés.
 
+La version 0.8 ajoute `gaia_frames.py`, `gaia_frames_reports.py` et `gar gaia-frames`, avec sélection/propagation Gaia commune au contrôle de l’empilement. Les modèles restent gelés ; seul l’échantillon réservé détermine le verdict par pose. Les 197 tests couvrent notamment les biais conservés et la cohérence des partitions/provenances. Le [contrat Gaia des poses](CONTRAT-GAIA-POSES.md) distingue références communes, contrôle empirique et budget absolu incomplet. Les trois copies réelles satisfont les critères, sans accès USB ; seuls les exemples fictifs sont publics.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites

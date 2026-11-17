@@ -75,7 +75,30 @@ def main(argv=None):
     registration.add_argument('--reference-index', type=int, required=True)
     registration.add_argument('--frame-indices', type=int, nargs='+', required=True)
     registration.add_argument('--output', type=Path, required=True)
+    gaia_frames = sub.add_parser('gaia-frames', help='Comparer à Gaia les étoiles réservées de poses recalées, hors ligne.')
+    gaia_frames.add_argument('workset', type=Path)
+    gaia_frames.add_argument('--registration', type=Path, required=True)
+    gaia_frames.add_argument('--catalog', type=Path, required=True)
+    gaia_frames.add_argument('--output', type=Path, required=True)
     args = parser.parse_args(argv)
+    if args.command == 'gaia-frames':
+        from .gaia_frames import run_gaia_frames
+        try:
+            result = run_gaia_frames(args.workset, args.registration, args.catalog, args.output,
+                                     Path(__file__).resolve().parents[2]/'local')
+            import photutils, scipy
+            result.update(program_version=__version__, source_revision=source_commit(),
+                          created_at_utc=datetime.now(timezone.utc).isoformat(),
+                          environment={'python': platform.python_version(), 'astropy': astropy.__version__,
+                                       'numpy': numpy.__version__, 'photutils': photutils.__version__, 'scipy': scipy.__version__})
+            (args.output/'gaia-frames.json').write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False), encoding='utf-8')
+            for frame in result['frames']:
+                print(json.dumps({'file_index': frame['file_index'], 'criteria_passed': frame['criteria_passed'],
+                                  'control': frame.get('control', {}).get('metrics'), 'error': frame.get('error')}, ensure_ascii=False))
+            return 0 if result['all_criteria_passed'] else 2
+        except (ValueError, OSError) as exc:
+            print(f'Erreur : {exc}', file=sys.stderr)
+            return 1
     if args.command == 'register':
         from .registration import run_registration
         try:
