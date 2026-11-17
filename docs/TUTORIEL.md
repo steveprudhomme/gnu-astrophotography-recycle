@@ -862,6 +862,8 @@ Les **297 tests passent en 46,51 secondes**, dont vingt nouveaux cas : détermin
 
 L’inspection visuelle a détecté un mauvais raccord de séquence dans le dessin des négatifs : les cercles provenaient d’un autre cas que le fond affiché. Le programme de dessin a été corrigé avant publication et les figures réexaminées. Les résultats de calcul, critères et pixels n’ont pas été changés. Les premiers dessins restent dans les essais locaux. Reproduction du jeu, des modèles/candidats, des mesures, des figures et des commandes pédagogiques depuis le code committé avant publication.
 
+Cette reproduction a abouti depuis **`74b57b0`**, sans modification suivie, dans des dossiers neufs et le même environnement : **33 commandes** du parcours aux codes attendus, **400 images** identiques par empreinte, cinquante rapports individuels gelés et deux méthodes identiques en modèles/candidats/bilan. Les trois PNG de mesures/sélections, le GIF de huit images et le PNG conceptuel sont identiques aux illustrations publiques. L’ancienne recette garde son code 2 et ses refus ; la nouvelle donne 0 sur le nouveau jeu. La provenance change avec le commit propre, pas les résultats. Les traces restent locales ; aucun test utilisateur avec un enfant ou sur Windows vierge n’est revendiqué.
+
 ### Quand passer aux images du Seestar ?
 
 ![Préparer la série, faire un essai exploratoire, puis qualifier les mesures scientifiques](images/passage-seestar-pilote.png)
