@@ -257,3 +257,14 @@ Plan du 16 novembre 2026, à committer avant développement. Entrée exclusive :
 - H9 : mettre à jour tutoriel illustré, README, installation, contrats, validation et sources ; vérifier version, dépendances et confidentialité, committer la réalisation et publier sur GitHub code/documentation/exemples synthétiques uniquement.
 
 La disponibilité d’un dossier de préparation n’achève pas la qualification temporelle. Sans preuves indépendantes applicables au firmware, au mode et à l’époque des observations, `time_validated`, `exposure_reference_verified` et `scientific_time_export_allowed` restent faux ; `clock_accuracy_seconds` et `mid_exposure_utc` restent inconnus.
+
+Réalisation **0.9.0a1**, plan préalable **`a157beb`** :
+
+- H1/H2 — faits : contrat de préparation, références FITS/Astropy et lecture des en-têtes des copies uniquement, sans pixels ni accès aux sources historiques.
+- H3/H4 — faits : champs complets sélectionnés, commentaires/doublons, statuts et limites ; différences calendaires naïves séparées des temps physiques, aucune conversion ou précision inventée.
+- H5/H6 — faits : six produits privés et canevas non ingéré, huit exigences et protocole illustré d’un essai futur ; rattachement historique distinct, aucun essai instrumental effectué.
+- H7 — fait : 26 nouveaux cas, soit 223 tests, exemples et figures synthétiques/conceptuelles inspectés ; même les déclarations riches ne qualifient pas l’heure.
+- H8 — fait : dossier produit sur quatre copies locales, workset et copies inchangés ; aucune preuve indépendante fournie à cette analyse, rapports réels privés.
+- H9 — livré dans le commit de réalisation : tutoriel, contrats et Markdown actualisés, installation et confidentialité vérifiées, publication du code et illustrations synthétiques/conceptuelles uniquement.
+
+Le passage à une qualification instrumentale exige une campagne distincte et des preuves revues. Ce lot n’achève ni la qualification des anciennes archives ni l’aptitude à une soumission scientifique.

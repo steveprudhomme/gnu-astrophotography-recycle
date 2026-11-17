@@ -80,7 +80,24 @@ def main(argv=None):
     gaia_frames.add_argument('--registration', type=Path, required=True)
     gaia_frames.add_argument('--catalog', type=Path, required=True)
     gaia_frames.add_argument('--output', type=Path, required=True)
+    time_evidence = sub.add_parser('time-evidence', help='Préparer les preuves temporelles depuis les en-têtes des copies locales.')
+    time_evidence.add_argument('workset', type=Path)
+    time_evidence.add_argument('--output', type=Path, required=True)
     args = parser.parse_args(argv)
+    if args.command == 'time-evidence':
+        from .time_evidence import run_time_evidence
+        try:
+            result = run_time_evidence(args.workset, args.output, Path(__file__).resolve().parents[2]/'local')
+            result.update(program_version=__version__, source_revision=source_commit(),
+                          created_at_utc=datetime.now(timezone.utc).isoformat(),
+                          environment={'python': platform.python_version(), 'astropy': astropy.__version__, 'numpy': numpy.__version__})
+            (args.output/'time-evidence.json').write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False), encoding='utf-8')
+            print(json.dumps(result['summary'], ensure_ascii=False))
+            print('Dossier produit ; horloge non qualifiée, export temporel scientifique refusé.')
+            return 2
+        except (ValueError, OSError) as exc:
+            print(f'Erreur : {exc}', file=sys.stderr)
+            return 1
     if args.command == 'gaia-frames':
         from .gaia_frames import run_gaia_frames
         try:

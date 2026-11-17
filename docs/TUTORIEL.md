@@ -1,8 +1,8 @@
-# Tutoriel illustré — de l’inventaire au contrôle Gaia des poses
+# Tutoriel illustré — inventaire, contrôle Gaia et préparation temporelle
 
-Ce guide suit les modules livrés jusqu’à l’Alpha 0.8. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
+Ce guide suit les modules livrés jusqu’à l’Alpha 0.9. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
 
-Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication).
+Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales).
 
 ## 1. Planifier avant de coder
 
@@ -64,7 +64,7 @@ Une date brute sans convention confirmée n’est pas un temps de milieu de pose
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21 et le contrôle Gaia des poses 20, soit **197 tests réussis au total**.
+L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20 et la préparation temporelle 26, soit **223 tests réussis au total**.
 
 Les tests ont révélé un problème de guillemets dans l’appel de test du lanceur Windows ; cet appel a été corrigé puis la suite relancée avec succès. Dans l’environnement de travail contrôlé, les tests de jonctions et de permissions ont nécessité une exécution avec accès au dossier temporaire ; cela ne démontre pas une exigence d’administrateur de l’application. La distribution autonome sur compte standard reste à valider.
 
@@ -512,3 +512,75 @@ git status --short
 ```
 
 Après un envoi réussi, les deux premières commandes doivent indiquer le même identifiant de commit pour ce lot. Un état local propre ne prouve pas à lui seul la publication. Vérifier également sur [GitHub](https://github.com/steveprudhomme/gnu-astrophotography-recycle) les documents et illustrations attendus. La publication de fichiers dans `main` ne crée ni version GitHub Releases, ni paquet PyPI, ni logiciel portable certifié.
+
+## 15. Préparer la qualification des horodatages sur les copies locales
+
+Plan préalable **`a157beb`**, enregistré avant code et examen des copies. Ce lot complète le diagnostic du manifeste partiel par une lecture des **en-têtes complets des copies déjà vérifiées**. Aucun accès USB, aucune ouverture des sources historiques, aucun pixel chargé et aucune mesure instrumentale. Le résultat est un dossier de préparation, pas un certificat d’horloge.
+
+### Produire un dossier fictif complet
+
+Choisir deux dossiers nouveaux :
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_time_evidence_demo.py ".\local\demo-preuves-temps-input"
+.\.venv\Scripts\python.exe -m gar time-evidence ".\local\demo-preuves-temps-input\workset.json" --output ".\local\demo-preuves-temps-report"
+$LASTEXITCODE
+```
+
+Le dernier résultat attendu est **2** : le dossier est produit mais l’heure reste non qualifiée. Ce code ne signifie pas que l’installation a échoué. Le code 1 indique au contraire une entrée ou une analyse impossible. Le générateur crée directement quatre FITS synthétiques sous `local/` ; il ne copie aucune source externe.
+
+| Fichier fictif | Cas injecté | Résultat préparatoire attendu et obtenu |
+|---|---|---|
+| 1 | Date de création lisible, échelle et début/fin absents | Informations insuffisantes, précision réelle inconnue |
+| 2 | Début/fin, UTC, unité, firmware fictif et erreurs déclarées | Déclarations riches ; aucune preuve indépendante, heure non qualifiée |
+| 3 | DATE-OBS dupliquée, fin avant début, durées divergentes, erreur négative | Ambiguïtés et contradictions conservées dans les alertes |
+| 4 | Cube de trois plans et compteur d’empilement | Séparé des poses individuelles, aucune heure moyenne supposée |
+
+Résumé réellement produit : quatre fichiers/HDU, trois candidates individuelles, deux `DATE-OBS` lisibles non dupliquées, deux paires début/fin lisibles, deux échelles déclarées et **zéro HDU qualifiée**. Huit exigences de preuve sont à compléter. Une paire lisible peut être contradictoire : la barre « début et fin lisibles » inclut ici le cas 3 et ne signifie pas un intervalle valide.
+
+![Comptages réellement produits sur le dossier synthétique, avec déclarations présentes et aucune horloge qualifiée](images/exemple-preuves-temps.png)
+
+*Figure calculée depuis le JSON fictif et inspectée visuellement ; aucune capture d’écran ni observation personnelle. Les barres se recouvrent et ne doivent pas être additionnées. Ce ne sont pas des scores de confiance. Le [SVG applicatif](images/exemple-preuves-temps.svg) est également disponible.*
+
+Pour reproduire le PNG avec un interpréteur disposant de Matplotlib, facultatif :
+
+```powershell
+python examples/plot_time_evidence.py ".\local\demo-preuves-temps-report\time-evidence.json" ".\local\demo-preuves-temps-report\time-evidence.png" --synthetic
+```
+
+Omettre `--synthetic` pour un dossier réel et garder sa figure dans `local/`. Le SVG applicatif n’a pas besoin de Matplotlib.
+
+### Lire les six produits et leurs limites
+
+- `time-evidence.json` : cartes, commentaires, doublons, absences dans la liste sélectionnée, diagnostics par HDU, empreintes et provenance.
+- `cards.csv` : cartes sélectionnées avec index et textes protégés contre les formules de tableur ; le JSON garde les valeurs originales.
+- `time-evidence.svg` et `report.md` : comptages et points à examiner, avec maintien de la non-qualification.
+- `evidence-template.json` : canevas de huit exigences, configuration, protocole, incertitudes et résultats encore inconnus.
+- `measurement-plan.md` : étapes de mesure à préparer, avec lien vers le protocole détaillé.
+
+Le programme distingue déclarations et preuves. Il ne déduit pas le firmware exact de `PROGRAM`, ne remplace pas une échelle absente par UTC pour convertir les dates et ne transforme pas des décimales écrites en précision réelle. Les coordonnées numériques JD/MJD et origines sont conservées sans interprétation. Les extensions ne reçoivent pas silencieusement les informations du primaire.
+
+Une différence début/fin est uniquement calendaire et naïve ; elle ne constitue pas un temps physique écoulé certifié. La comparaison avec `TELAPSE` exige une unité seconde explicitement déclarée. Les écarts de durées ou erreurs négatives sont signalés sans conclure à une panne de l’instrument. `DATE-AVG` n’est pas automatiquement un milieu arithmétique d’exposition. Le [contrat des preuves temporelles](CONTRAT-PREUVES-TEMPS.md) fixe précisément ces limites.
+
+### Préparer les preuves indépendantes
+
+![Schéma conceptuel des relations à mesurer entre référence indépendante, événement physique, exposition et horodatage](images/schema-qualification-temps.png)
+
+*Schéma d’un essai futur, sans délai, instant ou mesure réelle représenté ; les flèches désignent des relations à caractériser. [Version SVG](images/schema-qualification-temps.svg).*
+
+Le [protocole préparatoire](PROTOCOLE-QUALIFICATION-TEMPS.md) demande de fixer l’usage et les critères avant essai, caractériser une référence indépendante traçable, dater les événements réellement émis/observés, mesurer début/fin, décalage, dérive, dispersion et durée, puis construire un budget avec dépendances et incertitudes. Les 30 répétitions proposées par configuration sont un choix de planification à adapter et préenregistrer, pas une norme de certification.
+
+Le canevas doit être complété et revu séparément. La commande ne l’ingère pas et n’approuve aucune mesure, même si quelqu’un remplit ses champs. Le rattachement aux archives anciennes doit être démontré avec des éléments applicables à leur configuration et à leur époque. Un essai futur ne les qualifie pas rétroactivement ; les statuts temporels et d’export restent faux, et aucun milieu de pose UTC ou vitesse scientifique n’est produit.
+
+### Vérifications et dossier privé
+
+Les **223 tests passent**, dont 26 nouveaux cas : déclarations riches sans qualification, dates hors du sous-ensemble pris en charge, doublons, ordre début/fin, unités et erreurs, firmware non déduit de PROGRAM, distinction pose/cube/table/extension, intégrité, sources ignorées, absence de pixels/réseau, mutations pendant lecture, canevas non ingéré et protection CSV. Les empreintes et les propriétés d’accès sont contrôlées sur des FITS synthétiques.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider --basetemp="local/pytest-preuves-temps-verification"
+.\.venv\Scripts\gar.exe --version
+.\.venv\Scripts\gar.exe time-evidence --help
+.\.venv\Scripts\python.exe -m pip check
+```
+
+Choisir un dossier de tests neuf : pytest peut nettoyer son dossier temporaire. L’installation modifiable 0.9.0a1, l’aide et les dépendances sont vérifiées avant livraison. Le dossier privé a été produit sur les quatre copies locales ; celles-ci et le workset restent inchangés. Les en-têtes examinés ne constituent pas des preuves indépendantes, et leur détail reste dans `local/`. Les figures fictives publiques et le dossier réel privé sont inspectés séparément ; aucun contenu réel n’est destiné à GitHub.

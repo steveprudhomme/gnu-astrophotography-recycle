@@ -37,6 +37,8 @@ Recherche consultée le 15 novembre 2026 : aucune preuve applicable au firmware 
 
 Les manifestes actuels ne sont pas une copie complète des en-têtes. Des champs comme firmware, `DATE-BEG`, `DATE-END`, `TIMSYER` ou `TIMRDER` n’ont pas été sélectionnés par l’inventaire 1.0. Leur absence du manifeste ne prouve pas leur absence des FITS. Aucune relecture du support externe n’est entreprise dans ce lot pour compléter ces informations.
 
+Depuis la version 0.9, la commande distincte [time-evidence](CONTRAT-PREUVES-TEMPS.md) examine les en-têtes complets des copies locales déjà vérifiées et produit un canevas de preuves. Elle ne change ni le format du manifeste 1.0 ni le diagnostic `gar timing` ; aucun accès aux sources externes n’est nécessaire. Même les nouvelles déclarations collectées ne suffisent pas à certifier l’instrument. Voir le [protocole de qualification préparatoire](PROTOCOLE-QUALIFICATION-TEMPS.md).
+
 ## Sorties et codes
 
 - `timing.json` : référence complète, lignes par HDU, séquences, intervalles, exclusions, paramètres et provenance.

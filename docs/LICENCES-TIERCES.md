@@ -33,3 +33,5 @@ Photutils 3.1.1 et SciPy 1.18.1 sont utilisés dans l’environnement de dévelo
 Le recalage 0.7 réutilise ces bibliothèques sans nouvelle dépendance scientifique. Le rendu PNG facultatif utilise Matplotlib déjà mentionné ci-dessus ; les SVG applicatifs n’en dépendent pas. Les générateurs, tests et scripts de tracé propres au projet portent l’avis GPL-3.0-or-later et le titulaire. Aucun paquet binaire ni catalogue réel n’est livré dans ce lot.
 
 Le contrôle Gaia des poses 0.8 ne change pas ce socle. Les colonnes de forme Gaia du générateur sont entièrement fictives ; aucun extrait réel ni binaire tiers n’est redistribué. Le préaudit reste distinct d’un audit complet des roues natives ou d’une distribution portable.
+
+La préparation temporelle 0.9 conserve le socle existant ; aucun nouveau paquet scientifique ou binaire n’est redistribué. Les textes FITS et GUM sont référencés par lien, sans copie de leurs PDF dans le dépôt. Les figures et exemples du projet sont originaux, conceptuels ou synthétiques ; le rendu PNG facultatif réutilise Matplotlib.

@@ -6,9 +6,11 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha 0.8 — inventaire, diagnostics, copies vérifiées, recalage et comparaison Gaia sur étoiles réservées des poses. Les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
+**Statut : Alpha 0.9 — inventaire, diagnostics, copies vérifiées, recalage, comparaison Gaia et dossier préparatoire de qualification temporelle. L’horloge reste non qualifiée ; les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
 
 Le [contrôle Gaia des poses](docs/CONTRAT-GAIA-POSES.md) est livré dans le [commit `9bcf431`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/9bcf4318fc1fd1f5ffe2afe4ef72d7c364626f6e). Le lot applicatif 0.8 a passé **197 tests** ; ce résultat ne certifie ni l’horloge ni un budget d’erreur absolue complet.
+
+L’Alpha 0.9 ajoute [la préparation des preuves temporelles](docs/CONTRAT-PREUVES-TEMPS.md) et un [protocole illustré de mesure future](docs/PROTOCOLE-QUALIFICATION-TEMPS.md). **223 tests** passent ; aucune mesure instrumentale ou qualification d’horloge n’est annoncée.
 
 ![Exemple synthétique : trois poses comparées à un catalogue fictif, avec biais connu conservé](docs/images/exemple-gaia-poses.png)
 
@@ -27,6 +29,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Inventaire FITS | SHA-256, chaque HDU, anomalies, CSV/JSON et synthèse Markdown/SVG | Première version disponible, phase 1 |
 | Séances candidates | Regroupement depuis un manifeste local, exclusions et résumés CSV/JSON/SVG | Première version disponible, phase 1 |
 | Diagnostic temporel | Forme des dates, déclarations, cadence et anomalies depuis un manifeste local | Disponible ; ne certifie pas l’horloge, phase 2 |
+| Préparation temporelle | En-têtes complets des copies, inconnues, canevas de preuves et protocole | Disponible ; aucun essai instrumental ni export temporel qualifié |
 | Diagnostic WCS | Axes et paramètres observés, contrôles numériques limités et contexte manquant | Disponible ; ne certifie pas l’astrométrie, phase 2 |
 | Échantillon local | Copie de fichiers sélectionnés, SHA-256 et collecte de tous les en-têtes | Disponible, sources préservées ; aucune mesure scientifique |
 | Contrôle sur étoiles | Comparaison de la WCS originale à des références locales, résidus et couverture | Disponible ; critères exploratoires, sans certification de soumission |
@@ -103,6 +106,14 @@ Pour contrôler ensuite les coordonnées composées contre le catalogue local, s
 ```
 
 Le [contrat Gaia des poses](docs/CONTRAT-GAIA-POSES.md) distingue le verdict sur étoiles réservées du bilan secondaire sur toutes les détections. Le catalogue doit avoir son `provenance.json` avec SHA-256. Tout est local, sans USB ni téléchargement ; les heures et le budget d’erreur absolue restent non qualifiés.
+
+Pour préparer le dossier temporel depuis les copies déjà locales, sans consulter les originaux :
+
+```powershell
+.\.venv\Scripts\python.exe -m gar time-evidence ".\local\lot\workset.json" --output ".\local\preuves-temps-01"
+```
+
+Le code **2** signifie que le dossier a été produit avec une heure toujours non qualifiée. Le [tutoriel illustré](docs/TUTORIEL.md#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales) explique les six sorties, le cas synthétique et les preuves encore nécessaires. Aucune date UTC de milieu de pose n’est calculée.
 
 ## Contribuer et vérifier
 

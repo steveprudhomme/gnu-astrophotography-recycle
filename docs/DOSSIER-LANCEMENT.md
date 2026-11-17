@@ -1,6 +1,6 @@
 # Dossier de lancement — GNU Astrophotography Recycle
 
-Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.8 le 16 novembre. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; les contrôles stellaires exploratoires livrés ensuite sont décrits ci-dessous, avec leurs limites. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
+Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.9 le 16 novembre. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; les contrôles stellaires et la préparation temporelle livrés ensuite sont décrits ci-dessous, avec leurs limites. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
 
 ## 1. Identité du projet et modèle de README
 
@@ -8,7 +8,7 @@ Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.8 le 16 nov
 
 Mission : réutiliser les archives de poses individuelles du Seestar S50 pour produire des inventaires puis, lorsque leur qualité le permet, des mesures astronomiques traçables. Priorités : préserver les originaux, rendre les erreurs visibles et quantifier les incertitudes.
 
-Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-later`, le statut Alpha 0.8, les fonctionnalités disponibles et les limites. Il donne accès au tutoriel illustré et à un exemple synthétique de comparaison Gaia. Les objets mobiles, la photométrie et la distribution portable restent des fonctionnalités futures.
+Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-later`, le statut Alpha 0.9, les fonctionnalités disponibles et les limites. Il donne accès au tutoriel illustré, à un exemple synthétique de comparaison Gaia et au dossier préparatoire temporel. Les objets mobiles, la photométrie et la distribution portable restent des fonctionnalités futures.
 
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
@@ -29,6 +29,8 @@ La version 0.6 ajoute `astrometry.py`, `astrometry_reports.py`, Photutils/SciPy 
 La version 0.7 ajoute `registration.py`, `registration_reports.py` et `gar register` : recalage rigide sur copies locales, étoiles réservées avant ajustement et composition vers la WCS gelée. La suite compte 177 tests. Le [contrat de recalage](CONTRAT-RECALAGE.md) distingue précision relative et erreur absolue héritée ; aucune WCS FITS n’est copiée ou réécrite et les heures restent non qualifiées. Le tutoriel propose trois injections Bayer fictives et leurs graphiques réellement calculés.
 
 La version 0.8 ajoute `gaia_frames.py`, `gaia_frames_reports.py` et `gar gaia-frames`, avec sélection/propagation Gaia commune au contrôle de l’empilement. Les modèles restent gelés ; seul l’échantillon réservé détermine le verdict par pose. Les 197 tests couvrent notamment les biais conservés et la cohérence des partitions/provenances. Le [contrat Gaia des poses](CONTRAT-GAIA-POSES.md) distingue références communes, contrôle empirique et budget absolu incomplet. Les trois copies réelles satisfont les critères, sans accès USB ; seuls les exemples fictifs sont publics.
+
+La version 0.9 ajoute `time_evidence.py`, `time_evidence_reports.py` et `gar time-evidence` : en-têtes complets des copies, inconnues, canevas de preuves et [protocole illustré](PROTOCOLE-QUALIFICATION-TEMPS.md). Les 223 tests vérifient notamment l’absence d’accès aux pixels/réseau, la préservation et le refus de qualification même avec des déclarations riches. Le [contrat des preuves temporelles](CONTRAT-PREUVES-TEMPS.md) maintient l’horloge et les exports non qualifiés ; aucune mesure physique n’est réalisée et l’applicabilité aux anciennes archives reste à démontrer.
 
 ```text
 gnu-astrophotography-recycle/

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440" viewBox="0 0 1100 440">
+<rect width="100%" height="100%" fill="#f6f8fb"/>
+<g font-family="sans-serif" fill="#18394d">
+<text x="25" y="38" font-size="23">Préparer les preuves temporelles — aucune horloge qualifiée</text>
+<text x="25" y="72" font-size="16">4 copies ; 4 HDU ; 3 images 2D candidates. En-têtes uniquement.</text>
+<text x="25" y="135" font-size="16">Date OBS lisible (déclaration)</text>
+<rect x="420" y="115" width="390" height="28" fill="#e0e8ee"/>
+<rect x="420" y="115" width="260.0" height="28" fill="#2b7b95"/>
+<text x="835" y="135" font-size="16">2/3</text>
+<text x="25" y="184" font-size="16">Début et fin lisibles (déclarations)</text>
+<rect x="420" y="164" width="390" height="28" fill="#e0e8ee"/>
+<rect x="420" y="164" width="260.0" height="28" fill="#2b7b95"/>
+<text x="835" y="184" font-size="16">2/3</text>
+<text x="25" y="233" font-size="16">Échelle reconnue (déclaration)</text>
+<rect x="420" y="213" width="390" height="28" fill="#e0e8ee"/>
+<rect x="420" y="213" width="260.0" height="28" fill="#2b7b95"/>
+<text x="835" y="233" font-size="16">2/3</text>
+<text x="25" y="282" font-size="16">Mot-clé firmware explicite (déclaration)</text>
+<rect x="420" y="262" width="390" height="28" fill="#e0e8ee"/>
+<rect x="420" y="262" width="260.0" height="28" fill="#2b7b95"/>
+<text x="835" y="282" font-size="16">2/3</text>
+<text x="25" y="331" font-size="16">HDU temporellement qualifiées</text>
+<rect x="420" y="311" width="390" height="28" fill="#e0e8ee"/>
+<rect x="420" y="311" width="0.0" height="28" fill="#2b7b95"/>
+<text x="835" y="331" font-size="16">0/3</text>
+<text x="25" y="390" font-size="16">8 exigences de preuve à compléter ; aucune preuve indépendante fournie à cette analyse.</text>
+<text x="25" y="420" font-size="14">Les barres se recouvrent. Résolution écrite, cohérence et précision instrumentale sont distinctes.</text>
+</g></svg>
