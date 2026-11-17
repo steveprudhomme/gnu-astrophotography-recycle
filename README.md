@@ -59,7 +59,7 @@ Le [premier pilote Seestar](docs/PILOTE-MOBILES-SEESTAR.md), plan publié avant 
 
 *Observations réelles, différentes des exercices fictifs. Cadence de lecture artificielle de 0,6 seconde par pose ; interpolation uniquement pour l'affichage. Aucun mobile détecté par cet essai. [Provenance et licence CC0](docs/images/reels/LICENCE.md).*
 
-Le [bilan d'injections conditionnelles](docs/INJECTIONS-SEESTAR.md) ajoute 18 tests fictifs, soit **356 tests réussis**. Sur les dérivés du fond réel, 10/36 points artificiels sont retrouvés, 26 manqués et le témoin garde exactement le zéro candidat du pilote naturel. Le recalage est gelé ; ce résultat ne qualifie pas une sensibilité universelle du Seestar. Le [nouvel exercice illustré](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--retrouver-des-points-ajoutés-exprès) se refait en cinq commandes sur un fond entièrement fictif.
+Le [bilan d'injections conditionnelles](docs/INJECTIONS-SEESTAR.md) ajoute 19 tests fictifs, soit **357 tests réussis**. Sur les dérivés du fond réel, 10/36 points artificiels sont retrouvés, 26 manqués et le témoin garde exactement le zéro candidat du pilote naturel. Le recalage est gelé ; ce résultat ne qualifie pas une sensibilité universelle du Seestar. Le [nouvel exercice illustré](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--retrouver-des-points-ajoutés-exprès) se refait en cinq commandes sur un fond entièrement fictif.
 
 Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas une mesure scientifique. La qualité des archives, des calibrations, des heures et des catalogues détermine les usages possibles. Le vert Bayer n’est pas automatiquement une mesure Johnson V. Aucun format d’export ni aucune acceptation par un organisme n’est garanti à ce stade. Aucune soumission automatique n’est prévue.
 
@@ -141,7 +141,7 @@ Pour essayer les mobiles sans observation réelle ni accès USB :
 .\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
 ```
 
-Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **356 tests logiciels passent**, avec les bancs de recherche, la préparation de série, le pilote et les injections conditionnelles. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n'est qualifié par cet exercice.
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **357 tests logiciels passent**, avec les bancs de recherche, la préparation de série, le pilote et les injections conditionnelles. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n'est qualifié par cet exercice.
 
 ![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
 
