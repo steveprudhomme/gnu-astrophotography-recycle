@@ -2,7 +2,9 @@
 
 **Donner une seconde vie scientifique aux archives du Seestar S50.**
 
-**Version de développement : [0.10.0-alpha.1](VERSION)** — [règles SemVer](VERSIONING.md) et [journal des changements](CHANGELOG.md). Le paquet Python utilise l'écriture équivalente `0.10.0a1` ; aucune release n'est créée par cette adoption.
+**Version de développement : [0.11.0-alpha.1](VERSION)**. Voir les [règles SemVer](VERSIONING.md) et le [journal des changements](CHANGELOG.md). Le paquet Python porte le numéro équivalent `0.11.0a1`. Cette mise à jour ne crée pas de release.
+
+Les nouvelles pages et les sections révisées suivent le [guide de rédaction accessible](docs/REDACTION-ACCESSIBLE.md). Il réunit les références demandées par le mainteneur et les vérifications à faire. Une conformité complète et une compréhension dès 10 ans restent à vérifier avec les lecteurs.
 
 [Dépôt public et suivi du projet](https://github.com/steveprudhomme/gnu-astrophotography-recycle).
 
@@ -10,7 +12,7 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle, prototype synthétique et premier pilote exploratoire sur huit poses Seestar réelles. Sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel publié sous CC0. L'horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
+**Statut : développement expérimental, 0.11.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et deux profils de recherche de mobiles. Le profil lent est nouveau et séparé. Les 594 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
@@ -79,7 +81,11 @@ Le [diagnostic des absences de maxima](docs/ABSENCES-MAXIMA.md) suit ensuite con
 
 Ce complément ajoute 48 tests fictifs, soit **471 tests réussis en 172,63 s**. Reproduction depuis le commit propre `f1f159f` : trois commandes aux codes 0, douze images et traces fictives et deux PNG identiques, mêmes 136 traces réelles et mêmes cohortes 115/21. Les 380 entrées et traces surveillées et les cinq médias CC0 restent intacts, sans accès USB ou nouvelle injection réelle ; aucun moteur, seuil ou score modifié.
 
-L'[essai de mouvements représentatifs](docs/MOBILES-REALISTES.md) confronte enfin les vitesses visées au domaine actuel. L'échelle nominale des en-têtes donne environ 2,393″/pixel et une borne de recherche d'environ 861″/h : les scénarios 10/30/60″/h sont exclus. Sur les deux contextes réels admissibles, 0/12 ajouts lents et 2/2 contrôles techniques sont retrouvés dans chacun ; le contraste à 900″/h donne 3/4 puis 2/4. Le troisième contexte est refusé avant injection pour durée de 139,4 s au-delà des 120 s du contrat, sans changer cette limite. Les seize nouvelles copies ont été prises en lecture seule, toutes analyses ensuite locales. **Le moteur actuel n'est donc pas validé pour les mouvements lents visés.** Aucun objet naturel connu n'a servi de contrôle positif ; les ajouts artificiels ne sont pas des découvertes.
+L'[essai de mouvements représentatifs](docs/MOBILES-REALISTES.md) montre la limite du moteur historique. Sa vitesse minimale nominale vaut environ 861 secondes d'arc par heure. Les scénarios lents à 10, 30 et 60 sont exclus. Les deux fonds réels donnent chacun zéro ajout lent retrouvé sur douze et deux contrôles techniques retrouvés sur deux. À 900 secondes d'arc par heure, les résultats sont 3/4 puis 2/4. Le troisième contexte reste refusé : ses 139,4 secondes dépassent les 120 secondes du contrat d'injection historique.
+
+Le [nouveau profil lent](docs/MOBILES-LENTS.md) garde ce moteur et ses anciens résultats intacts. Il utilise huit poses réparties sur environ 35 minutes. Sur deux nouveaux fonds réels, il retrouve **6 puis 9 ajouts lents sur 12**, dont les six cas brillants dans chaque fond. Les témoins restent sans candidat naturel. Les deux fonds fictifs réservés donnent chacun 5/12 ; le critère prévu pour les cas brillants échoue. Une ambiguïté d'alignement est aussi observée sur la grille d'un fond fictif.
+
+Ces résultats sont conditionnels au recalage conservé. Les expériences réelles utilisent seulement des copies locales vérifiées ; aucune nouvelle image réelle n'est publiée. L'aptitude scientifique reste à établir avec un objet naturel connu, des temps contrôlés et d'autres contextes. Les ajouts artificiels ne sont pas des découvertes.
 
 Ce lot ajoute 46 tests fictifs : **517 tests réussis en 210,82 s**. Reproduction depuis `61cac96` propre : neuf commandes aux codes 0, mêmes données, candidats, scores et figures sur deux fonds fictifs et deux réels ; refus du troisième contexte conservé. Les 24 copies réelles, anciens résultats et cinq médias CC0 restent intacts ; aucun accès au support pendant la reproduction. Les tests réussis n'annulent pas le résultat négatif sur les mouvements lents.
 
@@ -161,7 +167,7 @@ Pour essayer les mobiles sans observation réelle ni accès USB :
 .\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
 ```
 
-Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **381 tests logiciels passent**, avec les bancs de recherche, la préparation de série, le pilote, les injections conditionnelles et leur diagnostic. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n'est qualifié par cet exercice.
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. Au lot 19, 381 tests logiciels passent avec les bancs, le pilote, les injections et leur diagnostic. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents. Cinq injections faibles ou très lentes sont manquées. Cet exercice ne qualifie aucun résultat réel ou horodatage instrumental.
 
 ![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
 

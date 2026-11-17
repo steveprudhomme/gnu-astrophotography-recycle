@@ -1,6 +1,6 @@
 # Versionnage du projet
 
-Depuis le 17 novembre 2026, le projet applique [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html). La version publique canonique est dans [VERSION](VERSION) : **0.10.0-alpha.1**, version de développement actuelle. Cette adoption ne crée pas une release, ne renomme aucun ancien tag et ne change pas les résultats scientifiques.
+Depuis le 17 novembre 2026, le projet applique [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html). La version publique canonique est dans [VERSION](VERSION) : **0.11.0-alpha.1**. Cette version de développement ajoute un profil lent séparé. Elle ne crée pas de release et ne change pas les anciens résultats scientifiques.
 
 ## Ce que la version décrit
 
@@ -20,7 +20,7 @@ Le projet garde deux écritures équivalentes, car les outils Python suivent [PE
 
 | Version publique et tag futur | Paquet Python |
 |---|---|
-| `0.10.0-alpha.1` / `v0.10.0-alpha.1` | `0.10.0a1` |
+| `0.11.0-alpha.1` / `v0.11.0-alpha.1` | `0.11.0a1` |
 | `1.2.3-beta.2` / `v1.2.3-beta.2` | `1.2.3b2` |
 | `1.2.3-rc.1` / `v1.2.3-rc.1` | `1.2.3rc1` |
 | `1.2.3` / `v1.2.3` | `1.2.3` |

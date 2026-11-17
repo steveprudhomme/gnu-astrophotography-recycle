@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="540" viewBox="0 0 1100 540" role="img" aria-labelledby="title description">
+<title id="title">Chercher un déplacement lent en cinq étapes</title>
+<desc id="description">Schéma conceptuel. Préparer huit photos sur environ trente-cinq minutes. Geler leur alignement. Ajouter douze points dont le trajet est connu. Chercher sans lire les réponses. Comparer ensuite les candidats aux réponses. Un témoin sans ajout aide à repérer les alertes supplémentaires.</desc>
+<rect width="1100" height="540" fill="#ffffff"/>
+<g font-family="Arial, sans-serif" fill="#152b40">
+<text x="40" y="45" font-size="29" font-weight="bold">Un mobile lent demande une longue comparaison</text>
+<text x="40" y="78" font-size="20">Schéma pour apprendre — aucune observation ni capture d’écran</text>
+<line x1="95" y1="160" x2="1005" y2="160" stroke="#152b40" stroke-width="3"/>
+<g fill="#ffffff" stroke="#152b40" stroke-width="3"><circle cx="95" cy="160" r="9"/><circle cx="225" cy="160" r="9"/><circle cx="355" cy="160" r="9"/><circle cx="485" cy="160" r="9"/><circle cx="615" cy="160" r="9"/><circle cx="745" cy="160" r="9"/><circle cx="875" cy="160" r="9"/><circle cx="1005" cy="160" r="9"/></g>
+<text x="67" y="134" font-size="20">Photo 1</text><text x="957" y="134" font-size="20">Photo 8</text>
+<text x="75" y="200" font-size="19">0 min</text><text x="950" y="200" font-size="19">35 min</text>
+<text x="285" y="233" font-size="21">Une photo toutes les 5 minutes dans l’exercice</text>
+<g stroke="#152b40" stroke-width="2">
+<rect x="35" y="285" width="190" height="140" rx="10" fill="#e8f2fa"/>
+<rect x="245" y="285" width="190" height="140" rx="10" fill="#e8f2fa"/>
+<rect x="455" y="285" width="190" height="140" rx="10" fill="#e8f2fa"/>
+<rect x="665" y="285" width="190" height="140" rx="10" fill="#e8f2fa"/>
+<rect x="875" y="285" width="190" height="140" rx="10" fill="#e8f2fa"/>
+</g>
+<g font-size="20" text-anchor="middle">
+<text x="130" y="320" font-weight="bold">1. Préparer</text><text x="130" y="355">Copier, vérifier,</text><text x="130" y="385">puis aligner</text>
+<text x="340" y="320" font-weight="bold">2. Ajouter</text><text x="340" y="355">Douze points et</text><text x="340" y="385">un témoin intact</text>
+<text x="550" y="320" font-weight="bold">3. Chercher</text><text x="550" y="355">Les réponses</text><text x="550" y="385">restent fermées</text>
+<text x="760" y="320" font-weight="bold">4. Comparer</text><text x="760" y="355">Ouvrir ensuite</text><text x="760" y="385">les réponses</text>
+<text x="970" y="320" font-weight="bold">5. Expliquer</text><text x="970" y="355">Compter réussites,</text><text x="970" y="385">manques et refus</text>
+</g>
+<text x="45" y="475" font-size="21" font-weight="bold">Un candidat est un trajet proposé. Ce n’est pas encore un objet identifié.</text>
+<text x="45" y="510" font-size="19">Le nouveau profil est séparé. L’ancien moteur et ses résultats restent conservés.</text>
+</g>
+</svg>

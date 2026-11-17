@@ -802,3 +802,36 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *La mission sur les absences de maxima ajoute 48 tests fictifs, soit **471 tests réussis** en 172,63 secondes depuis le commit propre `f1f159f`. Ses trois commandes donnent 0 dans de nouveaux dossiers ; douze images et traces et deux PNG sont identiques. Sur le fond réel déjà local, les 136 traces des 17 cas sont reproduites, avec les 115 absences et le contexte 21 inchangés. Les scores, candidats et photos restent intacts, sans USB ou nouvelle injection réelle. Les 58 commandes précédentes conservent leurs preuves sans être toutes rejouées. Les illustrations sont fictives et la revue des trois agents reste interne, sans essai avec un enfant ou qualification scientifique indépendante.*
 
 *La mission des mouvements représentatifs ajoute 46 tests fictifs, soit **517 tests réussis** en 210,82 secondes depuis le commit propre `61cac96`. Ses neuf commandes donnent 0 dans de nouveaux dossiers ; les seize photos fictives, 152 dérivés et 19 résultats par fond, bilans et trois figures sont reproduits à l'identique. Sur deux fonds réels, les contrôles techniques sont retrouvés mais les douze ajouts lents par fond restent manqués. Un troisième bloc est indisponible pour durée trop longue, pas renommé « rien trouvé ». Les seize copies autorisées ont été prises en lecture seule ; la reproduction ne relit pas le support. Les 61 commandes précédentes gardent leurs preuves sans être toutes rejouées. Les illustrations sont fictives ; pas de contrôle positif naturel, test avec un enfant ou qualification scientifique indépendante revendiqué.*
+
+## Mission supplémentaire : suivre un point qui avance lentement
+
+**But :** essayer un nouveau profil avec huit photos espacées de cinq minutes.
+Tu gardes l'ancien moteur et tes anciens essais. Ce profil utilise de nouvelles commandes dans de nouveaux dossiers.
+
+![Le nouveau parcours conserve les réponses fermées pendant la recherche](images/exemple-lents-etapes.svg)
+
+Le schéma montre cinq étapes : préparer, ajouter, chercher, comparer et expliquer.
+Les huit photos couvrent 35 minutes. Cette durée laisse davantage de temps au point lent pour se déplacer.
+Les photos et les points du nouvel exercice sont entièrement inventés.
+
+Ouvrir [Essayer le profil pour les mobiles lents](MOBILES-LENTS.md).
+Suivre ses six étapes dans l'ordre, après l'installation de ce parcours.
+Le guide contient les neuf commandes nécessaires pour les deux fonds fictifs.
+Il explique les mots nouveaux, les fichiers attendus et les erreurs possibles.
+
+Un témoin est une série sans ajout. Un candidat est un trajet proposé, sans identité encore démontrée.
+Le bilan compare les candidats aux positions connues des ajouts. Les réponses restent fermées pendant la recherche.
+Un résultat manqué ou indisponible reste dans le carnet. Personne ne déplace un ajout après résultat pour améliorer le bilan.
+
+**Petite question à expliquer avec tes mots :** pourquoi huit photos presque simultanées peuvent-elles cacher un déplacement lent ?
+Réponse possible : le point change trop peu de place pendant une durée très courte.
+
+Les nouvelles explications suivent notre [règle de rédaction accessible](REDACTION-ACCESSIBLE.md).
+Les images possèdent aussi des descriptions écrites. Tu peux comprendre les résultats sans regarder une animation.
+Le parcours vise les débutants dès 10 ans ; aucun essai de compréhension avec un enfant n'est encore revendiqué.
+
+**Résultat de cette mission.** Les neuf nouvelles commandes se terminent ; les deux étapes de bilan donnent le code `2`.
+Chaque fond fictif retrouve cinq ajouts sur douze. Le critère demande six ajouts brillants retrouvés, mais les comptes sont cinq puis quatre.
+Ce résultat reste dans le carnet. Les photos fixes et les descriptions du guide expliquent le résultat sans animation.
+Sur les deux fonds réels locaux, les ajouts donnent six puis neuf récupérations sur douze.
+Ce sont des essais artificiels sur fond réel, sans objet naturel identifié ou aptitude scientifique certifiée.
