@@ -163,3 +163,7 @@ Plan du 16 novembre 2026, à committer avant le code. Seules les copies locales 
 - A8 : actualiser tutoriel illustré et Markdown, dépendances/licences et installation ; commit puis publication du code et exemples fictifs uniquement.
 
 Un manque de références, une géométrie inadéquate ou une dépendance indisponible doit être rapporté explicitement ; ne pas fabriquer de validation. Les données réelles et catalogue de champ restent dans `local/`. La validation temporelle et le transfert de WCS aux poses restent des travaux ultérieurs.
+
+Paramètres fixés avant mesure réelle : détection DAO à 8 écarts-types robustes, FWHM initiale de 3 pixels, marge de 10 pixels, exclusion des pics à au moins 65 000 ADU pour cette image 16 bits et des voisins à moins de 8 pixels ; catalogue G entre 9 et 17,5 et RUWE <1,4, mouvements propres disponibles, références isolées à 16 secondes d’arc. Sur une image à trois plans, utiliser leur moyenne pour la détection uniquement, sans interprétation photométrique des canaux. Si ces paramètres échouent, conserver ce résultat ; tout nouvel essai doit être documenté séparément.
+
+La première requête Gaia a été arrêtée par le contrôle d’approbation avant exécution. Le fondateur a ensuite explicitement autorisé l’envoi de la zone céleste à l’ESA, sans FITS, en-tête complet ni position terrestre. La requête et sa provenance resteront privées.
