@@ -22,6 +22,8 @@ from .sessions import check_session_output, group_sessions, load_manifest
 from .session_reports import write_session_reports
 from .timing import audit_timing
 from .timing_reports import write_timing_reports
+from .wcs_audit import audit_wcs
+from .wcs_reports import write_wcs_reports
 
 
 def source_commit():
@@ -54,11 +56,18 @@ def main(argv=None):
     timing_command.add_argument("--output", required=True, type=Path, help="Nouveau dossier local de rapports privés.")
     timing_command.add_argument("--gap-seconds", type=float, default=1800,
                                help="Signaler les interruptions au-delà de ce seuil (défaut : 1800 s).")
+    wcs_command = sub.add_parser("wcs", help="Examiner les informations WCS d’un manifeste partiel.")
+    wcs_command.add_argument("manifest", type=Path, help="Manifeste local d’inventaire.")
+    wcs_command.add_argument("--output", required=True, type=Path, help="Nouveau dossier local de rapports privés.")
+    wcs_command.add_argument("--max-condition", type=float, default=1e8,
+                            help="Seuil de conditionnement numérique du bloc CD, pas de précision astrométrique.")
     args = parser.parse_args(argv)
     if args.command == "sessions":
         return run_sessions(args)
     if args.command == "timing":
         return run_timing(args)
+    if args.command == "wcs":
+        return run_wcs(args)
     try:
         root, output = check_paths(args.source, args.output)
         started = datetime.now(timezone.utc).isoformat()
@@ -126,4 +135,23 @@ def run_timing(args):
     print(f"{summary['candidate_hdus']} HDU candidates, {summary['cadence_hdus']} retenues pour cadence, 0 heure scientifiquement qualifiée.")
     print(f"Rapports locaux : {output}")
     # This version never turns header consistency into clock certification.
+    return 2
+
+
+def run_wcs(args):
+    try:
+        manifest,digest=load_manifest(args.manifest)
+        output=check_session_output(args.manifest,args.output,manifest)
+        document=audit_wcs(manifest,args.max_condition)
+        document.update(run_id=str(uuid.uuid4()),created_at_utc=datetime.now(timezone.utc).isoformat(),
+                        program_version=__version__,source_revision=source_commit(),
+                        input_manifest_sha256=digest,input_manifest_path=str(args.manifest.resolve()),
+                        input_inventory_run_id=manifest.get('run_id'),
+                        input_inventory_revision=manifest.get('source_revision'))
+        write_wcs_reports(output,document)
+    except (ValueError,OSError) as exc:
+        print(f"Erreur : {exc}",file=sys.stderr)
+        return 1
+    print(f"{document['summary']['input_hdus']} HDU examinées, 0 WCS scientifiquement validée.")
+    print(f"Rapports locaux : {output}")
     return 2

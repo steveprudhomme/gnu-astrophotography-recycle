@@ -44,3 +44,5 @@ Le manifeste enregistre un identifiant d’exécution, les heures UTC du **progr
 - `2` : fichier en erreur/modifié, avertissement, lien ignoré, incident de parcours ou aucun FITS trouvé ; lire le manifeste.
 
 Un dossier de sortie existant ou situé dans les archives est refusé. Si l’écriture échoue, un dossier de rapports partiel peut rester : conserver le diagnostic et relancer vers un nouveau dossier. Le regroupement indicatif est une commande distincte qui consomme ce manifeste sans modifier le contrat d’inventaire 1.0 : voir [CONTRAT-SEANCES.md](CONTRAT-SEANCES.md).
+
+Les diagnostics [temporel](CONTRAT-HORODATAGES.md) et [WCS](CONTRAT-WCS.md) consomment aussi ce manifeste. Il reste une collecte partielle : notamment les unités, distorsions et solutions WCS alternatives ne sont pas toutes sélectionnées. Ces modules n’inventent pas les champs absents de la collecte et ne certifient ni l’horloge ni la géométrie céleste.

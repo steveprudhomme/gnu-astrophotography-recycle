@@ -20,6 +20,8 @@ Le lot suivant ajoute `sessions.py`, `session_reports.py`, `scripts/gar-sessions
 
 Le diagnostic temporel ajoute `timing.py`, `timing_reports.py`, `scripts/gar-timing.bat`, ses tests et un exemple illustré. Le parseur de date est partagé dans `contracts.py` ; l’orchestrateur fournit les groupes au diagnostic, sans importation réciproque des modules métier. La suite compte désormais 100 cas. Le [contrat temporel](CONTRAT-HORODATAGES.md) laisse l’horloge et la convention instrumentale non qualifiées sans preuve indépendante ; aucune mesure ou heure de milieu de pose n’est inventée.
 
+La version 0.4 ajoute `wcs_audit.py`, `wcs_reports.py` et `scripts/gar-wcs.bat`, leur exemple synthétique et 36 cas supplémentaires, soit 136 au total. Le [diagnostic WCS](CONTRAT-WCS.md) ne consomme que le manifeste partiel ; il ne calcule aucune coordonnée céleste et ne valide pas les solutions sur des étoiles. La collecte complète du contexte et les images de travail seront nécessaires à la suite scientifique.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites

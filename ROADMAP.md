@@ -112,20 +112,22 @@ Plan enregistré dans **`76c7e56` avant la traduction finale**. La [version angl
 
 ## Lot de travail 4 — diagnostic des informations WCS disponibles
 
-Plan du 15 novembre 2026, à committer avant le code. Les notes communautaires française et anglaise sont publiées avant ce lot. Les entrées restent les manifestes locaux ; aucune observation du support externe n’est rouverte.
+Plan du 15 novembre 2026, enregistré dans **`a7044f1` avant le code** ; finalisation le 16 novembre. Les notes communautaires française et anglaise sont publiées avant ce lot. Les entrées restent les manifestes locaux ; aucune observation du support externe n’est rouverte.
 
 **Limite déterminante :** le manifeste 1.0 ne conserve pas tous les champs WCS (unités, PC/CDELT, référentiel, distorsions, solutions alternatives). Il ne permet donc pas de reconstruire systématiquement une transformation céleste fidèle. Le diagnostic doit signaler cette limite plutôt que compléter silencieusement les informations manquantes.
 
 | Sous-étape | Travail et critère de sortie | État |
 |---|---|---|
-| W1 | Définir le contrat : champs observés, axes célestes déclarés, paramètres incomplets ou incohérents, contexte non collecté et validation astrométrique indépendante absente | Planifié |
-| W2 | Ajouter `gar wcs` et lanceur Windows sur manifeste local, provenance SHA-256 et protections des sorties | Planifié |
-| W3 | Distinguer pointage RA/DEC et WCS ; vérifier axes primaires, projection déclarée, CRPIX/CRVAL et dimensions sans supposer les unités manquantes | Planifié |
-| W4 | Contrôler les quatre coefficients CD s’ils sont disponibles : valeurs finies, singularité et conditionnement numérique ; présenter les limites sans seuil de qualité astrométrique inventé | Planifié |
-| W5 | Signaler matrices incomplètes, autres paramétrisations, distorsions et contexte non collecté ; ne pas copier une WCS d’empilement sur les poses | Planifié |
-| W6 | Rapports JSON, CSV, Markdown et SVG ; raisons et prochaine action indicative, sans pixels-vers-ciel, résidus catalogue ni certification | Planifié |
-| W7 | Tests synthétiques : champs absents, pointage seul, axes inversés, paramètres invalides, matrices singulières/mal conditionnées, SIP partiel, primaires vides/extensions, doublons et absence d’accès aux FITS | Planifié |
-| W8 | Exemple illustré reproductible et rapprochement du manifeste privé ; aucune perte d’identifiants, manifeste inchangé et données privées exclues | Planifié |
-| W9 | Actualiser tutoriel, contrats, README, INSTALL, validation et sources ; vérifier version, commit et publication du lot | Planifié |
+| W1 | Définir le contrat des champs observés et limites de collecte | Fait — contrat WCS 1.0 |
+| W2 | Commande `gar wcs`, lanceur, provenance et protections | Fait — manifeste local uniquement |
+| W3 | Distinguer pointage et WCS ; contrôler axes et références sans unités supposées | Fait — limites explicites |
+| W4 | Valeurs CD, singularité et conditionnement numérique | Fait — aucune précision angulaire déduite |
+| W5 | Paramétrisations et distorsions non collectées, absence de transfert entre images | Fait — contexte incomplet signalé |
+| W6 | JSON, CSV, Markdown et SVG sans certification | Fait — code 2, précision et résidus inconnus |
+| W7 | Tests synthétiques et absence d’accès aux FITS | Fait — 36 nouveaux cas ; 136 tests au total |
+| W8 | Exemple illustré et rapprochement du pilote | Fait — huit fichiers fictifs/neuf HDU ; identifiants privés réconciliés |
+| W9 | Markdown, tutoriel, version, commit et publication | Livré avec le commit de réalisation |
 
 Une résolution astrométrique ou une validation contre catalogue demandera ensuite des images locales de travail et une collecte complète du contexte WCS, avec un nouveau plan. Ce lot n’implique ni résolution d’images, ni qualification temporelle, ni autorisation de modifier les archives.
+
+Version : **0.4.0a1**. L’interruption initiale de l’exécution des tests n’a pas été présentée comme un succès ; les 136 cas ont été exécutés avec succès lors de la reprise.

@@ -6,7 +6,7 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha 0.3 — inventaire, séances candidates et diagnostic temporel depuis les sources. Les mesures astronomiques et la distribution portable restent à développer.**
+**Statut : Alpha 0.4 — inventaire, séances candidates et diagnostics temporel/WCS depuis les sources. Les mesures astronomiques et la distribution portable restent à développer.**
 
 ## Mission
 
@@ -21,6 +21,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Inventaire FITS | SHA-256, chaque HDU, anomalies, CSV/JSON et synthèse Markdown/SVG | Première version disponible, phase 1 |
 | Séances candidates | Regroupement depuis un manifeste local, exclusions et résumés CSV/JSON/SVG | Première version disponible, phase 1 |
 | Diagnostic temporel | Forme des dates, déclarations, cadence et anomalies depuis un manifeste local | Disponible ; ne certifie pas l’horloge, phase 2 |
+| Diagnostic WCS | Axes et paramètres observés, contrôles numériques limités et contexte manquant | Disponible ; ne certifie pas l’astrométrie, phase 2 |
 | Alignement et contrôle qualité | Rotation, dérive, WCS et horodatages vérifiés | À développer, phase 2 |
 | Objets mobiles | Trajectoires candidates, vitesses et GIF | Recherche, phase 3 |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
@@ -62,6 +63,14 @@ Pour diagnostiquer les horodatages du même manifeste, sans rouvrir les observat
 ```
 
 Le [diagnostic temporel](docs/CONTRAT-HORODATAGES.md) sépare résolution écrite et exactitude. Aucun milieu de pose n’est calculé ; les heures restent non qualifiées sans preuve indépendante. Le code `2` après production des rapports rappelle cette limite, même si la cadence ne présente aucune anomalie.
+
+Pour examiner les informations WCS disponibles dans le même manifeste :
+
+```powershell
+.\scripts\gar-wcs.bat ".\local\premier-inventaire\manifest.json" --output ".\local\wcs-01"
+```
+
+Le [diagnostic WCS](docs/CONTRAT-WCS.md) ne rouvre pas les FITS et ne calcule aucune position céleste. Le manifeste étant partiel, le code `2` après production des rapports rappelle qu’aucune solution astrométrique n’est certifiée.
 
 Les FITS personnels, coordonnées d’observation et paramètres locaux ne doivent pas être joints aux contributions publiques. Voir la [politique des données](docs/DONNEES.md).
 

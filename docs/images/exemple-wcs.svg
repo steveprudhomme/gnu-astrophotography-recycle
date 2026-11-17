@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="495" viewBox="0 0 1200 495">
+<title>Diagnostic WCS : catégories exclusives, sans qualification astrométrique</title>
+<rect width="1200" height="495" fill="#101d30"/>
+<g font-family="Segoe UI, Arial, sans-serif" fill="#edf4ff">
+<text x="30" y="40" font-size="24">Informations WCS observées — aucune solution certifiée</text>
+<text x="30" y="108" font-size="16">axes_incomplete</text>
+<rect x="560" y="85" width="166.67" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="108" font-size="18">1</text>
+<text x="30" y="153" font-size="16">duplicate_frame</text>
+<rect x="560" y="130" width="166.67" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="153" font-size="18">1</text>
+<text x="30" y="198" font-size="16">linear_block_consistent_context_incomplete</text>
+<rect x="560" y="175" width="500.00" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="198" font-size="18">3</text>
+<text x="30" y="243" font-size="16">linear_matrix_singular</text>
+<rect x="560" y="220" width="166.67" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="243" font-size="18">1</text>
+<text x="30" y="288" font-size="16">not_image_hdu</text>
+<rect x="560" y="265" width="166.67" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="288" font-size="18">1</text>
+<text x="30" y="333" font-size="16">parameters_incomplete</text>
+<rect x="560" y="310" width="166.67" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="333" font-size="18">1</text>
+<text x="30" y="378" font-size="16">primary_axes_not_observed</text>
+<rect x="560" y="355" width="166.67" height="30" fill="#75c9e8" rx="4"/>
+<text x="1100" y="378" font-size="18">1</text>
+<text x="30" y="455" font-size="16">Manifeste partiel : aucune transformation pixels-vers-ciel ni comparaison à un catalogue.</text>
+<text x="30" y="480" font-size="15">Un champ non collecté n’est pas déclaré absent du FITS original.</text></g></svg>

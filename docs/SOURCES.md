@@ -58,3 +58,7 @@ Le [contrat des horodatages](CONTRAT-HORODATAGES.md) référence le standard FIT
 La [note de propositions](PROPOSITIONS-SEESTAR-S50.md) ajoute des références primaires : [interopérabilité FITS et Bayer dans Siril](https://siril.readthedocs.io/en/stable/file-formats/FITS.html), [guide DSLR de l’AAVSO](https://www.aavso.org/sites/default/files/publications_files/dslr_manual/AAVSO_DSLR_Observing_Manual_V1-4.pdf) et [conventions FITS de contrôle d’intégrité](https://science.data.nasa.gov/fits/documentation/conventions). Ces références expliquent les usages ; elles ne prouvent pas un défaut général du S50. Les priorités et critères de vérification sont des propositions du projet, fondées sur son objectif de réutilisation scientifique.
 
 La [version anglaise](SEESTAR-S50-FITS-RECOMMENDATIONS.en.md) conserve les mêmes références et limites ; elle ne constitue pas une enquête supplémentaire sur les appareils ou firmwares.
+
+## Diagnostic WCS sur manifeste partiel
+
+Le [contrat WCS](CONTRAT-WCS.md) s’appuie sur le standard FITS 4.0 et la documentation officielle [Astropy WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html) et [validation](https://docs.astropy.org/en/stable/wcs/validation.html). Le module n’appelle pas une reconstruction WCS en complétant les champs manquants : il inspecte un sous-ensemble déclaré, avec NumPy pour le bloc CD. Les catégories, seuils numériques et prochaines actions sont des choix de diagnostic du projet, sans équivalence avec des résidus astrométriques mesurés.

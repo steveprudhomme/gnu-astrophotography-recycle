@@ -14,6 +14,8 @@ Les décisions d’architecture sont proposées dans une issue, discutées puis 
 
 Un diagnostic non conclusif est un résultat à conserver : le contrôle temporel 0.3 distingue des métadonnées cohérentes d’une horloge scientifiquement qualifiée. Les éléments probants et rapports privés ne sont pas publiés implicitement avec les versions du logiciel.
 
+Le diagnostic WCS 0.4 conserve la même distinction : cohérence numérique d’un sous-ensemble de paramètres et validation astrométrique sont deux résultats différents. Les informations non collectées ne sont pas remplacées par une solution supposée.
+
 `main` représente l’état relu, pas une garantie scientifique. Avant une version applicative : contrôles réussis, changements documentés, licences auditées et limites annoncées. Les versions suivent une numérotation `0.x.y` pendant l’Alpha ; aucune date de livraison n’est promise.
 
 ## GitHub : plan de création
