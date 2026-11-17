@@ -23,7 +23,7 @@ def digest(path):
 
 def no_links(path):
     return not any(p.is_symlink() or getattr(p,'is_junction',lambda:False)()
-                   for p in (path,*path.parents))
+                   for p in (*reversed(path.parents),path))
 
 
 def validate_selection(selection, output, local_root):

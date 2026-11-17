@@ -33,7 +33,7 @@ Sources officielles consultées le **15 novembre 2026**. Les liens `stable`, `la
 | Texte de la licence | Téléchargé officiellement ; octets conservés dans COPYING |
 | Bibliothèques | Licences principales consultées ; versions et dépendances transitives non auditées |
 | Métadonnées S50, Bayer, calibrations, heure et WCS | Présence de mots-clés examinée localement ; traitement effectif, exactitude horaire et validité WCS restent à qualifier |
-| Algorithmes, seuils et performances | Propositions d’architecture ; pas de résultats expérimentaux |
+| Algorithmes, seuils et performances | Contrôles stellaires et recalage exploratoires disponibles, essais synthétiques/publics et pilote privé ; budgets absolus et photométrie à développer |
 | Aptitude AAVSO/MPC/ALCDEF | Objectif ultérieur conditionné par la validation, pas une certification |
 
 Les règles de préservation, contrats de modules, budgets d’erreurs et contrôles par injections sont des décisions d’ingénierie proposées. Elles devront être confrontées aux images et revues par des contributeurs scientifiques. Le cadrage privilégie Python/Windows/S50 conformément à la demande et ne prétend pas comparer toutes les solutions existantes.
@@ -70,3 +70,7 @@ Le [contrat workset](CONTRAT-WORKSET.md) utilise les API officielles [Header](ht
 ## Comparaison stellaire exploratoire
 
 Références primaires : [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html), [propagation des mouvements propres avec Astropy](https://docs.astropy.org/en/stable/coordinates/apply_space_motion.html), [solution astrométrique Gaia](https://arxiv.org/abs/2012.03380) et archive ESA Gaia pour l’extrait DR3. Le [contrat astrométrique](CONTRAT-ASTROMETRIE.md) distingue les algorithmes publiés des seuils exploratoires choisis par ce projet. L’acquisition a été explicitement autorisée et la requête de champ reste locale, avec son empreinte.
+
+## Recalage relatif sur copies
+
+API consultées le 16 novembre 2026 : [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html), [SciPy cKDTree](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html) et [Astropy WCS](https://docs.astropy.org/en/stable/api/astropy.wcs.WCS.html). Les triangles, l’ajustement rigide et les seuils du [contrat de recalage](CONTRAT-RECALAGE.md) sont des choix du projet, pas des prescriptions instrumentales de ces bibliothèques. La sérialisation de la distorsion SIP et la séparation des étoiles de contrôle sont testées. Les graphiques publics sont calculés depuis les injections de `examples/make_registration_demo.py` ; les figures du pilote réel ne sont pas publiées. Aucun nouveau catalogue ou paquet scientifique n’est acquis pour ce lot.

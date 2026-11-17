@@ -26,6 +26,8 @@ La version 0.5 ajoute `workset.py` et `gar workset` : sélection explicite, copi
 
 La version 0.6 ajoute `astrometry.py`, `astrometry_reports.py`, Photutils/SciPy et une comparaison hors ligne sur références locales. Les seuils sont fixés avant mesure, sans nouveau modèle ajusté ni écrêtage des résidus après association. La suite compte 156 tests. Le [contrat astrométrique](CONTRAT-ASTROMETRIE.md) limite la conclusion à une compatibilité empirique sur l’échantillon, sans certification de soumission ou qualification temporelle.
 
+La version 0.7 ajoute `registration.py`, `registration_reports.py` et `gar register` : recalage rigide sur copies locales, étoiles réservées avant ajustement et composition vers la WCS gelée. La suite compte 177 tests. Le [contrat de recalage](CONTRAT-RECALAGE.md) distingue précision relative et erreur absolue héritée ; aucune WCS FITS n’est copiée ou réécrite et les heures restent non qualifiées. Le tutoriel propose trois injections Bayer fictives et leurs graphiques réellement calculés.
+
 ```text
 gnu-astrophotography-recycle/
 ├── README.md                 # Mission, statut et limites

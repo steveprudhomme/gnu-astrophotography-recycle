@@ -6,6 +6,7 @@ from pathlib import Path
 import csv
 import hashlib
 import json
+import os
 import warnings
 
 import astropy.units as u
@@ -28,7 +29,10 @@ CRITERIA={'min_matches':30,'match_radius_arcsec':8.0,'median_max_arcsec':2.0,
 
 
 def local_path(path,base):
-    path=Path(path)
+    # Reject external paths lexically, before any filesystem probe of that path.
+    base=Path(os.path.abspath(base))
+    path=Path(os.path.abspath(path))
+    if base not in path.parents:raise ValueError('Tous les produits doivent rester dans local/.')
     if not no_links(path):raise ValueError('Liens/jonctions refusés.')
     path=path.resolve()
     if base.resolve() not in path.parents:raise ValueError('Tous les produits doivent rester dans local/.')

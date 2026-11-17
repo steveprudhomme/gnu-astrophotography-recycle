@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="870" viewBox="0 0 900 870">
+<rect width="100%" height="100%" fill="#fff"/>
+<g font-family="sans-serif" fill="#182433">
+<text x="25" y="28" font-size="20">Recalage relatif : étoiles de contrôle réservées</text>
+<text x="25" y="54" font-size="13">Vecteurs amplifiés ×20 ; pixels natifs ; origine en haut à gauche. Rayon d’association : 3 px.</text>
+<text x="25" y="103" font-size="17">Pose 1 : critères satisfaits</text>
+<rect x="30" y="115" width="200.0" height="200.0" fill="#f1f5f9" stroke="#8b98a6"/>
+<path d="M 96.66666666666667 115 v 200.0 M 30 181.66666666666669 h 200.0" stroke="#cad4df" fill="none"/>
+<path d="M 163.33333333333334 115 v 200.0 M 30 248.33333333333334 h 200.0" stroke="#cad4df" fill="none"/>
+<circle cx="128.620" cy="245.890" r="2" fill="#126682"/><path d="M128.620 245.890 l0.027 -0.232" stroke="#c4491c"/>
+<circle cx="73.327" cy="125.680" r="2" fill="#126682"/><path d="M73.327 125.680 l0.010 0.616" stroke="#c4491c"/>
+<circle cx="39.197" cy="270.512" r="2" fill="#126682"/><path d="M39.197 270.512 l-0.978 0.397" stroke="#c4491c"/>
+<circle cx="78.559" cy="278.124" r="2" fill="#126682"/><path d="M78.559 278.124 l0.037 0.024" stroke="#c4491c"/>
+<circle cx="172.263" cy="263.341" r="2" fill="#126682"/><path d="M172.263 263.341 l-0.068 -0.250" stroke="#c4491c"/>
+<circle cx="113.593" cy="220.743" r="2" fill="#126682"/><path d="M113.593 220.743 l0.275 -0.134" stroke="#c4491c"/>
+<circle cx="36.351" cy="252.390" r="2" fill="#126682"/><path d="M36.351 252.390 l-0.040 0.655" stroke="#c4491c"/>
+<circle cx="57.987" cy="148.902" r="2" fill="#126682"/><path d="M57.987 148.902 l-0.468 -0.182" stroke="#c4491c"/>
+<circle cx="153.063" cy="274.588" r="2" fill="#126682"/><path d="M153.063 274.588 l-0.365 -0.665" stroke="#c4491c"/>
+<circle cx="96.598" cy="153.457" r="2" fill="#126682"/><path d="M96.598 153.457 l-0.364 0.603" stroke="#c4491c"/>
+<circle cx="188.561" cy="284.884" r="2" fill="#126682"/><path d="M188.561 284.884 l0.040 0.484" stroke="#c4491c"/>
+<circle cx="68.922" cy="236.669" r="2" fill="#126682"/><path d="M68.922 236.669 l-0.827 0.530" stroke="#c4491c"/>
+<circle cx="183.458" cy="174.205" r="2" fill="#126682"/><path d="M183.458 174.205 l-2.279 -0.673" stroke="#c4491c"/>
+<circle cx="132.607" cy="159.453" r="2" fill="#126682"/><path d="M132.607 159.453 l-0.065 -0.396" stroke="#c4491c"/>
+<circle cx="125.862" cy="165.918" r="2" fill="#126682"/><path d="M125.862 165.918 l0.127 0.703" stroke="#c4491c"/>
+<circle cx="108.850" cy="179.324" r="2" fill="#126682"/><path d="M108.850 179.324 l-0.141 0.046" stroke="#c4491c"/>
+<circle cx="80.248" cy="237.702" r="2" fill="#126682"/><path d="M80.248 237.702 l0.143 0.120" stroke="#c4491c"/>
+<circle cx="93.582" cy="244.619" r="2" fill="#126682"/><path d="M93.582 244.619 l0.155 -0.333" stroke="#c4491c"/>
+<circle cx="161.591" cy="255.528" r="2" fill="#126682"/><path d="M161.591 255.528 l0.761 0.774" stroke="#c4491c"/>
+<circle cx="137.891" cy="153.298" r="2" fill="#126682"/><path d="M137.891 153.298 l-0.708 0.377" stroke="#c4491c"/>
+<circle cx="134.686" cy="206.885" r="2" fill="#126682"/><path d="M134.686 206.885 l-0.039 0.520" stroke="#c4491c"/>
+<circle cx="169.059" cy="187.662" r="2" fill="#126682"/><path d="M169.059 187.662 l0.125 0.223" stroke="#c4491c"/>
+<circle cx="183.902" cy="299.612" r="2" fill="#126682"/><path d="M183.902 299.612 l-0.029 0.021" stroke="#c4491c"/>
+<circle cx="85.178" cy="224.474" r="2" fill="#126682"/><path d="M85.178 224.474 l-0.146 -0.571" stroke="#c4491c"/>
+<circle cx="180.399" cy="265.497" r="2" fill="#126682"/><path d="M180.399 265.497 l-0.633 -0.820" stroke="#c4491c"/>
+<circle cx="71.258" cy="136.756" r="2" fill="#126682"/><path d="M71.258 136.756 l0.404 0.686" stroke="#c4491c"/>
+<circle cx="115.223" cy="234.368" r="2" fill="#126682"/><path d="M115.223 234.368 l0.279 -0.108" stroke="#c4491c"/>
+<circle cx="140.332" cy="231.777" r="2" fill="#126682"/><path d="M140.332 231.777 l-0.912 0.085" stroke="#c4491c"/>
+<circle cx="101.813" cy="201.558" r="2" fill="#126682"/><path d="M101.813 201.558 l-0.268 0.211" stroke="#c4491c"/>
+<circle cx="110.802" cy="228.111" r="2" fill="#126682"/><path d="M110.802 228.111 l-0.694 -0.009" stroke="#c4491c"/>
+<circle cx="143.973" cy="303.926" r="2" fill="#126682"/><path d="M143.973 303.926 l-0.557 -0.695" stroke="#c4491c"/>
+<circle cx="69.847" cy="280.834" r="2" fill="#126682"/><path d="M69.847 280.834 l0.847 -0.507" stroke="#c4491c"/>
+<circle cx="51.358" cy="251.332" r="2" fill="#126682"/><path d="M51.358 251.332 l-0.213 -1.275" stroke="#c4491c"/>
+<circle cx="50.031" cy="181.579" r="2" fill="#126682"/><path d="M50.031 181.579 l0.474 0.988" stroke="#c4491c"/>
+<circle cx="149.369" cy="187.893" r="2" fill="#126682"/><path d="M149.369 187.893 l0.047 -0.186" stroke="#c4491c"/>
+<circle cx="39.636" cy="210.670" r="2" fill="#126682"/><path d="M39.636 210.670 l0.270 0.808" stroke="#c4491c"/>
+<circle cx="148.806" cy="219.343" r="2" fill="#126682"/><path d="M148.806 219.343 l-0.239 -0.473" stroke="#c4491c"/>
+<circle cx="104.621" cy="264.065" r="2" fill="#126682"/><path d="M104.621 264.065 l-0.044 -0.014" stroke="#c4491c"/>
+<circle cx="128.181" cy="232.443" r="2" fill="#126682"/><path d="M128.181 232.443 l0.221 -0.057" stroke="#c4491c"/>
+<circle cx="155.958" cy="248.245" r="2" fill="#126682"/><path d="M155.958 248.245 l0.889 -0.661" stroke="#c4491c"/>
+<circle cx="64.415" cy="281.602" r="2" fill="#126682"/><path d="M64.415 281.602 l0.172 -0.303" stroke="#c4491c"/>
+<circle cx="36.168" cy="275.584" r="2" fill="#126682"/><path d="M36.168 275.584 l1.016 -0.244" stroke="#c4491c"/>
+<circle cx="125.451" cy="221.816" r="2" fill="#126682"/><path d="M125.451 221.816 l-0.704 -0.445" stroke="#c4491c"/>
+<circle cx="44.036" cy="281.227" r="2" fill="#126682"/><path d="M44.036 281.227 l-0.360 -0.661" stroke="#c4491c"/>
+<text x="420" y="140" font-size="14">Rotation : -11.99941°</text>
+<text x="420" y="168" font-size="14">Ajustement : 135 étoiles ; contrôle : 44</text>
+<text x="420" y="196" font-size="14">Médiane : 0.122 px ; P95 : 0.212 px</text>
+<text x="420" y="224" font-size="14">Couverture : 9/9 cellules, 4/4 quadrants</text>
+<text x="420" y="252" font-size="14">Erreur absolue héritée de la référence.</text>
+<text x="420" y="280" font-size="14">Horloge non qualifiée ; aucune certification.</text>
+<text x="25" y="363" font-size="17">Pose 2 : critères satisfaits</text>
+<rect x="30" y="375" width="200.0" height="200.0" fill="#f1f5f9" stroke="#8b98a6"/>
+<path d="M 96.66666666666667 375 v 200.0 M 30 441.6666666666667 h 200.0" stroke="#cad4df" fill="none"/>
+<path d="M 163.33333333333334 375 v 200.0 M 30 508.33333333333337 h 200.0" stroke="#cad4df" fill="none"/>
+<circle cx="67.821" cy="409.997" r="2" fill="#126682"/><path d="M67.821 409.997 l0.300 0.054" stroke="#c4491c"/>
+<circle cx="67.436" cy="543.173" r="2" fill="#126682"/><path d="M67.436 543.173 l-0.220 -0.295" stroke="#c4491c"/>
+<circle cx="147.409" cy="496.262" r="2" fill="#126682"/><path d="M147.409 496.262 l0.135 -0.690" stroke="#c4491c"/>
+<circle cx="107.410" cy="540.385" r="2" fill="#126682"/><path d="M107.410 540.385 l0.407 0.221" stroke="#c4491c"/>
+<circle cx="71.763" cy="484.061" r="2" fill="#126682"/><path d="M71.763 484.061 l-0.022 -0.069" stroke="#c4491c"/>
+<circle cx="143.503" cy="402.739" r="2" fill="#126682"/><path d="M143.503 402.739 l-0.230 0.789" stroke="#c4491c"/>
+<circle cx="54.114" cy="420.872" r="2" fill="#126682"/><path d="M54.114 420.872 l0.227 -0.292" stroke="#c4491c"/>
+<circle cx="87.389" cy="502.806" r="2" fill="#126682"/><path d="M87.389 502.806 l-0.113 0.140" stroke="#c4491c"/>
+<circle cx="98.474" cy="530.462" r="2" fill="#126682"/><path d="M98.474 530.462 l0.271 0.118" stroke="#c4491c"/>
+<circle cx="82.369" cy="396.245" r="2" fill="#126682"/><path d="M82.369 396.245 l-0.218 0.884" stroke="#c4491c"/>
+<circle cx="159.502" cy="409.455" r="2" fill="#126682"/><path d="M159.502 409.455 l0.382 -0.026" stroke="#c4491c"/>
+<circle cx="212.439" cy="460.553" r="2" fill="#126682"/><path d="M212.439 460.553 l-0.140 -0.318" stroke="#c4491c"/>
+<circle cx="175.871" cy="398.956" r="2" fill="#126682"/><path d="M175.871 398.956 l-0.400 0.613" stroke="#c4491c"/>
+<circle cx="79.079" cy="442.509" r="2" fill="#126682"/><path d="M79.079 442.509 l-0.527 0.138" stroke="#c4491c"/>
+<circle cx="148.526" cy="456.085" r="2" fill="#126682"/><path d="M148.526 456.085 l0.275 -1.574" stroke="#c4491c"/>
+<circle cx="111.111" cy="437.098" r="2" fill="#126682"/><path d="M111.111 437.098 l0.443 -0.013" stroke="#c4491c"/>
+<circle cx="117.351" cy="391.697" r="2" fill="#126682"/><path d="M117.351 391.697 l-0.818 0.053" stroke="#c4491c"/>
+<circle cx="103.718" cy="476.747" r="2" fill="#126682"/><path d="M103.718 476.747 l0.149 -0.740" stroke="#c4491c"/>
+<circle cx="113.206" cy="504.133" r="2" fill="#126682"/><path d="M113.206 504.133 l-0.369 -0.194" stroke="#c4491c"/>
+<circle cx="70.572" cy="461.374" r="2" fill="#126682"/><path d="M70.572 461.374 l-0.419 1.884" stroke="#c4491c"/>
+<circle cx="143.175" cy="457.042" r="2" fill="#126682"/><path d="M143.175 457.042 l0.045 0.574" stroke="#c4491c"/>
+<circle cx="65.674" cy="513.430" r="2" fill="#126682"/><path d="M65.674 513.430 l0.809 0.858" stroke="#c4491c"/>
+<circle cx="180.811" cy="505.864" r="2" fill="#126682"/><path d="M180.811 505.864 l0.246 -0.036" stroke="#c4491c"/>
+<circle cx="180.971" cy="492.255" r="2" fill="#126682"/><path d="M180.971 492.255 l-0.229 -0.043" stroke="#c4491c"/>
+<circle cx="127.448" cy="457.966" r="2" fill="#126682"/><path d="M127.448 457.966 l0.608 0.056" stroke="#c4491c"/>
+<circle cx="131.435" cy="488.630" r="2" fill="#126682"/><path d="M131.435 488.630 l-0.699 -0.023" stroke="#c4491c"/>
+<circle cx="137.246" cy="397.737" r="2" fill="#126682"/><path d="M137.246 397.737 l-0.873 -1.700" stroke="#c4491c"/>
+<circle cx="107.880" cy="443.885" r="2" fill="#126682"/><path d="M107.880 443.885 l-0.674 0.036" stroke="#c4491c"/>
+<circle cx="99.640" cy="495.484" r="2" fill="#126682"/><path d="M99.640 495.484 l-0.131 0.037" stroke="#c4491c"/>
+<circle cx="199.898" cy="411.697" r="2" fill="#126682"/><path d="M199.898 411.697 l-0.045 -0.445" stroke="#c4491c"/>
+<circle cx="177.247" cy="548.386" r="2" fill="#126682"/><path d="M177.247 548.386 l-0.710 -0.393" stroke="#c4491c"/>
+<circle cx="125.603" cy="483.777" r="2" fill="#126682"/><path d="M125.603 483.777 l-0.558 1.084" stroke="#c4491c"/>
+<circle cx="74.172" cy="521.572" r="2" fill="#126682"/><path d="M74.172 521.572 l-0.462 -0.566" stroke="#c4491c"/>
+<circle cx="144.220" cy="445.236" r="2" fill="#126682"/><path d="M144.220 445.236 l0.057 -0.405" stroke="#c4491c"/>
+<circle cx="54.869" cy="454.469" r="2" fill="#126682"/><path d="M54.869 454.469 l0.859 0.361" stroke="#c4491c"/>
+<circle cx="152.438" cy="434.898" r="2" fill="#126682"/><path d="M152.438 434.898 l0.030 -0.120" stroke="#c4491c"/>
+<circle cx="101.416" cy="451.458" r="2" fill="#126682"/><path d="M101.416 451.458 l-0.211 -0.407" stroke="#c4491c"/>
+<circle cx="128.917" cy="520.059" r="2" fill="#126682"/><path d="M128.917 520.059 l-0.253 0.123" stroke="#c4491c"/>
+<circle cx="143.481" cy="483.409" r="2" fill="#126682"/><path d="M143.481 483.409 l-0.187 -0.111" stroke="#c4491c"/>
+<circle cx="145.244" cy="515.860" r="2" fill="#126682"/><path d="M145.244 515.860 l0.050 0.537" stroke="#c4491c"/>
+<circle cx="211.328" cy="483.836" r="2" fill="#126682"/><path d="M211.328 483.836 l0.105 -0.182" stroke="#c4491c"/>
+<circle cx="47.578" cy="430.527" r="2" fill="#126682"/><path d="M47.578 430.527 l-0.858 0.291" stroke="#c4491c"/>
+<circle cx="65.761" cy="548.892" r="2" fill="#126682"/><path d="M65.761 548.892 l0.513 -0.283" stroke="#c4491c"/>
+<circle cx="191.888" cy="462.389" r="2" fill="#126682"/><path d="M191.888 462.389 l1.478 1.034" stroke="#c4491c"/>
+<circle cx="138.131" cy="473.816" r="2" fill="#126682"/><path d="M138.131 473.816 l-0.332 -1.121" stroke="#c4491c"/>
+<text x="420" y="400" font-size="14">Rotation : 2.99819°</text>
+<text x="420" y="428" font-size="14">Ajustement : 135 étoiles ; contrôle : 45</text>
+<text x="420" y="456" font-size="14">Médiane : 0.105 px ; P95 : 0.338 px</text>
+<text x="420" y="484" font-size="14">Couverture : 9/9 cellules, 4/4 quadrants</text>
+<text x="420" y="512" font-size="14">Erreur absolue héritée de la référence.</text>
+<text x="420" y="540" font-size="14">Horloge non qualifiée ; aucune certification.</text>
+<text x="25" y="623" font-size="17">Pose 3 : critères satisfaits</text>
+<rect x="30" y="635" width="200.0" height="200.0" fill="#f1f5f9" stroke="#8b98a6"/>
+<path d="M 96.66666666666667 635 v 200.0 M 30 701.6666666666666 h 200.0" stroke="#cad4df" fill="none"/>
+<path d="M 163.33333333333334 635 v 200.0 M 30 768.3333333333334 h 200.0" stroke="#cad4df" fill="none"/>
+<circle cx="95.422" cy="723.629" r="2" fill="#126682"/><path d="M95.422 723.629 l0.062 0.091" stroke="#c4491c"/>
+<circle cx="198.255" cy="778.906" r="2" fill="#126682"/><path d="M198.255 778.906 l-0.343 0.033" stroke="#c4491c"/>
+<circle cx="148.444" cy="687.719" r="2" fill="#126682"/><path d="M148.444 687.719 l-0.906 0.057" stroke="#c4491c"/>
+<circle cx="60.503" cy="784.963" r="2" fill="#126682"/><path d="M60.503 784.963 l0.318 -0.272" stroke="#c4491c"/>
+<circle cx="60.080" cy="828.933" r="2" fill="#126682"/><path d="M60.080 828.933 l0.545 0.070" stroke="#c4491c"/>
+<circle cx="111.083" cy="762.979" r="2" fill="#126682"/><path d="M111.083 762.979 l-0.869 0.296" stroke="#c4491c"/>
+<circle cx="125.915" cy="690.204" r="2" fill="#126682"/><path d="M125.915 690.204 l0.160 -0.084" stroke="#c4491c"/>
+<circle cx="150.894" cy="812.419" r="2" fill="#126682"/><path d="M150.894 812.419 l0.425 -1.024" stroke="#c4491c"/>
+<circle cx="208.121" cy="781.008" r="2" fill="#126682"/><path d="M208.121 781.008 l-0.055 0.516" stroke="#c4491c"/>
+<circle cx="188.092" cy="730.774" r="2" fill="#126682"/><path d="M188.092 730.774 l0.089 -0.212" stroke="#c4491c"/>
+<circle cx="127.395" cy="738.130" r="2" fill="#126682"/><path d="M127.395 738.130 l-0.006 -0.717" stroke="#c4491c"/>
+<circle cx="61.146" cy="775.380" r="2" fill="#126682"/><path d="M61.146 775.380 l0.869 0.382" stroke="#c4491c"/>
+<circle cx="86.314" cy="729.439" r="2" fill="#126682"/><path d="M86.314 729.439 l-0.124 -0.015" stroke="#c4491c"/>
+<circle cx="170.040" cy="769.039" r="2" fill="#126682"/><path d="M170.040 769.039 l-0.051 -0.080" stroke="#c4491c"/>
+<circle cx="90.747" cy="794.262" r="2" fill="#126682"/><path d="M90.747 794.262 l0.638 -0.511" stroke="#c4491c"/>
+<circle cx="198.608" cy="800.311" r="2" fill="#126682"/><path d="M198.608 800.311 l-1.077 -0.260" stroke="#c4491c"/>
+<circle cx="148.096" cy="800.419" r="2" fill="#126682"/><path d="M148.096 800.419 l-0.703 -0.576" stroke="#c4491c"/>
+<circle cx="62.329" cy="795.085" r="2" fill="#126682"/><path d="M62.329 795.085 l0.803 0.074" stroke="#c4491c"/>
+<circle cx="71.730" cy="698.567" r="2" fill="#126682"/><path d="M71.730 698.567 l0.118 -0.068" stroke="#c4491c"/>
+<circle cx="184.579" cy="818.781" r="2" fill="#126682"/><path d="M184.579 818.781 l1.428 0.363" stroke="#c4491c"/>
+<circle cx="178.696" cy="718.793" r="2" fill="#126682"/><path d="M178.696 718.793 l0.131 0.464" stroke="#c4491c"/>
+<circle cx="41.530" cy="780.482" r="2" fill="#126682"/><path d="M41.530 780.482 l-0.025 0.076" stroke="#c4491c"/>
+<circle cx="84.982" cy="736.829" r="2" fill="#126682"/><path d="M84.982 736.829 l-0.597 0.198" stroke="#c4491c"/>
+<circle cx="91.316" cy="752.205" r="2" fill="#126682"/><path d="M91.316 752.205 l-0.605 -0.121" stroke="#c4491c"/>
+<circle cx="165.968" cy="746.902" r="2" fill="#126682"/><path d="M165.968 746.902 l-0.256 -0.686" stroke="#c4491c"/>
+<circle cx="72.591" cy="820.575" r="2" fill="#126682"/><path d="M72.591 820.575 l0.817 -0.406" stroke="#c4491c"/>
+<circle cx="116.341" cy="674.991" r="2" fill="#126682"/><path d="M116.341 674.991 l0.139 0.123" stroke="#c4491c"/>
+<circle cx="189.416" cy="746.234" r="2" fill="#126682"/><path d="M189.416 746.234 l0.482 0.232" stroke="#c4491c"/>
+<circle cx="65.582" cy="750.225" r="2" fill="#126682"/><path d="M65.582 750.225 l0.090 0.056" stroke="#c4491c"/>
+<circle cx="60.046" cy="731.052" r="2" fill="#126682"/><path d="M60.046 731.052 l-1.617 0.553" stroke="#c4491c"/>
+<circle cx="80.704" cy="745.797" r="2" fill="#126682"/><path d="M80.704 745.797 l0.099 -0.606" stroke="#c4491c"/>
+<circle cx="168.585" cy="756.883" r="2" fill="#126682"/><path d="M168.585 756.883 l-0.012 -0.059" stroke="#c4491c"/>
+<circle cx="91.674" cy="827.252" r="2" fill="#126682"/><path d="M91.674 827.252 l0.121 0.007" stroke="#c4491c"/>
+<circle cx="140.923" cy="744.130" r="2" fill="#126682"/><path d="M140.923 744.130 l-0.346 -0.349" stroke="#c4491c"/>
+<circle cx="139.720" cy="796.671" r="2" fill="#126682"/><path d="M139.720 796.671 l0.478 0.654" stroke="#c4491c"/>
+<circle cx="117.475" cy="733.963" r="2" fill="#126682"/><path d="M117.475 733.963 l0.895 -0.079" stroke="#c4491c"/>
+<circle cx="158.256" cy="696.400" r="2" fill="#126682"/><path d="M158.256 696.400 l0.071 0.533" stroke="#c4491c"/>
+<circle cx="37.849" cy="702.017" r="2" fill="#126682"/><path d="M37.849 702.017 l-0.109 0.207" stroke="#c4491c"/>
+<circle cx="108.838" cy="727.048" r="2" fill="#126682"/><path d="M108.838 727.048 l-0.114 0.576" stroke="#c4491c"/>
+<text x="420" y="660" font-size="14">Rotation : 18.00054°</text>
+<text x="420" y="688" font-size="14">Ajustement : 120 étoiles ; contrôle : 39</text>
+<text x="420" y="716" font-size="14">Médiane : 0.105 px ; P95 : 0.220 px</text>
+<text x="420" y="744" font-size="14">Couverture : 8/9 cellules, 4/4 quadrants</text>
+<text x="420" y="772" font-size="14">Erreur absolue héritée de la référence.</text>
+<text x="420" y="800" font-size="14">Horloge non qualifiée ; aucune certification.</text>
+</g></svg>

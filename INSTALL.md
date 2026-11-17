@@ -80,6 +80,17 @@ La version 0.6 ajoute Photutils 3.1.1 et SciPy 1.18.1 à `requirements/dev-teste
 
 La commande ne télécharge rien et ne traite que des fichiers dans `local/`. Préparer le catalogue et sa provenance avant l’analyse, suivant le [contrat astrométrique](docs/CONTRAT-ASTROMETRIE.md). Le code `0` désigne uniquement le passage des critères exploratoires, pas une certification MPC ou une qualification d’horloge.
 
+## Recaler des poses locales
+
+La version 0.7 réutilise les dépendances de la comparaison stellaire, sans nouveau paquet scientifique. Après mise à jour de l’installation modifiable :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install --no-deps -e .
+.\.venv\Scripts\gar.exe register ".\local\lot\workset.json" --reference-index 4 --frame-indices 1 2 3 --output ".\local\recalage-01"
+```
+
+Les quatre copies sont vérifiées en lecture seule ; les chemins sources ne sont pas consultés. Aucune clé USB n’est nécessaire. Lire le [contrat de recalage](docs/CONTRAT-RECALAGE.md) pour les critères et codes de retour. Les SVG sont produits sans dépendance graphique supplémentaire. Le générateur PNG facultatif `examples/plot_registration.py` nécessite Matplotlib dans l’interpréteur utilisé ; Matplotlib ne fait pas partie des dépendances d’analyse.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

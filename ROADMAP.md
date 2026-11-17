@@ -194,3 +194,14 @@ Plan du 16 novembre 2026, à committer avant développement. Entrées exclusives
 - R8 : actualiser contrats, tutoriel illustré, README et autres Markdown concernés ; vérifier tests, confidentialité et installation ; commit de réalisation et publication du code et exemples synthétiques uniquement.
 
 Le résultat pourra être un échec de recalage ou de couverture. Tout assouplissement ultérieur des paramètres nécessitera un nouvel essai explicitement documenté ; aucune certification astrométrique absolue ni temporelle n’est promise.
+
+Réalisation **0.7.0a1**, plan préalable **`6480df2`** :
+
+- R1/R2 — faits : copies vérifiées, chemins externes rejetés avant sondage, détection sur blocs 2×2 et coordonnées natives ; aucune source historique consultée.
+- R3/R4 — faits : triangles, rotation/translation, partition fixée avant ajustement, contrôle réservé et critères inchangés ; effectifs non associés conservés.
+- R5 — fait : composition explicite sérialisée avec SIP, utilisation bloquée si critères non satisfaits ou point hors domaine ; aucune WCS FITS copiée.
+- R6 — fait : 21 nouveaux cas, soit 177 tests ; figures publiques synthétiques et cartes privées réelles inspectées.
+- R7 — fait : les trois poses locales satisfont les critères, quatre empreintes inchangées ; aucun accès USB ni nouveau catalogue.
+- R8 — livré dans le commit de réalisation : contrats et tutoriel illustré, Markdown, installation et revue de confidentialité ; code et exemples synthétiques uniquement destinés à la publication.
+
+La précision relative observée ne qualifie pas l’astrométrie absolue des poses, la photométrie ni l’horloge. Le budget d’erreur complet et les contrôles temporels restent à poursuivre avant toute exploitation de mobiles.

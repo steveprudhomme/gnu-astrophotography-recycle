@@ -29,3 +29,5 @@ Une vérification automatique ne remplace pas la lecture des conditions. Un cas 
 ## Dépendances ajoutées au contrôle stellaire
 
 Photutils 3.1.1 et SciPy 1.18.1 sont utilisés dans l’environnement de développement (Python ≥3.12). Photutils conserve sa licence BSD 3 clauses ; SciPy annonce une [licence BSD modifiée](https://scipy.org/about/). Cela ne remplace pas l’audit des composants natifs des roues. Aucun binaire de ces bibliothèques n’est redistribué par ce lot. Les données Gaia et leurs obligations de reconnaissance sont distinctes de la licence du code ; l’extrait réel et sa requête ne sont pas inclus dans Git.
+
+Le recalage 0.7 réutilise ces bibliothèques sans nouvelle dépendance scientifique. Le rendu PNG facultatif utilise Matplotlib déjà mentionné ci-dessus ; les SVG applicatifs n’en dépendent pas. Les générateurs, tests et scripts de tracé propres au projet portent l’avis GPL-3.0-or-later et le titulaire. Aucun paquet binaire ni catalogue réel n’est livré dans ce lot.

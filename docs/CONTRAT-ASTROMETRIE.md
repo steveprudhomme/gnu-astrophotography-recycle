@@ -46,3 +46,5 @@ Un catalogue externe ne garantit pas que les étoiles soient statistiquement ind
 Code `0` : critères exploratoires satisfaits. Code `2` : calcul produit mais critères non satisfaits. Code `1` : analyse impossible ou entrée incorrecte. Une erreur avant la production du rapport ne doit pas être interprétée comme un échec scientifique mesuré.
 
 Références : [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html), [Astropy — mouvements propres](https://docs.astropy.org/en/stable/coordinates/apply_space_motion.html), [Gaia — solution astrométrique](https://arxiv.org/abs/2012.03380). Les données du pilote proviennent de l’ESA Gaia Archive et du consortium Gaia DPAC ; ce dépôt ne les héberge pas.
+
+Le [recalage relatif](CONTRAT-RECALAGE.md) est une commande distincte : il ajuste une rotation/translation vers une référence puis compose sa WCS. Il ne transforme pas ce contrôle sans réajustement en une certification absolue des poses.
