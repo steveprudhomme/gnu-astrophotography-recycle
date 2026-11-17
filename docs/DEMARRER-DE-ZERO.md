@@ -88,11 +88,14 @@ Ces outils de dessin sont séparés des outils d’analyse. Nous appelons direct
 ## 5. Vérifier la construction avant de jouer
 
 ```powershell
+New-Item -ItemType Directory -Path local/parcours -Force
 .\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider --basetemp="local/parcours/tests-01"
 .\.venv\Scripts\python.exe -m pip check
 ```
 
 **Tu dois voir :** `241 passed` pour cette version et `No broken requirements found.` La première phrase signifie que les 241 contrôles logiciels ont réussi. Elle ne certifie pas un télescope ou son horloge.
+
+La première ligne prépare les boîtes `local` et `parcours` pour les essais. `-Force` permet de garder ces dossiers s’ils existent déjà ; cette commande ne vide pas leur contenu. Il faut les créer avant les tests : le programme de test ne crée pas tout seul les dossiers parents de son espace temporaire.
 
 Choisis un nouveau nom de dossier de tests à chaque reprise, par exemple `tests-02` : l’outil de test peut nettoyer son dossier temporaire. Si tu vois `FAILED`, arrête-toi, conserve le message et demande de l’aide en donnant le nom du contrôle en échec.
 
