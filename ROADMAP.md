@@ -148,3 +148,18 @@ Plan du 16 novembre 2026, enregistré dans **`34930d0` avant développement**. L
 La résolution d’images sans solution et la validation sur un catalogue restent des étapes ultérieures. La présence d’un modèle construit par une bibliothèque ne prouve pas son exactitude.
 
 Version du lot : **0.5.0a1**. Aucune suppression, modification ou création de fichier n’a été effectuée sur le support source ; les seules nouvelles données d’observation sont les copies locales demandées.
+
+## Lot de travail 6 — comparaison astrométrique sur étoiles
+
+Plan du 16 novembre 2026, à committer avant le code. Seules les copies locales vérifiées sont utilisées ; aucun accès au support externe. L’empilement conserve son modèle WCS sans réajustement sur les étoiles de contrôle.
+
+- A1 : préparer localement un extrait de référence Gaia DR3, avec origine, requête, époque, mouvements propres, erreurs et empreinte ; aucun FITS, en-tête ou position géographique n’est envoyé au fournisseur. Seul le champ céleste est nécessaire à la requête de catalogue public.
+- A2 : fixer les critères avant mesure : au moins 30 associations mutuelles uniques, rayon d’association 8 secondes d’arc, médiane des écarts ≤2 secondes d’arc, percentile 95 ≤4 secondes d’arc, couverture d’au moins 6 cellules sur une grille 3×3 et des quatre quadrants. Ce sont des critères exploratoires du projet, pas une norme MPC.
+- A3 : ajouter une commande hors ligne sur copie locale et catalogue local ; détecter des étoiles non saturées et isolées, tracer les rejets, les seuils et la sélection du canal.
+- A4 : propager les positions de référence à la date approximative d’observation, sans prétendre qualifier son horloge ; calculer les positions depuis la WCS originale avec SIP, sans recalage, ajustement ou élimination a posteriori des grands résidus pour réussir les critères.
+- A5 : mesurer écarts tangentiels, séparation, biais, RMS, percentiles et intervalle bootstrap exploratoire de la médiane ; examiner distribution et résidus dans le champ. Documenter les limites du budget d’erreur, de l’époque et de la sélection par rayon.
+- A6 : tester données synthétiques de géométrie connue, décalages, mauvaise WCS, faible effectif, doublons et préservation ; produire images de contrôle réelles et synthétiques, privées/publiques respectivement.
+- A7 : exécuter sur l’empilement local, vérifier son SHA-256 avant/après ; rapporter succès ou échec des critères sans certificat de soumission scientifique et sans modifier les copies.
+- A8 : actualiser tutoriel illustré et Markdown, dépendances/licences et installation ; commit puis publication du code et exemples fictifs uniquement.
+
+Un manque de références, une géométrie inadéquate ou une dépendance indisponible doit être rapporté explicitement ; ne pas fabriquer de validation. Les données réelles et catalogue de champ restent dans `local/`. La validation temporelle et le transfert de WCS aux poses restent des travaux ultérieurs.
