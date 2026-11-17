@@ -734,6 +734,14 @@ Retrouver les contrôles techniques montre que le chemin logiciel fonctionne dan
 
 Sur les deux fonds réels admissibles, les essais retrouvent cinq puis quatre ajouts sur dix-huit, dont les deux contrôles techniques à chaque fois. Aucun des douze ajouts lents de chaque fond n'est retrouvé. Le troisième bloc prévu est refusé pour sa durée : ses dix-huit ajouts sont indisponibles, pas dix-huit manqués. Ces résultats restent visibles. Ils montrent qu'il faut revoir séparément l'aptitude aux mouvements lents ; nous n'avons changé aucun seuil pendant cette mission.
 
+## Lire la version de ton application
+
+Notre version de développement s'écrit **0.10.0-alpha.1**. Le mot « alpha » dit que le projet est encore en construction. Python écrit la même version `0.10.0a1` : ce sont deux écritures du même état, pas deux applications différentes. Un numéro de version ne garantit pas que le programme sache déjà trouver tous les astéroïdes.
+
+![Lire une version, schéma conceptuel avec exemple fictif](images/semver-concept.svg)
+
+Les [règles de versionnage](../VERSIONING.md) expliquent les trois nombres et le [journal des changements](../CHANGELOG.md) raconte ce qui change. Les exemples 1.2.3 du dessin ne sont pas des versions déjà publiées.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :

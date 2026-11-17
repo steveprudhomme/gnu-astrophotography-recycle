@@ -10,6 +10,10 @@ Documentation en français ; noms de modules, champs et interfaces en anglais po
 4. **Wait** : laisser le temps de la revue ; répondre aux questions et fournir les éléments manquants. Les changements touchant les mesures demandent une revue scientifique.
 5. **Repeat** : corriger, relancer les contrôles utiles et soumettre à nouveau.
 
+## Versionner une livraison
+
+Pour les prochaines livraisons, appliquer [SemVer et la procédure du projet](VERSIONING.md). Décrire les effets sur les commandes et contrats publics, choisir la progression appropriée, tenir [CHANGELOG.md](CHANGELOG.md) à jour et vérifier l'équivalence de `VERSION` avec les versions Python du paquet et de l'installation. Aucun tag/release ne doit être remplacé après publication ; les numéros de lots ne sont pas des versions applicatives.
+
 ## Signaler un problème
 
 Indiquer version ou commit, Windows/Python, opération, résultat attendu, erreur et cas minimal anonymisé. Retirer chemins privés, coordonnées, identifiants, adresses et en-têtes bruts. Ne pas joindre un FITS personnel sans décision explicite de publication et vérification des droits.

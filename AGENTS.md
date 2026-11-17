@@ -1,5 +1,7 @@
 # Règles de travail du projet
 
+- Versionner les prochaines livraisons selon SemVer 2.0.0 et `VERSIONING.md`. `VERSION` contient la version publique canonique ; le paquet conserve l'équivalent PEP 440 cohérent dans `pyproject.toml` et `gar.__version__`. Tenir CHANGELOG.md à jour, annoncer les ruptures de la surface publique et ne jamais remplacer un tag ou une version publiée. Les numéros de lot et schémas de données sont distincts des versions applicatives.
+
 - Avant un lot d’implémentation, réfléchir aux sous-étapes et ajouter les tâches nouvelles à ROADMAP.md. Faire un commit de planification avant de coder.
 - Documenter les opérations, commandes, résultats, vérifications et limites dans docs/TUTORIEL.md, avec des images explicatives ou des exemples visuels réels. Distinguer schémas, exemples synthétiques et données réelles ; ne pas fabriquer de captures d’écran.
 - Actualiser les Markdown concernés lorsque le comportement ou le statut change.

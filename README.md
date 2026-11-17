@@ -2,6 +2,8 @@
 
 **Donner une seconde vie scientifique aux archives du Seestar S50.**
 
+**Version de développement : [0.10.0-alpha.1](VERSION)** — [règles SemVer](VERSIONING.md) et [journal des changements](CHANGELOG.md). Le paquet Python utilise l'écriture équivalente `0.10.0a1` ; aucune release n'est créée par cette adoption.
+
 [Dépôt public et suivi du projet](https://github.com/steveprudhomme/gnu-astrophotography-recycle).
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
