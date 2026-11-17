@@ -1,6 +1,8 @@
-# Tutoriel illustré — inventaire, contrôle Gaia et préparation temporelle
+# Tutoriel illustré — construire et comprendre GNU Astrophotography Recycle
 
-Ce guide suit les modules livrés jusqu’à l’Alpha 0.9. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
+**Tu commences, même à 10 ans ? Ouvre d’abord [Construire l’application, pas à pas](DEMARRER-DE-ZERO.md).** Ce parcours fait partie du tutoriel : images à chaque grande mission, mots expliqués, installation depuis zéro, commandes à copier, résultats attendus et dépannage pour tous les modules disponibles. Le présent fichier est le carnet détaillé des étapes de développement ; les contrats permettent ensuite d’approfondir.
+
+Ce guide suit les modules livrés jusqu’à l’Alpha 0.10. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
 
 Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales), [fiche de campagne](#16-préparer-la-fiche-opérationnelle-de-campagne-temporelle).
 
@@ -64,7 +66,7 @@ Une date brute sans convention confirmée n’est pas un temps de milieu de pose
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20 et la préparation temporelle 26, soit **223 tests réussis au total**.
+L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26 et le prototype de mobiles 18, soit **241 tests réussis au total**.
 
 Les tests ont révélé un problème de guillemets dans l’appel de test du lanceur Windows ; cet appel a été corrigé puis la suite relancée avec succès. Dans l’environnement de travail contrôlé, les tests de jonctions et de permissions ont nécessité une exécution avec accès au dossier temporaire ; cela ne démontre pas une exigence d’administrateur de l’application. La distribution autonome sur compte standard reste à valider.
 
@@ -626,3 +628,62 @@ Les décisions pour la configuration/époque testées et pour les anciennes arch
 Les canevas JSON/CSV et leurs colonnes sont vérifiés, avec trois blocs cohérents, aucune ligne de mesure, aucun résultat inventé et les statuts de qualification faux. Les commandes de copie PowerShell ont été exécutées dans un dossier local de vérification neuf : cinq fichiers copiés, trois blocs proposés, zéro mesure. Les liens, illustrations PNG/SVG et fichiers destinés à Git sont contrôlés. **Les 223 tests sont ceux du lot applicatif 0.9, sans nouvelle exécution revendiquée dans ce complément documentaire.**
 
 Un dossier privé de travail est préparé à partir du seul rapport temporel local déjà produit, dont l’empreinte est conservée avant/après. Le rapport reste inchangé ; aucun FITS ni chemin source historique n’est ouvert. Les canevas renseignés, informations d’opérateur, pièces de matériel et statut local restent dans `local/`, exclus de Git. La préparation ne réalise aucune acquisition et ne déclare pas la campagne prête à qualifier une horloge.
+
+## 17. Chercher des mobiles dans des images inventées
+
+Le plan **`a072ff1`**, du 17 novembre 2026, précède le code et les évaluations. La qualification des heures réelles attend toujours une preuve indépendante ; nous pouvons entraîner et tester un algorithme avec des positions et temps fictifs connus. Aucune image réelle ou clé USB n’est utilisée. Le [parcours dès 10 ans](DEMARRER-DE-ZERO.md#13-mission--retrouver-les-points-qui-bougent) explique cette mission avec des mots simples.
+
+### Fabriquer, chercher, puis compter
+
+Choisir deux dossiers nouveaux :
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_moving_demo.py local/demo-mobiles-input
+.\.venv\Scripts\python.exe -m gar moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
+```
+
+Le générateur fabrique 18 séquences de huit images : six situations, répétées avec trois graines de bruit. Une graine est un nombre qui permet de refaire exactement le même tirage aléatoire. Les images ont 256×256 pixels et sont déjà dans un repère commun ; les secondes sont inventées. Les cas faciles évitent volontairement les étoiles proches ; des cas difficiles sont évalués séparément.
+
+La détection cherche les points, retire ceux qui semblent fixes et essaie des trajectoires rectilignes. Elle construit tous ses candidats **avant de lire les positions de vérité**. Le fichier de réponses n’améliore pas les trajectoires ; il permet ensuite de compter les objets retrouvés, manqués et les faux candidats. Les empreintes des images, du manifeste et de la vérité sont conservées avant/après.
+
+| Situation, sur trois graines | Injectés | Retrouvés | Faux candidats |
+|---|---:|---:|---:|
+| Deux mobiles brillants isolés par séquence | 6 | 6 | 0 |
+| Témoin sans mobile, avec défauts et flashs indépendants | 0 | 0 | 0 |
+| Mobile absent sur deux images | 3 | 3 | 0 |
+| Mobile faible et mobile très lent | 6 | 1 | 0 |
+| Passage près d’une étoile | 3 | 3 | 0 |
+| Petit défaut commun de repérage | 3 | 3 | 0 |
+
+![Comptages réellement calculés sur les dix-huit séquences fictives, avec les objets manqués conservés](images/exemple-mobiles-bilan.png)
+
+*Graphique synthétique, pas une capture d’écran. Le témoin 0/0 n’a aucun objet injecté ; son rappel est indéfini, pas égal à 100 %. Les cas difficiles restent visibles. [SVG détaillé par séquence](images/exemple-mobiles-bilan.svg).*
+
+Les critères principaux demandent les six mobiles nominaux et les trois intermittents retrouvés, zéro faux candidat sur les témoins, P95 de position ≤0,75 pixel et erreur vectorielle de vitesse ≤0,03 pixel/s fictive. Ils sont satisfaits sur cette suite : P95 voisin de 0,075 pixel et erreur maximale de vitesse voisine de 0,0012 pixel/s. Au total 16/21 injections sont retrouvées ; les cinq manquées sont dans le scénario faible/lent. Ce bilan ne prouve ni un rappel universel ni un taux réel de faux positifs nul.
+
+Le premier générateur plaçait les flashs distincts du témoin le long d’une ligne. Cette construction a été corrigée pour les rendre spatialement indépendants ; l’essai initial est conservé localement et les résultats illustrés utilisent la suite corrigée, sans changer les seuils.
+
+### Lire les fichiers et créer les images
+
+`moving.json` conserve paramètres, sélections, candidats, erreurs, taux et empreintes. `candidates.csv` donne les trajectoires mesurées en pixels et secondes fictives. `moving.svg` et `report.md` expliquent les résultats et limites par séquence. Code 0 : critères principaux satisfaits sur la suite complète ; code 2 : critères non satisfaits ou suite incomplète ; code 1 : analyse impossible.
+
+Installer les outils graphiques facultatifs dans le même environnement puis fabriquer les figures :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements/figures-tested.txt
+.\.venv\Scripts\python.exe examples/plot_moving_demo.py local/demo-mobiles-input/manifest.json local/demo-mobiles-report/moving.json local/demo-mobiles-figures
+```
+
+![Dernière image fictive avec les positions mesurées des deux candidats](images/exemple-mobiles-image.png)
+
+![Animation de huit images fictives avec les trajectoires mesurées](images/exemple-mobiles-animation.gif)
+
+*Les trois figures sont calculées depuis les pixels synthétiques et le rapport gelé. Le GIF contient huit images ; les traits colorés relient les positions déjà mesurées. Aucune image d’observation personnelle n’est utilisée ou modifiée. La première tentative de tracé utilisait un Python sans le paquet `gar` : le parcours emploie désormais explicitement le Python installé dans `.venv`, avec ses outils graphiques, pour éviter ce mélange d’environnements.*
+
+### Comprendre les limites et vérifier la reconstruction
+
+Le [contrat du prototype](CONTRAT-MOBILES-SYNTHETIQUES.md) détaille les paramètres préenregistrés, la suppression des sources fixes, les rayons et les limites de ressources. Des mobiles trop lents peuvent être retirés avec les étoiles ; des points faibles peuvent rester sous le seuil. Le modèle ne traite pas tous les mélanges, accélérations, traces ou défauts cohérents. Il n’ajoute ni incertitude complète de position/vitesse, ni conversion céleste, ni qualification temporelle réelle.
+
+Les **241 tests passent**, dont 18 nouveaux cas : trajectoire connue, stationnarité, lenteur/vitesse hors domaine, images manquantes, faible effectif, absence de fuite de vérité, association un-à-un, contrôle complet sur pixels, marqueurs/temps/empreintes/chemins invalides, réseau interdit, préservation et sous-ensemble sans verdict complet. L’animation et les graphiques sont inspectés séparément. Les versions, aide, installation, dépendances et reconstruction sont vérifiées avant publication.
+
+Le nouveau [guide complet pour débuter](DEMARRER-DE-ZERO.md) reprend depuis l’installation de Python/Git, l’obtention du code, la construction de l’application et l’essai de **chaque module disponible**. Il relie les dossiers aux recettes, explique les nombres de retour, donne les résultats attendus et un tableau de dépannage. Ses images sont des schémas identifiés ou des résultats synthétiques réels, sans fausse capture. Les étapes sont vérifiées sur des dossiers de travail neufs.

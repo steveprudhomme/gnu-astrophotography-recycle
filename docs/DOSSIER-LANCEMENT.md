@@ -1,6 +1,6 @@
 # Dossier de lancement — GNU Astrophotography Recycle
 
-Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.9 le 16 novembre. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; les contrôles stellaires et la préparation temporelle livrés ensuite sont décrits ci-dessous, avec leurs limites. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
+Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.10 le 17 novembre. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; les contrôles stellaires, la préparation temporelle et le prototype de mobiles fictifs livrés ensuite sont décrits ci-dessous, avec leurs limites. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
 
 ## 1. Identité du projet et modèle de README
 
@@ -8,7 +8,7 @@ Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.9 le 16 nov
 
 Mission : réutiliser les archives de poses individuelles du Seestar S50 pour produire des inventaires puis, lorsque leur qualité le permet, des mesures astronomiques traçables. Priorités : préserver les originaux, rendre les erreurs visibles et quantifier les incertitudes.
 
-Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-later`, le statut Alpha 0.9, les fonctionnalités disponibles et les limites. Il donne accès au tutoriel illustré, à un exemple synthétique de comparaison Gaia et au dossier préparatoire temporel. Les objets mobiles, la photométrie et la distribution portable restent des fonctionnalités futures.
+Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-later`, le statut Alpha 0.10, les fonctionnalités disponibles et les limites. Il donne accès au [parcours complet pour débuter dès 10 ans](DEMARRER-DE-ZERO.md), au tutoriel de référence, aux exemples synthétiques et à leur animation. Les performances sur mobiles réels, la photométrie et la distribution portable restent à développer ou valider.
 
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
@@ -33,6 +33,8 @@ La version 0.8 ajoute `gaia_frames.py`, `gaia_frames_reports.py` et `gar gaia-fr
 La version 0.9 ajoute `time_evidence.py`, `time_evidence_reports.py` et `gar time-evidence` : en-têtes complets des copies, inconnues, canevas de preuves et [protocole illustré](PROTOCOLE-QUALIFICATION-TEMPS.md). Les 223 tests vérifient notamment l’absence d’accès aux pixels/réseau, la préservation et le refus de qualification même avec des déclarations riches. Le [contrat des preuves temporelles](CONTRAT-PREUVES-TEMPS.md) maintient l’horloge et les exports non qualifiés ; aucune mesure physique n’est réalisée et l’applicabilité aux anciennes archives reste à démontrer.
 
 Un complément documentaire fournit la [fiche opérationnelle de campagne](CAMPAGNE-TEMPORELLE.md) et cinq canevas : configuration, blocs proposés, journal vide, budget à renseigner et revue. Il ne change pas la version 0.9 ou le code d’analyse. Les références, versions et critères inconnus restent à confirmer ; aucune acquisition n’est effectuée ou déclarée prête, et les anciennes archives demeurent non qualifiées.
+
+La version 0.10 ajoute `moving.py`, `moving_reports.py` et `gar moving-synthetic`, avec 18 nouveaux cas portant la suite à 241 tests. Dix-huit séquences entièrement fictives évaluent des trajectoires avant comparaison à la vérité ; 16/21 injections sont retrouvées et les cinq manquées restent visibles. Les critères nominaux et intermittents sont satisfaits, sans certification sur données réelles. Le parcours pédagogique permet de reconstruire l’application depuis le code et reproduire chaque module avec commandes, résultats attendus, images et dépannage. Les PNG/GIF facultatifs emploient Matplotlib/Pillow ; aucune donnée privée ou lecture USB n’est impliquée.
 
 ```text
 gnu-astrophotography-recycle/

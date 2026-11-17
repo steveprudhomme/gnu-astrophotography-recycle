@@ -6,7 +6,9 @@
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-**Statut : Alpha 0.9 — inventaire, diagnostics, copies vérifiées, recalage, comparaison Gaia et dossier préparatoire de qualification temporelle. L’horloge reste non qualifiée ; les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
+**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle et prototype de mobiles sur images synthétiques. L’horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
+
+**Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
 Le [contrôle Gaia des poses](docs/CONTRAT-GAIA-POSES.md) est livré dans le [commit `9bcf431`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/9bcf4318fc1fd1f5ffe2afe4ef72d7c364626f6e). Le lot applicatif 0.8 a passé **197 tests** ; ce résultat ne certifie ni l’horloge ni un budget d’erreur absolue complet.
 
@@ -38,7 +40,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Recalage relatif | Rotation/translation vers une référence WCS gelée, contrôle sur étoiles réservées | Disponible ; composition céleste exploratoire, heures non qualifiées |
 | Gaia sur poses | Comparaison des positions composées à un catalogue local, modèles gelés | Disponible ; verdict sur étoiles réservées, budget absolu incomplet |
 | Qualification scientifique complète | Budget d’erreur absolue et horodatages vérifiés | À poursuivre, phase 2 |
-| Objets mobiles | Trajectoires candidates, vitesses et GIF | Recherche, phase 3 |
+| Prototype de mobiles | Trajectoires, erreurs, faux candidats et GIF sur données synthétiques | Disponible pour la recherche ; performances réelles non validées, phase 3 |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -116,6 +118,19 @@ Pour préparer le dossier temporel depuis les copies déjà locales, sans consul
 ```
 
 Le code **2** signifie que le dossier a été produit avec une heure toujours non qualifiée. Le [tutoriel illustré](docs/TUTORIEL.md#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales) explique les six sorties, le cas synthétique et les preuves encore nécessaires. Aucune date UTC de milieu de pose n’est calculée.
+
+Pour essayer les mobiles sans observation réelle ni accès USB :
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_moving_demo.py local/demo-mobiles-input
+.\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
+```
+
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **241 tests logiciels passent**. La suite fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
+
+![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
+
+*Images entièrement synthétiques ; les lignes relient les candidats mesurés. Le [parcours débutant](docs/DEMARRER-DE-ZERO.md#13-mission--retrouver-les-points-qui-bougent) et le [tutoriel de référence](docs/TUTORIEL.md) expliquent comment reproduire l’animation.*
 
 ## Contribuer et vérifier
 

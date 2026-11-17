@@ -300,3 +300,13 @@ Plan du 17 novembre 2026, à committer avant code et évaluation. La qualificati
 - M10 : revue de confidentialité, commit de réalisation et publication GitHub vérifiée. La nouvelle interdiction d’accès USB du présent lot prévaut sur l’autorisation antérieure de lecture ; aucune donnée privée, valeur de firmware réelle ou configuration d’opérateur n’est publiée.
 
 Le parcours débutant inclut des images à chaque grande étape (schémas explicitement conceptuels, graphiques et animation synthétiques). Il décrit une reconstruction à partir du code source public, sans prétendre qu’un paquet portable, une découverte ou une horloge qualifiée existent. Les critères de ce prototype ne sont pas une norme MPC et ne clôturent pas la phase 2 scientifique.
+
+Réalisation **0.10.0a1**, plan préalable **`a072ff1`** :
+
+- M1/M3/M4 — faits : moteur sur copies fictives, empreintes, détection et filtrage stationnaire, trajectoires et limites préenregistrées ; aucun accès USB ni observation réelle.
+- M2/M5/M6 — faits : suite de 18 séquences et vérité séparée après gel des candidats ; six nominaux et trois intermittents retrouvés, zéro faux candidat sur témoins. Au total 16/21 injections retrouvées, cinq manquées faible/lent conservées ; critères inchangés. Témoin corrigé pour des flashs indépendants, essai initial conservé.
+- M7/M8 — faits : 18 nouveaux cas, soit 241 tests ; rapports et PNG/GIF calculés, animation de huit images inspectée, outils graphiques facultatifs séparés du moteur. Absence de garanties pour les données réelles explicitée.
+- M9 — fait : parcours complet débutant illustré, glossaire, installation, code source, missions pour tous les modules et dépannage ; 24 commandes de missions vérifiées sur des dossiers fictifs neufs. Les contrats et le tutoriel de référence conservent les détails techniques ; aucun test utilisateur avec un enfant n’est revendiqué.
+- M10 — livré avec le commit de réalisation : installation/reconstruction, reproductibilité, confidentialité et documentation vérifiées, puis publication GitHub des seuls fichiers publics ; données et rapports privés inchangés.
+
+La qualification de l’horloge et les performances de détection sur le Seestar réel restent ouvertes. Ce lot prépare l’algorithme sur des cas contrôlés et l’apprentissage de l’application, sans certifier les archives.

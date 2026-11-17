@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="604" viewBox="0 0 1150 604">
+<rect width="100%" height="100%" fill="#f6f8fb"/><g font-family="sans-serif" fill="#173b50">
+<text x="25" y="35" font-size="22">Mobiles synthétiques : résultats réellement calculés</text>
+<text x="25" y="65" font-size="15">Séquence / graine</text><text x="390" y="65">Retrouvés / injectés</text><text x="650" y="65">Faux candidats</text><text x="880" y="65">Interprétation</text>
+<text x="25" y="95" font-size="14">nominal-17</text>
+<text x="390" y="95">2/2</text>
+<text x="650" y="95">0</text><text x="880" y="95" font-size="13">Critères principaux</text>
+<text x="25" y="123" font-size="14">nominal-23</text>
+<text x="390" y="123">2/2</text>
+<text x="650" y="123">0</text><text x="880" y="123" font-size="13">Critères principaux</text>
+<text x="25" y="151" font-size="14">nominal-41</text>
+<text x="390" y="151">2/2</text>
+<text x="650" y="151">0</text><text x="880" y="151" font-size="13">Critères principaux</text>
+<text x="25" y="179" font-size="14">control-17</text>
+<text x="390" y="179">0/0</text>
+<text x="650" y="179">0</text><text x="880" y="179" font-size="13">Critères principaux</text>
+<text x="25" y="207" font-size="14">control-23</text>
+<text x="390" y="207">0/0</text>
+<text x="650" y="207">0</text><text x="880" y="207" font-size="13">Critères principaux</text>
+<text x="25" y="235" font-size="14">control-41</text>
+<text x="390" y="235">0/0</text>
+<text x="650" y="235">0</text><text x="880" y="235" font-size="13">Critères principaux</text>
+<text x="25" y="263" font-size="14">missing-17</text>
+<text x="390" y="263">1/1</text>
+<text x="650" y="263">0</text><text x="880" y="263" font-size="13">Critères principaux</text>
+<text x="25" y="291" font-size="14">missing-23</text>
+<text x="390" y="291">1/1</text>
+<text x="650" y="291">0</text><text x="880" y="291" font-size="13">Critères principaux</text>
+<text x="25" y="319" font-size="14">missing-41</text>
+<text x="390" y="319">1/1</text>
+<text x="650" y="319">0</text><text x="880" y="319" font-size="13">Critères principaux</text>
+<text x="25" y="347" font-size="14">faint_slow-17</text>
+<text x="390" y="347">1/2</text>
+<text x="650" y="347">0</text><text x="880" y="347" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="375" font-size="14">faint_slow-23</text>
+<text x="390" y="375">0/2</text>
+<text x="650" y="375">0</text><text x="880" y="375" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="403" font-size="14">faint_slow-41</text>
+<text x="390" y="403">0/2</text>
+<text x="650" y="403">0</text><text x="880" y="403" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="431" font-size="14">blend-17</text>
+<text x="390" y="431">1/1</text>
+<text x="650" y="431">0</text><text x="880" y="431" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="459" font-size="14">blend-23</text>
+<text x="390" y="459">1/1</text>
+<text x="650" y="459">0</text><text x="880" y="459" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="487" font-size="14">blend-41</text>
+<text x="390" y="487">1/1</text>
+<text x="650" y="487">0</text><text x="880" y="487" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="515" font-size="14">jitter-17</text>
+<text x="390" y="515">1/1</text>
+<text x="650" y="515">0</text><text x="880" y="515" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="543" font-size="14">jitter-23</text>
+<text x="390" y="543">1/1</text>
+<text x="650" y="543">0</text><text x="880" y="543" font-size="13">Sensibilité descriptive</text>
+<text x="25" y="571" font-size="14">jitter-41</text>
+<text x="390" y="571">1/1</text>
+<text x="650" y="571">0</text><text x="880" y="571" font-size="13">Sensibilité descriptive</text>
+</g></svg>

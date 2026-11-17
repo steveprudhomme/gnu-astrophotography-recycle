@@ -2,7 +2,7 @@
 
 ## Ce qui fonctionne aujourd’hui
 
-Cette version contient un inventaire FITS en lecture seule, un regroupement indicatif et des diagnostics temporel/WCS depuis son manifeste. Les lanceurs Windows exécutent le code Python depuis `src/` ; aucun traitement scientifique des pixels n’est livré.
+L’Alpha 0.10 contient l’inventaire, le regroupement, les diagnostics, les copies vérifiées, les contrôles stellaires, la préparation temporelle et un prototype de mobiles sur données synthétiques. L’installation depuis le code source est disponible ; le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
 
 ## Environnement depuis les sources
 
@@ -114,6 +114,25 @@ La version 0.9 ne change pas les dépendances scientifiques. Après mise à jour
 Cette commande lit les en-têtes des copies déjà présentes, sans pixels, réseau ou accès USB. Le code **2 est attendu** après production du dossier : il ne s’agit pas d’un échec d’installation, mais du maintien de la non-qualification temporelle. Code 1 si l’analyse est impossible. Le [contrat des preuves temporelles](docs/CONTRAT-PREUVES-TEMPS.md) et le [protocole illustré](docs/PROTOCOLE-QUALIFICATION-TEMPS.md) précisent les limites et la préparation d’un futur essai. Le SVG est produit sans outil graphique ; Matplotlib est facultatif pour `examples/plot_time_evidence.py`.
 
 La [fiche de campagne](docs/CAMPAGNE-TEMPORELLE.md) fournit ensuite des commandes pour copier les cinq canevas documentaires dans un nouveau dossier `local/`. Cette préparation ne demande aucun paquet supplémentaire ni modification du logiciel. Le journal initial est vide ; les moyens matériels, versions et critères restent à confirmer avant un éventuel essai.
+
+## Essayer le prototype de mobiles synthétiques
+
+Le moteur utilise les dépendances scientifiques existantes. Mettre à jour l’installation modifiable, puis choisir de nouveaux dossiers locaux :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install --no-deps -e .
+.\.venv\Scripts\python.exe examples/make_moving_demo.py local/demo-mobiles-input
+.\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
+```
+
+Pour les PNG/GIF facultatifs, installer les versions graphiques testées dans **le même environnement**, puis lancer :
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements/figures-tested.txt
+.\.venv\Scripts\python.exe examples/plot_moving_demo.py local/demo-mobiles-input/manifest.json local/demo-mobiles-report/moving.json local/demo-mobiles-figures
+```
+
+Matplotlib 3.10.8 et Pillow 13.0.0 sont facultatifs pour l’analyse, nécessaires à cet exemple de graphique/animation. Ce fichier n’est pas un verrouillage exhaustif des dépendances transitives. Le [contrat](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) précise marqueurs fictifs, limites, critères et codes. Les images réelles ne doivent pas être réétiquetées comme synthétiques.
 
 ## Distribution portable prévue
 

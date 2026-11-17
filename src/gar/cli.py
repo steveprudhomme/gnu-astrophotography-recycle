@@ -83,7 +83,24 @@ def main(argv=None):
     time_evidence = sub.add_parser('time-evidence', help='Préparer les preuves temporelles depuis les en-têtes des copies locales.')
     time_evidence.add_argument('workset', type=Path)
     time_evidence.add_argument('--output', type=Path, required=True)
+    moving = sub.add_parser('moving-synthetic', help='Tester des trajectoires sur images et temps fictifs uniquement.')
+    moving.add_argument('manifest', type=Path)
+    moving.add_argument('--truth', type=Path, required=True)
+    moving.add_argument('--output', type=Path, required=True)
     args = parser.parse_args(argv)
+    if args.command == 'moving-synthetic':
+        from .moving import run_moving_synthetic
+        try:
+            result = run_moving_synthetic(args.manifest, args.truth, args.output, Path(__file__).resolve().parents[2]/'local')
+            import photutils, scipy
+            result.update(program_version=__version__, source_revision=source_commit(),
+                created_at_utc=datetime.now(timezone.utc).isoformat(), environment={'python':platform.python_version(),
+                'astropy':astropy.__version__, 'numpy':numpy.__version__, 'photutils':photutils.__version__, 'scipy':scipy.__version__})
+            (args.output/'moving.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+            print(json.dumps(result['summary'],ensure_ascii=False))
+            return 0 if result['summary']['exploratory_criteria_passed'] else 2
+        except (ValueError, OSError) as exc:
+            print(f'Erreur : {exc}',file=sys.stderr); return 1
     if args.command == 'time-evidence':
         from .time_evidence import run_time_evidence
         try:
