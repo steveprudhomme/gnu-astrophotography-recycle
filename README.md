@@ -42,6 +42,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Qualification scientifique complète | Budget d’erreur absolue et horodatages vérifiés | À poursuivre, phase 2 |
 | Prototype de mobiles | Trajectoires, erreurs, faux candidats et GIF sur données synthétiques | Disponible pour la recherche ; performances réelles non validées, phase 3 |
 | Limites du détecteur | Nouveau jeu de 120 séquences fictives, luminosité/vitesse/bruit/géométrie | Bilan descriptif disponible ; moteur inchangé, cas non alignés séparés |
+| Recalage puis mobiles | Comparaison des mêmes positions avant/après sur 40 séquences fictives | Expérimental : bénéfice sur séquences disponibles, critères globaux non tous satisfaits |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -127,7 +128,7 @@ Pour essayer les mobiles sans observation réelle ni accès USB :
 .\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
 ```
 
-Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **260 tests logiciels passent**, avec le banc de limites. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **277 tests logiciels passent**, avec les bancs de limites et de recalage/mobiles. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
 
 ![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
 
@@ -138,6 +139,10 @@ Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les cri
 Le [nouveau banc de limites](docs/LIMITES-DETECTEUR.md) mesure le moteur inchangé sur **120 séquences / 960 images fictives**. Les mobiles très lents sont manqués ; l’augmentation du bruit réduit la récupération. Hors de l’hypothèse d’images alignées, la dérive du champ produit de nombreux faux candidats parmi les étoiles. Les témoins et les échecs restent visibles ; aucune performance réelle n’est déduite. La [mission dès 10 ans](docs/DEMARRER-DE-ZERO.md#13-bis-mission--trouver-les-limites-du-chercheur) permet de reproduire cartes et animation, sans USB.
 
 ![Carte de récupération réellement calculée sur les nouvelles images fictives](docs/images/limites-detecteur-grille.png)
+
+## Recaler avant de chercher
+
+La [chaîne recalage puis recherche](docs/RECALAGE-MOBILES-SYNTHETIQUES.md) compare 40 nouvelles séquences fictives, sans changer les moteurs ni les pixels FITS. Les critères globaux ne sont **pas tous satisfaits** : seules 15/20 séquences principales sont exploitables après recalage, leurs 15 mobiles sont retrouvés sans faux candidat ; les cinq autres sont bloquées pour couverture de contrôle insuffisante. Sur les sept séquences comparables de dérive/combinaison, 557 faux candidats passent à zéro, sans extrapoler aux séquences bloquées. La [mission dès 10 ans](docs/DEMARRER-DE-ZERO.md#13-ter-mission--stabiliser-les-positions-avant-de-chercher) explique aussi le code 2 attendu, les refus et la superposition de coordonnées sur un fond fixe.
 
 ## Contribuer et vérifier
 

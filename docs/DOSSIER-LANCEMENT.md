@@ -12,6 +12,8 @@ Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-la
 
 Le [banc de limites du lot 12](LIMITES-DETECTEUR.md) conserve le moteur 0.10 gelé : 120 séquences fictives, cinq nouvelles graines, 19 contrôles supplémentaires et **260 tests** au total. Ses graphiques et son animation expliquent les manqués faibles/lents et les faux candidats dus au déplacement commun du champ. Ces essais descriptifs ne qualifient aucune observation réelle ; le tutoriel ajoute une mission illustrée pour les reproduire.
 
+La [recette recalage/mobiles du lot 13](RECALAGE-MOBILES-SYNTHETIQUES.md) ajoute 17 contrôles, soit **277 tests**, et 40 séquences fictives. Les critères globaux ne sont pas tous satisfaits : cinq séquences principales sont refusées pour couverture de contrôle insuffisante. Les mêmes moteurs et pixels sont conservés ; le tutoriel distingue réduction de faux candidats sur les séquences comparables et indisponibilité sur les autres, avec graphiques et superposition animée de coordonnées.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants

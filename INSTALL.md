@@ -138,6 +138,10 @@ Matplotlib 3.10.8 et Pillow 13.0.0 sont facultatifs pour l’analyse, nécessair
 
 Le [banc de limites du détecteur](docs/LIMITES-DETECTEUR.md) réutilise ces mêmes dépendances et conserve l’application 0.10.0a1. Ses trois commandes fabriquent, analysent et illustrent 120 séquences fictives locales ; prévoir environ 260 Mo pour les FITS seuls. Le [parcours dès 10 ans](docs/DEMARRER-DE-ZERO.md#13-bis-mission--trouver-les-limites-du-chercheur) donne les commandes et les résultats attendus. Aucun accès USB ni outil supplémentaire n’est nécessaire.
 
+## Recalage puis recherche synthétiques
+
+La [recette de recalage puis recherche](docs/RECALAGE-MOBILES-SYNTHETIQUES.md) réutilise également les mêmes outils et la version 0.10.0a1. Prévoir environ 86 Mo pour ses 320 FITS fictifs, plus les produits. Sa commande d’analyse retourne **2 sur le jeu livré**, car certaines branches sont bloquées et les critères ne sont pas tous satisfaits ; les rapports complets permettent ensuite le dessin. Les commandes et explications sont dans la [mission pédagogique](docs/DEMARRER-DE-ZERO.md#13-ter-mission--stabiliser-les-positions-avant-de-chercher). Aucun nouveau paquet ou accès USB n’est nécessaire.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

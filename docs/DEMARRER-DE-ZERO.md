@@ -93,7 +93,7 @@ New-Item -ItemType Directory -Path local/parcours -Force
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-**Tu dois voir :** `260 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 260 contrôles logiciels ont réussi, y compris ceux du nouveau banc d’essai. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : les nouvelles recettes d’essai ne changent pas son moteur.
+**Tu dois voir :** `277 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 277 contrôles logiciels ont réussi, y compris ceux des nouveaux bancs d’essai. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : les nouvelles recettes d’essai ne changent pas ses moteurs.
 
 La première ligne prépare les boîtes `local` et `parcours` pour les essais. `-Force` permet de garder ces dossiers s’ils existent déjà ; cette commande ne vide pas leur contenu. Il faut les créer avant les tests : le programme de test ne crée pas tout seul les dossiers parents de son espace temporaire.
 
@@ -301,6 +301,56 @@ Les essais sans mobile donnent zéro faux candidat, mais cela ne prouve pas que 
 
 **Si une étape échoue :** conserve son message et le dossier créé. Le fichier `progress.json` permet de voir les lots terminés ; `incomplete` veut dire que l’exercice n’est pas fini. Choisis de nouveaux noms pour reprendre, sans effacer les résultats précédents.
 
+## 13 ter. Mission : stabiliser les positions avant de chercher
+
+La mission précédente montrait qu’un ciel qui glisse peut tromper le chercheur. Nous allons essayer de remettre les **positions** dans le même repère. Imagine une feuille transparente avec des points : tu la tournes et la déplaces pour remettre ses étoiles sur celles de la première photo. Cela s’appelle le **recalage**. Les photos FITS restent intactes.
+
+### Fabriquer le nouvel exercice
+
+Prévois environ 86 Mo pour les images, plus les rapports et dessins. Toujours depuis le dossier du projet, écris :
+
+```powershell
+.\.venv\Scripts\python.exe examples/moving_registration.py make local/parcours/recalage-mobiles-entree
+.\.venv\Scripts\python.exe examples/moving_registration.py run local/parcours/recalage-mobiles-entree/manifest.json local/parcours/recalage-mobiles-entree/truth.json local/parcours/recalage-mobiles-rapport
+.\.venv\Scripts\python.exe examples/plot_moving_registration.py local/parcours/recalage-mobiles-entree/manifest.json local/parcours/recalage-mobiles-entree/truth.json local/parcours/recalage-mobiles-rapport/comparison.json local/parcours/recalage-mobiles-figures
+```
+
+La première commande fabrique **40 séquences, soit 320 images fictives**. La deuxième cherche les mobiles avant et après recalage. La troisième dessine le bilan et l’animation. Attends la fin de chaque ligne avant de lancer la suivante ; choisis d’autres noms si ces dossiers existent déjà.
+
+**Résultat attendu de la deuxième commande :** `critères exploratoires : False`, avec le code **2**. Cela signifie que le rapport est bien produit, mais que l’essai ne satisfait pas toutes les règles prévues. Tu peux alors lancer le dessin et lire `local/parcours/recalage-mobiles-rapport/report.md`. Le code 1 signifierait un travail impossible : il faudrait garder le message et demander de l’aide.
+
+### Garder les essais que le programme refuse
+
+Le programme utilise certaines étoiles pour trouver comment tourner et déplacer les positions. Il en garde d’autres pour **contrôler** son travail, comme des questions qui n’ont pas servi à préparer une réponse. Ces étoiles de contrôle doivent couvrir les quatre quartiers de l’image, appelés **quadrants**.
+
+![Le bilan garde les séquences disponibles et celles qui sont bloquées](images/recalage-mobiles-disponibilite.png)
+
+Sur les 20 séquences principales, le programme peut continuer après recalage pour 15 séquences. Il retrouve leurs 15 mobiles. Pour les cinq autres, il s’arrête : les étoiles de contrôle ne couvrent pas les quatre quartiers. Ce n’est pas une raison pour effacer les essais ou changer la règle après avoir vu les réponses.
+
+![Un quartier ne contient pas d’étoile de contrôle, le recalage est refusé](images/recalage-mobiles-refus.png)
+
+*Image fictive réellement calculée et annotée. Ici, les cercles bleus ont servi à ajuster ; les cercles orange sont les contrôles associés. La zone teintée n’a aucun contrôle associé. Ce n’est pas une capture d’écran.*
+
+### Comparer les mêmes essais
+
+Pour comparer deux équipes, il faut compter les mêmes joueurs des deux côtés. Ici aussi, nous comparons avant et après **les mêmes séquences disponibles**.
+
+![Faux candidats et mobiles sur les mêmes séquences comparables](images/recalage-mobiles-comparaison.png)
+
+Dans les sept séquences comparables avec dérive ou combinaison, les faux candidats passent de **557 à zéro**, et les sept mobiles sont conservés. Cela ne nous donne pas un résultat pour les trois séquences bloquées de ces conditions. Les cinq essais avec seulement 12 étoiles sont aussi bloqués, comme prévu : trop peu d’étoiles pour vérifier correctement.
+
+### Regarder les positions se remettre en place
+
+Ouvre `local/parcours/recalage-mobiles-figures/registered-overlay.gif` :
+
+![Positions brutes à gauche et recalées à droite, superposées au même fond fixe fictif](images/recalage-mobiles-animation.gif)
+
+**Le fond est une photo figée**, celle de la première image. Les points dessinés par-dessus racontent les positions mesurées dans les huit images. Ce ne sont pas des photos déformées : un ancien point lumineux peut rester visible dans le fond. À droite, les positions des étoiles retrouvent leur place ; le chercheur garde le mobile. Le cercle vert est la réponse connue ajoutée au dessin après la recherche, et les croix orange sont les faux candidats de cet exemple.
+
+Cet exemple a été choisi dans le plan avant l’essai. Il passe de 79 faux candidats à zéro, mais les refus des autres séquences restent dans le bilan. Le chercheur n’a reçu ni le déplacement exact ni les réponses pour calculer le recalage.
+
+**À retenir pour l’exercice :** un petit écart sur quelques étoiles ne garantit pas que toute l’image soit bien contrôlée. Notre prochain travail pourra étudier comment mieux répartir les étoiles de contrôle, avec un nouveau plan. Nous n’avons pas encore testé cette chaîne sur le Seestar réel. Les [détails de l’essai](RECALAGE-MOBILES-SYNTHETIQUES.md) et la [section 19 du tutoriel](TUTORIEL.md#19-relier-le-recalage-à-la-recherche-de-mobiles-fictifs) expliquent les résultats et les limites.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -317,6 +367,7 @@ Tu as maintenant installé l’application entière depuis ses recettes publique
 | Fichiers `*_reports.py` | Écrire les carnets de résultats |
 | `examples/` et `tests/` | Fabriquer les essais et vérifier les recettes |
 | `examples/moving_limits.py` | Essayer les limites, en gardant le chercheur inchangé |
+| `examples/moving_registration.py` | Relier les positions recalées au chercheur, en conservant les refus |
 
 Le [tutoriel de référence](TUTORIEL.md) raconte les décisions et les critères avant chaque lot de code. Les contrats expliquent les formats exacts. Pour apprendre à modifier l’application, commence par une copie de travail du code et un petit changement d’explication ; fais les contrôles avant de proposer ce changement. Tu n’as pas besoin de publier des observations personnelles pour apprendre.
 
@@ -331,9 +382,12 @@ Le [tutoriel de référence](TUTORIEL.md) raconte les décisions et les critère
 | « La sortie existe déjà » | Choisir un nouveau nom, sans effacer les essais précédents |
 | « Tous les produits doivent rester dans local/ » | Reprendre les chemins de l’exemple dans le dossier du projet |
 | Code 2 après `time-evidence` | C’est attendu : lire le rapport, aucune horloge n’est qualifiée |
+| Code 2 après `moving_registration.py run` | C’est attendu sur cet exercice : certaines séquences sont bloquées, lire le bilan et garder les refus |
 | Un autre code 2 | Lire `report.md` et les critères ; conserver le résultat même décevant |
 | Une erreur d’installation ou de test | Arrêter, copier le message utile et demander de l’aide sans joindre des données privées |
 
 L’installation initiale et la récupération du code peuvent utiliser Internet. Les exercices d’analyse ci-dessus restent locaux. Les générateurs créent de fausses images ; aucun exercice ne demande une clé USB ou une connexion au télescope. L’application portable et les usages scientifiques réels demandent encore des travaux et validations supplémentaires.
 
 *Vérification de l’édition précédente : reconstruction depuis une copie propre du dépôt, nouvel environnement Python, 241 tests et 24 commandes réussis. Le complément « limites » ajoute 19 contrôles, soit 260 tests réussis. Les 27 commandes de cette édition ont été rejouées avec succès dans des dossiers fictifs neufs ; les 960 images du banc de limites, ses mesures et ses cinq figures sont reproduites à l’identique depuis le code committé. Cela ne remplace pas un essai par un enfant débutant sur un ordinateur vierge.*
+
+*Le complément « recalage puis recherche » ajoute 17 contrôles, soit 277 tests réussis. Le code 2 de sa commande d’analyse est un résultat attendu conservant les critères non satisfaits. La reproduction des trois nouvelles commandes et des figures est contrôlée avant publication ; aucun essai utilisateur avec un enfant n’est revendiqué.*

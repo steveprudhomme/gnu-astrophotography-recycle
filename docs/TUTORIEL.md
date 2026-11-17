@@ -66,7 +66,7 @@ Une date brute sans convention confirmée n’est pas un temps de milieu de pose
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18 et le banc de limites 19, soit **260 tests réussis au total**.
+L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18, le banc de limites 19 et la chaîne recalage/mobiles 17, soit **277 tests réussis au total**.
 
 Les tests ont révélé un problème de guillemets dans l’appel de test du lanceur Windows ; cet appel a été corrigé puis la suite relancée avec succès. Dans l’environnement de travail contrôlé, les tests de jonctions et de permissions ont nécessité une exécution avec accès au dossier temporaire ; cela ne démontre pas une exigence d’administrateur de l’application. La distribution autonome sur compte standard reste à valider.
 
@@ -747,3 +747,59 @@ Les 19 nouveaux cas et toute la suite passent : **260 tests en 26,38 secondes** 
 La vérification finale a rejoué les **27 commandes du parcours** depuis le code committé `615712e`, sans modification suivie, dans des dossiers fictifs neufs et avec le même environnement Python. Les 960 images ont été régénérées avec des empreintes identiques ; les quatre rapports natifs, les métriques et les cinq figures (quatre PNG et le GIF) sont identiques. Le bilan agrégé consigne la nouvelle provenance ; il n’est pas présenté comme un fichier octet pour octet identique malgré cette provenance différente. Un contrôle supplémentaire associe les 40 faux candidats de dérive de chaque graine aux 40 étoiles distinctes du témoin propre correspondant (écart d’extrapolation maximal inférieur à 0,065 pixel). Les traces restent dans `local/` et les fichiers publics sont revus avant envoi.
 
 L’application reste 0.10.0a1, sans nouvelle dépendance ni changement du moteur. La priorité mise en évidence est de **tester le recalage avant la recherche de mobiles**, dans un prochain lot synthétique avec critères fixés à l’avance et étoiles de contrôle réservées. Ni cette conclusion ni les tests logiciels ne qualifient les horodatages réels, les positions célestes ou les performances sur le Seestar. L’autorisation de lecture USB n’a pas été utilisée : ce lot travaille uniquement sur les fichiers fictifs locaux.
+
+## 19. Relier le recalage à la recherche de mobiles fictifs
+
+Le plan **`286af43`**, du 17 novembre 2026, a été committé, publié et vérifié sur GitHub **avant le code**. Le lot relie les fonctions existantes avec leurs sources gelées et les mêmes dépendances ; l’application reste 0.10.0a1. Les [détails du protocole](RECALAGE-MOBILES-SYNTHETIQUES.md) donnent toutes les conditions, empreintes et critères. La [mission dès 10 ans](DEMARRER-DE-ZERO.md#13-ter-mission--stabiliser-les-positions-avant-de-chercher) explique le même exercice avec des mots simples et des images.
+
+### Fabriquer puis comparer
+
+Les nouvelles graines 607, 701, 809, 907, 1009 donnent 40 séquences de huit images, soit 320 images et 30 mobiles. Quatre conditions principales : alignées, dérive 0,15 pixel/s fictive, rotation totale 2 degrés, combinaison. Une rotation 8 degrés reste descriptive ; deux témoins sans mobile et un cas à seulement 12 étoiles complètent le jeu. Les mêmes champs et bruits par graine rendent les comparaisons appariées, sans indépendance entre toutes les cellules. Les images sont monoplans et simplifiées, pas une simulation calibrée du S50.
+
+Dans des dossiers neufs sous `local/`, prévoir environ 86 Mo pour les FITS, plus les produits :
+
+```powershell
+.\.venv\Scripts\python.exe examples/moving_registration.py make local/recalage-mobiles-entree
+.\.venv\Scripts\python.exe examples/moving_registration.py run local/recalage-mobiles-entree/manifest.json local/recalage-mobiles-entree/truth.json local/recalage-mobiles-rapport
+.\.venv\Scripts\python.exe examples/plot_moving_registration.py local/recalage-mobiles-entree/manifest.json local/recalage-mobiles-entree/truth.json local/recalage-mobiles-rapport/comparison.json local/recalage-mobiles-figures
+```
+
+**Résultat attendu : code 2 pour l’analyse, codes 0 pour génération et dessin.** L’analyse termine les 40 séquences mais les critères globaux ne sont pas tous satisfaits. Ce code 2 ne doit être ni ignoré ni présenté comme une panne d’installation. Les résultats et les motifs sont dans `comparison.json`, `comparison.csv` et `report.md`. Les quarante fichiers individuels conservent les modèles et candidats avant évaluation. `progress.json` distingue calcul complet, interruption et séquences achevées ; un arrêt ne fabrique pas de bilan complet.
+
+La branche avant recherche sur les détections natives. La branche après reprend **les mêmes détections**, transformées vers les étoiles mesurées de la première image. Aucun FITS n’est rééchantillonné ou écrit. Les modèles sont estimés sans les mouvements exacts, à partir des détections stellaires du module de recalage. Les contrôles sont séparés avant hypothèses/ajustement dans chaque pose, puis comparés après gel. Ils ne forment pas un catalogue indépendant sur toute la série ; la référence mesurée commune porte des erreurs corrélées. Une seule pose refusée bloque la branche après de sa séquence, sans identité de secours ni retrait discret de cette pose.
+
+### Voir les refus avant de comparer les performances
+
+![Les cinq refus principaux et les cinq négatifs restent visibles](images/recalage-mobiles-disponibilite.png)
+
+Sur les 20 séquences principales, **15 sont exploitables après recalage** et leurs 15 mobiles sont retrouvés, sans faux candidat. Les cinq autres sont bloquées : les contrôles associés ne couvrent que trois quadrants au lieu des quatre requis. Les dix témoins passent le contrôle et donnent zéro candidat après. Les cinq négatifs à 12 étoiles sont tous bloqués : neuf associations d’ajustement et trois de contrôle, sous les minima 20 et 10. Une branche indisponible n’est pas un zéro faux candidat ; les champs correspondants restent `null` ou vides.
+
+![Étoiles d’ajustement et contrôles, avec un quadrant sans contrôle associé](images/recalage-mobiles-refus.png)
+
+*Annotation de pixels synthétiques effectivement générés : premier refus principal dans l’ordre du manifeste, séquence alignée 907, image 3/8. Les résidus sont petits mais la couverture de contrôle reste insuffisante. Aucun assouplissement du critère après mesure.*
+
+### Comparer les mêmes séquences des deux côtés
+
+![Comparaison appariée avant/après, avec nombre de séquences disponibles indiqué](images/recalage-mobiles-comparaison.png)
+
+Pour les conditions dérive et combinaison principales, les **sept séquences comparables** passent de **557 faux candidats à zéro**, et conservent leurs sept mobiles. Il reste trois branches après indisponibles dans ces deux conditions : la réduction globale sur les dix séquences prévues est donc **indéfinie**, pas égale à 100 %. Le total avant des dix est 795 ; annoncer « 795 → 0 » comparerait des ensembles différents. Les tableaux conservent à la fois le bilan de toutes les séquences et les comptages appariés.
+
+Les cinq refus principaux se répartissent ainsi : un aligné, un en dérive, un en rotation et deux en combinaison. Les trois refus de dérive/combinaison sont inclus dans ce total. La rotation 8 degrés, descriptive, donne 5/5 disponibles et mobiles conservés : les listes de contrôle diffèrent entre poses et conditions, ce résultat ne prouve pas qu’une rotation plus grande améliore le recalage.
+
+Sur les quinze mobiles principaux disponibles, P95 des erreurs de position voisin de **0,0761 pixel**, erreur vectorielle maximale de vitesse voisine de **0,000895 pixel/s fictive**. Ces critères numériques sont satisfaits conditionnellement aux appariés. Les exigences portant sur les vingt séquences, leurs vingt mobiles et leur absence globale de faux candidats ne sont pas démontrées. Les contrôles négatifs et témoins remplissent leurs critères. Les huit critères préenregistrés et leur verdict faux sont conservés dans le rapport, sans nouveau réglage des moteurs.
+
+### Une animation de coordonnées, avec pixels inchangés
+
+![Exemple accepté : positions brutes et recalées sur le même fond fixe](images/recalage-mobiles-superposition.png)
+
+![Huit ensembles de positions mesurées superposés au fond de la première image](images/recalage-mobiles-animation.gif)
+
+*Exemple `combined-s607` fixé dans le plan : 79 faux candidats avant, zéro après, mobile conservé. Le fond est la première image et reste fixe ; seuls les symboles des positions mesurées changent. Ce ne sont pas des FITS recalés par interpolation. Gris : détections ; orange : faux candidats ; bleu : candidat apparié ; vert : vérité injectée, ajoutée au dessin seulement après recherche. Le bilan complet conserve les refus des autres graines.*
+
+### Vérifier et conserver les limites
+
+Les moteurs gelés, FITS, manifeste, vérité et rapports individuels sont contrôlés par empreintes. Les coordonnées de vérité ne sont lues qu’après les modèles et candidats des 40 séquences ; leur rôle est le bilan et le dessin. Aucun accès USB ou réseau d’analyse, aucune observation réelle ouverte. Les sorties restent dans `local/`, seules les figures synthétiques choisies sont copiées dans la documentation publique.
+
+Les **277 tests passent en 26,55 secondes**, avec 17 nouveaux cas : géométrie, recouvrement, refus, contrôles réservés, intégrité des pixels, branche native mesurée une seule fois, séparation de vérité, campagnes partielles, critères non satisfaits et comptages comparables. Un premier exemple de test ne changeait que 5 % des erreurs et ne forçait pas le P95 au-dessus de sa limite : le cas synthétique de test a été corrigé, sans changer le seuil ou les données expérimentales. Les légendes gênant la lecture des premières figures ont été déplacées et les figures réexaminées. La reproduction des commandes et des résultats depuis le code committé est vérifiée avant publication.
+
+Le résultat invite à étudier **une sélection des étoiles de contrôle mieux répartie**, dans un autre lot avec nouveau plan et jeu d’évaluation, tout en gardant un contrôle réservé et les exigences spatiales. Il ne faut pas lever les refus simplement parce que le modèle semble précis sur les étoiles présentes. Les difficultés faible/lent, la calibration, l’horloge et le budget céleste absolu restent ouverts ; ce lot ne qualifie aucun usage scientifique réel.
