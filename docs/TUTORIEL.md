@@ -1,4 +1,8 @@
-# Tutoriel illustré — construire et utiliser l’inventaire
+# Tutoriel illustré — de l’inventaire au contrôle Gaia des poses
+
+Ce guide suit les modules livrés jusqu’à l’Alpha 0.8. Les figures publiques sont des schémas explicitement identifiés ou des résultats calculés sur des données synthétiques ; les observations et rapports réels restent privés.
+
+Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication).
 
 ## 1. Planifier avant de coder
 
@@ -464,3 +468,47 @@ Commande de vérification depuis l’environnement installé :
 Choisir un dossier de tests neuf : pytest peut nettoyer son dossier temporaire. L’installation modifiable 0.8.0a1, l’aide et les dépendances sont vérifiées avant livraison. Les entrées du pilote réel restent inchangées ; les trois poses satisfont séparément les critères fixés et leurs cartes sont inspectées localement. Les valeurs détaillées, modèles et images du champ restent privés ; seules les données fictives sont illustrées publiquement.
 
 Des références sont communes aux poses. Leur présence dans Gaia ne prouve pas leur indépendance par rapport au solveur initial de l’empilement. Les résultats ne fournissent ni budget d’erreur absolue complet, ni qualification de l’horloge, ni certification MPC. Le bootstrap de la médiane n’est pas l’incertitude absolue de chaque position. La qualification temporelle reste nécessaire avant une future mesure de vitesse d’objet mobile.
+
+## 14. Mettre à jour GitHub et vérifier la publication
+
+Actualisation documentaire planifiée dans **`835eac9`**. Avant cette mise à jour, la présence de la réalisation applicative `9bcf431` sur `main` a été vérifiée directement via GitHub. Le code, les 197 tests du lot 0.8 et les mesures ne sont pas modifiés ici. Le travail complète les accès aux exemples illustrés et corrige les anciens statuts documentaires. Aucun accès USB, aucune réouverture des observations et aucune publication des rapports réels.
+
+![Schéma conceptuel : du plan de documentation au commit publié et vérifié, avec données privées conservées localement](images/publication-github.png)
+
+*Schéma de procédure, sans capture d’écran ni résultat scientifique. Le [SVG](images/publication-github.svg) est aussi disponible. Les figures de résultats visibles dans les sections précédentes proviennent des exemples synthétiques réellement calculés.*
+
+### Examiner les fichiers à publier
+
+Depuis la racine du dépôt, examiner l’état et les différences :
+
+```powershell
+git status --short
+git diff --stat
+git diff --check
+```
+
+Le dernier contrôle vérifie les espaces et fins de ligne, pas la confidentialité. Lire les différences et vérifier que les données, en-têtes, coordonnées, chemins et rapports réels restent exclus de Git. Ne pas ajouter tout `local/` ; `.gitignore` ne retire pas une donnée déjà suivie. Pour ce lot documentaire, vérifier les liens Markdown, le XML des SVG et l’affichage des PNG ; les 197 tests sont ceux du lot applicatif précédent, sans nouvelle qualification scientifique.
+
+### Enregistrer puis envoyer les fichiers relus
+
+Exemple pour cette mise à jour, avec une sélection explicite :
+
+```powershell
+git add README.md GOVERNANCE.md ROADMAP.md docs/DOSSIER-LANCEMENT.md docs/TUTORIEL.md docs/images/publication-github.png docs/images/publication-github.svg
+git diff --cached --check
+git diff --cached --stat
+git commit -m "docs: actualiser le tutoriel illustre et le statut alpha 0.8"
+git push origin main
+```
+
+Arrêter à chaque erreur et en résoudre la cause avant l’étape suivante. L’authentification relève de Git/GitHub ; aucun jeton n’est copié dans les documents ou commandes publiées. Si d’autres changements distants sont signalés, les examiner avant de synchroniser ; ne pas utiliser un envoi forcé pour les remplacer.
+
+### Confirmer la publication distante
+
+```powershell
+git rev-parse HEAD
+git ls-remote origin refs/heads/main
+git status --short
+```
+
+Après un envoi réussi, les deux premières commandes doivent indiquer le même identifiant de commit pour ce lot. Un état local propre ne prouve pas à lui seul la publication. Vérifier également sur [GitHub](https://github.com/steveprudhomme/gnu-astrophotography-recycle) les documents et illustrations attendus. La publication de fichiers dans `main` ne crée ni version GitHub Releases, ni paquet PyPI, ni logiciel portable certifié.

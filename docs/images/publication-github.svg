@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="316.8pt" viewBox="0 0 864 316.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-16T23:06:09.322824</dc:date>
+    <dc:description>Schéma conceptuel, sans capture ni données réelles</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 316.8
+L 864 316.8
+L 864 0
+L 0 0
+z
+" style="fill: #f6f8fb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 17.81 170.3652
+L 162.99 170.3652
+Q 170.676 170.3652 170.676 167.604
+L 170.676 78.632
+Q 170.676 75.8708 162.99 75.8708
+L 17.81 75.8708
+Q 10.124 75.8708 10.124 78.632
+L 10.124 167.604
+Q 10.124 170.3652 17.81 170.3652
+z
+" clip-path="url(#p663f3ee48c)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 188.61 170.3652
+L 333.79 170.3652
+Q 341.476 170.3652 341.476 167.604
+L 341.476 78.632
+Q 341.476 75.8708 333.79 75.8708
+L 188.61 75.8708
+Q 180.924 75.8708 180.924 78.632
+L 180.924 167.604
+Q 180.924 170.3652 188.61 170.3652
+z
+" clip-path="url(#p663f3ee48c)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 359.41 170.3652
+L 504.59 170.3652
+Q 512.276 170.3652 512.276 167.604
+L 512.276 78.632
+Q 512.276 75.8708 504.59 75.8708
+L 359.41 75.8708
+Q 351.724 75.8708 351.724 78.632
+L 351.724 167.604
+Q 351.724 170.3652 359.41 170.3652
+z
+" clip-path="url(#p663f3ee48c)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 530.21 170.3652
+L 675.39 170.3652
+Q 683.076 170.3652 683.076 167.604
+L 683.076 78.632
+Q 683.076 75.8708 675.39 75.8708
+L 530.21 75.8708
+Q 522.524 75.8708 522.524 78.632
+L 522.524 167.604
+Q 522.524 170.3652 530.21 170.3652
+z
+" clip-path="url(#p663f3ee48c)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 701.01 170.3652
+L 846.19 170.3652
+Q 853.876 170.3652 853.876 167.604
+L 853.876 78.632
+Q 853.876 75.8708 846.19 75.8708
+L 701.01 75.8708
+Q 693.324 75.8708 693.324 78.632
+L 693.324 167.604
+Q 693.324 170.3652 701.01 170.3652
+z
+" clip-path="url(#p663f3ee48c)" style="fill: #ffffff; stroke: #9db8ca; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 26.35 262.4052
+L 837.65 262.4052
+Q 845.336 262.4052 845.336 259.644
+L 845.336 210.556
+Q 845.336 207.7948 837.65 207.7948
+L 26.35 207.7948
+Q 18.664 207.7948 18.664 210.556
+L 18.664 259.644
+Q 18.664 262.4052 26.35 262.4052
+z
+" clip-path="url(#p663f3ee48c)" style="fill: #e9eff5; stroke: #c6d2de; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 20px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #17364c" x="432" y="26.476" transform="rotate(-0 432 26.476)">Publier la documentation et vérifier GitHub</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="90.4" y="103.176" transform="rotate(-0 90.4 103.176)">1. Planifier</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(54.495742 136.402861)">ROADMAP.md</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(44.369805 152.443826)">commit préalable</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 169.258435 123.118
+Q 173.665151 123.118 176.394816 123.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 172.394816 121.118
+L 176.394816 123.118
+L 172.394816 125.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="261.2" y="103.176" transform="rotate(-0 261.2 103.176)">2. Documenter</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(206.375234 136.402861)">Markdown et images</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(198.921875 152.443826)">synthétiques / schémas</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 340.058435 123.118
+Q 344.465151 123.118 347.194816 123.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 343.194816 121.118
+L 347.194816 123.118
+L 343.194816 125.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="432" y="103.176" transform="rotate(-0 432 103.176)">3. Contrôler</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(390.620156 136.749361)">Liens, affichage</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(387.48 152.097326)">et confidentialité</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 510.858435 123.118
+Q 515.265151 123.118 517.994816 123.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 513.994816 121.118
+L 517.994816 123.118
+L 513.994816 125.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="602.8" y="103.176" transform="rotate(-0 602.8 103.176)">4. Enregistrer</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(568.446953 136.749361)">Fichiers relus</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(569.054805 152.097326)">commit local</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 681.658435 123.118
+Q 686.065151 123.118 688.794816 123.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 684.794816 121.118
+L 688.794816 123.118
+L 684.794816 125.118
+" style="fill: none; stroke: #507d97; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #174e69" x="773.6" y="103.176" transform="rotate(-0 773.6 103.176)">5. Publier</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(739.315859 136.749361)">Envoi GitHub</text>
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #294455" transform="translate(715.740898 152.097326)">commit distant vérifié</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #304e64" x="432" y="238.65125" transform="rotate(-0 432 238.65125)">Observations, coordonnées et rapports réels : conservés dans local/, exclus de Git.</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #547084" x="432" y="294.926" transform="rotate(-0 432 294.926)">Schéma conceptuel — aucune capture d’écran, aucune donnée d’observation.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p663f3ee48c">
+   <rect x="5" y="5" width="854" height="306.8"/>
+  </clipPath>
+ </defs>
+</svg>

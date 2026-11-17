@@ -1,20 +1,20 @@
 # Dossier de lancement — GNU Astrophotography Recycle
 
-Version de cadrage du 15 novembre 2026, actualisée lors du premier module. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; elle ne constitue pas une validation scientifique des archives. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
+Version de cadrage du 15 novembre 2026, actualisée pour l’Alpha 0.8 le 16 novembre. Les deux prompts fournis servent de cahier des charges ; leurs formulations techniques sont examinées comme des propositions à vérifier. Une inspection privée des en-têtes a guidé l’inventaire ; les contrôles stellaires exploratoires livrés ensuite sont décrits ci-dessous, avec leurs limites. Les références sont rassemblées dans [SOURCES.md](SOURCES.md).
 
 ## 1. Identité du projet et modèle de README
 
-**Nom confirmé par le fondateur : GNU Astrophotography Recycle.** Identifiant de dépôt proposé : `gnu-astrophotography-recycle` ; identifiant Python envisagé : `gar` (disponibilité du nom non vérifiée). Le préfixe GNU appartient au nom choisi ; il ne désigne pas une reconnaissance officielle. La procédure d’admission comme paquet GNU est distincte du choix de licence.
+**Nom confirmé par le fondateur : GNU Astrophotography Recycle.** Le [dépôt public](https://github.com/steveprudhomme/gnu-astrophotography-recycle) utilise `gnu-astrophotography-recycle`. Le module et la commande locale sont `gar` ; aucun paquet PyPI n’est publié et la disponibilité de ce nom sur un registre n’est pas affirmée. Le préfixe GNU appartient au nom choisi ; il ne désigne pas une reconnaissance officielle. La procédure d’admission comme paquet GNU est distincte du choix de licence.
 
 Mission : réutiliser les archives de poses individuelles du Seestar S50 pour produire des inventaires puis, lorsque leur qualité le permet, des mesures astronomiques traçables. Priorités : préserver les originaux, rendre les erreurs visibles et quantifier les incertitudes.
 
-Le [README livré](../README.md) est directement réutilisable. Il présente en premier la mission, la licence `GPL-3.0-or-later`, le statut Alpha documentaire et les limites. Les fonctionnalités futures sont signalées comme telles. La première étape scientifique est un inventaire, et non une promesse de découverte.
+Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-later`, le statut Alpha 0.8, les fonctionnalités disponibles et les limites. Il donne accès au tutoriel illustré et à un exemple synthétique de comparaison Gaia. Les objets mobiles, la photométrie et la distribution portable restent des fonctionnalités futures.
 
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants
 
-Les fichiers racines, modèles GitHub et documents ci-dessous sont livrés. L’arborescence suivante reste la cible modulaire à terme. Le premier module utilise pour l’instant `src/gar/contracts.py`, `inventory.py`, `reports.py` et `cli.py`, avec `__main__.py`, le lanceur `scripts/gar-inventory.bat`, `tests/test_inventory.py` et `examples/make_demo.py`. Son interface réelle est décrite dans [CONTRAT-INVENTAIRE.md](CONTRAT-INVENTAIRE.md) ; les futurs modules scientifiques ne sont pas encore implémentés.
+Les fichiers racines, modèles GitHub et documents ci-dessous sont livrés. L’arborescence suivante reste la cible modulaire à terme ; les paragraphes par version décrivent les composants effectivement disponibles. Le premier module a introduit `src/gar/contracts.py`, `inventory.py`, `reports.py` et `cli.py`, avec `__main__.py`, le lanceur `scripts/gar-inventory.bat`, `tests/test_inventory.py` et `examples/make_demo.py`. Son interface est décrite dans [CONTRAT-INVENTAIRE.md](CONTRAT-INVENTAIRE.md). Le recalage et les comparaisons stellaires exploratoires sont désormais livrés ; les mesures de mobiles et la photométrie restent à développer.
 
 Le lot suivant ajoute `sessions.py`, `session_reports.py`, `scripts/gar-sessions.bat`, les tests et le générateur d’exemple multi-séances. Cette commande travaille sur le manifeste local existant ; elle ne rouvre pas les archives. Son [contrat spécifique](CONTRAT-SEANCES.md) décrit un regroupement indicatif, avec dates et configurations déclarées, sans qualification scientifique des heures. La suite réunit désormais 67 cas synthétiques.
 

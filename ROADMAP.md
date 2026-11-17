@@ -239,3 +239,5 @@ Plan documentaire du 16 novembre 2026, à enregistrer avant les modifications. L
 - D1 : actualiser le cadrage et la gouvernance devenus historiques, conserver les limites scientifiques et donner un accès direct aux exemples illustrés depuis le README.
 - D2 : compléter le tutoriel avec la procédure de publication, ses commandes, un schéma explicitement conceptuel et la distinction commit local/publication distante ; ne publier aucune donnée ou figure réelle.
 - D3 : vérifier les liens, illustrations, différences et confidentialité, committer la documentation, envoyer à GitHub puis contrôler le commit distant. Aucun accès USB ni relance des mesures ; les 197 tests précédents restent identifiés comme résultats du lot applicatif 0.8.
+
+Plan préalable **`835eac9`**. D1/D2 réalisés : README illustré, accès directs au tutoriel, cadrage/gouvernance actualisés et schéma conceptuel de publication PNG/SVG. D3 est livré avec le commit documentaire : contrôles de liens, illustrations et confidentialité, puis publication distante vérifiée séparément. Cette maintenance ne change ni le code applicatif ni les résultats scientifiques.

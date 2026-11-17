@@ -8,6 +8,12 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 **Statut : Alpha 0.8 — inventaire, diagnostics, copies vérifiées, recalage et comparaison Gaia sur étoiles réservées des poses. Les mesures de mobiles, la photométrie et la distribution portable restent à développer.**
 
+Le [contrôle Gaia des poses](docs/CONTRAT-GAIA-POSES.md) est livré dans le [commit `9bcf431`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/9bcf4318fc1fd1f5ffe2afe4ef72d7c364626f6e). Le lot applicatif 0.8 a passé **197 tests** ; ce résultat ne certifie ni l’horloge ni un budget d’erreur absolue complet.
+
+![Exemple synthétique : trois poses comparées à un catalogue fictif, avec biais connu conservé](docs/images/exemple-gaia-poses.png)
+
+*Résultats réellement calculés sur des données synthétiques, sans observation personnelle. Le [tutoriel de comparaison Gaia](docs/TUTORIEL.md#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles) fournit les commandes, les critères et la lecture de cette figure. La [procédure de publication](docs/TUTORIEL.md#14-mettre-à-jour-github-et-vérifier-la-publication) explique les vérifications avant et après envoi.*
+
 ## Mission
 
 Permettre aux astronomes amateurs de réexaminer leurs poses FITS individuelles du ZWO Seestar S50 pour rechercher des objets mobiles et des variations stellaires. Chaque mesure devra être traçable, accompagnée de ses incertitudes et reproductible. Les originaux resteront intacts ; le traitement scientifique s’effectuera localement, sur Windows 11.
