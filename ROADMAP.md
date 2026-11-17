@@ -268,3 +268,16 @@ Réalisation **0.9.0a1**, plan préalable **`a157beb`** :
 - H9 — livré dans le commit de réalisation : tutoriel, contrats et Markdown actualisés, installation et confidentialité vérifiées, publication du code et illustrations synthétiques/conceptuelles uniquement.
 
 Le passage à une qualification instrumentale exige une campagne distincte et des preuves revues. Ce lot n’achève ni la qualification des anciennes archives ni l’aptitude à une soumission scientifique.
+
+## Lot de préparation 10 — fiche opérationnelle d’une future campagne temporelle
+
+Plan du 16 novembre 2026, à committer avant réalisation. Le dossier logiciel 0.9 est déjà livré ; ne pas refaire l’audit ou inventer une mesure. Compléter la préparation par des documents et canevas d’essai, sans modifier le code d’analyse. Seuls le dossier temporel local déjà produit et les copies de travail de ces canevas seront utilisés ; aucun accès USB, réseau d’analyse ou acquisition instrumentale.
+
+- CTP1 : recueillir, si disponibles, les moyens de référence et versions firmware/application. Les informations non fournies restent explicitement à confirmer ; aucun matériel ou configuration n’est supposé, aucune recommandation d’achat.
+- CTP2 : livrer une fiche de décision avant essai : usage/tolérance, référence indépendante et incertitude, méthode événementielle, configurations, exclusions, durée de séance, responsable et revue. Distinguer « fiche complète » d’une qualification ou d’une autorisation automatisée.
+- CTP3 : fournir des canevas publics vides de configuration, blocs planifiés, journal de mesures, budget d’incertitude et revue. Proposition 3 blocs de 10 répétitions à adapter avant essai ; aucune ligne de résultat réel ou fictivement mesuré.
+- CTP4 : préparer un dossier privé de travail à partir du rapport temporel local, en conservant son empreinte et les inconnues. Ne pas rouvrir les FITS ou consulter leurs sources ; ne pas ingérer un canevas comme preuve dans `gar time-evidence`.
+- CTP5 : illustrer la procédure dans le tutoriel, actualiser protocole/contrat/README et Markdown concernés ; contrôler structure des canevas, cohérence des blocs, liens, images et confidentialité. Les 223 tests restent le résultat du lot applicatif 0.9, sans nouveau résultat instrumental.
+- CTP6 : committer les documents et canevas publics, publier sur GitHub et vérifier le commit distant ; le dossier privé, les informations de matériel et les réponses de configuration ne sont pas publiés.
+
+Livrable visé : une campagne prête à être renseignée et revue, pas un essai exécuté. Sans référence, versions, tolérance et revue documentées, le départ de la campagne reste à décider par l’opérateur. Les anciennes archives restent temporellement non qualifiées.
