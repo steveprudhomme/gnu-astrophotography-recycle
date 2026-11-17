@@ -205,3 +205,18 @@ Réalisation **0.7.0a1**, plan préalable **`6480df2`** :
 - R8 — livré dans le commit de réalisation : contrats et tutoriel illustré, Markdown, installation et revue de confidentialité ; code et exemples synthétiques uniquement destinés à la publication.
 
 La précision relative observée ne qualifie pas l’astrométrie absolue des poses, la photométrie ni l’horloge. Le budget d’erreur complet et les contrôles temporels restent à poursuivre avant toute exploitation de mobiles.
+
+## Lot de travail 8 — contrôle Gaia des trois poses
+
+Plan du 16 novembre 2026, à committer avant code et mesure. Utiliser seulement le workset, le recalage gelé et le catalogue Gaia déjà locaux. Aucun accès USB, aucun chemin source historique consulté, aucun téléchargement. Conserver le résultat même en cas d’effectif insuffisant ou d’échec.
+
+- G1 : ajouter `gar gaia-frames` avec workset, rapport de recalage et catalogue local explicites ; vérifier liens, périmètres locaux, indices, empreintes des copies et provenance du modèle/catalogue avant/après.
+- G2 : redétecter avec les paramètres de recalage inchangés et contrôler la reproduction des détections enregistrées, de leur partition et des associations ; les étoiles réservées avant ajustement constituent l’échantillon principal. Les étoiles d’ajustement sont exclues de ce verdict ; un bilan sur toutes les détections sera clairement secondaire.
+- G3 : figer le modèle de chaque pose ; appliquer rotation/translation puis WCS SIP de référence sans réajustement, correction du biais ou nouvelle résolution. Limiter les points au recouvrement ; catalogues G 9–17,5, RUWE <1,4, mouvements propres finis, isolation 16″, époque calendaire approximative comme au lot 6. Associations mutuelles uniques dans 8″, aucun écrêtage après association.
+- G4 : critères exploratoires principaux préalables, par pose : au moins 20 associations Gaia réservées, médiane ≤2″, P95 ≤4″, au moins 6 cellules sur une grille 3×3 et les quatre quadrants. Le minimum est adapté au quart réservé, distinct des 30 étoiles du contrôle de l’empilement ; ne pas l’abaisser après lecture des résultats. L’effectif non associé et la sélection par rayon restent visibles.
+- G5 : mesurer séparation, biais Est/Nord, RMS, percentiles, intervalle bootstrap conditionnel et répartition spatiale ; distinguer contrôle réservé et bilan toutes détections, compter les références communes entre poses sans traiter ces mesures comme indépendantes. Aucun budget absolu complet ni qualification temporelle/certification MPC.
+- G6 : tests synthétiques avec catalogue fictif et géométrie connue : biais céleste conservé, mauvaises compositions, étoiles d’ajustement exclues, faible effectif/couverture, mouvement propre, intégrité/provenance incohérentes, réseau interdit et préservation ; exemples publics illustrés sans données privées.
+- G7 : exécuter les trois copies, comparer séparément les critères préenregistrés et inspecter les cartes privées ; vérifier copies, modèle et catalogue inchangés et reproductibilité. Tout nouvel essai sera distinct et documenté.
+- G8 : actualiser contrat, tutoriel illustré, README, installation, validation et sources ; vérifier l’installation et la confidentialité, committer la réalisation et publier uniquement code/documentation/illustrations synthétiques.
+
+Un contrôle contre Gaia ne prouve pas que ce catalogue soit indépendant des références du solveur initial. Le contrôle réservé évite leur utilisation dans le recalage actuel, sans supprimer les erreurs héritées de l’empilement. Les heures restent non qualifiées et aucune vitesse de mobile n’est calculée.
