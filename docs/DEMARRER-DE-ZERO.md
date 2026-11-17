@@ -407,7 +407,7 @@ Si une commande échoue, conserve le message et le dossier créé. `progress.jso
 
 ## Nouvelle mission : préparer huit poses Seestar
 
-**Nous avons maintenant huit vraies poses Seestar copiées et vérifiées sur l’ordinateur.** La clé a été lue pour ces copies ; rien n’y a été écrit, déplacé ou supprimé. Nous n’avons pas encore cherché de mobile dans cette série.
+**Nous avons maintenant huit vraies poses Seestar copiées et vérifiées sur l’ordinateur.** La clé a été lue pour ces copies ; rien n’y a été écrit, déplacé ou supprimé. La mission suivante explique la recherche exploratoire maintenant réalisée sur cette série.
 
 ![Montage de huit vraies poses Seestar partagé avec autorisation sous CC0](images/reels/seestar-serie-cc0.png)
 
@@ -470,6 +470,64 @@ L’aperçu fait la moyenne de quatre pixels voisins pour afficher en gris. Il g
 *Exemple réel partagé sous [CC0](images/reels/LICENCE.md). Le grain visible n’est pas effacé pour promettre une précision ; ce rendu sert à apprendre. Les tests automatiques emploient toujours des données fictives.*
 
 Le prochain travail pourra maintenant adapter la recherche exploratoire à la vraie série préparée : traiter correctement les pixels, recaler les positions et examiner les candidats. Les [détails de la préparation](PREPARER-SERIE-SEESTAR.md) expliquent les contrôles. L’[état du passage au Seestar](PASSAGE-AUX-IMAGES-SEESTAR.md) distingue la préparation faite et l’analyse qui reste à réaliser.
+
+## Nouvelle mission : aligner les étoiles et chercher un mobile
+
+**Nous avons maintenant essayé la chaîne sur les huit vraies poses : alignements acceptés, recherche terminée avec zéro candidat.** Un GIF réel existe dans les résultats locaux. Cela ne veut pas dire que tous les objets possibles auraient été visibles. Ici, tu vas apprendre avec des images inventées dont nous connaissons les réponses.
+
+Imagine que tu photographies huit fois une feuille couverte de points. Si ta main bouge, tous les points semblent glisser. Il faut d'abord remettre les feuilles au même endroit : c'est **l'alignement**, aussi appelé recalage. Pour le calculer, nous utilisons certaines étoiles. Nous gardons les autres comme **témoins** : elles vérifient le résultat sans avoir servi au calcul. Un point qui continue à se déplacer pourrait devenir un **candidat**, à regarder de plus près.
+
+![Images fictives avant et après alignement ; le cercle suit un candidat mesuré](images/exemple-pilote-seestar.gif)
+
+*Simulation pour apprendre, pas le GIF du Seestar réel. Les cercles viennent des positions trouvées par le programme, pas des réponses de génération. Le film change de pose toutes les 0,6 seconde ; ce n'est pas la vraie cadence du télescope.*
+
+### 1 — Fabriquer un ciel d'entraînement
+
+Depuis la racine du projet, dans PowerShell, après les installations déjà expliquées. Chaque dossier de sortie doit être nouveau : ajoute un autre nom si tu recommences.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_seestar_pilot_demo.py local/parcours/pilote-mobile
+.\.venv\Scripts\python.exe examples/run_seestar_pilot.py local/parcours/pilote-mobile/plan/plan.json local/parcours/pilote-mobile/workset/workset.json local/parcours/pilote-mobile/audit/series.json --output local/parcours/pilote-mobile-analyse
+.\.venv\Scripts\python.exe examples/plot_seestar_pilot.py local/parcours/pilote-mobile-analyse/pilot.json local/parcours/pilote-mobile-figures
+```
+
+La première commande invente huit photos, leur petit mouvement d'ensemble et un point mobile ; elle prépare des copies et les contrôle. Les réponses sont dans `truth.json`, que la deuxième commande ne lit jamais. La deuxième trouve les étoiles, calcule les alignements et cherche les trajectoires. La troisième dessine le résultat. Les fichiers de photos restent intacts.
+
+**Tu dois voir :** trois codes 0, huit copies préparées, sept alignements acceptés et un candidat. Ouvre `local/parcours/pilote-mobile-figures/blink.gif`. À gauche sont les photos brutes ; à droite, leur affichage aligné. Le cercle cyan indique le candidat. Pour voir plus grand, ouvre `candidate-01-review.png` dans le même dossier.
+
+![Vignettes du mobile volontairement ajouté aux huit images fictives](images/exemple-pilote-seestar-candidat.png)
+
+*Le même morceau du champ est montré huit fois. Le point progresse tandis que le fond d'étoiles est aligné. Ce candidat fictif nous permet de vérifier le programme ; il ne prouve pas qu'un point des vraies images serait un astéroïde.*
+
+### 2 — Vérifier avec un ciel sans mobile
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_seestar_pilot_demo.py local/parcours/pilote-temoin --case control
+.\.venv\Scripts\python.exe examples/run_seestar_pilot.py local/parcours/pilote-temoin/plan/plan.json local/parcours/pilote-temoin/workset/workset.json local/parcours/pilote-temoin/audit/series.json --output local/parcours/pilote-temoin-analyse
+.\.venv\Scripts\python.exe examples/plot_seestar_pilot.py local/parcours/pilote-temoin-analyse/pilot.json local/parcours/pilote-temoin-figures
+```
+
+**Tu dois voir :** trois codes 0, alignements acceptés et zéro candidat. Nous n'avons pas ajouté de mobile à ce ciel. Ce témoin aide à vérifier que le programme ne crée pas une trajectoire simplement parce que la caméra bouge.
+
+### 3 — Comprendre un refus utile
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_seestar_pilot_demo.py local/parcours/pilote-refus --case insufficient
+.\.venv\Scripts\python.exe examples/run_seestar_pilot.py local/parcours/pilote-refus/plan/plan.json local/parcours/pilote-refus/workset/workset.json local/parcours/pilote-refus/audit/series.json --output local/parcours/pilote-refus-analyse
+.\.venv\Scripts\python.exe examples/plot_seestar_pilot.py local/parcours/pilote-refus-analyse/pilot.json local/parcours/pilote-refus-figures
+```
+
+**Tu dois voir :** codes **0, 2, 0**. Douze étoiles ne permettent pas d'avoir assez de témoins : la recherche est bloquée. Dans `pilot.json`, `candidate_count` vaut `null` : on ne sait pas combien de candidats cette recherche aurait trouvés. Cela diffère du zéro du témoin précédent, où la recherche a bien eu lieu. Le GIF montre seulement les photos brutes, sans faire semblant de les avoir alignées.
+
+![Contrôle des étoiles réservées dans l'exercice fictif réussi](images/exemple-pilote-seestar-controles.png)
+
+À gauche, chaque point montre une erreur mesurée sur les étoiles témoins ; il doit rester sous la ligne rouge. À droite, chaque barre compte les témoins associés ; il en faut au moins dix. Ils doivent aussi occuper les quatre coins du champ et assez de cases : ces deux graphiques ne suffisent pas à eux seuls.
+
+### Ce qu'il faut retenir pour les vraies photos
+
+Pour chercher les points, quatre pixels deviennent une moyenne 2×2 ; les centres trouvés reviennent ensuite dans le repère de la photo originale. Les alignements déplacent les **positions mesurées**. Seul l'affichage du GIF interpole une image pour montrer le résultat ; cette image dessinée ne sert pas à mesurer les mouvements. Les heures viennent des indications des fichiers, sans garantie d'exactitude.
+
+Sur la vraie série, les sept alignements ont passé les contrôles et aucun candidat n'a été trouvé avec les règles fixées avant l'essai. Les GIF et rapports réels restent dans `local/` ; les deux PNG Seestar déjà autorisés sous CC0 restent les exemples réels publics. Les [détails du pilote](PILOTE-MOBILES-SEESTAR.md) expliquent les limites, les noms des fichiers et les codes de retour. Si un essai échoue, garde son message et son dossier partiel ; corrige la cause puis utilise une nouvelle sortie.
 
 ## 14. Comprendre ce que tu as reconstruit
 

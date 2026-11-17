@@ -1,5 +1,7 @@
 # Mieux répartir les étoiles réservées au contrôle
 
+État ultérieur : le [lot 16](PILOTE-MOBILES-SEESTAR.md) réutilise cette partition gelée dans un pilote distinct sur huit copies réelles, avec sept modèles acceptés et zéro candidat. Le présent document garde les résultats fictifs du lot 14 ; ils ne deviennent pas une qualification des performances réelles.
+
 Plan **[`bbe9776`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/bbe977609ff526f87d13d4181bdc18e108f3fbbe)** publié et vérifié avant le code du lot 14. La nouvelle partition est une **recette expérimentale** dans `examples/spatial_controls.py` ; elle ne remplace pas `gar register`. L’application reste 0.10.0a1, les moteurs antérieurs, leurs seuils et les dépendances restent inchangés.
 
 **Sur le nouveau jeu**, la méthode spatiale rend disponibles les 20 séquences principales, contre 17 pour la partition historique sur les mêmes images. Elle retrouve les 20 mobiles, sans faux candidat. Les quinze négatifs restent bloqués. Les critères exploratoires préenregistrés sont satisfaits sur ce jeu fictif ; cela ne valide pas le bruit, Bayer, les calibrations ou l’horloge du Seestar.

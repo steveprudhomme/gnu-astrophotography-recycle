@@ -148,7 +148,11 @@ La [comparaison des contrôles spatiaux](docs/CONTROLES-SPATIAUX.md) utilise enc
 
 ## Préparer une série réelle et refaire l’exercice fictif
 
-La [préparation de huit poses réelles](docs/PREPARER-SERIE-SEESTAR.md) ajoute trois recettes d’exemple, sans nouvelle dépendance ni modification de version. Les six commandes de la [nouvelle mission pédagogique](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--préparer-huit-poses-seestar) reproduisent sélection→copie→audit→aperçu avec douze FITS fictifs et aucune clé USB. Les rendus réels publics sont des PNG autorisés [CC0](docs/images/reels/LICENCE.md), pas les FITS de l’exercice. Une série réelle locale est préparée ; sa recherche de mobiles demande encore un traitement explicitement adapté.
+La [préparation de huit poses réelles](docs/PREPARER-SERIE-SEESTAR.md) ajoute trois recettes d’exemple, sans nouvelle dépendance ni modification de version. Les six commandes de la [nouvelle mission pédagogique](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--préparer-huit-poses-seestar) reproduisent sélection→copie→audit→aperçu avec douze FITS fictifs et aucune clé USB. Les rendus réels publics sont des PNG autorisés [CC0](docs/images/reels/LICENCE.md), pas les FITS de l’exercice.
+
+## Essai exploratoire sur la série locale
+
+Le [pilote Seestar](docs/PILOTE-MOBILES-SEESTAR.md) ajoute un générateur fictif, une recette d'analyse des copies et un dessin avant/après, avec les dépendances déjà installées (y compris Matplotlib/Pillow pour les figures). Les neuf commandes du [parcours illustré](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--aligner-les-étoiles-et-chercher-un-mobile) créent trois petits jeux de huit images, leurs copies, rapports et figures. Codes attendus : 0/0/0 pour le mobile et le témoin, 0/2/0 pour le refus de contrôle. Toujours choisir des sorties neuves sous `local/`. Le premier essai réel est achevé avec zéro candidat ; sa recette ne change pas la commande `moving-synthetic` ni la version du logiciel.
 
 ## Distribution portable prévue
 

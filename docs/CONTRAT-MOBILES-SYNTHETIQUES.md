@@ -2,6 +2,8 @@
 
 `gar moving-synthetic` est un banc d’essai expérimental sur images **déclarées fictives**, monoplans, déjà dans un repère commun. Les temps sont des secondes relatives inventées. Aucun recalage réel, Bayer, catalogue céleste, correction d’horloge ou export scientifique n’est réalisé par cette commande. Pour commencer sans connaissance technique, suivre le [parcours illustré](DEMARRER-DE-ZERO.md).
 
+Le [pilote Seestar du lot 16](PILOTE-MOBILES-SEESTAR.md) est une recette séparée pour copies réelles vérifiées, qui réutilise des fonctions mathématiques sans modifier ce contrat. Ne jamais ajouter de marqueur synthétique à une observation pour la faire accepter par `gar moving-synthetic`.
+
 ## Entrées et protections
 
 ```powershell

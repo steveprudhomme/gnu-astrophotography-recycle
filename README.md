@@ -8,7 +8,7 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 Exception documentaire : les deux [images Seestar réelles autorisées](docs/images/reels/LICENCE.md) sont mises à disposition sous **CC0 1.0** ; leur notice précise les fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle et prototype de mobiles sur images synthétiques. L’horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
+**Statut : Alpha 0.10 — inventaire, contrôles stellaires, préparation temporelle, prototype synthétique et premier pilote exploratoire sur huit poses Seestar réelles. Sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel local disponible. L’horloge, les performances sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.**
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
@@ -46,11 +46,13 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Limites du détecteur | Nouveau jeu de 120 séquences fictives, luminosité/vitesse/bruit/géométrie | Bilan descriptif disponible ; moteur inchangé, cas non alignés séparés |
 | Recalage puis mobiles | Comparaison des mêmes positions avant/après sur 40 séquences fictives | Expérimental : bénéfice sur séquences disponibles, critères globaux non tous satisfaits |
 | Contrôles spatiaux | Comparaison de deux partitions sur 50 nouvelles séquences fictives | Expérimental : 20/20 principales disponibles, quinze négatifs refusés ; comportement habituel inchangé |
-| Série Seestar réelle | Sélection hors ligne puis copies vérifiées, audit et aperçu locaux | Huit poses réelles préparées ; recalage et recherche exploratoire sur cette série encore à réaliser |
+| Série Seestar réelle | Copies vérifiées puis recalage contrôlé, recherche et GIF locaux | Premier pilote achevé : sept alignements acceptés, zéro candidat ; performances réelles non qualifiées |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
 ## Limites
+
+Le [premier pilote Seestar](docs/PILOTE-MOBILES-SEESTAR.md), plan publié avant code, ajoute 19 tests fictifs, soit **335 tests réussis**. Le [nouvel exercice illustré dès 10 ans](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--aligner-les-étoiles-et-chercher-un-mobile) reproduit mobile, témoin et refus en neuf commandes. Les GIF réels restent locaux ; les nouvelles animations publiques sont fictives. Zéro candidat sur huit poses ne prouve pas l'absence d'objet mobile.
 
 Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas une mesure scientifique. La qualité des archives, des calibrations, des heures et des catalogues détermine les usages possibles. Le vert Bayer n’est pas automatiquement une mesure Johnson V. Aucun format d’export ni aucune acceptation par un organisme n’est garanti à ce stade. Aucune soumission automatique n’est prévue.
 

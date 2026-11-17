@@ -1,10 +1,10 @@
 # Quand essayer les images du Seestar S50 ?
 
-**Une série de huit poses Seestar réelles est désormais préparée en copies locales vérifiées.** Le [lot 15](PREPARER-SERIE-SEESTAR.md) a réalisé la sélection, la copie en lecture seule et l’audit local. Le prochain jalon est d’adapter puis exécuter le recalage et la recherche exploratoire sur cette série. Il n’est pas nécessaire d’attendre la photométrie, les exports ou le portable ; le pilote réel n’a pas encore été lancé et aucune date ou découverte n’est promise.
+**Le premier pilote sur huit poses Seestar réelles est maintenant terminé : sept alignements acceptés, recherche achevée avec zéro candidat, GIF réel local avant/après.** Le [lot 15](PREPARER-SERIE-SEESTAR.md) a préparé les copies et le [lot 16](PILOTE-MOBILES-SEESTAR.md) les a analysées avec une voie d'intensité adaptée et des contrôles réservés. Ce premier essai ne qualifie pas les performances de détection ni les mesures scientifiques.
 
 ![Trois jalons pour préparer le pilote réel puis les mesures scientifiques](images/passage-seestar-pilote.png)
 
-*Schéma conceptuel, pas une mesure ou une capture d’écran. La première étape est maintenant réalisée pour huit poses ; la deuxième reste à adapter et exécuter.*
+*Schéma conceptuel, pas une mesure ou une capture d'écran. Les deux premières étapes ont maintenant été réalisées pour huit poses ; la qualification des mesures reste ouverte.*
 
 ## Ce qui utilise déjà les observations
 
@@ -17,9 +17,9 @@ Le lot 14 de répartition des contrôles n’avait lu que le manifeste et les do
 | Étape | Travail | Condition pour avancer |
 |---|---|---|
 | Préparer la série — fait | Huit poses sélectionnées depuis le manifeste, copiées et contrôlées localement | Identité des octets et configuration observée vérifiées ; qualité scientifique non déduite |
-| Pilote exploratoire réel — prochain lot | Adapter les entrées réelles, la voie de détection et l’ordre des images, puis exécuter et revoir les candidats | Alignement contrôlé, limites explicites et rapports privés ; un résultat sans candidat reste utile |
+| Pilote exploratoire réel — fait | Voie 2×2 d'intensité, alignement et recherche, GIF avant/après | Sept modèles acceptés ; zéro candidat aux seuils prévus, rapports privés et copies intactes |
 
-La série préparée lève le manque initial d’images locales pour ce premier essai. Le démarrage de la seconde étape dépend encore d’un traitement réel adapté, notamment au Bayer et à la taille des images, pas d’une promesse de succès sur un objet astronomique.
+La série préparée a permis ce premier essai sans accès USB supplémentaire. Aucun mobile n'a été détecté par cette recherche ; ce résultat ne démontre ni absence d'objet ni sensibilité suffisante pour tous les mobiles possibles.
 
 ## Série à préparer
 
@@ -44,10 +44,10 @@ L’inventaire local peut indiquer qu’une séance plus complète existe dans l
 
 Un premier essai peut exprimer un déplacement en pixels par image ou selon des intervalles **déclarés**, avec les réserves correspondantes. Il ne doit pas annoncer une vitesse physique ou une date UTC exacte à partir d’une horloge non qualifiée. La [campagne temporelle](CAMPAGNE-TEMPORELLE.md) reste nécessaire aux usages exigeant cette précision ; elle n’est pas remplacée par les essais fictifs.
 
-La commande actuelle pour images synthétiques **ne doit pas recevoir de véritables observations réétiquetées**. Il faudra un chemin d’analyse réel distinct, avec provenance et limites adaptées ; ne pas ajouter `GARSYNTH` ou des temps fictifs aux fichiers Seestar pour contourner les protections. Le [bilan de contrôle spatial](CONTROLES-SPATIAUX.md) éclaire le recalage, mais ne valide pas Bayer, le bruit, les calibrations ou l’horloge du télescope.
+La commande pour images synthétiques **ne doit pas recevoir de véritables observations réétiquetées**. Le nouveau chemin d'analyse réel est distinct, avec provenance et limites adaptées ; aucun `GARSYNTH` ou temps fictif n'est ajouté aux fichiers Seestar. Le [bilan de contrôle spatial](CONTROLES-SPATIAUX.md) éclaire le recalage, mais ne valide pas Bayer, le bruit, les calibrations ou l'horloge du télescope.
 
 ## Ce que l’on décide après ce lot
 
-Planifier maintenant un module d’essai exploratoire réel pour la série locale préparée, avec son plan avant code. Vérifier la voie de pixels et le recalage, puis examiner les candidats sans qualifier artificiellement l’heure. Les rapports, coordonnées, FITS et en-têtes restent sous `local/`.
+Conserver ce premier essai et ses seuils. Un prochain protocole pourra mesurer la récupération d'injections sur des dérivés de copies réelles, avec témoins et vérité séparée, puis envisager une série plus longue ou d'autres conditions selon les résultats. Cela reste à planifier avant code ; aucune nouvelle archive ne sera consultée automatiquement. Les rapports, coordonnées, FITS, en-têtes et nouveaux GIF réels restent sous `local/`.
 
 Le mainteneur a explicitement autorisé deux images rendues comme exemples publics sous [CC0 1.0](images/reels/LICENCE.md). Elles figurent dans le tutoriel, sans en-têtes ou métadonnées privées. Cette exception n’est pas une diffusion des archives FITS ou rapports. L’autorisation USB reste exclusivement en lecture pour les outils du projet ; aucun fichier source n’a été réécrit.

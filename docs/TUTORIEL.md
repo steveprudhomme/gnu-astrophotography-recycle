@@ -928,3 +928,55 @@ La reproduction a abouti depuis le commit propre **`2e57d18`** : six nouvelles c
 **Et les candidats et les GIF ?** Les animations des sections précédentes montrent des simulations. Dans le dernier essai fictif de contrôle spatial, vingt mobiles ajoutés volontairement ont été retrouvés sur vingt séquences principales, sans faux candidat dans ces cas. Sur les huit vraies poses Seestar de ce lot, aucune recherche n’a encore été lancée : `motion_searched` reste faux. Il n’existe donc pas encore de candidat ni de GIF de mouvement réel issu de cette série. Cela ne signifie pas qu’une recherche a conclu à l’absence d’objet.
 
 La série réelle existe maintenant localement pour le prochain lot : adapter le traitement Bayer et les coordonnées, recaler avec contrôles réservés, puis chercher et revoir les candidats avec une chronologie explicitement non qualifiée. La recette fictive ne peut pas recevoir directement les FITS Seestar de plus grande taille et ne doit pas les réétiqueter en synthétiques. Le [document de passage au réel](PASSAGE-AUX-IMAGES-SEESTAR.md) distingue cette préparation terminée du pilote exploratoire encore à réaliser. Aucun résultat scientifique ou export n’est annoncé.
+
+## 22. Premier essai de recherche sur les huit vraies poses
+
+**Nous avons maintenant un premier résultat réel : sept alignements acceptés vers la première pose, recherche achevée avec zéro candidat et GIF réel avant/après produit localement.** L'essai ne démontre pas l'absence de tout mobile. Il concerne ces huit images et les seuils prévus. L'horloge, la sensibilité réelle du détecteur, la photométrie et l'astrométrie absolue restent non qualifiées.
+
+Le plan [**`8f5a64b`**](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/8f5a64b819d301f7c495b5e9903f3c622cf30639) a été committé, publié et vérifié avant le code. La [nouvelle recette](PILOTE-MOBILES-SEESTAR.md) garde les moteurs et anciens protocoles inchangés. Le [parcours dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--aligner-les-étoiles-et-chercher-un-mobile) propose neuf commandes pour refaire un mobile, un témoin sans mobile et un refus utile. Tous les fichiers de ces exercices sont inventés.
+
+### Comprendre ce que l'on fait
+
+Sur huit photos, le télescope peut bouger : toutes les étoiles glissent ensemble. Nous calculons la rotation et le déplacement qui ramènent leurs positions dans la première photo. Environ un quart des étoiles est réservé comme témoin avant le calcul ; elles ne servent ni aux hypothèses ni à l'ajustement. Si les témoins ne permettent pas de vérifier le résultat, la recherche est bloquée.
+
+La moyenne 2×2 donne un plan d'intensité pour la recherche, pas une couleur calibrée. Les blocs contenant un pixel non fini ou ≥65 000 sont masqués. Les positions détectées reviennent en coordonnées natives par `2*x+0,5`. Seules ces positions sont transformées pour mesurer les trajectoires ; les FITS exacts ne sont jamais réécrits. L'interpolation du GIF est uniquement un outil d'affichage.
+
+![Exercice fictif de la nouvelle recette : brut à gauche, affichage aligné à droite](images/exemple-pilote-seestar.gif)
+
+*Animation calculée sur des images inventées ; aucune fausse capture d'écran. Le cercle montre le candidat mesuré. Le GIF de la vraie série est un fichier distinct, gardé localement. La cadence de 0,6 seconde par pose est artificielle.*
+
+### Trois commandes pour commencer, puis deux témoins
+
+Depuis la racine du projet, avec les dépendances déjà installées et des dossiers neufs :
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_seestar_pilot_demo.py local/pilote-exercice
+.\.venv\Scripts\python.exe examples/run_seestar_pilot.py local/pilote-exercice/plan/plan.json local/pilote-exercice/workset/workset.json local/pilote-exercice/audit/series.json --output local/pilote-exercice-analyse
+.\.venv\Scripts\python.exe examples/plot_seestar_pilot.py local/pilote-exercice-analyse/pilot.json local/pilote-exercice-figures
+```
+
+Les trois codes attendus sont 0. Le générateur crée huit images Bayer fictives 512×512, cent étoiles et un mobile, avec dérive et rotation, prépare des copies puis les audite. La vérité reste dans un fichier séparé, que l'analyse n'ouvre pas. Le résultat attendu est un candidat et sept alignements acceptés ; le dessin donne un GIF, un graphique des contrôles et huit vignettes du candidat.
+
+Refaire les commandes complètes du parcours avec `--case control` donne zéro candidat après une recherche achevée, codes 0/0/0. Avec `--case insufficient`, douze étoiles ne suffisent pas : code d'analyse 2, recherche bloquée, candidat `null`, GIF brut seulement ; les codes sont 0/2/0. Un résultat refusé n'est pas un zéro candidat. Les erreurs de lecture/intégrité peuvent garder un rapport `incomplete`, code 1 ; conserver cet essai avant de choisir une autre sortie. Le premier essai de génération avait passé un chemin au lieu du contenu de sélection à `prepare_workset` ; cet appel a été corrigé sur données fictives et le dossier partiel conservé, sans changement de seuil du moteur.
+
+![Les contrôles réservés dans le nouvel exercice fictif](images/exemple-pilote-seestar-controles.png)
+
+![Huit vignettes fictives pour revoir la trajectoire candidate](images/exemple-pilote-seestar-candidat.png)
+
+*Le graphique ne remplace pas les exigences de couverture et d'effectif ; les vignettes utilisent un même champ et les positions mesurées. Les réponses inventées sont lues seulement par la vérification des résultats, jamais par la recherche ou le dessin.*
+
+### Ce que l'essai réel a réellement vérifié
+
+Le programme a réaudité le plan, le workset et les huit copies déjà locales, puis comparé ce nouvel audit à celui fourni. Les en-têtes, dates, dimensions et empreintes correspondent ; aucun chemin d'archive n'est ouvert. L'exécution réelle a bloqué toute ouverture ou sondage d'un volume externe, toute écriture FITS et toute connexion réseau. Aucun nouvel accès USB n'a été tenté.
+
+Les sept modèles passent les critères prévus, sans abaisser un seuil : 64 à 77 contrôles associés par pose, neuf cellules et quatre quadrants, P95 d'environ 0,69 à 1,09 pixel natif sous la limite 1,5. Le champ commun est restreint par les transformations inverses de toutes les poses, avec marge native de 16 pixels. La recherche de trajectoires est terminée : **zéro candidat**, pas une analyse bloquée. Le GIF réel montre les huit images brutes et leur affichage aligné ; aucun cercle de mobile n'y est ajouté.
+
+Les temps sont seulement les différences entre dates déclarées, pas des heures UTC corrigées ou des milieux de pose. Les champs de trajectoire utilisent des secondes déclarées. Le programme ne calcule aucune vitesse physique ou identification astronomique. Les copies sont hachées avant/après analyse et dessin et restent intactes. Le rapport de préparation précédent est conservé : son statut historique ne remplace pas le nouveau verdict dans `pilot.json`.
+
+### Vérifications et limites
+
+Les 19 nouveaux tests fictifs couvrent récupération du mobile connu, témoin sans candidat, refus d'effectif, retour au repère natif, transformation inverse, vrai domaine commun, masques, en-têtes/audit/empreintes incohérents, absence d'accès archive/vérité/réseau, lecture seule, sorties partielles et refus d'écrasement. Une première exécution des tests n'a pas pu créer ses dossiers temporaires à cause des droits Windows ; une nouvelle sortie locale et les droits de création nécessaires ont permis de les exécuter. Ce problème d'environnement n'est pas présenté comme un échec scientifique.
+
+La suite complète a passé 335 tests. La reproduction des neuf nouveaux exemples et de l'essai réel depuis un commit propre sera consignée avant publication finale ; les exercices antérieurs conservent leurs preuves précédentes, sans être tous rejoués. Les GIF et rapports réels restent sous `local/`, avec leur provenance ; seules les trois nouvelles figures fictives sont copiées dans la documentation. L'autorisation CC0 des deux PNG réels existants ne publie pas les nouveaux GIF ou coordonnées.
+
+Un résultat zéro dans huit images ne mesure ni taux de faux positifs ni probabilité de retrouver un objet. La luminosité, les vitesses accessibles, les masques, le Bayer et les étoiles proches limitent cette exploration. Le prochain protocole pourra évaluer la récupération d'injections sur copies réelles et la dépendance aux seuils, en conservant ce premier essai inchangé. Aucune découverte ni soumission scientifique n'est annoncée.
