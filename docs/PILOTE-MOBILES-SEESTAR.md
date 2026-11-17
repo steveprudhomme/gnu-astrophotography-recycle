@@ -99,4 +99,10 @@ La série est courte, les seuils limitent les vitesses et luminosités accessibl
 
 Les nouveaux GIF, rapports et positions réels restent sous `local/`. L'exception CC0 existante concerne seulement les deux PNG de la [notice](images/reels/LICENCE.md), pas ces nouveaux produits. Les figures publiques de ce document sont fictives ; les tests aussi. Aucun accès USB, catalogue ou service externe n'est nécessaire à l'analyse.
 
+## Reproduction vérifiée
+
+Depuis le commit propre **`80ada2e`**, les **335 tests** ont réussi en **83,31 secondes**. Les neuf nouvelles commandes du parcours ont été rejouées dans des dossiers neufs : mobile retrouvé, témoin sans candidat, refus de contrôle avec code 2 et compte `null`. Les huit FITS du nominal, ses modèles/positions/trajectoire et les trois figures publiques sont identiques aux premiers produits. Les 39 commandes antérieures gardent leurs preuves précédentes sans réexécution générale revendiquée.
+
+Le pilote réel a également été reproduit depuis les mêmes copies : sept modèles et positions identiques, zéro candidat, huit copies intactes et trois figures privées identiques, dont le GIF de huit poses à 600 ms. Aucune tentative d'accès externe ou d'écriture FITS n'est enregistrée par les gardes. Le rapport conserve la nouvelle provenance de code ; ce n'est pas une affirmation d'identité octet pour octet de tous les rapports. Les preuves détaillées restent locales. Aucun essai avec un enfant débutant ou sur un ordinateur Windows vierge n'est revendiqué.
+
 Sources primaires consultées le 17 novembre 2026 : [Astropy FITS](https://docs.astropy.org/en/stable/io/fits/api/files.html), [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html) et [SciPy map_coordinates](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html). Les API sont réutilisées avec les versions installées, sans mise à jour ; les seuils et le protocole sont des choix du projet.
