@@ -78,4 +78,6 @@ Les **316 tests** ont réussi en 56,97 secondes, dont 19 nouveaux cas. Depuis le
 
 Le pilote utilise un chemin d'analyse réel distinct, avec moyenne 2×2 d'intensité, coordonnées natives, contrôles réservés et temps déclarés non qualifiés. La commande historique fictive ne reçoit pas les FITS Seestar et aucun marqueur inventé ne leur est ajouté. Les heures physiques, calibrations, sensibilité réelle et budgets d'erreur restent à qualifier avant un usage scientifique.
 
+Le [lot 18](INJECTIONS-SEESTAR.md) utilise ensuite le pilote et ses modèles gelés pour tester des points ajoutés à des dérivés, sans changer ces huit copies ou l'audit de préparation. Il retrouve 10/36 ajouts artificiels, avec témoin identique au pilote naturel. Il n'ajoute aucune découverte ou validation de bout en bout aux contrôles techniques de cette page.
+
 Sources : [Astropy FITS, ouverture en lecture seule](https://docs.astropy.org/en/stable/io/fits/api/files.html), contrats du projet et [CC0 1.0 officiel](https://creativecommons.org/publicdomain/zero/1.0/), consulté le 17 novembre 2026. Les règles de sélection sont celles du projet, pas une prescription du constructeur.

@@ -1018,3 +1018,57 @@ Les trois nouveaux tests emploient uniquement des pixels inventés, même pour s
 La reproduction a abouti depuis le commit propre **`305eeed`** : trois nouveaux médias CC0 identiques par empreinte, deux PNG précédents inchangés, trois rendus privés par défaut identiques au lot 16. Les cinq empreintes de notice et 36 ancres Markdown sont vérifiées ; rapport et huit copies sont intacts, sans nouvelle recherche. Les gardes du rendu CC0 n'enregistrent aucune tentative d'accès externe ou d'écriture FITS. Les 178 fichiers publics sont revus avant publication ; les journaux restent sous `local/`.
 
 Les sources des moteurs, le verdict de recherche et les anciennes preuves restent inchangés. Les tests et les exemples fictifs sont distincts des observations CC0 ; les FITS, dates d'observation, chemins, coordonnées et rapports restent ignorés. Les pixels célestes autorisés sont volontairement publics ; ils ne sont pas présentés comme anonymisés. Cette vérification ne revendique pas un essai de compréhension avec un enfant ou sur un ordinateur vierge.
+
+## 24. Chercher des points ajoutés au fond Seestar
+
+**Ce nouvel essai retrouve 10 mobiles artificiels sur 36 sur le fond réel, avec 26 manques et zéro indisponible.** Il ne découvre aucun objet : le témoin sans ajout reproduit exactement le pilote naturel à zéro candidat. Le plan [**`9344495`**](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/9344495d49d8051e74663ab41e49de6ce05286eb) a été committé et publié sur `codex/injections-seestar` avant le code. La [méthode détaillée](INJECTIONS-SEESTAR.md) et la [mission dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--retrouver-des-points-ajoutés-exprès) expliquent les cinq nouvelles commandes.
+
+### Pourquoi ajouter un point que l'on connaît ?
+
+Imagine que nous cachons un petit point dans plusieurs photos, en le faisant avancer. Nous savons où nous l'avons mis, mais le chercheur de points ne reçoit pas ces réponses. Il trouve d'abord ses candidats. Ensuite seulement, nous vérifions ce qu'il a retrouvé, ce qui manque et ce qui est sans correspondance. Cette méthode aide à comprendre les limites d'un résultat « zéro candidat » sur une série naturelle.
+
+![Témoin, point faible et point plus brillant sur un fond entièrement fictif](images/exemple-injections-animation.gif)
+
+*Images et ajouts entièrement fictifs pour le parcours public. Vert : réponse d'injection ajoutée au dessin après recherche et score ; cyan : candidat effectivement associé. Aucun cercle vert n'est une détection inventée. La lecture de 0,6 seconde par pose est artificielle ; l'interpolation sert seulement à l'affichage.*
+
+### Garder le recalage, les seuils et les originaux
+
+Nous conservons les huit modèles déjà acceptés du pilote, le détecteur et l'association, vérifiés par empreintes. Cet essai mesure donc la récupération **conditionnellement au recalage gelé**, pas la capacité de toute la chaîne à recalculer un bon alignement en présence d'un mobile. Les positions d'injection sont ramenées dans chaque pose par l'inverse des mêmes modèles : leur erreur astrophysique n'est pas testée par cette construction.
+
+Trois pics (3/6/12 fois le bruit de première pose), quatre vitesses (0,03/0,15/0,5/1,2 pixel natif par seconde déclarée), trois départs/directions fixes donnent 36 séries à un ajout, plus un témoin. Le pic n'est pas un signal/bruit étalonné. Le point gaussien a sigma 2,2 pixels natifs, tronqué à cinq sigma ; il est ajouté aux plans d'intensité 2×2 float32 dans de nouveaux `.npy` locaux. Aucun FITS n'est réécrit, aucun marqueur synthétique ou faux temps n'est ajouté aux observations. Les masques et confusions avec les étoiles sont conservés, sans repositionnement après résultat.
+
+Un voisinage hors du champ commun avec marge native 32 pixels rend le cas indisponible. La recherche conserve ensuite les mêmes seuils, domaine commun et associations du pilote, sans troncature silencieuse. Le modèle d'ajout ne simule ni réponse Bayer, bruit de photons supplémentaire, PSF instrumentale étalonnée ou traînée intra-pose. Les temps restent déclarés et non qualifiés.
+
+### Refaire les cinq étapes sur un fond inventé
+
+Depuis la racine, avec dépendances installées et sorties neuves :
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_injection_background.py local/injections-exercice-fond
+.\.venv\Scripts\python.exe examples/injection_recovery.py generate local/injections-exercice-fond/pilot/pilot.json local/injections-exercice-suite
+.\.venv\Scripts\python.exe examples/injection_recovery.py analyze local/injections-exercice-suite/manifest.json local/injections-exercice-analyse
+.\.venv\Scripts\python.exe examples/injection_recovery.py score local/injections-exercice-suite/manifest.json local/injections-exercice-suite/truth.json local/injections-exercice-analyse/analysis.json local/injections-exercice-bilan
+.\.venv\Scripts\python.exe examples/plot_injection_recovery.py local/injections-exercice-bilan/score.json local/injections-exercice-figures
+```
+
+Les cinq codes attendus sont **0**. Le fond fictif comprend cent étoiles hors des trois couloirs d'injection, bruit et dérive/rotation inventés. La génération écrit 296 plans dérivés, le manifeste et la vérité séparée. L'analyse ne reçoit pas le fichier de vérité et gèle tous ses résultats avant le score. Le score apparie au plus un candidat par injection sur au moins cinq points, RMS ≤1 pixel natif et erreur vectorielle de vitesse ≤0,05 pixel par seconde déclarée. Le dessin révèle ensuite les réponses pour les cas faible/brillant à vitesse 0,5 et position 1, préchoisis avant mesure.
+
+Résultat fictif : **12/36 retrouvées, 24 manquées, zéro indisponible**, témoin sans candidat. Les trois brillantes à vitesse 0,5 sont retrouvées et aucun ajout trop lent à 0,03 n'est récupéré. Les cas faibles manqués restent publiés. Les couloirs dégagés simplifient cet exercice ; il ne représente pas toute la confusion du fond réel.
+
+![Bilan calculé sur le nouveau fond entièrement fictif](images/exemple-injections-carte.png)
+
+*Chaque case utilise les trois positions prévues. Les cas bloqués restent affichés et ne sont pas transformés en recherches à zéro. Trois trajets sur les mêmes images ne sont pas des observations indépendantes, ni une probabilité universelle de détection.*
+
+### Résultat sur le fond réel et fichiers conservés
+
+Les 36 injections sont testables. Pics 3 : aucune retrouvée ; pics 6 : une à vitesse 0,5 et une à 1,2 ; pics 12 : deux à 0,15, trois à 0,5 et trois à 1,2. Aucun ajout à 0,03 n'est récupéré. Total : **10 retrouvées, 26 manquées, zéro indisponible**. Le témoin garde exactement les détections et trajectoires du pilote initial, avec zéro candidat ; aucun candidat non associé n'apparaît dans ce lot. Sur fond réel, un éventuel non-associé resterait d'origine inconnue, pas un faux positif établi.
+
+Les deux fonds, leurs bruits et leurs temps déclarés diffèrent : les 12/36 et 10/36 ne comparent pas statistiquement l'efficacité de deux capteurs. Le tableau complet est dans le document de méthode ; les rapports, positions, dérivés et animations mixtes restent privés sous `local/`, avec titre explicite « fond réel + ajouts artificiels ». Les trois nouvelles figures publiques sont entièrement fictives ; les cinq médias réels CC0 existants restent inchangés. Aucune lecture USB ou connexion réseau d'analyse, aucune écriture FITS ; copies et rapport naturel intacts.
+
+### Vérifications et prochaines décisions
+
+Les 18 nouveaux tests sont entièrement fictifs : récupération nominale et vitesse trop lente, amplitude/masque et transformation inverse, appariement unique, absence d'accès à la vérité/archives/réseau, déterminisme, refus de modèles/chemins/empreintes/pickle, limites et interruptions. Une analyse incomplète ou modifiée ne peut pas être scorée ; tous les cas bloqués gardent des candidats `null`, même dans les comptes globaux inconnus. Le code 2 signale des cas indisponibles ou l'échec des critères de l'exercice fictif ; le code 1 conserve les erreurs/incomplétudes. Choisir une nouvelle sortie après correction, sans effacer les essais.
+
+La suite complète a passé **356 tests en 123,53 secondes**. L'inspection des premières vignettes montrait peu les points faibles ; le contraste d'affichage a été rendu lisible avec des limites fixées au fond de première pose −3 sigma et +15 sigma, communes aux trois vues. Le détecteur, les mesures et les résultats restent inchangés ; le contrôle de dessin est rejoué après cet ajustement. Reproduction des cinq commandes, dérivés, candidats, bilans et figures depuis le code committé avant publication, en conservant les anciennes preuves sans tout rejouer.
+
+Ce premier bilan indique des manques dans les conditions prévues, sans magnitude limite ou efficacité universelle annoncée. Toute nouvelle PSF, trajectoire ou modification de seuil demandera un protocole préenregistré ; les seuils ne sont pas abaissés pour faire réussir ce lot. La branche dédiée sera publiée et revue dans une PR vers `main`, puis fusionnée après les vérifications prévues.

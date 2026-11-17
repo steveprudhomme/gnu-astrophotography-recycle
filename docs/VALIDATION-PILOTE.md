@@ -8,6 +8,12 @@ Les 19 nouveaux tests sont fictifs : un mobile connu retrouvé, zéro candidat d
 
 L'autorisation réaffirmée au lot 17 ajoute la diffusion CC0 du GIF réel et de deux illustrations à la notice des médias. Trois tests fictifs supplémentaires vérifient le mode réel explicite et les métadonnées, soit **338 tests réussis en 78,93 secondes**. Il s'agit d'une vérification de diffusion, sans nouvelle recherche ni qualification scientifique ; les copies et le rapport restent intacts.
 
+## Récupération conditionnelle sur dérivés, lot 18
+
+Plan `9344495` publié avant code sur une branche dédiée. Avec le recalage accepté gelé, les [injections](INJECTIONS-SEESTAR.md) testent trois pics, quatre vitesses et trois départs fixés : 36 séries plus un témoin. Sur fond réel : **10/36 ajouts artificiels retrouvés, 26 manqués, zéro indisponible**, aucun candidat non associé, témoin identique au pilote naturel sans candidat. Ce résultat conditionnel ne teste ni l'erreur astrophysique du recalage, ni un modèle complet de capteur ou une limite en magnitude ; trois trajets sur les mêmes poses ne sont pas indépendants.
+
+Sur le fond entièrement fictif du nouvel exercice : 12/36 retrouvés, 24 manqués, témoin sans candidat, trois brillants nominaux retrouvés et aucun trop lent à 0,03 récupéré. Dix-huit tests fictifs nouveaux portent la suite à **356 tests réussis en 123,53 secondes** ; le contrôle des figures est rejoué après un ajustement d'affichage, sans changement des mesures. Les FITS, le rapport naturel et les moteurs restent intacts, sans accès USB. La génération, l'analyse aveugle et le score sont séparés, avec candidats gelés avant lecture des réponses.
+
 ## Objectif et périmètre
 
 Qualifier les archives avant de mesurer. Phases 1 et 2 : inventaire puis contrôle scientifique d’une séance de 30 à plus de 60 minutes, si disponible. Ne pas choisir uniquement les meilleures poses ; conserver celles qui révèlent nuages, dérive et interruptions. Un échantillon privé de trois poses et une référence est désormais disponible en copies locales vérifiées ; il ne représente pas toute la population d’archives.

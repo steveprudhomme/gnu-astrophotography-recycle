@@ -22,6 +22,8 @@ Le [lot 16](PILOTE-MOBILES-SEESTAR.md) a ensuite exécuté le premier pilote ré
 
 Le lot 17 porte la suite à **338 tests réussis** et la [notice CC0](images/reels/LICENCE.md) à cinq médias réels exactement listés. Les rendus sont publiés dans le tutoriel dès 10 ans, sans FITS, journal ou chemin privé. Le résultat du pilote reste inchangé : aucune nouvelle recherche ou découverte.
 
+Le [lot 18](INJECTIONS-SEESTAR.md) mesure descriptivement la récupération de points ajoutés aux dérivés d'intensité, conditionnellement au recalage gelé. Sur fond réel : 10/36 ajouts artificiels retrouvés, 26 manqués et zéro indisponible ; témoin identique au pilote naturel à zéro candidat. Sur le fond fictif de l'exercice : 12/36, sans extrapolation entre ces fonds différents. Dix-huit tests nouveaux, soit **356 tests réussis**, cinq commandes pédagogiques et figures fictives nouvelles. Aucun FITS modifié ou accès USB, dérivés et rapports mixtes locaux ; travail en branche dédiée puis PR vers `main` après vérification.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants
