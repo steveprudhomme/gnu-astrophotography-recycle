@@ -13,7 +13,7 @@ from astropy.io import fits
 import numpy as np
 
 from gar.astrometry import local_path
-from gar.contracts import json_value
+from gar.contracts import json_value, parse_declared_time
 from gar.moving import detect_sources
 from gar.workset import digest
 from prepare_seestar_series import CONFIG_KEYS
@@ -116,6 +116,10 @@ def checked_pilot(path, base, load_planes=False):
                 audits.append(value)
     if len(audits) != 1 or not audits[0].get('copies_prepared') or len(audits[0]['files']) != 8:
         raise ValueError('Audit de préparation gelé requis.')
+    dates = [parse_declared_time(f['date_obs_raw']) for f in audits[0]['files']]
+    if (not np.array_equal(times, [(d-dates[0]).total_seconds() for d in dates])
+            or any(f['metadata'] != audits[0]['files'][0]['metadata'] for f in audits[0]['files'])):
+        raise ValueError('Temps relatifs ou configuration différents des déclarations des copies.')
     planes, seen = [], set()
     for item, audit in zip(r['copies'], audits[0]['files']):
         p = local_path(item['local_copy'], base)

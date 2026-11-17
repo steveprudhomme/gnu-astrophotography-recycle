@@ -172,6 +172,16 @@ def test_refused_baseline_not_turned_into_accepted_alignment(experiment):
     with pytest.raises(ValueError): recipe.generate(path, base/'refused-suite', base)
 
 
+def test_relative_times_must_match_copied_header_declarations(experiment):
+    base, _ = experiment
+    report = recipe.read(base/'background/pilot/pilot.json')
+    report['relative_declared_seconds'][1] += .01
+    path = base/'inconsistent-time-pilot.json'; recipe.save(path, report)
+    with pytest.raises(ValueError, match='Temps relatifs'):
+        recipe.generate(path, base/'inconsistent-time-suite', base)
+    assert not (base/'inconsistent-time-suite').exists()
+
+
 def test_limit_blocks_keep_null_and_do_not_invent_false_positive_zero(experiment, monkeypatch):
     base, _ = experiment
     def limited(*a, **kw): raise ValueError('Invented source-count limit')
