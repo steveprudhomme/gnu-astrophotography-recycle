@@ -630,6 +630,38 @@ Sur le fond réel, le bilan est **26 manques : neuf hors de la plage de vitesse 
 
 Les détails sont dans [Comprendre les manques](DIAGNOSTIC-MANQUES.md). Le témoin naturel garde zéro candidat ; aucune découverte ou nouvelle recherche n'est ajoutée. Les nouvelles vues publiques sont fictives, les vues mixtes sur fond réel restent locales. Les erreurs donnent le code 1 ; garde le message et le dossier incomplet, corrige la cause puis choisis une nouvelle sortie. Aucun accès USB n'est nécessaire.
 
+## Nouvelle mission : ouvrir le carnet du détecteur
+
+Nous savons déjà que certains ajouts n'ont pas assez de points proches. Cette fois, nous regardons **comment un point entre dans la liste**. Le détecteur est comme un contrôleur : il propose un petit sommet lumineux, regarde sa forme et garde son centre s'il est assez loin du bord. Nous lui ajoutons un carnet pour lire ses décisions, en gardant ses règles.
+
+![Les portes du détecteur, schéma conceptuel](images/exemple-trace-portes.svg)
+
+Un **maximum brut** est un sommet proposé avant les contrôles de forme. Son centre calculé peut être un peu ailleurs. La **netteté** et la **rondeur** sont des nombres décrivant le sommet. Si un nombre ne peut pas être calculé, le carnet le dit. Il ne remplace pas l'inconnu par zéro.
+
+Pour essayer, nous fabriquons douze petites images entièrement inventées : un point brillant, un point faible, un défaut ponctuel, une source étirée, un bord et des pixels masqués, chacun avec deux bruits prévus. Les images d'une même graine partagent le même bruit ; ce ne sont pas douze expériences indépendantes. Aucun fichier Seestar ni clé USB n'est nécessaire.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_detector_trace_demo.py local/parcours/trace-images
+.\.venv\Scripts\python.exe examples/trace_detector_decisions.py local/parcours/trace-images/manifest.json local/parcours/trace-images/truth.json local/parcours/trace-bilan
+.\.venv\Scripts\python.exe examples/plot_detector_trace.py local/parcours/trace-bilan/trace.json local/parcours/trace-figures
+```
+
+Les trois codes attendus sont **0**. Choisis des sorties nouvelles si tu recommences. La première commande fabrique les images et range les réponses à part. La deuxième remplit le carnet sans regarder les réponses, vérifie qu'elle retrouve exactement la liste habituelle, puis compare les traces à nos points connus. La troisième dessine ce carnet, sans rappeler le détecteur.
+
+Ouvre `local/parcours/trace-bilan/report.md`, puis `local/parcours/trace-figures/gates.png` et `examples.png`. Dans le tableau, chaque colonne est une image. Les nombres disent combien de points sont proches à chaque porte. Un sommet de départ et son centre sont comptés séparément.
+
+![Présence aux portes sur les douze images entièrement fictives](images/exemple-trace-portes-calcul.png)
+
+![Six situations entièrement fictives, première graine prévue](images/exemple-trace-situations.png)
+
+Le rond vert indique l'endroit que nous avons inventé : **ce n'est pas une détection**. Orange montre un sommet proposé ; cyan montre un centre conservé ; rose montre un centre retiré. Le même point peut ne pas passer plusieurs règles. Les noms « faible », « étiré » ou « masqué » décrivent comment nous avons fabriqué l'image : ils ne promettent pas le résultat du détecteur.
+
+S'il n'y a aucun sommet brut proche, nous gardons cette information sans inventer sa cause. Cela ne prouve pas que le point est trop faible, qu'un voisin le cache ou que le seuil est mauvais. Une source proche n'est pas forcément notre ajout. Nous regardons aussi à trois pixels pour garder le contexte ; cela ne change aucun réglage.
+
+Les [explications détaillées](TRACE-DETECTEUR.md) montrent comment appliquer cette trace aux résultats déjà locaux. Cette mission relit les pixels, contrairement à la mission précédente. Elle ne crée aucune nouvelle trajectoire. Une erreur, une version incompatible ou une différence avec les positions gardées doit arrêter le bilan ; conserve le message et le dossier partiel, puis utilise une nouvelle sortie après correction. Les dessins refusent une trace incomplète.
+
+Sur les 17 ajouts manqués du fond réel, le carnet regarde huit photos pour chacun : cela fait 136 situations à observer. Il retrouve les mêmes listes finales. Dans 115 situations, aucun sommet brut n'est proposé assez près ; dans 21, un centre proche est conservé. Nous n'observons pas de rejet de forme ou de marge proche pour ce lot. Cela **ne prouve pas pourquoi les 115 sommets manquent**. Les mêmes photos servent plusieurs fois et ces 136 situations ne sont pas 136 expériences indépendantes. Aucun nouveau mobile n'est découvert.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -684,3 +716,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *Les injections ajoutent 19 tests fictifs, soit 357 tests réussis depuis le commit propre `7c663f7`. Les cinq nouvelles commandes ont réussi dans des dossiers neufs : mêmes 296 dérivés et 37 résultats gelés par fond, mêmes bilans et figures. Le fond fictif donne 12/36 points artificiels retrouvés, les dérivés du fond réel 10/36, avec témoin naturel inchangé et copies intactes. Les 48 commandes antérieures gardent leurs preuves, sans être toutes rejouées. Cela vérifie la reproduction de l'exercice, pas sa compréhension par un enfant ou une validation scientifique universelle.*
 
 *Le diagnostic ajoute 24 tests fictifs, soit 381 tests réussis depuis le commit propre `234c439`. Ses deux commandes donnent 0 sur les résultats de l'exercice déjà préparé. Les diagnostics des 36 ajouts de chaque fond et les figures sont reproduits à l'identique ; les scores, candidats et photos restent intacts. Les 53 commandes précédentes gardent leurs preuves sans être toutes rejouées. Aucune recherche ou injection réelle n'est relancée et aucune compréhension par un enfant ou qualification scientifique indépendante n'est revendiquée.*
+
+*Le carnet du détecteur ajoute 42 tests fictifs, soit **423 tests réussis** en 139,60 secondes depuis le commit propre `f6ec207`. Ses trois commandes donnent 0 dans de nouveaux dossiers : les douze images, les douze traces et les deux PNG sont identiques. Sur le fond réel déjà local, les 136 listes et traces des 17 cas sont reproduites, avec les anciens scores et candidats préservés, sans accès USB ou nouvelle injection. Les 55 commandes précédentes conservent leurs preuves sans être toutes rejouées. Les trois agents et leur coordinateur ont fait une revue interne, sans test de compréhension avec un enfant ou qualification scientifique indépendante.*

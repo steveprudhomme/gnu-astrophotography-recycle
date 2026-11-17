@@ -118,3 +118,7 @@ Le [lot 18](INJECTIONS-SEESTAR.md) emploie [NumPy load](https://numpy.org/doc/st
 ## Diagnostic des positions après score
 
 Le [lot 19](DIAGNOSTIC-MANQUES.md) s'appuie sur les tableaux, scores et recettes gelés du projet : [moteur de mobiles](../src/gar/moving.py), [recette d'injection](../examples/injection_recovery.py) et [diagnostic](../examples/diagnose_injection_misses.py). Rayons de proximité 1,5/3 pixels, comparaison des supports, catégories et règle des exemples sont des choix du protocole prépublié ; ce ne sont pas de nouveaux réglages du détecteur ou une prescription instrumentale. Le diagnostic ne rejoue pas les critères internes du détecteur et ne démontre pas la cause physique d'une absence de point enregistré. Les bibliothèques et versions restent inchangées.
+
+## Trace interne du détecteur gelé
+
+Le [lot 20](TRACE-DETECTEUR.md) a consulté le 17 novembre 2026 la [source officielle de DAOStarFinder 3.1.1](https://photutils.readthedocs.io/en/3.1.1/_modules/photutils/detection/daofinder.html), ainsi que les fichiers de cette même version installée. La détection des maxima précède les critères de finitude, de position et de forme ; le projet applique ensuite sa marge habituelle. Le seuil porte sur une image convoluée, avec un facteur interne lié au noyau. Une absence de maximum proposé ne suffit donc pas à attribuer une cause physique ou un unique filtre. Les empreintes de bibliothèque et les sorties comparées au moteur identifient précisément le rejeu ; les rayons de proximité et le banc fictif sont des choix du protocole du projet.

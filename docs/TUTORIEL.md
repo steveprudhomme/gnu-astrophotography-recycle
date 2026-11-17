@@ -1121,3 +1121,63 @@ Deux premiers tests partageaient une même liste de coordonnées entre étapes ;
 La reproduction a abouti depuis le commit propre **`234c439`** : **381 tests en 120,42 secondes**, deux nouvelles commandes aux codes 0, mêmes diagnostics des 36 injections de chaque fond, mêmes bilans (24 manques fictifs, 26 sur fond réel) et trois figures identiques pour chaque fond. Les scores, candidats, dérivés, copies et cinq médias CC0 sont intacts ; aucun appel de recherche/analyse de pixels pour le diagnostic, accès externe/réseau ou écriture FITS/NPY n'est enregistré. Les 193 fichiers publics et 43 ancres Markdown sont contrôlés.
 
 Les 53 commandes antérieures conservent leurs preuves sans être toutes rejouées ; aucune nouvelle injection réelle n'est générée. La provenance du nouveau diagnostic change avec le commit, sans présenter tous les rapports comme identiques octet pour octet. L'intégration passe par la [PR nº 2](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/2) vers `main`, avec revue interne des 20 fichiers et fusion conservant le commit de planification. Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré. Le contrôle distant vérifie ensuite la publication. La version reste 0.10.0a1 ; aucun essai avec un enfant, sur ordinateur vierge ou validation scientifique indépendante n'est annoncé.
+
+## 26. Tracer les portes internes du détecteur inchangé
+
+Le plan [**`08219f0`**](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/08219f018968d05479248fab4277144f8c93d45a) et le fonctionnement autonome ont été committés, publiés et contrôlés avant le code. Trois agents travaillent sur des fichiers distincts : recettes de diagnostic, tests et nouveau banc fictif, documentation et dessins. Le coordinateur intègre les résultats et contrôle la publication. Leur revue reste interne et ne vaut pas validation scientifique indépendante.
+
+### Pourquoi ouvrir un nouveau carnet ?
+
+Le lot 19 lisait des tableaux gelés sans analyser les pixels. Il constatait que 17 ajouts dans le domaine manquaient déjà de points proches à la sortie du détecteur. Cette sortie avait pourtant passé des critères internes qu'il ne voyait pas. Le lot 20 **rejoue le même détecteur pour tracer ces critères**, sans changer les seuils ni refaire les associations de trajectoires.
+
+![Schéma conceptuel des portes internes, sans observation réelle](images/exemple-trace-portes.svg)
+
+Le carnet garde les maxima bruts proposés par Photutils 3.1.1, leurs centres et mesures de forme, les valeurs non finies, les motifs cumulés de rejet et la marge finale. Il conserve masque, fond/bruit et paramètres du moteur. Le seuil effectif interne est enregistré séparément du seuil d'entrée ; ni l'un ni l'autre n'est un pic de source ou une magnitude limite. L'accès à l'interface interne est isolé et vérifié pour cette version.
+
+La reconstitution des portes doit retrouver la sortie du détecteur. Pour les caches du pilote, cette sortie doit aussi correspondre aux positions déjà enregistrées, à 10⁻⁹ pixel près pour la sérialisation. Une divergence bloque le bilan ; aucune position n'est ajustée pour réussir. Les maxima sont proposés sans fournir les réponses au chercheur, puis les traces sont comparées aux ajouts connus. Les rayons natifs 1,5 et 3 pixels restent ceux du diagnostic ; graine du maximum et centre mesuré restent distincts.
+
+### Trois commandes sur un nouveau banc fictif
+
+Douze images 96 × 96, six situations et graines 2026111701/2026111702, sont indépendantes des positions réelles. Le bruit est apparié entre les situations d'une même graine. Nous conservons les cas faible/brillant, défaut ponctuel, étiré, bord et masqué, sans transformer leurs noms en résultats attendus obligatoires.
+
+```powershell
+.\.venv\Scripts\python.exe examples/make_detector_trace_demo.py local/exercice-trace-images
+.\.venv\Scripts\python.exe examples/trace_detector_decisions.py local/exercice-trace-images/manifest.json local/exercice-trace-images/truth.json local/exercice-trace-bilan
+.\.venv\Scripts\python.exe examples/plot_detector_trace.py local/exercice-trace-bilan/trace.json local/exercice-trace-figures
+```
+
+Les trois codes attendus sont 0 sur le banc complet. Le générateur écrit un manifeste, douze NumPy fictifs et les réponses séparées. La trace examine toutes les images avant la lecture des réponses et écrit `trace.json` et `report.md`. Les dessins reprennent seulement les traces complètes et les pixels d'affichage, sans rappeler le détecteur ; `figures.json` conserve les empreintes des figures. Les nouvelles sorties ne doivent pas déjà exister.
+
+![Présences proches à chaque porte, calculées sur les douze images fictives](images/exemple-trace-portes-calcul.png)
+
+![Les six situations fictives de la première graine prévue](images/exemple-trace-situations.png)
+
+*Les images sont calculées, sans fausse capture. Rond vert : position inventée connue, pas une détection ; orange : sommet proposé ; cyan : centre conservé ; rose : centre rejeté. Les deux figures viennent du banc entièrement fictif. Le schéma des portes est conceptuel. Un sommet et son centre peuvent être à des endroits différents ; une présence proche n'établit pas une identité.*
+
+Les trois commandes ont abouti avec les codes 0 sur ce nouveau banc. Les douze listes finales sont identiques au détecteur habituel. Aux deux rayons : deux brillants retenus, deux rejets de netteté sur les défauts, deux rejets de rondeur sur les étirés et deux rejets de marge aux bords. Les deux faibles et les deux masqués n'ont pas de maximum brut proche. Les figures ont été inspectées visuellement ; leurs noms de scénario ne remplacent pas ces constats mesurés et ne prouvent pas une cause générale.
+
+### Reprendre les rapports locaux existants
+
+```powershell
+.\.venv\Scripts\python.exe examples/trace_scored_misses.py local/exercice-injections-bilan/score.json local/exercice-diagnostic-manques/diagnostic.json local/exercice-trace-manques
+```
+
+Ces chemins sont ceux de l'exercice fictif, pas des observations. La recette valide les rapports liés et les 37 résultats gelés avant de lire les réponses, puis travaille sur les dérivés déjà locaux. Elle ne recalcule ni modèles, association, filtre stationnaire ou injection réelle. Les copies, scores et candidats sont préservés ; les nouveaux rapports détaillés réels restent ignorés sous `local/`. Aucun accès USB ou réseau d'analyse n'est nécessaire.
+
+Le rejeu réel des 17 manques représente 136 situations image-ajout, avec listes finales identiques aux positions gelées. Aux deux rayons, 115 situations n'ont aucun maximum brut proche et 21 ont un centre retenu proche ; aucun rejet de forme ou de marge proche n'est observé dans ce lot. Nous localisons donc une absence amont, sans démontrer la cause de cette absence. Les mêmes huit fonds sont réutilisés ; ces 136 situations ne sont pas des expériences indépendantes. Les neuf exclusions de vitesse et les dix récupérations restent inchangées, de même que le témoin naturel sans candidat.
+
+### Garder les inconnues visibles
+
+L'absence de maximum brut proche reste une absence observée à cette porte. Elle ne démontre pas à elle seule un signal trop faible, un seuil trop élevé, un effet de séparation ou une confusion. Les critères de forme peuvent se cumuler ; ils décrivent des décisions numériques, pas nécessairement une cause physique. Les colonnes d'une même série ne constituent pas des essais indépendants et ce banc ne qualifie pas la sensibilité du Seestar.
+
+Une entrée modifiée ou incompatible, une divergence du rejeu ou une erreur donne un refus et peut laisser une sortie partielle. Conserver cet essai ; corriger la cause puis choisir une nouvelle sortie. Un état incomplet ne peut pas être dessiné comme terminé. La [nouvelle mission dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--ouvrir-le-carnet-du-détecteur) et les [détails de la trace](TRACE-DETECTEUR.md) expliquent les mots, commandes et limites. Aucun essai de compréhension avec un enfant ou sur ordinateur vierge n'est revendiqué.
+
+Les 42 nouveaux cas fictifs passent en 25,32 secondes. La revue interne des trois agents a notamment renforcé les refus de protocoles incomplets, la comparaison en coordonnées natives et la cohérence des dessins. Les refus Windows des premiers dossiers temporaires ont été conservés ; une relance autorisée a réussi, sans changer le moteur. Le premier parcours de trois commandes a les codes 0. Sur le banc, les deux rayons donnent deux points retenus, quatre rejets de forme, deux de marge et quatre absences de maximum proche. Les schémas et figures ont été inspectés ; ce bilan ne constitue pas une qualification instrumentale.
+
+### Vérification finale et publication
+
+Depuis le commit propre **`f6ec207`**, les **423 tests passent en 139,60 secondes**. Les trois nouvelles commandes du parcours ont été extraites du guide et exécutées dans des dossiers neufs : codes 0, douze images et traces identiques, deux figures PNG identiques par empreinte. Le rejeu protégé réel reproduit les 17 cas et leurs 136 traces, toujours 115 absences de maximum brut proche et 21 points retenus aux deux rayons. Les positions, anciens scores/candidats, dérivés, copies et cinq médias CC0 restent intacts ; 360 entrées et notices/médias sont contrôlés.
+
+Les gardes relèvent zéro appel d'association, filtre stationnaire ou injection, zéro accès externe/réseau et zéro écriture FITS/NPY. Le détecteur relit les pixels autorisés pour cette trace ; les dessins ne le rappellent pas. Les 202 fichiers publics, les 44 ancres, les notices et les liens sont revus. Les 55 anciennes commandes gardent leurs preuves sans être toutes rejouées ; aucune nouvelle injection réelle n'est créée. Branche dédiée, PR et revue interne précèdent l'intégration puis le contrôle distant ; les tests sont locaux, aucun contrôle automatique GitHub n'est configuré. Les trois agents n'apportent pas une validation scientifique indépendante et aucun essai avec un enfant ou sur Windows vierge n'est revendiqué.
+
+La [PR nº 3](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/3) permet de relire les 24 fichiers modifiés. La fusion conserve le commit du plan publié avant code, puis le coordinateur vérifie le commit sur GitHub et la copie locale de `main`.

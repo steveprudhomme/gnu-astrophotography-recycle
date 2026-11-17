@@ -28,6 +28,8 @@ Le [lot 19](DIAGNOSTIC-MANQUES.md) lit ensuite les positions gelées sans change
 
 Ses 24 nouveaux tests entièrement fictifs portent la suite à **381 tests réussis**. La reproduction depuis `234c439` conserve les diagnostics des 36 injections de chaque fond et les figures, sans régénérer les injections ou modifier les anciens résultats.
 
+Le [lot 20](TRACE-DETECTEUR.md), plan `08219f0` et mandat des trois agents publiés avant code, trace les décisions internes du détecteur. Les 136 listes des 17 manques sont reproduites : 115 images sans maximum brut proche et 21 avec point retenu aux deux rayons, sans rejet de forme ou de marge proche observé. Les causes amont restent non départagées. Un banc de douze images indépendamment inventées illustre les portes ; 42 nouveaux tests portent la suite à **423 tests réussis en 139,60 s**. Reproduction depuis le commit propre `f6ec207` : trois commandes aux codes 0, douze images/traces et deux figures identiques, 136 traces réelles identiques, copies/scores/candidats intacts. Les rapports restent locaux, les nouvelles figures publiques sont fictives, sans modification des seuils ou nouvel accès USB. La mission autonome est bornée dans AGENTS et la revue des agents reste interne.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants

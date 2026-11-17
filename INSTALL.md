@@ -164,6 +164,8 @@ Le [diagnostic des manques](docs/DIAGNOSTIC-MANQUES.md) ajoute deux recettes ave
 
 ## Distribution portable prévue
 
+Le [lot de trace interne](docs/TRACE-DETECTEUR.md) utilise les mêmes dépendances, notamment **Photutils 3.1.1**, sans mise à jour. Son accès aux fonctions internes est isolé et contrôlé par les empreintes des sources installées ; une bibliothèque différente est refusée. Le banc fictif se fabrique, se trace puis se dessine dans trois nouveaux dossiers sous `local/`. Le rejeu sur caches existants demande un score complet et son diagnostic du lot 19. Il réanalyse les pixels pour expliquer les décisions du détecteur, sans modifier les seuils, recalculer les trajectoires ou remplacer les candidats. Les erreurs donnent le code 1 ; les dossiers existants ne sont pas écrasés. Les commandes et limites sont détaillées dans le nouveau tutoriel.
+
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.
 
 Validation obligatoire sur un compte standard Windows 11 : extraction dans un chemin avec espaces et accents, lancement sans Python installé, réseau désactivé, traitement du pilote, sortie contrôlée en cas de disque plein ou d’absence de droits d’écriture. L’objectif « portable » ne sera annoncé comme acquis qu’après ces essais.
