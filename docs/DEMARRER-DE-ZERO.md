@@ -93,7 +93,7 @@ New-Item -ItemType Directory -Path local/parcours -Force
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-**Tu dois voir :** `241 passed` pour cette version et `No broken requirements found.` La première phrase signifie que les 241 contrôles logiciels ont réussi. Elle ne certifie pas un télescope ou son horloge.
+**Tu dois voir :** `260 passed` pour cette édition et `No broken requirements found.` La première phrase signifie que les 260 contrôles logiciels ont réussi, y compris ceux du nouveau banc d’essai. Elle ne certifie pas un télescope ou son horloge. L’application reste en version 0.10.0a1 : les nouvelles recettes d’essai ne changent pas son moteur.
 
 La première ligne prépare les boîtes `local` et `parcours` pour les essais. `-Force` permet de garder ces dossiers s’ils existent déjà ; cette commande ne vide pas leur contenu. Il faut les créer avant les tests : le programme de test ne crée pas tout seul les dossiers parents de son espace temporaire.
 
@@ -245,6 +245,62 @@ Ouvre `moving-demo.gif` dans ce nouveau dossier. Les lignes colorées relient le
 
 *Données entièrement synthétiques, sans capture d’écran. Les secondes et vitesses de cet exercice sont fictives. Voir un point bouger dans ce jeu n’est pas découvrir un objet astronomique réel.*
 
+## 13 bis. Mission : trouver les limites du chercheur
+
+Un chercheur automatique peut se tromper. Nous allons lui donner de nouvelles images inventées, sans changer ses règles pour lui donner une meilleure note. Imagine un jeu où tu caches cinq billes : **5/5** veut dire « cinq retrouvées sur cinq cachées ». **0/5** est aussi une réponse utile : nous avons trouvé une difficulté.
+
+Prévois environ 260 Mo pour les images fictives, plus les rapports. Reste dans le dossier du projet et garde les outils de dessin installés à l’étape 4. Aucun exercice ne demande une clé USB.
+
+### Fabriquer, mesurer, puis dessiner
+
+Écris une ligne à la fois et attends la fin avant la suivante :
+
+```powershell
+.\.venv\Scripts\python.exe examples/moving_limits.py make local/parcours/limites-entree
+.\.venv\Scripts\python.exe examples/moving_limits.py run local/parcours/limites-entree/suite.json local/parcours/limites-rapport
+.\.venv\Scripts\python.exe examples/plot_moving_limits.py local/parcours/limites-entree/suite.json local/parcours/limites-rapport/limits.json local/parcours/limites-figures
+```
+
+La première ligne **fabrique** 120 petites séquences, soit 960 images. La deuxième les **examine** avec les règles inchangées et range ses observations. La troisième **dessine** quatre images et un petit film. Le nombre de retour 0 signifie ici que l’essai a été produit, pas que tous les objets ont été retrouvés.
+
+**Tu dois voir :** un message annonçant les 120 séquences analysées, puis les figures. Ouvre `local/parcours/limites-rapport/report.md` pour lire les résultats et `local/parcours/limites-figures/limits-grid.png` pour voir la première carte.
+
+### Lire la carte des objets retrouvés
+
+Dans l’image suivante, les lignes changent la lumière du point et les colonnes changent sa vitesse. **ADU** est simplement le nombre utilisé ici pour la lumière dans nos images fictives : un pic de 120 est plus lumineux qu’un pic de 12. Ce n’est pas une magnitude d’étoile réelle.
+
+![Chaque case indique combien de points fictifs sont retrouvés sur cinq essais](images/limites-detecteur-grille.png)
+
+*Graphique réellement calculé, entièrement synthétique. Les zéros sont conservés.*
+
+**À remarquer :** les points à 0,03 pixel par seconde fictive ne sont jamais retrouvés. Ils bougent trop lentement pour les règles de ce chercheur. Les points les plus faibles sont aussi difficiles à retrouver. Le 1/5 ne nous permet pas de deviner ce qui arriverait dans tous les autres essais.
+
+### Ajouter du « grain » dans l’image
+
+Le bruit ressemble aux petits grains qui gênent la lecture d’une photo. Nous avons essayé le même point avec quatre quantités de bruit. Le mot **sigma** indique ici la taille habituelle de ces petites variations.
+
+![Le même mobile fictif devient difficile à retrouver quand le bruit augmente](images/limites-detecteur-bruit.png)
+
+**À attendre :** 5/5 retrouvés pour les bruits 2 et 4, puis 0/5 pour 8 et 16. Ce sont les résultats de ces images inventées, pas une règle universelle pour le télescope.
+
+### Et si toute l’image glisse ?
+
+Imagine des étoiles dessinées sur une feuille : si tu déplaces la feuille, toutes les étoiles semblent bouger. Le chercheur peut alors les prendre pour les mobiles que nous cherchons. Nous appelons cela de **faux candidats**.
+
+Ouvre `local/parcours/limites-figures/limits-comparison.gif` :
+
+![À gauche les images sont alignées ; à droite le champ fictif glisse et des étoiles deviennent de faux candidats](images/limites-detecteur-animation.gif)
+
+Le cercle vert montre le mobile que nous avons caché : c’est la réponse connue, ajoutée au dessin **après** la recherche. Les croix orange montrent les autres candidats trouvés par le programme. À droite, la dérive de 0,15 pixel/s donne 40 faux candidats sur cette séquence ; sur les cinq séquences de cette condition, il y en a 200.
+
+**Attention à l’expérience :** le chercheur attend des images déjà alignées. Nous avons volontairement cassé cette règle pour comprendre sa limite. Il n’a pas encore remis les images en place dans cette mission. Un prochain travail pourra comparer le résultat avant et après cette remise en place, appelée **recalage**.
+
+![Bilan des images alignées, dérives et rotations fictives](images/limites-detecteur-geometrie.png)
+
+Les essais sans mobile donnent zéro faux candidat, mais cela ne prouve pas que le programme ne se trompera jamais. Cinq répétitions par situation restent un petit exercice. Pour tous les détails et les fichiers, lis [les limites du détecteur](LIMITES-DETECTEUR.md) ou la [section 18 du tutoriel](TUTORIEL.md#18-tester-les-limites-sans-changer-les-règles).
+
+**Si une étape échoue :** conserve son message et le dossier créé. Le fichier `progress.json` permet de voir les lots terminés ; `incomplete` veut dire que l’exercice n’est pas fini. Choisis de nouveaux noms pour reprendre, sans effacer les résultats précédents.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -260,6 +316,7 @@ Tu as maintenant installé l’application entière depuis ses recettes publique
 | `moving.py` | Détecter puis associer les points des images fictives |
 | Fichiers `*_reports.py` | Écrire les carnets de résultats |
 | `examples/` et `tests/` | Fabriquer les essais et vérifier les recettes |
+| `examples/moving_limits.py` | Essayer les limites, en gardant le chercheur inchangé |
 
 Le [tutoriel de référence](TUTORIEL.md) raconte les décisions et les critères avant chaque lot de code. Les contrats expliquent les formats exacts. Pour apprendre à modifier l’application, commence par une copie de travail du code et un petit changement d’explication ; fais les contrôles avant de proposer ce changement. Tu n’as pas besoin de publier des observations personnelles pour apprendre.
 
@@ -279,4 +336,4 @@ Le [tutoriel de référence](TUTORIEL.md) raconte les décisions et les critère
 
 L’installation initiale et la récupération du code peuvent utiliser Internet. Les exercices d’analyse ci-dessus restent locaux. Les générateurs créent de fausses images ; aucun exercice ne demande une clé USB ou une connexion au télescope. L’application portable et les usages scientifiques réels demandent encore des travaux et validations supplémentaires.
 
-*Vérification de cette édition : reconstruction réussie depuis une copie propre du dépôt, dans un nouvel environnement Python ; dépendances cohérentes, 241 tests réussis et 24 commandes de version, génération, analyse et tracé des missions exécutées dans des dossiers fictifs neufs. Les codes de retour attendus ont été contrôlés, y compris la création du GIF. Cela ne remplace pas encore un essai par un enfant débutant sur un ordinateur vierge.*
+*Vérification de l’édition précédente : reconstruction depuis une copie propre du dépôt, nouvel environnement Python, 241 tests et 24 commandes réussis. Le complément « limites » ajoute 19 contrôles, soit 260 tests, et trois commandes pédagogiques ; leur reproduction est vérifiée avant publication. Cela ne remplace pas un essai par un enfant débutant sur un ordinateur vierge.*

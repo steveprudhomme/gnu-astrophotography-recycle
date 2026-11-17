@@ -51,3 +51,7 @@ Les figures PNG et GIF sont facultatives, avec les outils de `requirements/figur
 Le tracé lit les pixels synthétiques et les candidats gelés ; il produit bilan, image et GIF de huit images, sans modifier les entrées. Le générateur graphique vérifie correspondance du manifeste et empreintes des images illustrées. Les images publiques indiquent leur nature fictive ; aucune capture d’écran n’est fabriquée. `clock_qualified`, `real_data_performance_validated` et `scientific_submission_certified` restent faux.
 
 Bibliothèques utilisées : [Photutils DAOStarFinder](https://docs.astropy.org/projects/photutils/en/stable/api/photutils.detection.DAOStarFinder.html), [SciPy, appariement un-à-un](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html). Les choix de filtres, trajectoires et critères sont propres à ce prototype du projet.
+
+## Expérience complémentaire sur les limites
+
+Le [lot de limites](LIMITES-DETECTEUR.md), plan publié `6f3e6c5`, réutilise ce moteur sans changement sur 120 séquences fictives et cinq nouvelles graines. Les quatre lots ne satisfont pas la définition de la suite initiale complète : les deux verdicts natifs restent faux, et l’agrégation distincte est descriptive. Les cas non alignés sont des stress hors domaine, sans exécution du recalage ; les étoiles entraînées peuvent devenir des faux candidats. Le contrat initial et ses seuils restent inchangés. Le [parcours pédagogique](DEMARRER-DE-ZERO.md#13-bis-mission--trouver-les-limites-du-chercheur) explique la différence avec des images et un GIF.

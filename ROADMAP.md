@@ -327,3 +327,12 @@ Plan du 17 novembre 2026 : **committer et publier ce plan sur GitHub avant de co
 - LDM9 : vérifier la reproductibilité, les commandes pédagogiques, les figures et la confidentialité ; actualiser README, contrats, validation et autres Markdown concernés. Commit de réalisation puis publication GitHub vérifiée. Seuls le code, le protocole et les illustrations synthétiques choisies sont publiés, sans FITS ou rapports privés. Décider du prochain lot à partir des limites observées, sans modifier rétroactivement ces essais.
 
 Livrable : une carte descriptive des limites du **moteur inchangé**, avec tous les échecs et faux candidats visibles. L’horloge réelle, le budget d’erreur absolue, la photométrie et les exports scientifiques ne sont pas qualifiés par ce lot. Le logiciel reste en version 0.10.0a1 si seules les recettes du banc d’essai et la documentation évoluent.
+
+Réalisation du lot 12, plan préalable publié **`6f3e6c5`** :
+
+- LDM1–LDM5 — faits : moteur et rapports natifs inchangés, empreintes vérifiées ; 120 séquences, 960 images, 110 injections, cinq nouvelles graines et conditions gelées respectées. Aucun accès USB ni FITS réel.
+- LDM6 — fait : bilans descriptifs par condition/graine, aucune réussite globale fabriquée. Dans la grille, 0/5 à vitesse 0,03 pour chaque pic ; à 12 ADU, un seul mobile retrouvé sur les vingt injections. Le bruit sigma 8/16 empêche la récupération du mobile à pic 30 ; les dérives hors alignement produisent 200 faux candidats, ou 194 avec rotation, sur cinq séquences par condition. Les dix témoins en donnent zéro, sans garantie universelle.
+- LDM7/LDM8 — faits : 19 nouveaux cas, soit 260 tests réussis ; quatre PNG et un GIF de huit images issus des pixels et mesures fictifs, cadrage corrigé puis inspecté. Protocole détaillé et mission dès 10 ans illustrée, sans nouvelle dépendance ou modification du moteur.
+- LDM9 — vérification finale et publication : reproduction complète sur des dossiers neufs, commandes pédagogiques, figures, intégrité et confidentialité à vérifier après le commit de réalisation, puis publication GitHub des seuls fichiers publics. Les essais et rapports fictifs restent locaux.
+
+La limite géométrique observée motive un prochain lot distinct « recalage puis recherche », sur données fictives et contrôles réservés, à planifier avant toute implémentation. Aucun réglage du détecteur n’est effectué dans ce lot de mesure.

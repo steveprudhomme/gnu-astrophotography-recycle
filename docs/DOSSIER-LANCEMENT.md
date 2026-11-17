@@ -10,6 +10,8 @@ Mission : réutiliser les archives de poses individuelles du Seestar S50 pour pr
 
 Le [README livré](../README.md) présente la mission, la licence `GPL-3.0-or-later`, le statut Alpha 0.10, les fonctionnalités disponibles et les limites. Il donne accès au [parcours complet pour débuter dès 10 ans](DEMARRER-DE-ZERO.md), au tutoriel de référence, aux exemples synthétiques et à leur animation. Les performances sur mobiles réels, la photométrie et la distribution portable restent à développer ou valider.
 
+Le [banc de limites du lot 12](LIMITES-DETECTEUR.md) conserve le moteur 0.10 gelé : 120 séquences fictives, cinq nouvelles graines, 19 contrôles supplémentaires et **260 tests** au total. Ses graphiques et son animation expliquent les manqués faibles/lents et les faux candidats dus au déplacement commun du champ. Ces essais descriptifs ne qualifient aucune observation réelle ; le tutoriel ajoute une mission illustrée pour les reproduire.
+
 **Base de cette proposition :** objectifs des deux prompts ; publication graduée de l’information légale préconisée par GNU ; sources officielles décrivant les formats scientifiques.
 
 ## 2. Arborescence unifiée et composants

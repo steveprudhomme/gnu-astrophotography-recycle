@@ -134,6 +134,10 @@ Pour les PNG/GIF facultatifs, installer les versions graphiques testées dans **
 
 Matplotlib 3.10.8 et Pillow 13.0.0 sont facultatifs pour l’analyse, nécessaires à cet exemple de graphique/animation. Ce fichier n’est pas un verrouillage exhaustif des dépendances transitives. Le [contrat](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) précise marqueurs fictifs, limites, critères et codes. Les images réelles ne doivent pas être réétiquetées comme synthétiques.
 
+## Banc de limites synthétiques
+
+Le [banc de limites du détecteur](docs/LIMITES-DETECTEUR.md) réutilise ces mêmes dépendances et conserve l’application 0.10.0a1. Ses trois commandes fabriquent, analysent et illustrent 120 séquences fictives locales ; prévoir environ 260 Mo pour les FITS seuls. Le [parcours dès 10 ans](docs/DEMARRER-DE-ZERO.md#13-bis-mission--trouver-les-limites-du-chercheur) donne les commandes et les résultats attendus. Aucun accès USB ni outil supplémentaire n’est nécessaire.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.

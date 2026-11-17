@@ -41,6 +41,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Gaia sur poses | Comparaison des positions composées à un catalogue local, modèles gelés | Disponible ; verdict sur étoiles réservées, budget absolu incomplet |
 | Qualification scientifique complète | Budget d’erreur absolue et horodatages vérifiés | À poursuivre, phase 2 |
 | Prototype de mobiles | Trajectoires, erreurs, faux candidats et GIF sur données synthétiques | Disponible pour la recherche ; performances réelles non validées, phase 3 |
+| Limites du détecteur | Nouveau jeu de 120 séquences fictives, luminosité/vitesse/bruit/géométrie | Bilan descriptif disponible ; moteur inchangé, cas non alignés séparés |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -126,11 +127,17 @@ Pour essayer les mobiles sans observation réelle ni accès USB :
 .\.venv\Scripts\gar.exe moving-synthetic local/demo-mobiles-input/manifest.json --truth local/demo-mobiles-input/truth.json --output local/demo-mobiles-report
 ```
 
-Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **241 tests logiciels passent**. La suite fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
+Le [contrat du prototype](docs/CONTRAT-MOBILES-SYNTHETIQUES.md) explique les critères et les échecs conservés. **260 tests logiciels passent**, avec le banc de limites. La suite initiale fictive retrouve les six mobiles nominaux et trois intermittents ; cinq injections faibles ou très lentes sont manquées. Aucun résultat réel ou horodatage instrumental n’est qualifié par cet exercice.
 
 ![Animation calculée sur les images fictives du prototype, avec trajectoires mesurées](docs/images/exemple-mobiles-animation.gif)
 
 *Images entièrement synthétiques ; les lignes relient les candidats mesurés. Le [parcours débutant](docs/DEMARRER-DE-ZERO.md#13-mission--retrouver-les-points-qui-bougent) et le [tutoriel de référence](docs/TUTORIEL.md) expliquent comment reproduire l’animation.*
+
+## Explorer les limites
+
+Le [nouveau banc de limites](docs/LIMITES-DETECTEUR.md) mesure le moteur inchangé sur **120 séquences / 960 images fictives**. Les mobiles très lents sont manqués ; l’augmentation du bruit réduit la récupération. Hors de l’hypothèse d’images alignées, la dérive du champ produit de nombreux faux candidats parmi les étoiles. Les témoins et les échecs restent visibles ; aucune performance réelle n’est déduite. La [mission dès 10 ans](docs/DEMARRER-DE-ZERO.md#13-bis-mission--trouver-les-limites-du-chercheur) permet de reproduire cartes et animation, sans USB.
+
+![Carte de récupération réellement calculée sur les nouvelles images fictives](docs/images/limites-detecteur-grille.png)
 
 ## Contribuer et vérifier
 

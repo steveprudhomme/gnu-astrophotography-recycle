@@ -66,7 +66,7 @@ Une date brute sans convention confirmée n’est pas un temps de milieu de pose
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26 et le prototype de mobiles 18, soit **241 tests réussis au total**.
+L’inventaire est couvert par **25 cas** : préservation des octets, absence de chargement des pixels, types entiers avec `BZERO`, primaire vide et extensions, absence d’héritage implicite, doublons, gzip et compression en tuiles, fichiers invalides/tronqués, Bayer sur RGB, sorties dangereuses, dossiers vides, accès refusé, modification pendant lecture, liens/jonctions, CSV/JSON, valeurs non finies et appels Windows avec espaces et accents. Les séances ajoutent 42 cas, le diagnostic temporel 33, le diagnostic WCS 36, les copies vérifiées 11, la comparaison stellaire neuf, le recalage 21, le contrôle Gaia des poses 20, la préparation temporelle 26, le prototype de mobiles 18 et le banc de limites 19, soit **260 tests réussis au total**.
 
 Les tests ont révélé un problème de guillemets dans l’appel de test du lanceur Windows ; cet appel a été corrigé puis la suite relancée avec succès. Dans l’environnement de travail contrôlé, les tests de jonctions et de permissions ont nécessité une exécution avec accès au dossier temporaire ; cela ne démontre pas une exigence d’administrateur de l’application. La distribution autonome sur compte standard reste à valider.
 
@@ -691,3 +691,57 @@ La reconstruction dans une copie propre a révélé une instruction manquante : 
 Après correction : **241 tests réussis en 32,77 secondes**, dépendances cohérentes (`pip check`), puis **24 commandes de missions réussies** dans cette installation indépendante, y compris les figures et le GIF. Les sorties et traces restent privées dans `local/`. La copie a été reconstruite depuis les seuls fichiers suivis par Git, sans reprendre l’environnement ou les rapports existants ; ce contrôle ne constitue pas un essai sur un système Windows vierge ou avec un enfant.
 
 Le nouveau [guide complet pour débuter](DEMARRER-DE-ZERO.md) reprend depuis l’installation de Python/Git, l’obtention du code, la construction de l’application et l’essai de **chaque module disponible**. Il relie les dossiers aux recettes, explique les nombres de retour, donne les résultats attendus et un tableau de dépannage. Ses images sont des schémas identifiés ou des résultats synthétiques réels, sans fausse capture. Les étapes sont vérifiées sur des dossiers de travail neufs.
+
+## 18. Tester les limites sans changer les règles
+
+Le plan **`6f3e6c5`**, du 17 novembre 2026, a été committé puis publié et vérifié sur GitHub avant le code. Il gèle le moteur et les conditions de l’expérience. La [mission dès 10 ans](DEMARRER-DE-ZERO.md#13-bis-mission--trouver-les-limites-du-chercheur) explique chaque étape avec des mots simples ; le [protocole et les tableaux complets](LIMITES-DETECTEUR.md) conservent les détails et les limites.
+
+### Ce que nous changeons dans les images
+
+Une expérience utile change une condition et regarde ce qui arrive. Ici, les recettes fabriquent **120 séquences, 960 images et 110 mobiles**, avec cinq nouvelles graines. Une graine permet de refaire un tirage ; les mêmes étoiles et bruits par graine servent aux comparaisons entre conditions. Cela ne crée pas une indépendance statistique entre toutes les cases, ni une validation par une autre équipe.
+
+Nous changeons la luminosité, la vitesse, le bruit, puis le mouvement commun du champ. Nous gardons les règles du détecteur. Les cas avec dérive ou rotation sortent volontairement de son hypothèse d’images alignées : aucun recalage n’est effectué dans cet essai. Le programme ne doit pas prétendre réussir une qualification scientifique parce qu’il a terminé son calcul.
+
+### Trois commandes pour reproduire les résultats
+
+Utiliser le Python et les outils graphiques de `.venv`, depuis la racine du projet. Choisir des dossiers nouveaux et prévoir environ 260 Mo pour les images, plus les produits :
+
+```powershell
+.\.venv\Scripts\python.exe examples/moving_limits.py make local/limites-entree
+.\.venv\Scripts\python.exe examples/moving_limits.py run local/limites-entree/suite.json local/limites-rapport
+.\.venv\Scripts\python.exe examples/plot_moving_limits.py local/limites-entree/suite.json local/limites-rapport/limits.json local/limites-figures
+```
+
+`make` fabrique, `run` mesure, le dernier programme dessine. Le retour 0 de ces recettes signifie que la tâche demandée a abouti ; il ne promet pas 110 mobiles retrouvés. Une sortie existante est refusée. Les résultats sont dans `report.md`, `limits.json` et `sequences.csv`. Les quatre sous-dossiers conservent les rapports natifs ; leurs verdicts de suite initiale complète restent faux car ce ne sont pas les 18 séquences initiales. `progress.json` indique les lots terminés ; un arrêt garde les produits partiels et ne produit pas de bilan complet. Reprendre dans une nouvelle sortie.
+
+### Lire les images et conserver les échecs
+
+![Carte des nombres réellement retrouvés et des faux candidats sur le jeu fictif](images/limites-detecteur-grille.png)
+
+*Chaque case correspond à cinq répétitions fictives. Pics en ADU au-dessus du fond, vitesses en pixels par seconde inventée ; aucune magnitude ou frontière universelle de détection.*
+
+À 0,03 pixel/s, tous les mobiles sont manqués, même brillants : le filtre stationnaire et la borne de vitesse limitent la recherche. À pic 12 ADU, un seul est retrouvé parmi les 20 injections de la grille ; le petit échantillon ne décrit pas une courbe monotone de sensibilité. À pics 30 et 120, les trois vitesses restantes donnent chacune 5/5. Aucun faux candidat dans la grille.
+
+![Même pic et même vitesse, quatre niveaux de bruit fictif](images/limites-detecteur-bruit.png)
+
+À pic 30 ADU et vitesse 0,5 pixel/s, les bruits sigma 2 et 4 donnent 5/5 ; sigma 8 et 16 donnent 0/5. Le bruit ici est gaussien et ajouté au modèle, sans étalonnage du capteur S50. Le rapport pic/bruit n’est pas un rapport signal/bruit photométrique.
+
+![Bilan descriptif de la géométrie ; les cas non alignés sont hors domaine](images/limites-detecteur-geometrie.png)
+
+Les six conditions géométriques retrouvent chacune 5/5 mobiles, mais la dérive 0,15 produit **200 faux candidats**, et la combinaison avec rotation en produit **194**, sur cinq séquences chacune. Ce sont principalement des étoiles entraînées par le déplacement du champ : les points existent dans les pixels, mais ne sont pas les mobiles injectés recherchés. Les zéros des autres conditions, dont les petites rotations, ne prouvent pas une tolérance générale aux défauts d’alignement.
+
+![Dernière image de la graine 101 : images alignées et champ entraîné, candidats mesurés](images/limites-detecteur-comparaison.png)
+
+![Animation réellement calculée sur huit images fictives du même champ](images/limites-detecteur-animation.gif)
+
+*Comparaison fixée à la graine 101, sans choisir après coup une réalisation favorable. Cercle vert : réponse connue, dessinée après la détection ; croix bleue : candidat apparié ; croix orange : faux candidat de l’exercice. À droite, 40 étoiles entraînées deviennent 40 faux candidats sur cette séquence. Aucun FITS réel et aucune capture d’écran fabriquée.*
+
+Les dix témoins sans mobile donnent zéro faux candidat, y compris avec pixels chauds, flashs indépendants et courte trace sur deux images. Leur rappel est indéfini (0/0). Dix témoins et cinq répétitions par condition ne suffisent pas à démontrer une probabilité universelle de succès ou un taux réel nul de fausses alertes.
+
+### Vérifications, provenance et suite du projet
+
+Les empreintes du texte des deux sources gelées sont vérifiées avant/après ; les FITS, manifestes, vérité, protocole et rapports sont conservés avec leurs empreintes. Les candidats sont construits avant lecture des réponses par le moteur. Les erreurs de position/vitesse ne portent que sur les objets appariés ; les manqués restent comptés, sans erreur numérique inventée. Les taux de faux candidats utilisent la couverture temporelle fictive de 70 secondes, pas une durée de pose instrumentale.
+
+Les 19 nouveaux cas et toute la suite passent : **260 tests en 26,38 secondes** lors de la vérification du lot. Ils contrôlent notamment géométrie connue, génération appariée reproductible, gel du moteur, agrégation, intégrité et interruption conservant les produits partiels. Les premières figures coupaient des légendes ; leur mise en page a été corrigée et les images réexaminées, sans changer les résultats. Les huit images du GIF et la reproduction des commandes sont vérifiées avant publication ; tous les jeux FITS et rapports restent sous `local/`.
+
+L’application reste 0.10.0a1, sans nouvelle dépendance ni changement du moteur. La priorité mise en évidence est de **tester le recalage avant la recherche de mobiles**, dans un prochain lot synthétique avec critères fixés à l’avance et étoiles de contrôle réservées. Ni cette conclusion ni les tests logiciels ne qualifient les horodatages réels, les positions célestes ou les performances sur le Seestar. L’autorisation de lecture USB n’a pas été utilisée : ce lot travaille uniquement sur les fichiers fictifs locaux.
