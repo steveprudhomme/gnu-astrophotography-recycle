@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="760" viewBox="0 0 1480 760" role="img" aria-labelledby="title desc">
+ <title id="title">Les portes du détecteur inchangé</title>
+ <desc id="desc">Schéma conceptuel, sans observation réelle : pixels, maxima proposés, contrôle des valeurs et de la forme, marge, points retenus. L'absence d'un maximum reste une cause inconnue.</desc>
+ <rect width="1480" height="760" fill="#f5f7fb"/>
+ <g font-family="DejaVu Sans,Arial,sans-serif" fill="#14243b">
+ <text x="64" y="66" font-size="34" font-weight="bold">Pourquoi un petit point n'arrive-t-il pas jusqu'à la liste ?</text>
+ <text x="64" y="106" font-size="21">SCHÉMA CONCEPTUEL · les règles du détecteur restent les mêmes</text>
+ <g stroke="#b5c6dc" stroke-width="2" fill="white">
+  <rect x="64" y="162" width="275" height="282" rx="18"/>
+  <rect x="421" y="162" width="275" height="282" rx="18"/>
+  <rect x="778" y="162" width="275" height="282" rx="18"/>
+  <rect x="1135" y="162" width="281" height="282" rx="18"/>
+ </g>
+ <g fill="#2460a8" font-size="25" font-weight="bold">
+  <text x="88" y="205">1. Chercher</text><text x="445" y="205">2. Examiner</text>
+  <text x="802" y="205">3. Garder</text><text x="1159" y="205">4. Comparer</text>
+ </g>
+ <g font-size="20">
+  <text x="88" y="252">Le programme propose</text><text x="88" y="283">des sommets lumineux</text><text x="88" y="314">dans les pixels.</text>
+  <text x="88" y="367">Un sommet proposé</text><text x="88" y="398">est un « maximum brut ».</text>
+  <text x="445" y="252">Ses nombres sont-ils</text><text x="445" y="283">calculables ? Sa forme</text><text x="445" y="314">passe-t-elle les règles ?</text>
+  <text x="445" y="367">Netteté et rondeur</text><text x="445" y="398">peuvent retirer un point.</text>
+  <text x="802" y="252">Le centre est-il assez</text><text x="802" y="283">loin des bords ?</text>
+  <text x="802" y="367">On retrouve exactement</text><text x="802" y="398">la liste déjà enregistrée.</text>
+  <text x="1159" y="252">Après le rejeu, regarder</text><text x="1159" y="283">près de notre ajout</text><text x="1159" y="314">connu dans l'exercice.</text>
+  <text x="1159" y="367">Proche ne signifie</text><text x="1159" y="398">pas le même objet.</text>
+ </g>
+ <g stroke="#2460a8" stroke-width="4" fill="#2460a8">
+  <path d="M354 300H403m-14-10 14 10-14 10" fill="none"/>
+  <path d="M711 300H760m-14-10 14 10-14 10" fill="none"/>
+  <path d="M1068 300H1117m-14-10 14 10-14 10" fill="none"/>
+ </g>
+ <rect x="64" y="492" width="1352" height="124" rx="18" fill="#fff0cf"/>
+ <text x="88" y="532" font-size="24" font-weight="bold">Aucun maximum brut proche ? Nous gardons « inconnu ».</text>
+ <text x="88" y="570" font-size="21">Ce constat seul ne dit pas si le signal est faible, décalé, masqué ou influencé par un voisin.</text>
+ <text x="64" y="676" font-size="22" font-weight="bold">Rejouer pour comprendre ne crée aucune nouvelle trajectoire.</text>
+ <text x="64" y="714" font-size="20">Les positions finales doivent correspondre aux résultats conservés ; sinon, le bilan est refusé.</text>
+ </g>
+</svg>

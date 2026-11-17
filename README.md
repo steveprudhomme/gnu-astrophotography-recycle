@@ -49,6 +49,7 @@ Le projet est indépendant et ne revendique aucune affiliation officielle au pro
 | Série Seestar réelle | Copies vérifiées puis recalage contrôlé, recherche et GIF locaux | Premier pilote achevé : sept alignements acceptés, zéro candidat ; performances réelles non qualifiées |
 | Injections sur fond Seestar | Points artificiels dans les dérivés d'intensité, recalage gelé et réponses séparées | Bilan conditionnel : 10/36 ajouts retrouvés sur le fond réel, 26 manqués ; aucune découverte |
 | Diagnostic des manques | Positions déjà enregistrées suivies aux trois étapes, sans nouvelle recherche | 26 réconciliés : neuf hors vitesse, 17 avec support limité dès les détections ; causes physiques non établies |
+| Trace interne du détecteur | Rejeu comparé aux positions gelées, maxima et filtres expliqués | 17 cas examinés : sur 136 images, 115 sans maximum brut proche et 21 avec point retenu ; seuils inchangés |
 | Photométrie différentielle | Courbes de lumière et budget d’incertitude | Recherche, phase 4 |
 | Passerelles scientifiques | Exports AAVSO, MPC ADES et ALCDEF validés localement | Phase 5 |
 
@@ -65,6 +66,8 @@ Le [bilan d'injections conditionnelles](docs/INJECTIONS-SEESTAR.md) ajoute 19 te
 Le [diagnostic après score](docs/DIAGNOSTIC-MANQUES.md) ajoute 24 tests fictifs, soit **381 tests réussis**. Sans changer les seuils, il réconcilie les 26 manques : neuf hors plage de vitesse et 17 avec moins de cinq images contenant un point proche dès les positions de détection enregistrées, aux deux voisinages. Cela ne prouve pas une luminosité seule responsable. Le [tutoriel illustré](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--comprendre-les-points-manqués) ajoute deux commandes sur les résultats existants ; aucun accès USB ou nouvelle recherche.
 
 Une détection n’est pas une découverte confirmée. Un GIF ne constitue pas une mesure scientifique. La qualité des archives, des calibrations, des heures et des catalogues détermine les usages possibles. Le vert Bayer n’est pas automatiquement une mesure Johnson V. Aucun format d’export ni aucune acceptation par un organisme n’est garanti à ce stade. Aucune soumission automatique n’est prévue.
+
+La [trace interne du détecteur](docs/TRACE-DETECTEUR.md) approfondit les 17 manques en rejouant les pixels des seuls dérivés locaux, avec égalité exigée aux positions enregistrées. Les 115 absences de maximum proche ne permettent pas de séparer seuil, voisinage, séparation, masque ou bord ; aucun rejet de forme ou de marge proche n'est observé dans ces cas. Les deux rayons donnent les mêmes constats, sans nouvelle trajectoire ou changement de seuil. Un nouveau banc indépendant de douze images fictives et trois commandes pédagogiques illustre les portes. Trois agents ont travaillé en parallèle avec intégration et revue internes ; aucune validation scientifique indépendante n'est annoncée.
 
 ## Démarrer
 
