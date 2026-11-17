@@ -1317,3 +1317,106 @@ La notation Python `0.10.0a1` reste dans le paquet et les anciens rapports, équ
 Contrôle effectué : les quatre sources concordent avec la version SemVer attendue et sa normalisation Python. La revue publique après ajout des documents porte sur 224 fichiers, notices, liens et XML valides. Les sources de l'application, recettes scientifiques et tests sont identiques au commit `61cac96` ; aucune nouvelle validation scientifique n'est déduite du changement de notation.
 
 La [PR nº 5](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/5) rassemble les 27 fichiers modifiés, après revue interne. La fusion conserve les trois plans publiés avant leurs opérations ; le coordinateur vérifie ensuite le commit de `main` sur GitHub et la copie locale, sans créer de tag ou release.
+
+## 30. Donner plus de temps aux déplacements lents
+
+Le plan [0f06368](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/0f063684ec85495f4497348d18cbac566d41a2ea) précède le code du lot 23.
+Le nouveau profil garde l'ancien moteur intact. Il demande huit photos réparties sur 1800 à 2700 secondes déclarées.
+L'exercice fictif choisit un intervalle de cinq minutes, soit 35 minutes entre le départ et l'arrivée.
+
+![Schéma des cinq étapes du profil lent, avec huit photos espacées de cinq minutes](images/exemple-lents-etapes.svg)
+
+**Lire le schéma sans image.** Préparer et aligner huit photos. Ajouter douze points dans des dérivés distincts.
+Chercher les candidats sans lire les réponses. Comparer ensuite les candidats aux réponses, puis expliquer tous les résultats.
+Le témoin ne reçoit aucun ajout. Il montre les candidats déjà proposés dans le fond.
+
+Une seconde d'arc mesure un angle très petit. L'échelle nominale vaut environ 2,393 secondes d'arc par pixel natif.
+À 30 secondes d'arc par heure, un point avance d'environ 7,31 pixels en 35 minutes.
+Cette comparaison plus longue permet d'essayer une recherche lente. Elle ne garantit pas la détection d'un objet réel.
+
+Le profil distinct ne supprime pas d'abord les points proches des étoiles fixes.
+Il compare un modèle fixe à un trajet linéaire. Le trajet doit expliquer suffisamment mieux les mesures, avec six photos au minimum.
+Les règles et la formule sont dans [Essayer le profil pour les mobiles lents](MOBILES-LENTS.md).
+Ce guide contient les neuf commandes du nouvel exercice, dans leur ordre d'exécution.
+Chaque étape explique ses fichiers, ses contrôles et ses erreurs possibles.
+
+Les deux fonds fictifs utilisent les graines réservées 2026112301 et 2026112302.
+Le bilan distingue douze ajouts, six cas brillants, le témoin et les candidats non associés.
+Les paramètres restent fixés avant ces essais. Un échec ou un contexte indisponible conserve son état.
+Les réponses ne servent ni au recalage ni à la recherche.
+
+La version publique de cette fonction compatible devient `0.11.0-alpha.1` selon SemVer.
+Le paquet Python emploie l'écriture équivalente `0.11.0a1`.
+VERSION, `pyproject.toml`, `gar.__version__` et les métadonnées installées concordent.
+L'installation modifiable avec isolation aboutit après un premier essai sans isolation bloqué par l'absence de setuptools.
+Les dépendances d'analyse restent inchangées. Ce changement ne crée aucun tag ou release.
+
+Pour les données réelles, la sélection utilise le manifeste existant. Les seules sources choisies peuvent être copiées en lecture seule.
+Les empreintes historique, avant copie, de la copie et après copie doivent correspondre.
+Les analyses suivantes ne lisent que les copies locales. Les nouveaux détails réels restent privés.
+Une série refusée ne devient pas un exemple remplacé après résultat.
+
+### Résultats du nouveau profil
+
+Les neuf commandes du guide donnent `0, 0, 0, 2, 0, 0, 0, 2, 0`.
+Les deux codes `2` indiquent l'échec du critère prévu sur les ajouts brillants.
+Les deux fonds réservés retrouvent chacun **5/12 ajouts**, avec zéro indisponible, témoin à zéro et zéro candidat non associé.
+Le premier retrouve 5/6 brillants et 0/6 faibles. Le second retrouve 4/6 brillants et 1/6 faibles.
+Aucun réglage ne change après ces résultats. L'aptitude reste partielle.
+
+![Bilan entièrement fictif : cinq ajouts sur douze retrouvés et critère brillant non satisfait](images/exemple-lents-bilan.png)
+
+Le tableau montre les trois vitesses et les deux amplitudes.
+Sur le premier fond, les brillants donnent 1/2 à 10″/h, 2/2 à 30″/h et 2/2 à 60″/h.
+Les faibles donnent 0/2 à chaque vitesse. Le critère demande six brillants retrouvés ; il reste non satisfait.
+
+![Les huit vues fictives du trajet préchoisi à 30 secondes d'arc par heure](images/exemple-lents-huit-vues.png)
+
+Un cercle indique la position ajoutée connue après recherche. Une croix marque une mesure du candidat associé.
+La troisième vue montre un voisinage différent : le modèle de cette photo comporte une ambiguïté de symétrie.
+La grille fictive régulière permet un recalage accepté avec un demi-tour d'environ 179,859°, malgré une petite rotation fabriquée.
+Les modèles restent conservés. Ce constat limite le banc ; il ne démontre pas la cause unique de chaque manque.
+
+L'[animation facultative](images/exemple-lents-animation.gif) possède huit vues à 600 millisecondes.
+Le [guide](MOBILES-LENTS.md) donne aussi une première vue fixe, les huit vues et tous les comptes écrits.
+Aucune information indispensable ne demande de regarder l'animation.
+
+Les deux fonds réels donnent **A6/12 et B9/12**, dont 6/6 brillants chacun et 0/6 puis 3/6 faibles.
+Dans B, chaque vitesse faible donne 1/2. Les témoins naturels gardent zéro candidat et restent identiques aux départs.
+Zéro indisponible et zéro candidat non associé sont relevés dans ces deux expériences.
+Les seize sources sélectionnées sont copiées en lecture seule, empreintes et dates préservées.
+Les gardes des analyses conservent 838 anciens fichiers, sans accès externe, écriture FITS ou ancien NPY ni réseau d'analyse.
+Les nouveaux médias réels restent privés.
+
+Les 77 tests ciblés passent en 23,37 secondes. Le dessinateur fonctionne aussi avec détection et association bloquées.
+Les trois PNG publics sont inspectés et le GIF contrôlé. Les textes des tableaux gardent un contraste calculé supérieur à 12:1.
+Le profil retrouve certains mobiles ajoutés mais ne passe pas le critère réservé.
+Les résultats réels ne transforment pas ce bilan en qualification scientifique, ni en identification d'un objet naturel.
+
+## 31. Écrire pour les personnes qui débutent
+
+Le mainteneur demande de nouvelles références de rédaction pendant le lot 23.
+La règle durable figure dans [Écrire une documentation facile à suivre](REDACTION-ACCESSIBLE.md) et dans AGENTS.
+Elle concerne les nouveaux documents et les sections révisées.
+
+Les 14 ressources du kit sont téléchargées dans un dossier local ignoré.
+Leur inventaire conserve les liens et les empreintes. Le script fourni n'est pas exécuté ; les documents ne sont pas redistribués.
+La vérification consulte les sources utiles, sans annoncer une lecture intégrale ou une conformité normative complète.
+
+Les références sont WCAG 2.2 en français, le critère 3.1.5, CAN-ASC-3.1:2025, les ressources scolaires du Québec et Simple French.
+Le guide distingue les programmes actuels et les versions obligatoires à partir de la rentrée 2027–2028.
+Le critère WCAG 3.1.5 est AAA ; son niveau de référence n'est pas l'âge de 10 ans.
+Notre objectif pédagogique dès 10 ans reste plus spécifique et demande encore des essais de compréhension.
+
+Concrètement, le parcours définit les mots, sépare les actions et donne des résultats à vérifier.
+Chaque figure utile possède un texte de remplacement et une description écrite.
+Les animations ont des équivalents fixes. Les symboles et les nombres complètent les couleurs.
+Une revue interne du contenu ne remplace pas un audit de l'affichage final ni un essai avec le public.
+
+### Vérifications du lot 23 avant reproduction
+
+Les 77 nouveaux tests fictifs passent en 23,37 secondes. La suite complète donne 594 tests réussis en 230,44 secondes.
+Ces tests vérifient le logiciel. Ils ne transforment pas les critères réservés manqués en validation scientifique.
+Les sept sources historiques contrôlées restent identiques. Les cinq médias réels déjà autorisés conservent leurs empreintes.
+La revue porte sur 237 fichiers publics, leurs liens, leurs avis de licence et le schéma SVG.
+La reproduction depuis un commit propre et le contrôle final de GitHub restent à consigner après leur exécution.

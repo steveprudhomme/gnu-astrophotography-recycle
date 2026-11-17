@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gnu-astrophotography-recycle"
-version = "0.10.0a1"
+version = "0.11.0a1"
 description = "Local read-only FITS archive inventory"
 requires-python = ">=3.12"
 dependencies = ["astropy>=7.2,<8", "numpy>=2.4.1,<2.5", "photutils==3.1.1", "scipy==1.18.1"]

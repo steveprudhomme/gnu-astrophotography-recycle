@@ -2,6 +2,8 @@
 
 Documentation en français ; noms de modules, champs et interfaces en anglais pour faciliter les contributions internationales. Une traduction est bienvenue.
 
+Pour toute nouvelle page et toute section révisée, suivre le [guide de rédaction accessible](docs/REDACTION-ACCESSIBLE.md). Il donne les références, les règles pratiques et les preuves à conserver. Expliquer les mots techniques à leur première utilisation. Écrire une action par étape et annoncer le résultat attendu. Ajouter une description en texte pour chaque figure. Signaler les vérifications encore absentes : un guide de rédaction ne prouve pas une conformité complète ou un niveau de lecture.
+
 ## Goal / Produce / Submit / Wait / Repeat
 
 1. **Goal** : ouvrir une issue avec le problème, l’usage, la phase et un résultat vérifiable. Pour un changement de méthode, décrire les hypothèses et références avant l’implémentation.
