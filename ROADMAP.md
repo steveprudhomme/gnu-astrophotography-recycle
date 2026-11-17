@@ -179,3 +179,18 @@ Réalisation 0.6.0a1 : plan **`d349984`** et paramètres **`fe3b1c4`** préalabl
 - A8 — livré avec le commit de réalisation : tutoriel illustré, dépendances et documentation actualisés, publication des données fictives uniquement.
 
 Photutils/SciPy retenus nécessitent désormais Python ≥3.12. Le diagnostic complet du budget d’erreur et l’aptitude des futures mesures à une soumission restent ouverts ; le contrôle ne permet pas de conclure à toutes les sources ni aux objets mobiles.
+
+## Lot de travail 7 — recalage des trois poses locales
+
+Plan du 16 novembre 2026, à committer avant développement. Entrées exclusives : les quatre copies du workset local déjà vérifié. Ne jamais consulter les chemins sources du manifeste, ni accéder au support USB. Aucun téléchargement supplémentaire.
+
+- R1 : ajouter `gar register`, sélectionner explicitement la référence et les trois poses, vérifier leurs empreintes avant/après et refuser liens, sorties existantes ou chemins hors de `local/`.
+- R2 : détecter sur moyenne des blocs 2×2, pour atténuer la mosaïque Bayer sans inventer une photométrie ; même réduction géométrique sur la référence, coordonnées ramenées aux centres natifs (`2*x+0,5`). Détection DAO à 5 sigmas robustes, FWHM 2 pixels réduits, saturation native 65 000 ADU, marge native 10 pixels et isolation 8 pixels. Documenter les biais possibles de couleur et de centroïde.
+- R3 : réserver avant ajustement 25 % des détections de chaque pose (tirage déterministe, graine 20261116). Identifier des triangles d’étoiles et ajuster uniquement rotation et translation, sans réflexion, échelle libre, cisaillement ou déformation ; associations mutuelles dans un rayon de 3 pixels natifs. Conserver les échecs.
+- R4 : figer les critères exploratoires avant mesure : au moins 20 associations d’ajustement, 10 étoiles de contrôle, médiane de contrôle ≤0,75 pixel, percentile 95 ≤1,5 pixel, couverture de contrôle d’au moins 6 cellules sur 3×3 et des quatre quadrants. Ne pas éliminer de grands résidus après association pour réussir ; le rayon limite toutefois les erreurs observables. Contrôle réservé à l’ajustement, pas preuve d’indépendance de l’empilement.
+- R5 : exporter la composition explicite pose → pixels de référence → WCS céleste SIP gelée et sa provenance. N’exporter aucune WCS FITS approximative copiée ; modèle utilisable uniquement si les critères sont satisfaits, avec erreur héritée de la référence et horloge toujours non qualifiée.
+- R6 : tests synthétiques de rotations/translations, contrôle réservé, mauvais champs, faible effectif, réflexion et intégrité des copies ; rapports JSON/CSV/Markdown et illustrations publiques synthétiques et privées réelles.
+- R7 : exécuter les trois poses locales, rapporter les critères séparément, vérifier les quatre empreintes et les limites ; aucune resynchronisation temporelle ni mesure d’objet mobile.
+- R8 : actualiser contrats, tutoriel illustré, README et autres Markdown concernés ; vérifier tests, confidentialité et installation ; commit de réalisation et publication du code et exemples synthétiques uniquement.
+
+Le résultat pourra être un échec de recalage ou de couverture. Tout assouplissement ultérieur des paramètres nécessitera un nouvel essai explicitement documenté ; aucune certification astrométrique absolue ni temporelle n’est promise.
