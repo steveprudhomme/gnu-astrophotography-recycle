@@ -1074,3 +1074,50 @@ La suite complète a passé **357 tests en 123,13 secondes depuis le commit prop
 La reproduction depuis ce commit propre a réussi : cinq nouvelles commandes aux codes 0, **296 dérivés et 37 résultats individuels identiques par fond**, mêmes bilans et trois figures identiques pour chaque fond. Les huit FITS de l'exercice, les huit copies réelles, le pilote naturel et les cinq médias CC0 sont intacts. Aucune tentative d'accès externe ou d'écriture FITS ; 186 fichiers publics et 39 ancres Markdown vérifiés. Les 48 commandes précédentes conservent leurs preuves sans être toutes rejouées. La provenance change avec le nouveau commit et les chemins de sortie, pas les résultats ; les rapports agrégés ne sont pas présentés comme tous identiques octet pour octet.
 
 Ce premier bilan indique des manques dans les conditions prévues, sans magnitude limite ou efficacité universelle annoncée. Toute nouvelle PSF, trajectoire ou modification de seuil demandera un protocole préenregistré ; les seuils ne sont pas abaissés pour faire réussir ce lot. L'intégration passe par la [PR nº 1](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/1) de la branche dédiée vers `main`, avec revue interne des 22 fichiers et conservation des commits de protocole. Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré à cette étape. Aucun essai avec un enfant, sur ordinateur vierge ou revue scientifique indépendante n'est revendiqué ; les mesures restent exploratoires et les données mixtes privées.
+
+## 25. Diagnostiquer les 26 manques avec les positions gelées
+
+**Les 26 manques du fond réel sont réconciliés : neuf ajouts sont hors de la plage de vitesse prévue ; les 17 autres n'ont pas assez de positions proches enregistrées dès la détection.** Aucun seuil n'a changé et aucune recherche n'a été relancée. Le plan [**`b69ca08`**](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/b69ca0894acb40c404856ecf482eaf014e799332) a été committé, publié et contrôlé sur `codex/diagnostic-manques` avant le code. Le [diagnostic détaillé](DIAGNOSTIC-MANQUES.md) donne les règles ; la [nouvelle mission dès 10 ans](DEMARRER-DE-ZERO.md#nouvelle-mission--comprendre-les-points-manqués) explique les deux commandes.
+
+### Suivre trois portes sans refaire le travail
+
+Nous lisons les tableaux déjà gelés : détections ramenées dans la référence par le modèle accepté, points du champ commun, points conservés après le filtre stationnaire. Nous vérifions les empreintes et les sous-ensembles ordonnés, avec une tolérance numérique de 10⁻⁹ pixel qui ne déplace aucune position. Les effectifs retirés doivent correspondre. Les fonctions de détection, filtrage et association ne sont pas appelées.
+
+Pour chaque image, nous comparons les distances à l'ajout connu après la recherche. Le voisinage principal de 1,5 pixel natif reprend le rayon d'association existant ; le contexte de 3 pixels reprend le rayon stellaire existant. Les cinq images et 40 secondes déclarées restent les conditions de support. Une proximité ne prouve pas que le point enregistré est l'ajout. Si les deux rayons indiquent des étapes limitantes différentes, le diagnostic conserve l'ambiguïté.
+
+![Diagnostic calculé sur les tableaux du jeu entièrement fictif](images/exemple-diagnostic-manques.png)
+
+*Le jeu fictif garde 24 manques et douze récupérations. Le fond réel garde 26 manques et dix récupérations ; il n'est pas représenté par cette figure publique. Un constat principal n'est pas une cause physique démontrée et ne cache pas les preuves aux autres étapes.*
+
+### Deux commandes après le score de l'exercice
+
+Depuis la racine, avec l'exercice d'injection précédent terminé et de nouvelles sorties :
+
+```powershell
+.\.venv\Scripts\python.exe examples/diagnose_injection_misses.py local/exercice-injections-bilan/score.json local/exercice-diagnostic-manques
+.\.venv\Scripts\python.exe examples/plot_miss_diagnostics.py local/exercice-diagnostic-manques/diagnostic.json local/exercice-diagnostic-figures
+```
+
+Les deux codes attendus sont **0**, avec neuf vitesses hors domaine et quinze supports limités dès la détection dans ce jeu fictif. La première commande vérifie le score et tous les candidats gelés avant d'ouvrir les réponses. Elle contrôle l'appariement mathématique existant, puis écrit `diagnostic.json`, `diagnostic.csv` et `report.md`. La seconde charge les pixels uniquement pour dessiner, avec modèle et contraste d'affichage gelés ; elle écrit un diagramme et une planche de huit vues par catégorie. Le premier identifiant lexical est choisi selon la règle publiée avant diagnostic.
+
+![Ajout fictif trop lent, avec retrait stationnaire visible dans les tableaux](images/exemple-diagnostic-vitesse.png)
+
+![Ajout fictif sans support suffisant dès les positions enregistrées](images/exemple-diagnostic-detections.png)
+
+*Rond vert : réponse d'injection, pas une détection ni une taille physique. Cyan : point proche conservé ; orange : point proche retiré ; gris : point proche du témoin. Les marqueurs et la matrice utilisent 1,5 pixel ; le contexte à 3 reste dans le rapport. L'interpolation de pixels sert à regarder, jamais à rechercher. Les figures sont calculées, sans fausse capture d'écran.*
+
+### Constats sur les 17 manques dans le domaine
+
+Dans les deux rayons, neuf ajouts ont zéro image avec un point enregistré proche, quatre en ont deux, trois en ont trois et un en a quatre. Aucun n'atteint cinq images. Les nombres restent identiques au champ commun puis après filtre dans ces 17 cas : il n'y a pas de perte de support supplémentaire observée à ces étapes. Aucun point témoin n'est enregistré à moins de trois pixels de leurs positions. Cela ne démontre pas absence de confusion ou luminosité insuffisante : une source plus éloignée peut influencer les pixels et les critères internes du détecteur ne sont pas rejoués.
+
+Les neuf vitesses trop lentes restent classées hors protocole, avec leurs autres pertes éventuelles visibles. L'exemple fictif brillant lent montre une présence proche dans huit images puis son retrait stationnaire ; la catégorie de protocole ne masque pas ce constat. Le score demeure dix ajouts artificiels retrouvés et 26 manqués, sans nouvelle trajectoire. Le témoin naturel reste exactement à zéro candidat. Les rapports, distances et vues mixtes réels restent locaux ; seuls le bilan agrégé et les trois nouvelles figures entièrement fictives sont publics, avec les cinq médias CC0 existants inchangés.
+
+### Tests, préservation et limites
+
+Les **381 tests** incluent 24 nouveaux cas entièrement fictifs : étapes connues, effectif/durée, voisinages ambigus, vitesse et durée hors domaine, proximité de témoin seulement possible, tableaux filtrés incohérents, scores incomplets/modifiés et refus de chemins externes. Des gardes remplacent les fonctions de recherche, de lecture de pixels et de réseau : elles échoueraient si le diagnostic les appelait. L'exécution réelle relève zéro appel de recherche ou d'analyse de pixels, zéro accès externe/réseau et zéro écriture FITS/NPY. Les rapports, dérivés, copies et candidats restent intacts.
+
+Deux premiers tests partageaient une même liste de coordonnées entre étapes ; des copies indépendantes ont corrigé ces scénarios inventés, sans modification du moteur ou des résultats. Les 24 tests puis la suite complète passent. Une incohérence ou une erreur donne le code 1 et peut conserver `incomplete` avec son progrès ; un diagnostic incomplet ne peut pas être dessiné comme complet. Les sorties existantes ne sont pas écrasées. Le code 0 signifie seulement que le diagnostic est terminé, même si certaines causes restent inconnues.
+
+La reproduction a abouti depuis le commit propre **`234c439`** : **381 tests en 120,42 secondes**, deux nouvelles commandes aux codes 0, mêmes diagnostics des 36 injections de chaque fond, mêmes bilans (24 manques fictifs, 26 sur fond réel) et trois figures identiques pour chaque fond. Les scores, candidats, dérivés, copies et cinq médias CC0 sont intacts ; aucun appel de recherche/analyse de pixels pour le diagnostic, accès externe/réseau ou écriture FITS/NPY n'est enregistré. Les 193 fichiers publics et 43 ancres Markdown sont contrôlés.
+
+Les 53 commandes antérieures conservent leurs preuves sans être toutes rejouées ; aucune nouvelle injection réelle n'est générée. La provenance du nouveau diagnostic change avec le commit, sans présenter tous les rapports comme identiques octet pour octet. L'intégration passe par la [PR nº 2](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/2) vers `main`, avec revue interne des 20 fichiers et fusion conservant le commit de planification. Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré. Le contrôle distant vérifie ensuite la publication. La version reste 0.10.0a1 ; aucun essai avec un enfant, sur ordinateur vierge ou validation scientifique indépendante n'est annoncé.

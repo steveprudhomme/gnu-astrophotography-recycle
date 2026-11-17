@@ -14,6 +14,12 @@ Plan `9344495` publié avant code sur une branche dédiée. Avec le recalage acc
 
 Sur le fond entièrement fictif du nouvel exercice : 12/36 retrouvés, 24 manqués, témoin sans candidat, trois brillants nominaux retrouvés et aucun trop lent à 0,03 récupéré. Dix-neuf tests fictifs nouveaux portent la suite à **357 tests réussis en 123,13 secondes** ; le contrôle des figures est rejoué après un ajustement d'affichage, sans changement des mesures. Les FITS, le rapport naturel et les moteurs restent intacts, sans accès USB. La génération, l'analyse aveugle et le score sont séparés, avec candidats gelés avant lecture des réponses.
 
+## Diagnostic après score, lot 19
+
+Plan `b69ca08` publié avant code. Le [diagnostic](DIAGNOSTIC-MANQUES.md) lit les positions et scores gelés sans appeler les fonctions de recherche : 26 manques réconciliés, neuf hors plage de vitesse et 17 avec support limité dès la détection enregistrée. Pour ces 17, neuf ont zéro image avec un point proche, quatre en ont deux, trois en ont trois et un en a quatre, aux rayons 1,5 et 3 pixels natifs ; aucun n'atteint cinq images. Les restrictions de champ et de filtre ne retirent pas de support supplémentaire observé dans ces cas. Ce n'est pas une preuve de cause physique ou de faible luminosité seule.
+
+Vingt-quatre tests entièrement fictifs portent la suite à **381 tests réussis** ; ils couvrent aussi ambiguïtés, refus d'entrées modifiées, états inconnus/incomplets, sous-ensembles et absence d'appels au moteur. Les neuf exclusions de vitesse conservent leurs autres pertes observées. Récupérations, candidats, rapports d'origine, dérivés, copies, moteurs et seuils restent inchangés. Les dessins utilisent les pixels après le diagnostic pour l'affichage seulement, sans lecture USB ; les figures publiques nouvelles sont fictives.
+
 ## Objectif et périmètre
 
 Qualifier les archives avant de mesurer. Phases 1 et 2 : inventaire puis contrôle scientifique d’une séance de 30 à plus de 60 minutes, si disponible. Ne pas choisir uniquement les meilleures poses ; conserver celles qui révèlent nuages, dérive et interruptions. Un échantillon privé de trois poses et une référence est désormais disponible en copies locales vérifiées ; il ne représente pas toute la population d’archives.

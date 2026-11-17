@@ -114,3 +114,7 @@ Le [lot 16](PILOTE-MOBILES-SEESTAR.md) réutilise les moteurs et versions instal
 ## Injections conditionnelles sur plans d'intensité
 
 Le [lot 18](INJECTIONS-SEESTAR.md) emploie [NumPy load](https://numpy.org/doc/stable/reference/generated/numpy.load.html) et [NumPy save](https://numpy.org/doc/stable/reference/generated/numpy.save.html), documentation primaire consultée le 17 novembre 2026. Les appels fixent `allow_pickle=False` pour les tableaux float32 locaux. La page `stable` décrit NumPy 2.5 ; l'environnement conserve 2.4.1, sans mise à jour. Les pics relatifs au bruit, largeur gaussienne, trajets, critères d'appariement et séparation génération/analyse/score sont des choix préenregistrés du projet, pas une calibration ou une prescription du fabricant. Les compteurs sur trois trajets ne fournissent pas une probabilité universelle de détection.
+
+## Diagnostic des positions après score
+
+Le [lot 19](DIAGNOSTIC-MANQUES.md) s'appuie sur les tableaux, scores et recettes gelés du projet : [moteur de mobiles](../src/gar/moving.py), [recette d'injection](../examples/injection_recovery.py) et [diagnostic](../examples/diagnose_injection_misses.py). Rayons de proximité 1,5/3 pixels, comparaison des supports, catégories et règle des exemples sont des choix du protocole prépublié ; ce ne sont pas de nouveaux réglages du détecteur ou une prescription instrumentale. Le diagnostic ne rejoue pas les critères internes du détecteur et ne démontre pas la cause physique d'une absence de point enregistré. Les bibliothèques et versions restent inchangées.

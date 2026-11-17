@@ -599,6 +599,37 @@ Le même protocole, appliqué aux dérivés des huit copies réelles, a retrouv�
 
 Ce test garde le recalage déjà accepté et ne le recalcule pas. Il ne vérifie ni une heure exacte, ni une magnitude limite ou tous les comportements d'une vraie étoile. Les [détails des injections](INJECTIONS-SEESTAR.md) donnent les règles, les résultats individuels attendus et les limites. Les nouvelles figures publiques sont fictives ; les animations mixtes sur fond réel et leurs rapports restent locaux. Les cinq médias réels CC0 déjà autorisés restent dans la documentation.
 
+## Nouvelle mission : comprendre les points manqués
+
+Le chercheur n'a pas retrouvé tous nos ajouts artificiels. Nous allons regarder **à quelle étape il manque déjà des informations**, sans modifier ses règles. Pense à trois portes : les points enregistrés, le champ commun des photos, puis les points conservés après avoir retiré ceux qui semblent fixes.
+
+Cette mission utilise le résultat de la mission précédente. Termine d'abord ses cinq commandes si tu n'as pas encore `local/parcours/injections-bilan/score.json`. Nous ne fabriquons pas de nouveaux ajouts et ne relançons pas le chercheur pour le diagnostic.
+
+```powershell
+.\.venv\Scripts\python.exe examples/diagnose_injection_misses.py local/parcours/injections-bilan/score.json local/parcours/diagnostic-manques
+.\.venv\Scripts\python.exe examples/plot_miss_diagnostics.py local/parcours/diagnostic-manques/diagnostic.json local/parcours/diagnostic-figures
+```
+
+Choisis de nouvelles sorties si tu recommences. **Tu dois voir :** deux codes 0, puis le diagnostic fictif de 24 manques : neuf vitesses hors de la plage prévue et quinze cas avec trop peu de points proches dès les détections. Les douze récupérations restent inchangées. Un code 0 dit que l'opération est terminée, pas que tous les mystères du ciel sont résolus.
+
+![Bilan des manques sur les images entièrement fictives de l'exercice](images/exemple-diagnostic-manques.png)
+
+Ouvre `local/parcours/diagnostic-manques/report.md` pour le tableau lisible. Le fichier `diagnostic.csv` classe chaque ajout ; `diagnostic.json` garde les preuves pour chacune des huit photos. Les images sont dans `local/parcours/diagnostic-figures/`.
+
+![Ajout fictif trop lent : huit présences proches, puis retrait comme point fixe](images/exemple-diagnostic-vitesse.png)
+
+En haut, chaque colonne est une photo. Les lignes disent s'il y a un point enregistré près de l'endroit où nous avions ajouté le nôtre, avant et après les étapes. Il en faut au moins cinq pendant assez longtemps pour chercher une trajectoire. Un point proche peut pourtant être une autre source : sa proximité ne prouve pas son identité.
+
+Le rond vert indique notre position d'ajout connue : **ce n'est pas une détection**. Une croix cyan montre un point proche conservé ; une croix orange un point proche retiré. Le gris signale une source proche dans le témoin sans ajout, seulement comme indice possible. Les pixels sont dessinés après alignement pour regarder, sans réécrire les photos ni refaire les mesures.
+
+Nous comparons un petit voisinage de 1,5 pixel et un plus large de 3 pixels. Ces comparaisons ne changent pas les règles du chercheur. Si elles désignent des étapes différentes, le rapport garde « voisinage ambigu » ; il ne choisit pas une explication qui nous arrange. Une information inconnue reste inconnue, pas zéro.
+
+![Exemple fictif sans assez de positions enregistrées proches](images/exemple-diagnostic-detections.png)
+
+Sur le fond réel, le bilan est **26 manques : neuf hors de la plage de vitesse et 17 autres avec moins de cinq images contenant un point proche dès les détections**. Parmi ces 17, neuf en ont zéro, quatre en ont deux, trois en ont trois et un en a quatre, aux deux voisinages. Les passages au champ commun et au filtre n'enlèvent pas de support supplémentaire dans ces cas. Nous n'avons pas prouvé que leur luminosité seule explique le manque.
+
+Les détails sont dans [Comprendre les manques](DIAGNOSTIC-MANQUES.md). Le témoin naturel garde zéro candidat ; aucune découverte ou nouvelle recherche n'est ajoutée. Les nouvelles vues publiques sont fictives, les vues mixtes sur fond réel restent locales. Les erreurs donnent le code 1 ; garde le message et le dossier incomplet, corrige la cause puis choisis une nouvelle sortie. Aucun accès USB n'est nécessaire.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :
@@ -651,3 +682,5 @@ L’installation initiale et la récupération du code peuvent utiliser Internet
 *La diffusion réelle CC0 ajoute trois tests fictifs, soit 338 tests réussis. Depuis le commit propre `305eeed`, les trois nouveaux médias réels ont été reproduits à l'identique ; les deux PNG initiaux et les trois rendus privés par défaut sont inchangés, ainsi que le rapport et les huit copies. Les cinq médias autorisés sont listés dans leur notice CC0. Aucun nouvel essai de recherche ni nouvelle exécution de tous les exercices n'est revendiqué pour cette diffusion.*
 
 *Les injections ajoutent 19 tests fictifs, soit 357 tests réussis depuis le commit propre `7c663f7`. Les cinq nouvelles commandes ont réussi dans des dossiers neufs : mêmes 296 dérivés et 37 résultats gelés par fond, mêmes bilans et figures. Le fond fictif donne 12/36 points artificiels retrouvés, les dérivés du fond réel 10/36, avec témoin naturel inchangé et copies intactes. Les 48 commandes antérieures gardent leurs preuves, sans être toutes rejouées. Cela vérifie la reproduction de l'exercice, pas sa compréhension par un enfant ou une validation scientifique universelle.*
+
+*Le diagnostic ajoute 24 tests fictifs, soit 381 tests réussis depuis le commit propre `234c439`. Ses deux commandes donnent 0 sur les résultats de l'exercice déjà préparé. Les diagnostics des 36 ajouts de chaque fond et les figures sont reproduits à l'identique ; les scores, candidats et photos restent intacts. Les 53 commandes précédentes gardent leurs preuves sans être toutes rejouées. Aucune recherche ou injection réelle n'est relancée et aucune compréhension par un enfant ou qualification scientifique indépendante n'est revendiquée.*

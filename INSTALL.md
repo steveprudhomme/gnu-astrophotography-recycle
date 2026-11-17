@@ -158,6 +158,10 @@ Le [pilote Seestar](docs/PILOTE-MOBILES-SEESTAR.md) ajoute un générateur ficti
 
 Le [lot d'injections](docs/INJECTIONS-SEESTAR.md) ajoute trois recettes expérimentales avec les dépendances existantes. Les cinq commandes du [nouvel exercice](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--retrouver-des-points-ajoutés-exprès) créent un fond fictif, génèrent 37 séquences, analysent sans réponses, scorent puis dessinent ; leurs codes attendus sont 0. Prévoir environ 100 Mo pour l'exercice et 650 Mo par génération sur le fond réel, plus l'espace des autres essais conservés. Les dérivés `.npy` sont float32 et chargés sans pickle, uniquement sous `local/`. Les FITS ne sont pas écrits, aucun accès USB n'est nécessaire. Un code 2 conserve les indisponibles ou l'échec des critères fictifs, un code 1 les erreurs/incomplétudes. La version reste 0.10.0a1.
 
+## Diagnostic sur résultats gelés
+
+Le [diagnostic des manques](docs/DIAGNOSTIC-MANQUES.md) ajoute deux recettes avec les mêmes dépendances : lire un score complet et ses positions gelées, puis dessiner les constats. Les deux commandes de la [nouvelle mission](docs/DEMARRER-DE-ZERO.md#nouvelle-mission--comprendre-les-points-manqués) utilisent le score de l'exercice précédent et retournent 0 quand le diagnostic est terminé, même si des causes restent inconnues. Aucune nouvelle injection ou recherche n'est exécutée ; les pixels sont chargés seulement pour les dessins. Les sorties JSON/CSV/Markdown et PNG vont dans de nouveaux dossiers sous `local/`. Les erreurs/incohérences donnent le code 1 et conservent les états incomplets ; aucun écrasement ou accès USB. La version et les seuils restent inchangés.
+
 ## Distribution portable prévue
 
 Une archive autonome devra embarquer un interpréteur redistribuable, les bibliothèques, leurs avis de licence et les moyens d’obtenir le code source correspondant. Les lanceurs `.bat` utiliseront des chemins relatifs et des arguments correctement cités. Rien ne devra écrire dans les originaux ou exiger un service système.
