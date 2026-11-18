@@ -119,6 +119,12 @@ Ajouter une option séparée, désactivée par défaut, avec au moins trois asso
 Ce contrôle faible ne valide ni toute la surface ni l'astrométrie absolue. Les domaines restent partiels et les candidats demandent une revue.
 Conserver le résultat strict, ses critères et les paramètres de luminosité. Vérifier ce nouveau mode sur données fictives avant le prochain essai réel.
 
+**Sous-étape de généralisation sur disque limité.** Traiter les groupes inventoriés l'un après l'autre dans le nouveau dossier dédié de D:.
+Copier leurs seuls chemins manifestés, vérifier les empreintes, analyser localement et conserver rapports, en-têtes et galerie.
+Après succès et vérification, les seules copies temporaires créées par ce traitement peuvent être libérées, avec leur liste et leurs empreintes conservées.
+Un groupe interrompu garde ses copies pour reprise. Ne supprimer aucun original, copie antérieure ou autre fichier du disque.
+Le bilan final distingue copie conservée, copie temporaire libérée, fichier refusé et fichier indisponible ; la reproduction exige parfois une nouvelle copie.
+
 ## Premières tâches à ouvrir
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
