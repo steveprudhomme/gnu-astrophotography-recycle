@@ -1,12 +1,12 @@
 {
-  "clean_commit": "5a2b32b57de1c6db30849ea39d75e5a357994e82",
+  "clean_commit": "d0653a4e335966f831de5a414ff2370986ca6f34",
   "phase_seconds": {
-    "prepare": 2.435,
-    "references": 1.662,
-    "images": 12.857,
-    "measure": 2.848,
-    "orbits": 4.113,
-    "report": 7.913
+    "prepare": 1.909,
+    "references": 1.457,
+    "images": 12.965,
+    "measure": 2.769,
+    "orbits": 3.774,
+    "report": 7.681
   },
   "all_six_exit_codes_zero": true,
   "output_semantically_equal_to_fresh_reference_run": true,
@@ -27,5 +27,12 @@
   "analysis_network": false,
   "reference_inputs": "cache_of_complete_public_download",
   "clean_worktree_unchanged": true,
-  "scientific_validation_independent": false
+  "scientific_validation_independent": false,
+  "CSV_checkout_bytes_equal_git_blob": true,
+  "CSV_sha256": "9bcc8f4e69c97ba2d139931cb43db6f643bd3e1352eafda65323cc8949a37145",
+  "previous_attempt": {
+    "commit": "5a2b32b57de1c6db30849ea39d75e5a357994e82",
+    "superseded": true,
+    "reason": "Previous worktree already existed and retained CRLF CSV bytes not matching committed LF blob; FITS and scientific values unaffected."
+  }
 }
