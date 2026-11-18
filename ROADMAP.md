@@ -152,6 +152,21 @@ Aucun satellite n'est identifié à ce stade. Les rapports restent locaux ; la f
 
 ## Premières tâches à ouvrir
 
+### Essai AMOS adapté aux séries 3 et 4
+
+Plan préalable du 18 novembre 2026. Essai local distinct ; la fouille générale reste en pause.
+La publication AMOS décrit alignement, différences d'images, composite conservant le maximum et l'indice temporel, recherche de lignes et comparaison TLE/SGP4.
+Les poses sélectionnées sont espacées de 291 à 313 secondes pour 10 secondes d'exposition : aucune continuité du passage n'est présumée.
+
+- [ ] Tester sur images fictives un prototype de différences et de recherche de lignes par accumulateur de Hough.
+- [ ] Réutiliser les huit modèles existants de chaque série, sans les réajuster ; conserver les masques et empreintes.
+- [ ] Produire les différences, le composite maximum avec indice de pose et des propositions par pose ; mesurer les limites de la grille angulaire.
+- [ ] Fixer avant essai : seuil cinq fois le bruit des différences, angles de 0 à 179 degrés par pas d'un degré, au moins 30 votes, longueur d'au moins 24 pixels réduits ; regrouper les maxima voisins sans modifier les moteurs historiques.
+- [ ] Conserver les propositions, limites et illustrations réelles en privé. Documenter les témoins fictifs, les réussites et les manques.
+- [ ] Comparer ultérieurement aux trajectoires SGP4 seulement avec des orbites historiques disponibles et une géométrie contrôlée ; ne pas déclarer une identité à partir d'une ligne détectée.
+
+Ce prototype évalue une adaptation des étapes publiées ; il ne reproduit pas intégralement le système AMOS ni ses performances.
+
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
 - P1-03 : implémenter l’inventaire sans écriture des entrées ; tester chemins Unicode, liens et accès refusé.
