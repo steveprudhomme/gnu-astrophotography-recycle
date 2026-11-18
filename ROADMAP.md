@@ -167,6 +167,13 @@ Les poses sélectionnées sont espacées de 291 à 313 secondes pour 10 secondes
 
 Ce prototype évalue une adaptation des étapes publiées ; il ne reproduit pas intégralement le système AMOS ni ses performances.
 
+Résultat du premier essai : témoins fictifs horizontal, diagonal et fond stellaire fixe vérifiés avant les images réelles.
+Les 16 poses sont traitées avec modèles existants et empreintes inchangées. La pose 8 de la série 3 donne sept ajustements de lignes, principalement sur la même grande trace visible.
+La grille ne retrouve pas la trace faible de la pose 3 et ne propose aucune ligne dans la série 4 ; ces manques sont conservés.
+Composite maximum et indice de pose enregistrés en privé. Aucune comparaison orbitale ni identité confirmée ; étapes SGP4 et qualification géométrique restent ouvertes.
+
+### Tâches initiales du projet
+
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
 - P1-03 : implémenter l’inventaire sans écriture des entrées ; tester chemins Unicode, liens et accès refusé.

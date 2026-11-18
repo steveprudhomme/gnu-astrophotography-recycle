@@ -165,3 +165,8 @@ Documentation consultée le 18 novembre 2026 pour les séries 3 et 4 :
 Deux requêtes SatChecker autorisées transmettent uniquement la date d'observation, représentée à minuit, sans heure observée ni coordonnées.
 Elles expirent sans catalogue utilisable. Aucun élément orbital, identité de satellite ou succès de comparaison n'est déduit.
 Les calculs éventuels de lieu et de direction resteront locaux. Les observations, requêtes et erreurs détaillées restent privées.
+
+L'essai suivant reprend les étapes décrites dans le résumé technique AMOS : alignement, différences, composite avec indice temporel et recherche de lignes.
+Le lien vers le PDF complet des auteurs n'a pas pu être ouvert par l'outil de consultation.
+La recette privée est une adaptation indépendante à grille angulaire entière, pas une reproduction de leur transformée de Hough probabiliste.
+Les chiffres de performance de l'étude ne sont pas transférés au Seestar. Les intervalles de cinq minutes limitent aussi la continuité temporelle exploitable.

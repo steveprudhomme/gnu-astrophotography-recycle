@@ -1896,3 +1896,44 @@ Une trace présente dans le FITS brut ne peut pas être attribuée uniquement à
 **Résultat : aucun satellite identifié.** Le téléchargement indisponible ne prouve pas une absence de satellite dans les photos.
 Ces contrôles ne qualifient ni l'horloge ni l'astrométrie. Aucun moteur n'est modifié et aucun calcul orbital n'est exécuté sans référence.
 Consulter les [sources de cet essai](SOURCES.md#identification-ciblée-des-traînées) pour les orbites et les ambiguïtés visuelles.
+
+## 39. Essayer une adaptation de la méthode présentée à AMOS
+
+Cet essai concerne seulement les séries 3 et 4. La fouille générale reste en pause.
+Le [plan AMOS](../ROADMAP.md#essai-amos-adapté-aux-séries-3-et-4) est publié avant le prototype privé.
+L'étude utilise des images rapprochées. Nos poses durent 10 secondes, avec presque cinq minutes entre deux poses choisies.
+Nous ne pouvons donc pas supposer qu'un passage continue dans la pose suivante.
+
+![Schéma conceptuel du parcours : images, recherche, examen et références](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Nous alignons les étoiles, puis calculons une image de référence médiane.
+La différence avec cette référence fait ressortir les changements. Un accumulateur de **Hough** cherche ensuite des alignements de pixels lumineux.
+Ce calcul propose des lignes ; il ne reconnaît pas leur origine. Le dessin est conceptuel, sans résultat d'identification.
+
+### Préparer puis vérifier le prototype
+
+Les modèles de rotation et de translation déjà acceptés sont réutilisés sans nouvel ajustement.
+Les blocs de deux pixels par deux donnent une intensité moyenne, avec masque des blocs invalides ou saturés.
+Les images interpolées servent aux propositions exploratoires. Les positions finales devraient être remesurées sur les pixels natifs.
+La médiane est calculée sur les huit poses alignées ; sa soustraction peut aussi atténuer certains signaux.
+
+Avant l'essai réel, trois contrôles fictifs sont exécutés : trace horizontale, trace diagonale et étoiles fixes avec bruit.
+Les deux traces sont retrouvées. Le témoin fixe ne propose aucune ligne. Ce petit contrôle ne mesure pas une performance générale.
+Le seuil est fixé à cinq fois le bruit de la différence, avec des angles entiers de 0 à 179 degrés.
+Une proposition demande au moins 30 votes et une longueur d'au moins 24 pixels réduits.
+Ces paramètres restent identiques après examen des résultats réels. Ils ne sont pas présentés comme ceux des auteurs d'AMOS.
+
+### Lire le résultat réel
+
+La grande trace de la pose 8 de la série 3 est retrouvée. Sept ajustements de lignes sont conservés.
+Plusieurs ajustements suivent cette même trace : ils ne représentent pas sept objets distincts.
+La trace plus faible de la pose 3 n'est pas retrouvée. Aucune ligne n'est proposée dans la série 4.
+Ces résultats montrent des manques. Un zéro ne prouve pas une absence de trace ou de satellite.
+
+Le prototype conserve aussi le maximum de chaque pixel des différences et l'indice de la pose correspondante.
+Ces composites, différences et lignes dessinées restent privés avec les résultats numériques. Les empreintes des entrées restent inchangées.
+Les lignes dessinées sont des annotations calculées sur de vraies images, pas des objets ajoutés aux FITS.
+
+**La partie identification n'est pas exécutée.** Les téléchargements historiques restent indisponibles et la géométrie céleste doit être contrôlée.
+La comparaison future emploierait SGP4 pour prévoir les trajectoires et les confronter aux traces pendant les expositions.
+Le prototype reprend une partie des étapes publiées ; il ne reproduit ni tout le système AMOS ni ses performances annoncées.
