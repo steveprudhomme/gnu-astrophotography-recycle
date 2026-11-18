@@ -143,3 +143,13 @@ La composante est fournie avec le facteur cosinus de déclinaison ; ce facteur n
 La documentation de l'API affiche 1.3 ; la réponse reçue annonce 1.2. Ses en-têtes et unités sont contrôlés, sans mettre à jour les dépendances du projet.
 Une référence géocentrique avec UTC supposé ne qualifie pas une position topocentrique ou l'horloge. La NASA distingue noyau, enveloppe et queues ; une tache centrale dans une image ne garantit pas que le noyau solide est résolu.
 La [préparation](CONTROLE-POSITIF-REEL.md), ses choix de cadence, états de refus et exemples sont propres au projet. Une seule requête est autorisée pour la série fixée ; les reprises utilisent son cache privé. Aucun contrôle positif naturel ou nouvelle recherche de mobile n'est validé par ces sources.
+
+## Fouille des archives et tracking
+
+Références primaires consultées le 18 novembre 2026 pour la [planification du tracking](../ROADMAP.md#tracking-des-objets-mobiles) : [recherche de trajectoires et décalage-addition dans KBMOD](https://epyc.astro.washington.edu/~kbmod/user_manual/search_space.html), [identification de petits corps par champ et date au JPL](https://ssd-api.jpl.nasa.gov/doc/sb_ident.html) et [détection de traînées et comparaison aux orbites, travaux de Rood, Wijnen et Stuik présentés à AMOS en 2022](https://amostech.space/year/2022/automated-satellite-detection-and-sky-position-extraction-in-astronomical-images/).
+KBMOD décrit l'exploration de déplacements supposés, avec un compromis entre coût et objets manqués.
+Le service JPL recherche des petits corps connus dans un champ daté ; il ne certifie pas l'identité d'une détection.
+Les travaux AMOS emploient alignement, différences d'images, recherche de segments et comparaison aux éléments orbitaux de satellites.
+Ils signalent les limites de précision et de validité des éléments TLE. Ces résultats sur un autre instrument ne valident pas le Seestar.
+Leur adaptation, les profils et les critères de sortie restent à évaluer dans le projet. Aucune dépendance n'est installée pour cette planification.
+Cette consultation documentaire ne transmet aucune image, date ou coordonnée des archives.

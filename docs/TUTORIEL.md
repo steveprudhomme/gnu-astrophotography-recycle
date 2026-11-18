@@ -1811,3 +1811,48 @@ La [PR nº 11](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pu
 Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré dans le dépôt.
 L'intégration conserve les deux plans préalables et les preuves de reproduction.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+
+## 37. Planifier la fouille et le tracking des archives
+
+Le 18 novembre 2026, le mainteneur précise son objectif : retrouver des passages restés inaperçus dans son grand ensemble de FITS.
+Le **tracking** consiste à relier les positions d'un objet entre les poses. Un candidat est une proposition à vérifier.
+La [partie tracking de la feuille de route](../ROADMAP.md#tracking-des-objets-mobiles) conserve cette orientation, ses 14 tâches et ses quatre jalons.
+Les cases non cochées indiquent le travail prévu. Elles ne décrivent pas une recherche déjà réalisée.
+
+![Schéma conceptuel du travail prévu : copies, séances, quatre recherches, revue des candidats, références et bilan](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Nous partons de copies locales regroupées en séances.
+Les recherches prévues concernent points mobiles, comètes diffuses, traînées et, plus tard, objets faibles.
+Les candidats auront leurs vues originales, mesures et GIF lorsque les données permettent une animation utile.
+Ils seront revus puis comparés aux références disponibles. Le bilan conservera les domaines examinés, refusés et incertains.
+Ce dessin est un schéma conceptuel créé pour la documentation. Il ne représente aucune donnée réelle ou capture d'écran.
+
+### Comprendre les étapes prévues
+
+Le premier jalon vise une séance complète contenant un objet connu, avec images lisibles et déplacement mesuré en pixels.
+Les jalons suivants diversifient les séries, étendent les recherches validées à l'archive, puis évaluent des recherches plus profondes.
+Les limites de vitesse du profil actuel sont des choix logiciels ; elles ne décrivent pas une limite physique du télescope.
+
+Une recherche de points, une recherche de formes diffuses et une recherche de traînées ne partagent pas forcément les mêmes critères.
+Les futurs profils auront donc leurs propres plans et vérifications. Les moteurs et résultats historiques restent conservés.
+Le plan prévoit aussi de distinguer une image utile au repérage d'une image assez qualifiée pour une mesure scientifique.
+
+Un candidat sans correspondance reste non identifié. Une découverte ne sera jamais déduite de cette seule absence de correspondance.
+Pour mesurer les objets manqués, le plan prévoit des cas réels connus et des ajouts fictifs distincts.
+La **couverture** indiquera quels fichiers, zones et déplacements ont réellement été examinés.
+Un résultat sans candidat restera limité à cette couverture et à la sensibilité mesurée.
+
+### Vérifier cette mise à jour documentaire
+
+Lire la section tracking et vérifier les identifiants TR-01 à TR-14 et les jalons T1 à T4.
+Vérifier les liens vers les références et le présent tutoriel. Le schéma possède un titre et une description accessibles.
+La modification concerne la feuille de route, le schéma, les sources documentaires et le journal des changements.
+La version reste `0.16.0-alpha.1`. Aucun fichier scientifique ou moteur n'est modifié ; aucun support externe n'est consulté.
+Les traitements, nouvelles requêtes de données et validations seront planifiés lot par lot avant leur implémentation.
+
+**Vérification effectuée.** Les 14 tâches et les quatre jalons sont présents, dans l'ordre attendu.
+Les liens locaux, les titres visés et le fichier SVG passent les contrôles documentaires.
+Le schéma a aussi été affiché dans un aperçu local pour vérifier son cadrage et sa lisibilité.
+La commande `git diff --check` ne signale aucune erreur d'espacement.
+Le code, les versions et les cinq médias réels déjà autorisés restent identiques.
+Ces vérifications portent sur la documentation. Elles ne valident aucune détection ni compréhension par un enfant.

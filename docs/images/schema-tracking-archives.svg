@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840" role="img" aria-labelledby="title desc">
+  <title id="title">Fouille des archives et suivi des objets mobiles : plan conceptuel</title>
+  <desc id="desc">Les copies sont regroupées en séances et évaluées. Quatre recherches sont prévues : points mobiles, comètes diffuses, traînées et objets faibles. Les candidats sont revus en images, comparés aux références, puis accompagnés d'un bilan de couverture et d'incertitudes. Ce schéma décrit des fonctionnalités planifiées.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#16324f"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#16324f;text-anchor:middle} .box{fill:#eef5fb;stroke:#16324f;stroke-width:2} .flow{fill:none;stroke:#16324f;stroke-width:2;marker-end:url(#arrow)} .branch{fill:none;stroke:#16324f;stroke-width:2}</style>
+  </defs>
+  <rect width="1200" height="840" fill="white"/>
+  <text x="600" y="40" font-size="28" font-weight="bold">Retrouver des passages restés inaperçus</text>
+  <text x="600" y="74" font-size="20">Schéma conceptuel — fonctionnalités planifiées, sans résultat de détection</text>
+  <rect class="box" x="360" y="100" width="480" height="60" rx="12"/>
+  <text x="600" y="137" font-size="24">Copies locales des FITS</text>
+  <path class="flow" d="M600 160 V182"/>
+  <rect class="box" x="360" y="186" width="480" height="64" rx="12"/>
+  <text x="600" y="225" font-size="24">Séances et qualité selon l'usage</text>
+  <path class="branch" d="M600 250 V278 M150 278 H1050"/>
+  <path class="flow" d="M150 278 V298"/><path class="flow" d="M450 278 V298"/>
+  <path class="flow" d="M750 278 V298"/><path class="flow" d="M1050 278 V298"/>
+  <rect class="box" x="20" y="304" width="260" height="66" rx="12"/>
+  <rect class="box" x="320" y="304" width="260" height="66" rx="12"/>
+  <rect class="box" x="620" y="304" width="260" height="66" rx="12"/>
+  <rect class="box" x="920" y="304" width="260" height="66" rx="12"/>
+  <text x="150" y="344" font-size="23">Points mobiles</text>
+  <text x="450" y="344" font-size="23">Comètes diffuses</text>
+  <text x="750" y="344" font-size="23">Traînées</text>
+  <text x="1050" y="344" font-size="21">Faibles — plus tard</text>
+  <path class="branch" d="M150 370 V398 H1050 V370 M450 370 V398 M750 370 V398"/>
+  <path class="flow" d="M600 398 V424"/>
+  <rect class="box" x="360" y="430" width="480" height="60" rx="12"/>
+  <text x="600" y="467" font-size="24">Propositions de candidats</text>
+  <path class="flow" d="M600 490 V508"/>
+  <rect class="box" x="360" y="514" width="480" height="60" rx="12"/>
+  <text x="600" y="551" font-size="24">Revue : images, GIF et mesures</text>
+  <path class="flow" d="M600 574 V592"/>
+  <rect class="box" x="360" y="598" width="480" height="60" rx="12"/>
+  <text x="600" y="635" font-size="24">Comparaison aux références</text>
+  <path class="flow" d="M600 658 V676"/>
+  <rect class="box" x="360" y="682" width="480" height="60" rx="12"/>
+  <text x="600" y="719" font-size="24">Bilan de couverture et de confiance</text>
+  <text x="600" y="788" font-size="19">Chaque étape conserve ses refus et ses incertitudes.</text>
+  <text x="600" y="817" font-size="19">Un candidat non identifié reste à vérifier ; aucune découverte automatique.</text>
+</svg>
