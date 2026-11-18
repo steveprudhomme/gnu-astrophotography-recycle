@@ -174,6 +174,20 @@ Composite maximum et indice de pose enregistrés en privé. Aucune comparaison o
 
 ### Tâches initiales du projet
 
+### Comparaison orbitale ciblée — plan préalable
+
+Le 18 novembre 2026, le mainteneur demande de poursuivre la comparaison des seules séries 3 et 4.
+La fouille générale reste en pause. Conserver les anciens essais et les seuils.
+
+- [ ] Retenter le catalogue historique SatChecker par un autre client HTTPS, avec la seule date déjà autorisée ; consigner accès, pagination et ancienneté.
+- [ ] Vérifier si le recalage et le WCS de référence déjà locaux permettent de relier la série 3 au ciel ; vérifier les empreintes et les modèles utilisés.
+- [ ] Mesurer les extrémités dans les pixels d'origine et préparer un contrôle céleste, sans assimiler cette préparation à une identification.
+- [ ] Si un catalogue approprié est disponible, calculer localement les passages SGP4 au lieu déclaré ; conserver erreurs, ambiguïtés de temps, différences angulaires et hypothèses concurrentes.
+- [ ] Sans catalogue exploitable, conserver l'état « comparaison non exécutée », un bilan reproductible et les étapes encore nécessaires.
+- [ ] Documenter le résultat et ses limites avec une figure explicative sans données privées publiées.
+
+### Tâches historiques
+
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
 - P1-03 : implémenter l’inventaire sans écriture des entrées ; tester chemins Unicode, liens et accès refusé.
