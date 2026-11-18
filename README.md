@@ -12,7 +12,7 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : développement expérimental, 0.16.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et trois profils de recherche de mobiles. Des diagnostics séparés suivent les mesures et les décisions du détecteur. La suite contient 728 tests logiciels. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
+**Statut : développement expérimental, 0.16.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et trois profils de recherche de mobiles. Des diagnostics séparés suivent les mesures et les décisions du détecteur. Les 728 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 

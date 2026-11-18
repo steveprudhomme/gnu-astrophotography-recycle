@@ -68,6 +68,7 @@ Une requête limitée au nom et à huit dates est autorisée explicitement ; les
 La référence reste géocentrique, avec UTC supposé. Huit copies intègres gardent leur refus du contrat historique.
 La vitesse de référence sort aussi du domaine conservé. Aucun moteur, seuil ou en-tête n'est modifié.
 Aucun contrôle positif naturel n'est validé. La revue du coordinateur reste interne.
+La suite finale donne 728 tests réussis. Le parcours est reproduit hors ligne depuis `f189c22` propre.
 
 Les analyses utilisent des copies locales vérifiées. Les sources sélectionnées sont seulement lues pour les copier.
 Les nouveaux détails réels restent privés. Les cinq médias réels déjà autorisés gardent leur licence CC0 et leurs empreintes.

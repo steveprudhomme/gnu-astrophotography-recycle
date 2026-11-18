@@ -1794,3 +1794,15 @@ Un test indépendant compare son déplacement angulaire à cette vitesse. Cette 
 Les trois images publiques sont inspectées et correspondent aux figures fictives calculées.
 L'audit vérifie 280 fichiers publics, leurs avis et liens, et les neuf commandes hors ligne.
 Les 107 anciens fichiers Python restent identiques, hors métadonnée de version ; quatre sources Photutils restent épinglées.
+
+### Reproduire la préparation sans support ou réseau
+
+La reproduction depuis le commit propre `f189c22` confirme les neuf codes `0,2,0,2,0,0,0,2,0`.
+Les huit sources fictives et leurs huit copies sont identiques. Les huit copies réelles restent intactes et sont réutilisées.
+Les sélections et les décisions des trois préparations sont identiques, ainsi que leurs trois CSV.
+Les chemins et métadonnées des JSON varient avec le dossier et le commit ; aucune égalité de ces chemins n'est annoncée.
+Les neuf PNG sont identiques, dont les trois images publiques. La réponse JPL brute initiale reste identique.
+Les 163 anciens fichiers surveillés restent intacts. Aucun réseau, support, détecteur, alignement ou association n'est appelé.
+Après reproduction, seuls les documents Markdown changent. Les sources et paramètres restent inchangés.
+
+Suite globale finale : **728 tests réussis en 341,74 secondes**, dont les 39 nouveaux tests fictifs. Aucun contrôle positif naturel n’est validé.

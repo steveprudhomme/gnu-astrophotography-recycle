@@ -14,6 +14,7 @@ Dans nos images, nous chercherions un repère central brillant, parfois appelé 
 Une tache centrale visible ne résout pas nécessairement le noyau solide. La [présentation des comètes par la NASA](https://science.nasa.gov/solar-system/comets/facts/) explique ces structures.
 
 Une **éphéméride** est une table qui prévoit des positions et des mouvements pour des dates choisies.
+L'**astrométrie** mesure les positions des objets dans le ciel. Une qualification réunit les preuves que cette mesure convient à l'usage prévu.
 Une référence **géocentrique** décrit ce qui serait observé depuis le centre de la Terre.
 Elle diffère d'une référence calculée pour votre lieu précis.
 **UTC** est une référence internationale de temps. Nous ne supposons pas que l'horloge du télescope a été vérifiée.
@@ -209,3 +210,13 @@ Aucun appel de détection, alignement ou association n'est relevé. Les évaluat
 Les 107 anciens fichiers Python contrôlés sont identiques, hors métadonnée de version. Quatre sources Photutils restent épinglées.
 L'audit vérifie 280 fichiers publics, leurs avis et leurs liens, ainsi que les neuf commandes hors ligne.
 Les trois images publiques sont comparées aux figures fictives calculées. La revue est réalisée par le coordinateur.
+
+La reproduction depuis le commit propre `f189c22` confirme les neuf codes attendus.
+Les huit sources fictives et leurs huit copies sont identiques. Les huit copies réelles restent intactes et sont réutilisées.
+Les sélections réelles et fictives, les trois bilans de décision et leurs trois CSV sont identiques en contenu utile.
+Les chemins et métadonnées de provenance des JSON changent selon le dossier et le commit.
+Les neuf PNG sont identiques, dont les trois images publiques. La réponse JPL brute initiale reste identique.
+Cette reproduction n'utilise ni support, réseau, détection, alignement ou recherche de trajet.
+Les 163 anciens fichiers surveillés et les médias CC0 sont préservés. Les nouvelles sources du contrôle restent identiques.
+
+Suite globale finale : **728 tests réussis en 341,74 secondes**, dont les 39 nouveaux tests fictifs. Aucun contrôle positif naturel n’est validé.
