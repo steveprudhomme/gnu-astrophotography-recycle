@@ -8,5 +8,10 @@
   "source_hashes_equal": true,
   "checks": "51 synthetic and historical registration tests; end-to-end guided reproduction separately",
   "pdf_pages_visually_inspected": 11,
-  "scientific_validation_independent": false
+  "scientific_validation_independent": false,
+  "integrated_pull_request": "https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/14",
+  "observed_merge_commit": "b94cc9b3bb14afe71456b7c964c3c70a91ed3f6d",
+  "fetched_remote_main_matches_merge": true,
+  "github_automated_checks": 0,
+  "large_archive_resumed": false
 }

@@ -169,7 +169,7 @@ L'exception ne s'étend pas aux autres archives. La grande analyse reste en paus
 - [x] Recalculer localement les passages, classer les candidats et reproduire les trois hypothèses avec les incertitudes géométriques et temporelles explicites.
 - [x] Écrire un tutoriel depuis zéro, accessible aux débutants : installation, dossiers, commandes exactes, durée indicative mesurée, résultats attendus, erreurs et petites vérifications ; illustrer chaque phase utile.
 - [x] Faire un essai dans une installation propre à partir des seules entrées publiques et des références téléchargées ; contrôler les empreintes, les licences, les liens et l'affichage.
-- [ ] Actualiser les Markdown concernés, publier une PR avec preuves et limites, puis fusionner et vérifier les commits distants et locaux.
+- [x] Actualiser les Markdown concernés, publier une PR avec preuves et limites, puis fusionner et vérifier les commits distants et locaux.
 
 La recette pédagogique indépendante et le journal ne livrent pas le moteur général en pause. Les versions et tags existants restent immuables.
 Critère de fin : une personne peut refaire les étapes conduisant aux trois correspondances plausibles, sans accès aux chemins privés du développeur.
@@ -183,7 +183,7 @@ Critère de fin : une personne peut refaire les étapes conduisant aux trois cor
 - [x] Illustrer avec extraits des vraies poses, superpositions mesurées/prévues, graphiques d'écarts et de compatibilité temporelle, et schéma de méthode ; identifier explicitement réel, calculé et fictif.
 - [x] Appliquer le style bibliographique UQAM-APA : citations auteur-date et références vérifiées, liens/DOI, ordre et typographie contrôlés selon le guide officiel.
 - [x] Livrer sources LaTeX, bibliographie et PDF compilé ; fournir les commandes de reconstruction et vérifier visuellement chaque page rendue.
-- [ ] Intégrer le manuscrit comme document de travail non évalué par les pairs, avec références au journal et au tutoriel ; fusionner l'ensemble sur GitHub après vérification.
+- [x] Intégrer le manuscrit comme document de travail non évalué par les pairs, avec références au journal et au tutoriel ; fusionner l'ensemble sur GitHub après vérification.
 
 Plans publiés : `97060a4`, `6e4f821` et `8b49410`. Seize FITS identiques par SHA-256, 696 centres de référence fournis et neuf figures décrites.
 Installation Python 3.13 isolée ; rejeux avec cache historique puis références fraîchement téléchargées : mêmes quatre classements, trois associations plausibles et 935 propositions.
@@ -197,7 +197,10 @@ Les seize FITS restent intacts. Les mesures, classements, 935 propositions et ne
 La référence stellaire est préservée comme octets pour maintenir son empreinte sur les autres systèmes ; seul Windows a été exécuté.
 La copie Git propre reste inchangée. Aucun accès USB, réseau de calcul ou lancement de la grande archive.
 Les [preuves de reproduction](journal/reproduction-verification.json) et de [revue de publication](journal/publication-verification.json) sont conservées.
-L’intégration et le contrôle des commits GitHub restent à effectuer.
+Publication intégrée par la [PR nº 14](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/14), avec 69 fichiers relus, exactement seize FITS autorisés et aucune modification de source `src`.
+Le commit de fusion **`b94cc9b`** est observé sur GitHub et correspond à la référence distante récupérée localement.
+Aucun contrôle automatique GitHub n’est configuré pour cette PR ; les 51 tests et les reproductions sont locaux.
+Cette mise à jour de clôture ne modifie que les preuves et les Markdown. Aucun tag ou release, aucune reprise de la grande fouille.
 
 ### Essai AMOS adapté aux séries 3 et 4
 
