@@ -1660,3 +1660,80 @@ La [PR nº 9](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pul
 Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré.
 L'intégration conserve les commits du plan et de la reproduction.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+
+## 35. Examiner quatre séries Seestar sans changer les seuils
+
+Le plan `29665f3` est publié avant le code. Le complément `4d3f677` publie la commande de copie avant son implémentation.
+Le [guide illustré de l'essai élargi](ESSAI-SEESTAR-ELARGI.md) décrit les commandes, les résultats et les erreurs.
+Une série contient huit poses. Une fenêtre est une portion de séance choisie avant la recherche.
+
+Deux fenêtres commencent aux repères zéro et 2400 secondes dans chacune des deux séances du manifeste local.
+Le programme choisit huit poses proches des repères espacés de 300 secondes, sans pose commune entre fenêtres d'une séance.
+Les refus restent conservés. Aucune autre fenêtre n'est choisie pour obtenir un meilleur résultat.
+
+Les quatre séries représentent 32 poses distinctes. Seize copies locales sont réutilisées et seize sources supplémentaires sont copiées depuis l'USB.
+Les sources sont ouvertes seulement en lecture, aux chemins sélectionnés par manifeste. Aucun parcours ou écriture sur le support.
+Les empreintes historique/source/copie/source concordent, avec taille et date de modification conservées.
+Les analyses utilisent ensuite uniquement les copies locales. Les modèles d'alignement sont communs aux deux profils.
+Le voisinage reste cinq pour la référence et trois pour la variante ; les seuils, formes, masques, marges et plafonds restent intacts.
+
+Les quatre alignements et les huit recherches sont disponibles. Chaque série donne **zéro candidat dans chaque profil**.
+Ce résultat ne prouve pas l'absence de mobiles dans toutes les poses de l'archive.
+Les deux séances du même champ ne constituent pas une preuve sur plusieurs champs ou nuits indépendantes.
+Aucun mobile naturel connu ne sert de contrôle positif. La sensibilité réelle et le taux de fausses alertes restent inconnus.
+
+### Refaire l'exercice public
+
+Le guide fournit trois commandes pour fabriquer, analyser et dessiner deux séances entièrement fictives.
+Un point inventé se déplace à 30 secondes d'arc par heure. Sa position attendue n'est jamais donnée aux recherches.
+Les quatre séries donnent chacune un candidat dans chaque profil. Ces occurrences ne comptent pas des objets distincts.
+
+![Bilan fictif de quatre séries : un candidat par ligne dans chacun des deux profils](images/exemple-essai-elargi-bilan.png)
+
+**Description.** Les lignes S01, S02, S03 et S04 donnent chacune 1 et 1.
+La valeur zéro signifierait une recherche achevée sans proposition ; « indisponible » garderait un compte inconnu.
+
+![Huit vignettes entièrement fictives avec déplacement d'un point encerclé près d'une étoile fixe](images/exemple-essai-elargi-mobile.png)
+
+**Description.** Le point du haut avance vers la droite et le haut. L'étoile plus forte située dessous reste presque fixe après alignement.
+Les cercles repèrent les mesures candidates. Les images sont calculées, sans capture d'écran inventée.
+Le [GIF fictif facultatif](images/exemple-essai-elargi-animation.gif) montre les huit poses à 600 ms par vue.
+Les images fixes et cette description permettent aussi de comprendre le déplacement sans animation.
+
+Les nouveaux médias réels restent privés. Les cinq médias CC0 déjà autorisés restent intacts.
+La version compatible devient `0.15.0-alpha.1`, avec `0.15.0a1` pour Python, sans tag ou release.
+Le temps de calcul et le volume d'entrée sont mesurés dans le rapport local.
+Le volume correspond à la taille des copies ; il ne mesure pas toutes les lectures répétées.
+
+### Vérifications du parcours
+
+Les 17 tests du pilote passent en 60,04 secondes. Quatre tests supplémentaires de copie passent en 47,00 secondes.
+Ils utilisent des séances fictives de développement distinctes des deux graines de l'exercice public.
+Ils vérifient sélection sans source, refus, doublons, copie en lecture seule, comptes inconnus et dessins sans recherche.
+Un premier test change une empreinte sans changer son identifiant de pose. Le refus est correct ; le test est corrigé.
+
+Une modification de source pendant une vérification provoque aussi un arrêt d'intégrité.
+La reprise utilise des sources figées. Le plan privé est relié au code actuel, avec exactement les mêmes poses sélectionnées.
+Un auxiliaire conserve d'abord l'ancien lien et refuse la recherche réelle. Son dossier incomplet reste conservé.
+Ces reprises ne changent aucun seuil ou règle de sélection après les observations.
+
+Les sept commandes du guide terminent avec le code zéro. Les quatre séries fictives proposent chacune un candidat dans chaque profil.
+Les quatre séries réelles donnent chacune zéro candidat dans chaque profil, avec recherches disponibles.
+Les gardes préservent 461 anciens fichiers et les cinq médias CC0. Aucun accès USB ou réseau n'intervient pendant les analyses.
+Les seules créations FITS sont les images fictives et des copies identiques, dans les nouveaux dossiers locaux.
+L'audit vérifie 271 fichiers publics, leurs avis et liens, ainsi que les sept commandes.
+Les 102 anciens fichiers Python contrôlés restent identiques, hors métadonnée de version ; quatre sources Photutils restent épinglées.
+
+La suite finale complète donne **689 tests réussis en 367,19 secondes**.
+La reproduction depuis le commit propre `86410ab` confirme les sept codes de retour à zéro.
+Les 32 sources fictives, leurs 32 copies et 32 nouvelles copies réelles sont identiques.
+Les mêmes sélections et modèles donnent les mêmes mesures et propositions dans huit rapports, pour seize recherches.
+Les rapports complets et CSV peuvent différer par les chemins et les durées mesurées ; leurs comptes sont identiques.
+Les 58 médias sont identiques, dont les quatre fichiers publics. Les 461 anciens fichiers surveillés restent intacts.
+Aucune lecture USB n'intervient dans cette reproduction. Seules des copies identiques et de nouvelles images fictives sont créées.
+Après reproduction, seuls les documents Markdown changent. La revue reste celle du coordinateur, sans validation indépendante.
+
+La [PR nº 10](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/10) publie les 22 fichiers relus du lot.
+Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré dans le dépôt.
+L'intégration conserve les deux plans publiés avant leur code et les preuves de reproduction.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.

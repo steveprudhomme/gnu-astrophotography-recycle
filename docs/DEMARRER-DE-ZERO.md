@@ -786,6 +786,20 @@ Le guide contient neuf commandes, les fichiers à vérifier, les erreurs et une 
 **À expliquer avec tes mots :** pourquoi faut-il aussi lire le témoin ?
 Réponse : retrouver plus de points ne suffit pas. Il faut vérifier si le programme propose aussi des trajets sans objet ajouté.
 
+### Nouvelle mission — examiner plusieurs petits films du ciel
+
+Le [guide de l'essai élargi](ESSAI-SEESTAR-ELARGI.md) fabrique deux séances entièrement fictives.
+Une série contient ici huit poses, c'est-à-dire huit images. Quatre séries forment le lot de travail.
+Tu peux refaire la fabrication, les recherches et les dessins avec trois commandes expliquées.
+Les deux profils examinent les mêmes images, avec leurs seuils conservés.
+
+![Résultat fictif : chaque série possède une proposition dans chacun des deux profils](images/exemple-essai-elargi-bilan.png)
+
+**Lire l'image.** Chaque ligne vaut 1 dans les deux colonnes. Les deux programmes peuvent proposer le même objet.
+Le guide montre aussi huit vignettes fixes et un GIF facultatif du point inventé en mouvement.
+Sur les vraies copies choisies pour le projet, les quatre séries donnent zéro candidat dans les deux profils.
+Cette absence ne prouve pas qu'aucun objet ne bouge dans le reste des archives.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :

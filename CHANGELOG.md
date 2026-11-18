@@ -2,7 +2,15 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
-## État de développement — 0.14.0-alpha.1
+## État de développement — 0.15.0-alpha.1
+
+- Pilote de quatre fenêtres préchoisies depuis le manifeste local ; copie vérifiée, index local, recherches et dessins. Profils 5 et 3 inchangés, modèles communs conservés, aucun seuil assoupli.
+- Premier essai réel : quatre recherches disponibles par profil, sur 32 poses distinctes de deux séances du même champ ; zéro candidat dans chaque série. Aucun ajout réel ni contrôle positif naturel. Nouveaux rapports et médias réels privés.
+- Parcours public de deux séances entièrement fictives : quatre séries avec un candidat chacune dans les deux profils. Trois PNG et GIF facultatif, descriptions fixes et textuelles ; tutoriel et règles de rédaction accessible appliqués.
+- Préparation : seize copies locales réutilisées et seize fichiers supplémentaires lus sur USB à partir du manifeste, sans parcours du support. Analyses et reproduction ensuite locales. SemVer Python `0.15.0a1`, sans tag/release.
+- Vérification : 21 nouveaux tests fictifs, suite complète de 689 tests réussis en 367,19 s. Reproduction depuis `86410ab` propre : sept commandes aux codes zéro, mêmes sélections/modèles et seize résultats de profils, 96 nouveaux FITS sources/copies identiques et 58 médias identiques. Les durées mesurées peuvent varier. Les 461 anciens fichiers surveillés et cinq médias CC0 restent intacts. Audit de 271 fichiers publics, licences, liens et commandes ; 102 anciens fichiers Python inchangés hors numéro de version.
+
+## État antérieur de développement — 0.14.0-alpha.1
 
 - Nouveau détecteur séparé : voisinage de 3 cases réduites au lieu de 5. Même seuil de luminosité, noyau, filtres de forme, masque et plafonds.
 - Comparaison des deux profils sur les mêmes pixels et modèles, réponses ouvertes après les 26 rapports candidats scellés. Deux nouveaux fonds fictifs réservés ; anciens dérivés fictifs et réels réutilisés sans modification.

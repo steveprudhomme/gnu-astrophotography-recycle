@@ -12,6 +12,8 @@
 
 - Versionner les prochaines livraisons selon SemVer 2.0.0 et `VERSIONING.md`. `VERSION` contient la version publique canonique ; le paquet conserve l'équivalent PEP 440 cohérent dans `pyproject.toml` et `gar.__version__`. Tenir CHANGELOG.md à jour, annoncer les ruptures de la surface publique et ne jamais remplacer un tag ou une version publiée. Les numéros de lot et schémas de données sont distincts des versions applicatives.
 
+- Mandat du lot 27 : essai élargi sur quatre fenêtres Seestar préchoisies depuis le manifeste local, avec les profils 5 et 3 et tous leurs paramètres intacts. Réutiliser les copies locales vérifiées ; les seuls fichiers manquants explicitement sélectionnés peuvent être copiés depuis l'USB en lecture seule, sans parcours du support. Nouveau recalage par les fonctions historiques inchangées, puis modèles communs gelés entre profils. Aucun ajout dans les images réelles ou catalogue externe. Conserver les refus et toutes les candidatures non confirmées ; nouveaux rapports et médias réels privés. Pas de délégation autorisée pour ce lot.
+
 - Avant un lot d’implémentation, réfléchir aux sous-étapes et ajouter les tâches nouvelles à ROADMAP.md. Faire un commit de planification avant de coder.
 - Documenter les opérations, commandes, résultats, vérifications et limites dans docs/TUTORIEL.md, avec des images explicatives ou des exemples visuels réels. Distinguer schémas, exemples synthétiques et données réelles ; ne pas fabriquer de captures d’écran.
 - Actualiser les Markdown concernés lorsque le comportement ou le statut change.

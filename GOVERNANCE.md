@@ -31,7 +31,7 @@ Le diagnostic WCS 0.4 conserve la même distinction : cohérence numérique d’
 9. Publier les versions avec code source correspondant, avis tiers et journal des changements. Réviser la liste des personnes habilitées à chaque arrivée ou départ.
 
 **État au 17 novembre 2026.** Le dépôt est public depuis le 15 novembre.
-La version de développement est [0.14.0-alpha.1](VERSION), sans création de tag ou de release.
+La version de développement est [0.15.0-alpha.1](VERSION), sans création de tag ou de release.
 Le [journal](CHANGELOG.md) résume les changements. La [feuille de route](ROADMAP.md) conserve les plans et les preuves historiques.
 
 Le lot 23 utilise trois agents, avec coordination et revue internes. Le plan est publié avant le code.
@@ -55,8 +55,13 @@ Ce lot a passé 638 tests. Le diagnostic numérique ne constitue pas une qualifi
 
 Le lot 26 compare un nouveau détecteur à voisinage réduit, avec seuil de luminosité et moteurs historiques inchangés.
 Les deux fonds fictifs réservés retrouvent leurs six ajouts brillants, sans faux candidat fictif ni perte de récupération.
-Les résultats sur fonds réels restent inchangés, sans nouveau candidat naturel. La suite complète passe 668 tests.
+Les résultats sur fonds réels restent inchangés, sans nouveau candidat naturel. Ce lot a passé 668 tests.
 Le coordinateur réalise la revue ; aucune validation indépendante n'est annoncée.
+
+Le lot 27 élargit l'essai à quatre fenêtres préchoisies, soit 32 poses distinctes de deux séances du même champ.
+Les alignements et les deux recherches sont disponibles ; chaque série donne zéro candidat avec chaque profil.
+Aucun seuil, moteur ou ancien résultat ne change. Aucun contrôle positif naturel n'est encore disponible.
+La suite complète comporte 689 tests. La revue du coordinateur reste interne.
 
 Les analyses utilisent des copies locales vérifiées. Les sources sélectionnées sont seulement lues pour les copier.
 Les nouveaux détails réels restent privés. Les cinq médias réels déjà autorisés gardent leur licence CC0 et leurs empreintes.
