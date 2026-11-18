@@ -152,6 +152,28 @@ Aucun satellite n'est identifié à ce stade. Les rapports restent locaux ; la f
 
 ## Premières tâches à ouvrir
 
+### Journal public et tutoriel reproductible des trois hypothèses
+
+Mandat du 18 novembre 2026. Plan à committer et publier avant réalisation.
+Le mainteneur rend publics les 16 FITS sélectionnés des séries 3 et 4 ; leurs en-têtes contiennent notamment dates et coordonnées du site.
+L'exception ne s'étend pas aux autres archives. La grande analyse reste en pause.
+
+- [ ] Travailler dans une copie Git isolée et préserver les modifications applicatives générales en pause.
+- [ ] Préparer un manifeste public des 16 FITS intacts : identifiants simples, noms d'origine, tailles, SHA-256 et notice de droits ; publier seulement ces entrées.
+- [ ] Fournir les références de calibration nécessaires sans ajouter un autre FITS brut au périmètre autorisé ; expliquer leur origine et ce qu'elles ne qualifient pas.
+- [ ] Créer un journal lisible et structuré, avec identifiants durables, statuts, provenance, dates, mesures, hypothèses alternatives et historique des changements.
+- [ ] Inscrire les trois correspondances plausibles existantes ; distinguer observation d'un objet connu, identité confirmée et découverte nouvelle.
+- [ ] Rendre la recette autonome : vérifier/copier les entrées, afficher les poses, retrouver les étoiles, recalculer les transformations, examiner les lignes et mesurer les traces natives.
+- [ ] Documenter la sélection visuelle guidée, conserver les limites des recherches automatiques et ne pas présenter ce rejeu comme une détection aveugle.
+- [ ] Fournir la récupération contrôlée du catalogue orbital historique et de la grille géodésique, avec cache, pagination et provenance ; permettre l'emploi du cache historique déjà local sans le redistribuer arbitrairement.
+- [ ] Recalculer localement les passages, classer les candidats et reproduire les trois hypothèses avec les incertitudes géométriques et temporelles explicites.
+- [ ] Écrire un tutoriel depuis zéro, accessible aux débutants : installation, dossiers, commandes exactes, durée indicative mesurée, résultats attendus, erreurs et petites vérifications ; illustrer chaque phase utile.
+- [ ] Faire un essai dans une installation propre à partir des seules entrées publiques et des références téléchargées ; contrôler les empreintes, les licences, les liens et l'affichage.
+- [ ] Actualiser les Markdown concernés, publier une PR avec preuves et limites, puis fusionner et vérifier les commits distants et locaux.
+
+La recette pédagogique indépendante et le journal ne livrent pas le moteur général en pause. Les versions et tags existants restent immuables.
+Critère de fin : une personne peut refaire les étapes conduisant aux trois correspondances plausibles, sans accès aux chemins privés du développeur.
+
 ### Essai AMOS adapté aux séries 3 et 4
 
 Plan préalable du 18 novembre 2026. Essai local distinct ; la fouille générale reste en pause.
