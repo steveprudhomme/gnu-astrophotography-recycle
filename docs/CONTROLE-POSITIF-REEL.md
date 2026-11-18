@@ -220,3 +220,6 @@ Cette reproduction n'utilise ni support, réseau, détection, alignement ou rech
 Les 163 anciens fichiers surveillés et les médias CC0 sont préservés. Les nouvelles sources du contrôle restent identiques.
 
 Suite globale finale : **728 tests réussis en 341,74 secondes**, dont les 39 nouveaux tests fictifs. Aucun contrôle positif naturel n’est validé.
+
+La [proposition d'intégration nº 11](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/11) rassemble les 22 fichiers relus du lot.
+Les tests décrits sont locaux. Après intégration, comparer `main` sur GitHub, sa référence distante et la copie locale.

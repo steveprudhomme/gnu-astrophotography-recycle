@@ -1806,3 +1806,8 @@ Les 163 anciens fichiers surveillés restent intacts. Aucun réseau, support, d�
 Après reproduction, seuls les documents Markdown changent. Les sources et paramètres restent inchangés.
 
 Suite globale finale : **728 tests réussis en 341,74 secondes**, dont les 39 nouveaux tests fictifs. Aucun contrôle positif naturel n’est validé.
+
+La [PR nº 11](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/11) publie les 22 fichiers relus du lot.
+Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré dans le dépôt.
+L'intégration conserve les deux plans préalables et les preuves de reproduction.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
