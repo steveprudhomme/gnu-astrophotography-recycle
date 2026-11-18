@@ -1519,7 +1519,8 @@ L'absence de contrôle automatique GitHub ne remplace pas les tests locaux et le
 
 Le plan `61fc2b8` est publié avant le code. Ce contrôle utilise seulement les deux fonds fictifs irréguliers déjà conservés.
 Le [guide de trace des mobiles lents](TRACE-MOBILES-LENTS.md) contient les quatre commandes et leurs erreurs possibles.
-Les trois premières photos de chaque ajout sont la cible. Les dix suivantes et les seize témoins servent de comparaison.
+Dans chaque fond, les trois premières photos du cas `r10-a12-p1` sont la cible.
+Les dix photos suivantes et les seize témoins servent de comparaison.
 
 Le programme vérifie les anciens fichiers et rejoue le détecteur sans position forcée.
 Pour chaque fond, seize traces brutes sont terminées avant l'ouverture des réponses.
@@ -1577,3 +1578,7 @@ Les 32 traces brutes, seize preuves après rejeu, deux bilans et deux CSV sont i
 Les six PNG sont identiques, dont les trois figures publiques.
 Les six absences et dix présences restent conservées. Les anciens scores et les 2554 fichiers surveillés restent intacts.
 L'audit porte sur 252 fichiers publics, leurs avis, leurs liens et les quatre commandes rapprochées des arguments exécutés.
+
+La [PR nº 8](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/8) publie les 19 fichiers relus du lot.
+Après reproduction, seuls les documents Markdown changent. Aucun contrôle automatique GitHub n'est configuré ; les tests sont locaux.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.

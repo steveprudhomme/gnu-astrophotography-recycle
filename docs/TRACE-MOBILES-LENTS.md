@@ -4,6 +4,9 @@ Ce parcours examine six absences : les trois premières photos de chacun des deu
 Les photos suivantes et leurs témoins servent de comparaison. Les anciens résultats restent conservés.
 Le [plan publié avant le code](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/61fc2b8181cfae8f851471cce55004f1cc995ead) décrit le lot 25.
 
+Le cas fixé est `r10-a12-p1` : vitesse nominale de 10 secondes d'arc par heure, amplitude 12 fois le bruit initial, premier trajet.
+Les treize rapports de séries sont vérifiés en entrée. Le rejeu porte sur ce cas et son témoin dans chacun des deux fonds.
+
 ## Comprendre avec un relief
 
 Imagine une petite bosse près d'une grande colline. La petite bosse peut dépasser un niveau tracé sur le dessin.
