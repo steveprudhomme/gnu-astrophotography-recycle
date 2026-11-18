@@ -114,6 +114,11 @@ Le coordinateur publie ce plan avant le code, puis attribue des fichiers distinc
 Un dossier de travail privé dédié peut y recevoir des copies et rapports. Garder une réserve de 3 Go et mesurer le coût avant généralisation.
 Les fichiers déjà présents sur D: ne doivent être ni déplacés ni supprimés. Les traitements restent sur des copies vérifiées.
 
+**Sous-étape ajoutée avant son code — recalage exploratoire distinct.** Le premier essai de développement sur les copies de comète conserve un refus strict : trop peu d'étoiles de contrôle.
+Ajouter une option séparée, désactivée par défaut, avec au moins trois associations d'ajustement et une de contrôle, résidu maximal de contrôle à 1,5 pixel natif.
+Ce contrôle faible ne valide ni toute la surface ni l'astrométrie absolue. Les domaines restent partiels et les candidats demandent une revue.
+Conserver le résultat strict, ses critères et les paramètres de luminosité. Vérifier ce nouveau mode sur données fictives avant le prochain essai réel.
+
 ## Premières tâches à ouvrir
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
