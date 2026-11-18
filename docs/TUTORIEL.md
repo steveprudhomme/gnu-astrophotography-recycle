@@ -1432,3 +1432,85 @@ La revue interne vérifie les résultats, les licences et les données à garder
 Les tests sont locaux : aucun contrôle automatique GitHub n'est configuré.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
 Cette dernière vérification distingue une publication distante d'un simple commit local.
+
+## 32. Comprendre les trois manques brillants du profil lent
+
+Le plan `13ded75` est publié avant le code. Les moteurs et les seuils des lots précédents restent gelés.
+Le [nouveau parcours illustré](DIAGNOSTIC-MOBILES-LENTS.md) décrit les treize commandes de l'exercice.
+Il commence par les deux scores fictifs conservés, puis fabrique deux nouveaux fonds sans grille régulière.
+
+Le diagnostic lit les positions brutes et recalées déjà enregistrées. Il vérifie leur transformation et les fichiers liés.
+Les treize rapports de candidats et les dérivés sont vérifiés avant l'ouverture des réponses.
+Aucun appel de détection, de recalage ou d'association n'est nécessaire pour ce diagnostic ou ses dessins.
+
+Deux manques possèdent cinq photos proches sur 1200 secondes. Le troisième possède six photos sur 1500 secondes.
+Le profil demande au moins six photos couvrant 1800 secondes. Les trois supports sont donc insuffisants.
+Ils sont identiques avant et après le champ commun, aux rayons de 1,5 et 3 pixels.
+Une absence de point proche ne révèle pas à elle seule sa cause physique.
+
+Le premier fond montre aussi une orientation presque retournée pour sa troisième photo.
+Le diagnostic compare les modèles à la fabrication connue. Il conserve les modèles acceptés, même erronés.
+Le second fond possède deux manques sans ce retournement ; une seule explication ne suffit donc pas.
+
+Le nouveau banc déplace les étoiles dans leurs cases avec les graines réservées 2026112401 et 2026112402.
+Il garde la cadence, la rotation, les douze ajouts et les moteurs du lot précédent.
+Un contrôle indépendant de la fabrication intervient après le gel des modèles et avant les nouveaux ajouts.
+Il peut refuser un contexte, sans choisir une autre graine ou remplacer le modèle.
+
+La version compatible de développement devient `0.12.0-alpha.1`, avec `0.12.0a1` pour Python.
+Les nouvelles sources portent les avis GPL requis. Aucun tag ou release n'est créé.
+
+![Support mesuré des six cas brillants du second ancien fond fictif : nombre et durée restent visibles](images/exemple-diagnostic-lents-supports.png)
+
+**Description.** Les deux manques ont des points proches sur les photos 4 à 8, puis 3 à 8.
+Cela représente cinq photos sur 1200 secondes, puis six photos sur 1500 secondes.
+Les « oui » et « non » rendent la lecture possible sans distinguer les couleurs.
+Ces voisinages autour des réponses ne remplacent pas une trace complète des hypothèses du moteur.
+
+![Comparaison des modèles conservés à la rotation inverse connue, avec demi-tour de la troisième photo fictive](images/exemple-diagnostic-lents-orientation.png)
+
+**Description.** Sept écarts d'angle restent proches de zéro ; celui de la troisième photo approche −180°.
+La figure est calculée sur le premier ancien fond fictif. Elle n'est pas une capture d'écran ou une observation réelle.
+
+### Nouveau banc sans grille régulière
+
+Les deux contrôles de fabrication passent : écarts de rotation inférieurs à 0,003° et erreurs spatiales maximales inférieures à 0,024 pixel.
+Le profil retrouve 5/12 puis 6/12 ajouts, dont 5/6 brillants dans chaque fond.
+Les témoins et les candidats non associés restent à zéro. Tous les ajouts sont disponibles.
+Les deux scores rendent 2 : les critères brillants sont encore manqués. Aucun réglage ne change après l'essai réservé.
+
+![Bilan du premier nouveau fond fictif, avec cinq cas brillants retrouvés et un manque conservé](images/exemple-diagnostic-lents-asym.png)
+
+**Description.** Aucun ajout faible n'est retrouvé dans ce fond. À forte amplitude, le bilan donne 1/2, 2/2 puis 2/2.
+Ces comptes correspondent aux vitesses de 10, 30 et 60 secondes d'arc par heure.
+Le manque à 10 possède seulement cinq photos proches sur 1200 secondes, malgré une orientation conforme à la fabrication.
+Les nouveaux fonds ont des positions et bruits différents ; ces essais ne mesurent pas l'effet isolé de la symétrie.
+
+### Contrôles et opérations
+
+Les 26 nouveaux tests passent en 20,69 secondes ; la suite complète donne 620 tests réussis en 298,92 secondes.
+Les treize commandes du parcours sont exécutées avec les codes `0,0,0,0,0,0,0,2,0,0,0,2,0`.
+Quatre diagnostics supplémentaires relisent les nouveaux fonds et les deux anciens bilans réels. Leurs scores restent inchangés.
+Les 1892 anciens fichiers surveillés et les médias CC0 restent intacts, sans accès support ou réseau d'analyse.
+
+Une première garde bloque aussi la copie d'un nouveau FITS fictif, avant l'analyse des essais réservés.
+Le premier dossier reste incomplet et conservé. La garde est précisée pour les seules copies fictives ; le second essai aboutit.
+Les moteurs, les nouvelles sources de méthode et les critères ne changent pas pendant cette reprise.
+Les seules écritures FITS de l'exercice créent les nouvelles images et copies entièrement fictives dans le nouveau dossier local.
+
+### Reproduire depuis le code conservé
+
+La reproduction depuis le commit propre `b2c7a97` donne les mêmes treize codes de retour.
+Les six diagnostics et leurs six CSV sont identiques. Les seize nouvelles images sources fictives sont identiques.
+Chaque nouveau fond conserve les mêmes 104 dérivés, treize rapports candidats, score et quatre médias.
+Les quatre PNG du diagnostic ancien et les trois PNG publics sont identiques aux fichiers reproduits.
+Les deux anciens scores réels gardent leurs résultats. Aucune nouvelle recherche réelle n'est réalisée.
+
+Dix sources historiques sont identiques à celles de `8c1b9e6`. Les versions publique, Python et installée concordent.
+L'audit vérifie 245 fichiers publics, leurs licences et leurs liens. Les treize commandes correspondent aux arguments réellement exécutés.
+La revue est effectuée par le coordinateur. Elle ne remplace pas une validation scientifique indépendante.
+
+La [PR nº 7](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/7) publie les 20 fichiers relus du lot.
+Après la reproduction, seules les notes Markdown changent. Les moteurs et les sources du nouvel exercice restent identiques.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+L'absence de contrôle automatique GitHub ne remplace pas les tests locaux et les preuves conservées.

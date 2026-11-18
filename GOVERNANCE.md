@@ -31,17 +31,22 @@ Le diagnostic WCS 0.4 conserve la même distinction : cohérence numérique d’
 9. Publier les versions avec code source correspondant, avis tiers et journal des changements. Réviser la liste des personnes habilitées à chaque arrivée ou départ.
 
 **État au 17 novembre 2026.** Le dépôt est public depuis le 15 novembre.
-La version de développement est [0.11.0-alpha.1](VERSION), sans création de tag ou de release.
+La version de développement est [0.12.0-alpha.1](VERSION), sans création de tag ou de release.
 Le [journal](CHANGELOG.md) résume les changements. La [feuille de route](ROADMAP.md) conserve les plans et les preuves historiques.
 
 Le lot 23 utilise trois agents, avec coordination et revue internes. Le plan est publié avant le code.
 Le profil lent est séparé ; les moteurs et les résultats historiques restent intacts.
-La suite comporte 594 tests réussis. Le parcours est reproduit depuis le commit propre `6f9950f`.
+Ce lot a passé 594 tests. Son parcours est reproduit depuis le commit propre `6f9950f`.
 
 Les essais réservés restent partiels : chaque fond fictif retrouve 5/12 ajouts et manque le critère prévu.
 Un fond fictif révèle aussi une ambiguïté d'orientation du recalage.
 Les fonds réels retrouvent 6/12 puis 9/12 ajouts, sans candidat naturel proposé.
 Ces résultats ne qualifient pas la sensibilité scientifique ou l'identité d'un objet.
+
+Le lot 24 ajoute un diagnostic sans nouvelle recherche réelle et un banc fictif irrégulier.
+Il conserve les trois manques brillants et leurs supports proches insuffisants.
+Les orientations du nouveau banc passent le contrôle de fabrication ; ses critères brillants restent manqués.
+La suite complète comporte maintenant 620 tests réussis. Les seuils et les moteurs historiques restent inchangés.
 
 Les analyses utilisent des copies locales vérifiées. Les sources sélectionnées sont seulement lues pour les copier.
 Les nouveaux détails réels restent privés. Les cinq médias réels déjà autorisés gardent leur licence CC0 et leurs empreintes.

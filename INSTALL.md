@@ -2,7 +2,7 @@
 
 ## Ce qui fonctionne aujourd’hui
 
-La version de développement [0.11.0-alpha.1](VERSION) contient l'inventaire, le regroupement, les diagnostics et les copies vérifiées. Elle comprend aussi les contrôles stellaires, la préparation temporelle et les profils expérimentaux de mobiles. L'installation depuis le code source est disponible. Le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
+La version de développement [0.12.0-alpha.1](VERSION) contient l'inventaire, le regroupement, les diagnostics et les copies vérifiées. Elle comprend aussi les contrôles stellaires, la préparation temporelle et les profils expérimentaux de mobiles. L'installation depuis le code source est disponible. Le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
 
 ## Environnement depuis les sources
 
@@ -180,7 +180,13 @@ Les sorties restent dans de nouveaux dossiers sous `local/`.
 Un résultat de score peut donner le code 2 : le critère fictif prévu n'est pas atteint, même si le calcul termine.
 Le guide explique les deux échecs observés, les images fixes et l'animation facultative.
 Prévoir de l'espace pour 104 nouveaux plans de travail par contexte et pour chaque reproduction conservée.
-Le paquet installé affiche `0.11.0a1`, équivalent Python de la version SemVer `0.11.0-alpha.1`.
+Le paquet installé affiche `0.12.0a1`, équivalent Python de la version SemVer `0.12.0-alpha.1`.
+
+Le [diagnostic illustré des manques](docs/DIAGNOSTIC-MOBILES-LENTS.md) ajoute treize commandes avec les mêmes dépendances.
+Il lit d'abord les scores fictifs déjà produits, puis crée un nouveau banc sans grille régulière.
+Prévoir de nouveaux dossiers pour les diagnostics, seize images fictives, leurs copies et les dérivés.
+La lecture de l'ancien score vérifie ses fichiers : un simple `score.json` isolé ne suffit pas.
+Un ancien score incomplet ou modifié est refusé. Aucun accès USB n'est nécessaire.
 
 ## Distribution portable prévue
 

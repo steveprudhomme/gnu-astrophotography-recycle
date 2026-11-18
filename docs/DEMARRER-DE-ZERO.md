@@ -742,6 +742,20 @@ Notre version de développement s'écrit **0.10.0-alpha.1**. Le mot « alpha » 
 
 Les [règles de versionnage](../VERSIONING.md) expliquent les trois nombres et le [journal des changements](../CHANGELOG.md) raconte ce qui change. Les exemples 1.2.3 du dessin ne sont pas des versions déjà publiées.
 
+## Nouvelle mission : comprendre les photos manquantes
+
+Pour suivre un marcheur, six photos ne suffisent pas toujours : il faut aussi assez de temps entre elles.
+Le [parcours des trois manques brillants](DIAGNOSTIC-MOBILES-LENTS.md) explique cette idée avec les mesures conservées du profil lent.
+Il contient treize commandes, des tableaux, les erreurs possibles et des images décrites dans le texte.
+
+Commencer par les deux scores fictifs de la mission précédente. Ne pas changer leurs fichiers.
+Le diagnostic montre les photos avec un point proche et la durée qu'elles couvrent.
+Un nouveau ciel fictif place ensuite les étoiles de façon irrégulière pour vérifier l'orientation.
+Les moteurs et leurs seuils restent les mêmes. Aucun support USB n'est nécessaire.
+
+**À vérifier avec tes mots :** pourquoi six photos sur 25 minutes échouent-elles si le programme demande 30 minutes ?
+Réponse : le nombre est suffisant, mais la durée reste trop courte. Les deux règles doivent être satisfaites.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :

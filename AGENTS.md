@@ -4,6 +4,8 @@
 
 - Mandat explicite du lot 23 : trois agents pour un profil lent expérimental séparé, nouveau contrat de durée longue et nouvelles associations autorisées dans les nouveaux fichiers uniquement. Moteurs et seuils historiques intacts. Copie en lecture seule des seuls fichiers choisis par manifeste existant autorisée, puis analyses locales. Ni requête astronomique externe ni publication de nouveaux détails réels. Cette exception prévaut sur les restrictions des anciennes missions pour les nouvelles expériences du lot 23.
 
+- Mandat du lot 24 : diagnostiquer les trois ajouts brillants manqués du lot 23 et examiner l'orientation des modèles conservés. Un nouveau banc fictif sans symétrie régulière est autorisé, avec les moteurs et seuils gelés. Ne pas changer les anciens scores, modèles ou recettes. Les résultats réels sont seulement relus depuis les copies et rapports locaux existants ; aucune nouvelle injection réelle, requête astronomique ou lecture USB nécessaire. Les nouveaux diagnostics ne sont pas des candidats supplémentaires.
+
 - Versionner les prochaines livraisons selon SemVer 2.0.0 et `VERSIONING.md`. `VERSION` contient la version publique canonique ; le paquet conserve l'équivalent PEP 440 cohérent dans `pyproject.toml` et `gar.__version__`. Tenir CHANGELOG.md à jour, annoncer les ruptures de la surface publique et ne jamais remplacer un tag ou une version publiée. Les numéros de lot et schémas de données sont distincts des versions applicatives.
 
 - Avant un lot d’implémentation, réfléchir aux sous-étapes et ajouter les tâches nouvelles à ROADMAP.md. Faire un commit de planification avant de coder.
