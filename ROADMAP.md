@@ -132,6 +132,21 @@ Ses essais déjà produits restent conservés avec les alertes non associées ; 
 Vérifier aussi le confinement des sorties privées, les statistiques par pose et l'état refusé lorsqu'aucune recherche n'aboutit.
 
 ## Premières tâches à ouvrir
+## Essai ciblé — traces des séries 3 et 4
+
+Plan du 18 novembre 2026, demandé pendant la pause de la fouille générale. Cette pause reste en vigueur.
+
+- [ ] Relever les traces dans les copies locales des deux séries, avec leurs poses et leurs empreintes.
+- [ ] Vérifier les heures déclarées, les informations de site et le lien entre pixels et ciel. Ne pas les qualifier par défaut.
+- [ ] Télécharger les orbites historiques disponibles depuis SatChecker. Autorisation explicite : seule la date d'observation, sans heure précise, lieu, champ ou image.
+- [ ] Vérifier la couverture et les dates des éléments orbitaux ; comparer localement les positions, orientations et durées si les références le permettent.
+- [ ] Examiner aussi les hypothèses avion, météore et effet du capteur. Une trace sans correspondance reste non identifiée.
+- [ ] Conserver mesures, réponses et illustrations réelles en privé ; documenter méthode et limites dans le tutoriel.
+
+Le calcul orbital local pourra employer SGP4. Aucun résultat d'identification n'est présumé, aucun moteur historique n'est modifié.
+Une absence d'orbites historiques ou d'informations temporelles suffisantes peut empêcher la comparaison.
+
+## Premières tâches à ouvrir
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
