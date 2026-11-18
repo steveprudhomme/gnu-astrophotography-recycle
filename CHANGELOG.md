@@ -10,6 +10,7 @@ Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique dé
 - Les trois manques brillants ont un support proche insuffisant dès les mesures brutes : cinq photos sur 1200 secondes, cinq sur 1200, six sur 1500. Ce diagnostic ne prouve pas toutes les causes physiques ou décisions internes.
 - Nouveau banc : orientation contrôlée, 5/12 puis 6/12 ajouts retrouvés, dont 5/6 brillants chacun. Les deux critères restent manqués, sans retouche après résultat. Témoins et non associés à zéro ; aucune nouvelle injection réelle.
 - Vérification : 26 nouveaux tests fictifs, suite complète de 620 tests réussis. Moteurs et anciens résultats conservés.
+- Reproduction depuis `b2c7a97` propre : mêmes treize codes, six diagnostics, seize nouvelles images fictives, dérivés, scores et figures. Dix sources historiques et 1892 anciens fichiers préservés, sans accès USB ou nouvelle injection réelle.
 
 ## État antérieur de développement — 0.11.0-alpha.1
 

@@ -206,3 +206,10 @@ Les 1892 anciens fichiers surveillés restent intacts. Les gardes d'accès exter
 Un premier essai protégé s'interrompt avant l'analyse réservée : la garde bloque aussi une copie de fichier fictif.
 Le dossier incomplet reste conservé. La garde est précisée pour les seules nouvelles copies fictives, puis l'exercice reprend dans un nouveau dossier.
 Les moteurs, le générateur et les critères ne changent pas. Aucun réglage ne suit l'essai réservé achevé.
+
+La reproduction depuis le commit propre `b2c7a97` confirme les mêmes treize codes et les six diagnostics.
+Les seize images fictives, les 104 dérivés et treize rapports candidats par nouveau fond sont identiques.
+Les scores, les figures et les six tableaux CSV restent identiques. Les trois PNG publiés correspondent aux fichiers reproduits.
+Dix sources historiques et les 1892 anciens fichiers surveillés restent intacts.
+La revue porte sur 245 fichiers publics. Les treize commandes du guide correspondent aux arguments exécutés.
+Cette revue est celle du coordinateur. Elle ne constitue pas une validation indépendante ou une qualification scientifique.

@@ -1497,3 +1497,15 @@ Une première garde bloque aussi la copie d'un nouveau FITS fictif, avant l'anal
 Le premier dossier reste incomplet et conservé. La garde est précisée pour les seules copies fictives ; le second essai aboutit.
 Les moteurs, les nouvelles sources de méthode et les critères ne changent pas pendant cette reprise.
 Les seules écritures FITS de l'exercice créent les nouvelles images et copies entièrement fictives dans le nouveau dossier local.
+
+### Reproduire depuis le code conservé
+
+La reproduction depuis le commit propre `b2c7a97` donne les mêmes treize codes de retour.
+Les six diagnostics et leurs six CSV sont identiques. Les seize nouvelles images sources fictives sont identiques.
+Chaque nouveau fond conserve les mêmes 104 dérivés, treize rapports candidats, score et quatre médias.
+Les quatre PNG du diagnostic ancien et les trois PNG publics sont identiques aux fichiers reproduits.
+Les deux anciens scores réels gardent leurs résultats. Aucune nouvelle recherche réelle n'est réalisée.
+
+Dix sources historiques sont identiques à celles de `8c1b9e6`. Les versions publique, Python et installée concordent.
+L'audit vérifie 245 fichiers publics, leurs licences et leurs liens. Les treize commandes correspondent aux arguments réellement exécutés.
+La revue est effectuée par le coordinateur. Elle ne remplace pas une validation scientifique indépendante.
