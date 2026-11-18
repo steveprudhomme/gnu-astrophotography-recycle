@@ -125,6 +125,12 @@ Après succès et vérification, les seules copies temporaires créées par ce t
 Un groupe interrompu garde ses copies pour reprise. Ne supprimer aucun original, copie antérieure ou autre fichier du disque.
 Le bilan final distingue copie conservée, copie temporaire libérée, fichier refusé et fichier indisponible ; la reproduction exige parfois une nouvelle copie.
 
+**Génération visuelle et recherche profonde.** Les premiers bancs figés produisent de nombreuses propositions, surtout par addition décalée.
+Conserver tous les résultats de recherche. Générer d'abord un nombre explicite de fiches visuelles et inscrire les autres comme médias à produire, sans masquer leurs mesures.
+Permettre la génération locale d'un candidat choisi. L'addition décalée est une option distincte, désactivée dans la première fouille courante, conformément à TR-08.
+Ses essais déjà produits restent conservés avec les alertes non associées ; aucun changement de seuil pour les faire disparaître.
+Vérifier aussi le confinement des sorties privées, les statistiques par pose et l'état refusé lorsqu'aucune recherche n'aboutit.
+
 ## Premières tâches à ouvrir
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
