@@ -174,6 +174,17 @@ L'exception ne s'étend pas aux autres archives. La grande analyse reste en paus
 La recette pédagogique indépendante et le journal ne livrent pas le moteur général en pause. Les versions et tags existants restent immuables.
 Critère de fin : une personne peut refaire les étapes conduisant aux trois correspondances plausibles, sans accès aux chemins privés du développeur.
 
+#### Article scientifique de science citoyenne ajouté au mandat
+
+- [ ] Rédiger un manuscrit français standard : résumé, hypothèses, données, méthode, résultats, discussion, limites, conclusion et disponibilité des données et du code.
+- [ ] Présenter une réidentification exploratoire de satellites connus, sans annoncer de nouveaux objets ni d'identification confirmée.
+- [ ] Décrire le rôle du citoyen observateur, la sélection manuelle, les contrôles, les droits, les contributions et l'assistance logicielle/IA, avec les limites et retours à la communauté.
+- [ ] Vérifier les noms officiels de la Société d'Astronomie de Montréal et du Club d'Astronomie Bois de Belle-Rivière-Mirabel. Mentionner l'adhésion déclarée par l'auteur, sans endossement des organismes.
+- [ ] Illustrer avec extraits des vraies poses, superpositions mesurées/prévues, graphiques d'écarts et de compatibilité temporelle, et schéma de méthode ; identifier explicitement réel, calculé et fictif.
+- [ ] Appliquer le style bibliographique UQAM-APA : citations auteur-date et références vérifiées, liens/DOI, ordre et typographie contrôlés selon le guide officiel.
+- [ ] Livrer sources LaTeX, bibliographie et PDF compilé ; fournir les commandes de reconstruction et vérifier visuellement chaque page rendue.
+- [ ] Intégrer le manuscrit comme document de travail non évalué par les pairs, avec références au journal et au tutoriel ; fusionner l'ensemble sur GitHub après vérification.
+
 ### Essai AMOS adapté aux séries 3 et 4
 
 Plan préalable du 18 novembre 2026. Essai local distinct ; la fouille générale reste en pause.
