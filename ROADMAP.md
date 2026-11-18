@@ -188,6 +188,12 @@ La fouille générale reste en pause. Conserver les anciens essais et les seuils
 
 ### Tâches historiques
 
+Complément préalable du calcul orbital ciblé : catalogue paginé complet, éléments datant de sept jours au plus de l'observation.
+Premier classement local sous l'hypothèse explicite que DATE-OBS représente UTC, fenêtre de −10 à +20 secondes autour de l'heure déclarée.
+Présélection à dix degrés du champ aux instants −10, 0, +10 et +20 secondes, puis calcul fin à 0,1 seconde pour les satellites retenus.
+La comparaison classe les distances angulaires et les orientations ; elle ne confirme pas automatiquement une identité.
+Les exclusions de catalogue, l'hypothèse temporelle et la possible coupure de la trace par le bord du champ restent explicites.
+
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
 - P1-03 : implémenter l’inventaire sans écriture des entrées ; tester chemins Unicode, liens et accès refusé.
