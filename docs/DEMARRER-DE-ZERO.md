@@ -1,5 +1,9 @@
 # Construire l’application, pas à pas
 
+**Tu veux essayer de vraies photos ?** Suis [Retrouver les trois passages possibles, depuis zéro](REPRODUIRE-SATELLITES.md).
+Ce parcours séparé donne toutes les commandes et les images pour les seize FITS autorisés.
+Il explique l’étalonnage fourni et les limites des trois associations de satellites connus. Aucune identité n’est confirmée.
+
 Ce parcours est écrit pour une personne qui débute, y compris un enfant de 10 ans. Tu peux faire une étape, regarder son résultat, puis faire une pause. Pour installer Python ou Git, fais-toi accompagner si tu ne les connais pas encore.
 
 **Notre but :** récupérer les recettes du projet, reconstruire l’application sur ton ordinateur et essayer **tous ses modules disponibles** avec de fausses images du ciel. C’est une application à laquelle tu parles avec des commandes dans PowerShell. Les prochaines fonctions du projet ne sont pas encore toutes construites.

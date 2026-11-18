@@ -1,5 +1,9 @@
 # Sources et statut des affirmations
 
+L’étude ciblée du 18 novembre 2026 possède une [bibliographie UQAM-APA vérifiée](SOURCES-SATELLITES.md).
+Elle couvre les méthodes, les références orbitales, la science citoyenne et les vocables des clubs.
+Les anciennes dates ci-dessous décrivent l’historique des autres modules.
+
 Sources officielles consultées le **15 novembre 2026**. Les liens `stable`, `latest` et `main` peuvent évoluer ; les versions exactes et empreintes seront archivées avant développement validé et distribution.
 
 ## Licence et identité

@@ -10,15 +10,19 @@ Les nouvelles pages et les sections révisées suivent le [guide de rédaction a
 
 Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3 ou ultérieure** ([texte intégral](COPYING), [application au projet](LICENSE-NOTICE.md)). La GPL permet aussi la redistribution commerciale.
 
-Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
+Les [cinq médias initiaux](docs/images/reels/LICENCE.md), les [seize FITS des séries 3 et 4 et leurs en-têtes](examples/data/seestar-series34/README.md) et les [figures associées](docs/images/satellites/LICENCE.md) sont autorisés sous **CC0-1.0**.
+L’autorisation supplémentaire du 18 novembre 2026 rend publics les dates et le site inscrits dans ces seize poses.
+Les autres archives restent privées. Le code conserve GPL-3.0-or-later.
 
 **Statut : développement expérimental, 0.16.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et trois profils de recherche de mobiles. Des diagnostics séparés suivent les mesures et les décisions du détecteur. Les 728 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
-La [revue ciblée de deux séries](docs/REVUE-TRACES-CIBLEE.md) explique trois correspondances orbitales plausibles et une trace faible non identifiée.
-Elle fournit un exemple entièrement fictif de plages temporelles compatibles. Les résultats réels détaillés restent privés ; aucune identité ou horloge n'est confirmée.
-Cet examen est terminé et arrêté avant la grande fouille, qui reste en pause. Le lot applicatif général en cours n'est pas livré par cette publication documentaire.
+Le [journal des candidats](JOURNAL-CANDIDATS.md) conserve trois associations plausibles de satellites connus et une trace faible non identifiée.
+Le [tutoriel illustré depuis zéro](docs/REPRODUIRE-SATELLITES.md) permet de refaire l’étude sur les seize vraies poses autorisées.
+Le [manuscrit scientifique LaTeX/PDF](docs/article-satellites/README.md) contient photos, graphiques, résumés français et anglais, et références UQAM-APA.
+Aucune identité ou horloge n’est confirmée. La [revue et son exemple fictif](docs/REVUE-TRACES-CIBLEE.md) restent disponibles.
+La grande fouille reste en pause. La recette séparée dans `examples` ne livre pas le lot applicatif général en cours.
 
 Le [contrôle Gaia des poses](docs/CONTRAT-GAIA-POSES.md) est livré dans le [commit `9bcf431`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/9bcf4318fc1fd1f5ffe2afe4ef72d7c364626f6e). Le lot applicatif 0.8 a passé **197 tests** ; ce résultat ne certifie ni l’horloge ni un budget d’erreur absolue complet.
 

@@ -10,6 +10,23 @@
 *.7z
 *.tar
 *.tar.gz
+# Exception explicite : seulement les seize FITS du manifeste public autorisé.
+!/examples/data/seestar-series34/S03-01.fit
+!/examples/data/seestar-series34/S03-02.fit
+!/examples/data/seestar-series34/S03-03.fit
+!/examples/data/seestar-series34/S03-04.fit
+!/examples/data/seestar-series34/S03-05.fit
+!/examples/data/seestar-series34/S03-06.fit
+!/examples/data/seestar-series34/S03-07.fit
+!/examples/data/seestar-series34/S03-08.fit
+!/examples/data/seestar-series34/S04-01.fit
+!/examples/data/seestar-series34/S04-02.fit
+!/examples/data/seestar-series34/S04-03.fit
+!/examples/data/seestar-series34/S04-04.fit
+!/examples/data/seestar-series34/S04-05.fit
+!/examples/data/seestar-series34/S04-06.fit
+!/examples/data/seestar-series34/S04-07.fit
+!/examples/data/seestar-series34/S04-08.fit
 /data/
 /catalogs/
 /indexes/

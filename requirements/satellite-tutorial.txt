@@ -1,0 +1,10 @@
+# Reproduction ciblée ; ces versions décrivent l'environnement vérifié.
+numpy==2.4.1
+scipy==1.18.1
+astropy==7.2.0
+astropy-iers-data==0.2026.11.9.0.35.9
+photutils==3.1.1
+matplotlib==3.10.8
+pillow==13.0.0
+sgp4==2.27
+pyproj==3.8.0

@@ -1,5 +1,11 @@
 # Données, confidentialité et préservation
 
+**Exception autorisée le 18 novembre 2026.** Les seuls seize FITS du [manifeste des séries 3 et 4](../examples/data/seestar-series34/manifest.json) sont publics sous CC0-1.0, avec leurs en-têtes.
+Cela publie les dates et coordonnées inscrites dans ces fichiers, ainsi que les mesures et références de calibration documentées.
+Les [figures associées](images/satellites/LICENCE.md) sont autorisées. Les autres archives, supports et chemins personnels restent protégés.
+Cette exception complète celle des cinq anciens médias. Les anciens paragraphes ci-dessous décrivent les périmètres de leurs lots respectifs.
+Les références orbitales tierces restent soumises à leurs propres droits et ne sont pas jointes comme données CC0.
+
 Les FITS originaux ne sont jamais modifiés par l’application prévue. Les produits sont écrits dans une destination distincte ; toute collision avec les entrées doit être refusée. Aucun dossier d’observation n’est déplacé ou supprimé automatiquement.
 
 Sur les supports externes de l’utilisateur, ne jamais créer de rapport, cache ou dossier, ni déplacer, modifier ou supprimer de fichier. Le regroupement des séances utilise uniquement les manifestes locaux déjà disponibles ; ses produits restent sur l’ordinateur et dans les répertoires ignorés.

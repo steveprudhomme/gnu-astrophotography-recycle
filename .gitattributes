@@ -5,3 +5,10 @@
 *.yml text eol=lf
 *.bat text eol=crlf
 COPYING -text
+*.fit binary
+*.png binary
+*.pdf binary
+*.tex text eol=lf
+*.bib text eol=lf
+# Cette référence possède une empreinte d'octets, aussi sous Linux et macOS.
+examples/data/seestar-series34/reference-stars.csv binary

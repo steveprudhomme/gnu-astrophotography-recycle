@@ -26,6 +26,8 @@
 
 ## Mission autonome et agents parallèles
 
+- Mandat du 18 novembre 2026 pour le journal et le tutoriel : le mainteneur autorise expressément la publication des 16 FITS sélectionnés des séries 3 et 4, avec leurs en-têtes, dates et coordonnées, ainsi que des figures, résultats et références de calibration nécessaires à cette reproduction. Limiter cette exception au manifeste public de ces 16 poses ; les autres archives, chemins personnels et rapports sans lien restent privés. Documenter l'autorisation et la licence des données. Ne pas redistribuer les catalogues tiers sans droits établis : fournir leur provenance, récupération et contrôle d'empreinte. Publier le journal des trois correspondances plausibles, sans les déclarer nouvelles ou confirmées, et un tutoriel complet illustré. Vérifier une reproduction depuis une copie propre, puis mettre à jour GitHub et intégrer par PR. La grande fouille et son code général restent en pause.
+
 - Limite courante du mainteneur, 18 novembre 2026 : terminer la revue ciblée des seules séries 3 et 4, puis s'arrêter avant la grande analyse. La fouille générale et son code en cours restent en pause. Ne lancer ni le traitement de l'archive, ni de nouvelles copies USB ou acquisitions. Les nouvelles mesures ciblées restent des prototypes et des rapports privés ; aucune identité ou horloge n'est automatiquement confirmée. Une reprise générale exige une nouvelle instruction explicite du mainteneur.
 
 - Extension du lot 29 autorisée par le mainteneur : utiliser un nouveau dossier de travail dédié sur D: pour les copies et rapports privés, avec réserve d'espace. Ne pas toucher aux autres fichiers de D:. Cette autorisation de destination ne permet aucune écriture sur les supports sources.
