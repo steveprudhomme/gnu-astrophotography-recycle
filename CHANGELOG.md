@@ -2,6 +2,13 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
+## À venir — planification du tracking des archives
+
+- Feuille de route de la phase 3 précisée : 14 tâches et quatre jalons pour examiner les séances complètes, puis l'archive.
+- Recherches complémentaires prévues : points mobiles, comètes diffuses, traînées et, ultérieurement, objets faibles par décalage-addition.
+- Galerie locale, identification, mesure des manques et fausses alertes, bilan de couverture et reprise des lots planifiés. Schéma conceptuel et tutoriel actualisés.
+- Mise à jour documentaire uniquement : version applicative conservée à `0.16.0-alpha.1`, sans nouveau traitement, modification de seuil, dépendance, tag ou release.
+
 ## État de développement — 0.16.0-alpha.1
 
 - Préparation d'un contrôle positif : sélection déterministe de huit poses depuis l'inventaire exploratoire existant, copie vérifiée ou réutilisation locale, référence JPL minimale avec autorisation et bilan hors ligne. Aucun nouveau seuil ou moteur.

@@ -7,10 +7,75 @@ Les phases sont ordonnées par dépendances et critères de sortie, sans échéa
 | 0 — Fondation | Identité, GPL, documentation, gouvernance, dépôt public | Base relue, titulaire identifié, première publication publique |
 | 1 — Inventaire local | Parcours récursif en lecture seule, HDU, métadonnées, empreintes, regroupement des séances | CSV/JSON et rapport d’anomalies ; aucun fichier perdu silencieusement ; originaux inchangés |
 | 2 — Qualification du pilote | Temps, géométrie, WCS, Bayer, calibrations, alignement et diagnostics | Rapport reproductible sur une séance de 30 à plus de 60 min ; preuves et décisions d’aptitude par usage |
-| 3 — Objets mobiles | Détection, associations temporelles, vitesses, rejet des artefacts et GIF | Tests d’injection/récupération et faux positifs mesurés ; candidats revus humainement |
+| 3 — Objets mobiles | [Fouille des archives et tracking](#tracking-des-objets-mobiles), recherches complémentaires et identification | Couverture documentée ; récupération et fausses alertes mesurées ; galerie de candidats revus humainement |
 | 4 — Photométrie | Comparaisons, étoile de contrôle, mesures natives, incertitudes | Courbes instrumentales reproductibles ; calibration et limites documentées |
 | 5 — Passerelles | AAVSO Extended/WebObs, MPC ADES, ALCDEF | Exports locaux vérifiés contre spécifications identifiées ; aucune soumission automatique |
 | 6 — Distribution | Paquet portable Windows, audit complet, ergonomie | Essai hors ligne sur compte standard vierge, licences et source correspondante fournis |
+
+## Tracking des objets mobiles
+
+Orientation du 18 novembre 2026, à la demande du mainteneur. **État : planification.**
+L'objectif est de fouiller le grand ensemble de FITS pour retrouver des passages restés inaperçus.
+Il comprend les astéroïdes, les comètes et les satellites artificiels détectables dans ces images.
+Le **tracking** consiste ici à relier les positions d'un objet au fil des poses.
+Une **pose** est une image prise pendant une exposition. Un **candidat** est une proposition à vérifier.
+
+La fouille devra exploiter toutes les poses admissibles des séances, au-delà des échantillons de huit images déjà étudiés.
+Elle recherchera des objets connus et conservera les signaux inexpliqués. Un signal sans identification ne sera pas déclaré nouveau.
+Les limites du profil expérimental actuel ne définissent pas les capacités physiques du Seestar.
+
+![Schéma conceptuel de la fouille planifiée : copies, séances, recherches complémentaires, revue des candidats, références et bilan](docs/images/schema-tracking-archives.svg)
+
+**Lire sans image.** Les copies sont regroupées en séances et évaluées selon l'usage possible.
+Plusieurs recherches proposent des candidats. Leurs images et déplacements sont revus, puis comparés aux références disponibles.
+Le bilan indique ce qui a été examiné, trouvé, refusé ou laissé incertain.
+Ce schéma représente le travail prévu. Il n'est pas une capture d'écran ou un résultat de détection.
+
+### Recherches complémentaires à prévoir
+
+La **cadence** décrit les intervalles entre les poses. Les recherches devront tenir compte de la cadence et des durées réelles.
+Une **différence d'images** compare des images alignées pour faire ressortir leurs changements.
+
+| Signal | Recherche prévue | Point de vigilance |
+|---|---|---|
+| Point mobile, notamment astéroïde | Détecter les points après alignement stellaire et relier leurs positions entre poses. | Couvrir plusieurs vitesses ; distinguer déplacement, bruit et défaut du capteur. |
+| Condensation diffuse mobile, notamment comète | Chercher aussi des formes étendues et suivre leur repère central apparent. | Une forme diffuse ne répond pas forcément aux critères d'un détecteur d'étoiles. |
+| Traînée dans une pose | Détecter les segments, examiner leur structure et les images voisines. | Une trace isolée peut rester candidate ; satellite, avion et artefact doivent être distingués. |
+| Objet trop faible sur chaque pose | Décaler et additionner les images selon plusieurs déplacements supposés, méthode dite *shift-and-stack*. | Extension ultérieure : mesurer le coût, les fausses alertes et les objets manqués avant généralisation. |
+
+Ces méthodes sont des pistes à évaluer sur les données Seestar, sans garantie de performance transférable depuis un autre instrument.
+Les [références du tracking](docs/SOURCES.md#fouille-des-archives-et-tracking) décrivent des méthodes existantes, pas une installation ou intégration déjà réalisée.
+
+### Tâches et critères de sortie
+
+- [ ] **TR-01 — Comptabiliser toute l'archive.** Partir des manifestes locaux existants et distinguer poses individuelles, empilements, autres images et doublons. Produire un état par fichier : analysé, partiellement exploitable, à préparer ou refusé, avec sa raison. Aucun fichier ne doit disparaître silencieusement du bilan.
+- [ ] **TR-02 — Protéger les données.** Réutiliser les copies vérifiées et copier seulement les chemins explicitement sélectionnés depuis les manifestes, si nécessaire. Garder les supports en lecture seule, sans parcours ou écriture non autorisés. Conserver les empreintes, la provenance et les inconnues historiques ; analyser uniquement les copies locales.
+- [ ] **TR-03 — Évaluer l'usage possible de chaque série.** Séparer repérage exploratoire, mesure relative, identification et mesure scientifique qualifiée. Une heure incertaine peut limiter l'identification sans exclure automatiquement tout examen des pixels. Quantifier les différences de métadonnées de site et leur effet selon l'usage. Documenter toute nouvelle règle sans modifier les en-têtes, les critères ou décisions historiques.
+- [ ] **TR-04 — Préparer les images comparables.** Contrôler dimensions, Bayer, saturation, masque, fond et forme des étoiles. Aligner les étoiles avec des contrôles réservés et conserver les transformations. Évaluer les différences d'images en vérifiant que la référence ne supprime pas les objets lents. Garder les pixels et coordonnées d'origine pour les mesures ; réserver les images rééchantillonnées à l'affichage lorsque le contrat l'exige.
+- [ ] **TR-05 — Définir les profils de points et de comètes.** Fixer des domaines de vitesse, de forme et de support temporel adaptés aux familles recherchées. Conserver l'ancien moteur et le seuil de luminosité actuel pour les comparaisons prévues. Chaque profil supplémentaire devra avoir son plan, ses critères et ses tests distincts. Aucun réglage après examen du jeu réservé pour faire disparaître un échec.
+- [ ] **TR-06 — Examiner les séances complètes.** Employer des fenêtres temporelles adaptées aux poses disponibles, avec recouvrement documenté lorsque nécessaire. Réconcilier les poses utilisées, les intervalles et les zones de champ réellement examinées. Traiter les doublons de candidatures entre fenêtres ou profils sans les compter comme des objets distincts. Conserver les passages courts et les cas sans association comme incertains lorsqu'ils restent plausibles.
+- [ ] **TR-07 — Ajouter la recherche de traînées.** Détecter les segments dans les poses individuelles, mesurer leur orientation et leur longueur, puis examiner les images voisines. Garder une fiche par trace et les motifs de rejet ou de doute. Ne pas imposer à ces traces les mêmes conditions temporelles qu'aux mobiles lents. Évaluer séparément satellites, avions, rayons cosmiques et défauts d'image.
+- [ ] **TR-08 — Évaluer les objets faibles.** Tester le décalage et l'addition sur une grille de déplacements avant son éventuelle intégration. Mesurer récupération, fausses alertes, consommation mémoire et temps de calcul. Limiter explicitement le domaine essayé ; ne pas promettre une récupération sous tous les niveaux de bruit. Cette extension suit la validation du premier pilote de fouille.
+- [ ] **TR-09 — Produire une galerie locale de candidats.** Fournir vignettes originales, vues alignées pour affichage et GIF lorsque plusieurs poses montrent le passage. Ajouter un équivalent fixe et textuel aux animations. Inclure positions, heures déclarées, déplacement mesuré, incertitudes ou limites, profil utilisé, raisons d'intérêt ou de doute et liens vers les fichiers locaux d'origine.
+- [ ] **TR-10 — Confronter les candidats aux références.** Prévoir les recherches de petits corps par champ et date, puis la comparaison de plusieurs positions et mouvements. Pour les satellites, employer des éléments orbitaux proches de la date des photos et un modèle de propagation adapté. Contrôler temps, position d'observation, géométrie et limites des catalogues. Mettre les réponses en cache localement. Toute requête externe devra respecter son autorisation précise ; celle du lot 28 ne couvre pas de nouveaux champs, sites ou dates.
+- [ ] **TR-11 — Revoir les propositions et conserver les statuts.** Distinguer artefact probable, candidat à revoir, correspondance plausible, identification étayée et non identifié. Vérifier les défauts du capteur, résidus d'étoiles, nuages, saturation et autres causes possibles. Un score interne ne devient pas une probabilité de fiabilité sans calibration. Aucun candidat non associé ne sera automatiquement déclaré faux ou nouveau ; aucune annonce ou soumission automatique.
+- [ ] **TR-12 — Mesurer la couverture et les manques.** Utiliser des objets réels connus et des ajouts artificiels distincts sur copies ou dérivés autorisés. Séparer données de développement et validation réservée ; figer les critères avant cette validation. Rapporter récupération, manques, indisponibilités et fausses alertes selon vitesse, intensité, forme et conditions du fond. Une intensité relative au bruit ne sera pas appelée magnitude calibrée. Les résultats fictifs ne remplaceront pas un contrôle positif naturel.
+- [ ] **TR-13 — Passer au traitement par lots.** Prévoir mémoire bornée, résultats intermédiaires vérifiés, progression sauvegardée et reprise après arrêt. Réutiliser les calculs compatibles et les références en cache. Mesurer le coût sur un lot représentatif avant de choisir le parallélisme de calcul ou une accélération matérielle. Ne pas annoncer une durée pour toute l'archive sans ces mesures. Aucun catalogue ou candidat ne sera tronqué silencieusement pour respecter une limite de calcul.
+- [ ] **TR-14 — Livrer le bilan de fouille.** Réconcilier chaque fichier avec son état et chaque profil avec son domaine examiné. Fournir la galerie, les références, les paramètres et versions nécessaires à la reproduction. Présenter les domaines non couverts et les raisons des exclusions. Un résultat sans candidat portera sur ce domaine mesuré ; il ne prouvera pas l'absence de tout mobile dans l'archive.
+
+### Jalons de déploiement
+
+| Jalon | Livrable attendu | Passage au suivant |
+|---|---|---|
+| T1 — Une séance complète connue | Examiner la séance contenant une comète connue, produire des vues lisibles et mesurer le déplacement en pixels. Évaluer ensuite le profil automatique adapté. | Montrer un mouvement réel mesurable, conserver les contrôles et documenter récupération ou échec. Aucun succès n'est présumé. |
+| T2 — Plusieurs séries distinctes | Tester des champs, cadences et conditions variés, avec points mobiles et traînées si des cas sont disponibles. | Résultats reproductibles, données réservées distinctes et coûts mesurés ; aucun réglage opportuniste sur ces résultats. |
+| T3 — Première fouille de l'archive | Déployer progressivement les recherches validées, avec reprise et galerie consultable. | Chaque fichier et chaque domaine de recherche ont un état explicite ; les candidats sont revus et les inconnues conservées. |
+| T4 — Recherche plus profonde | Étendre les domaines ou la recherche d'objets faibles après évaluation séparée. | Publier les gains et pertes mesurés, les coûts et les nouvelles limites, sans effacer les bilans précédents. |
+
+Le premier livrable visé est donc une **séance complète avec galerie et déplacement mesuré**, puis une généralisation progressive.
+Ces jalons ne portent pas de date promise. Ils ne constituent pas des fonctionnalités déjà livrées.
+Chaque lot d'implémentation fera l'objet d'un plan committé et publié avant son code, avec SemVer et Markdown actualisés.
+Le [tutoriel](docs/TUTORIEL.md#37-planifier-la-fouille-et-le-tracking-des-archives) conserve une explication illustrée de cette orientation.
 
 ## Premières tâches à ouvrir
 
