@@ -6,6 +6,8 @@
 
 - Mandat du lot 24 : diagnostiquer les trois ajouts brillants manqués du lot 23 et examiner l'orientation des modèles conservés. Un nouveau banc fictif sans symétrie régulière est autorisé, avec les moteurs et seuils gelés. Ne pas changer les anciens scores, modèles ou recettes. Les résultats réels sont seulement relus depuis les copies et rapports locaux existants ; aucune nouvelle injection réelle, requête astronomique ou lecture USB nécessaire. Les nouveaux diagnostics ne sont pas des candidats supplémentaires.
 
+- Mandat du lot 25 : tracer le détecteur sur les dérivés fictifs déjà locaux du lot 24. Six images sont la cible ; les photos suivantes et leurs témoins servent de comparaison. Le rejeu doit reproduire toutes les positions enregistrées avant le rapprochement avec les réponses. Seuils, moteurs, modèles, scores et recettes restent inchangés. Aucun nouvel ajout, trajet, accès USB ou réseau d'analyse ; aucune donnée réelle nouvelle publiée. Une explication peut rester partielle.
+
 - Versionner les prochaines livraisons selon SemVer 2.0.0 et `VERSIONING.md`. `VERSION` contient la version publique canonique ; le paquet conserve l'équivalent PEP 440 cohérent dans `pyproject.toml` et `gar.__version__`. Tenir CHANGELOG.md à jour, annoncer les ruptures de la surface publique et ne jamais remplacer un tag ou une version publiée. Les numéros de lot et schémas de données sont distincts des versions applicatives.
 
 - Avant un lot d’implémentation, réfléchir aux sous-étapes et ajouter les tâches nouvelles à ROADMAP.md. Faire un commit de planification avant de coder.
