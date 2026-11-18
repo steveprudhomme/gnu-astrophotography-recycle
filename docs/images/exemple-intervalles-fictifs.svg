@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title desc">
+<title id="title">Exemple entièrement fictif de plages temporelles compatibles</title>
+<desc id="desc">Deux passages fictifs donnent une intersection de moins cinq à plus une seconde. Un troisième passage distinct laisse moins quatre à plus une seconde. Cela ne certifie pas une horloge.</desc>
+<rect width="1000" height="420" fill="white"/>
+<g font-family="Arial,sans-serif" fill="#16324f"><text x="35" y="35" font-size="24">IMAGES ET VALEURS FICTIVES — aucun résultat Seestar</text>
+<text x="35" y="67" font-size="18">Décalage compatible du début réel par rapport à l’heure enregistrée</text>
+<text x="30" y="126" font-size="17">Fictif A</text>
+<line x1="350" x2="590" y1="120" y2="120" stroke="#16324f" stroke-width="12"/>
+<text x="825" y="126" font-size="17">[-5, 3] s</text>
+<text x="30" y="191" font-size="17">Fictif B</text>
+<line x1="320" x2="530" y1="185" y2="185" stroke="#16324f" stroke-width="12"/>
+<text x="825" y="191" font-size="17">[-6, 1] s</text>
+<text x="30" y="256" font-size="17">Fictif C : contrôle séparé</text>
+<line x1="380" x2="560" y1="250" y2="250" stroke="#16324f" stroke-width="12"/>
+<text x="825" y="256" font-size="17">[-4, 2] s</text>
+<rect x="380" y="282" width="150" height="24" fill="#d4e9f7" stroke="#16324f"/>
+<text x="30" y="300" font-size="17">Intersection conditionnelle</text>
+<line x1="200" x2="200" y1="325" y2="333" stroke="#16324f"/>
+<text x="200" y="353" font-size="15" text-anchor="middle">-10</text>
+<line x1="260" x2="260" y1="325" y2="333" stroke="#16324f"/>
+<text x="260" y="353" font-size="15" text-anchor="middle">-8</text>
+<line x1="320" x2="320" y1="325" y2="333" stroke="#16324f"/>
+<text x="320" y="353" font-size="15" text-anchor="middle">-6</text>
+<line x1="380" x2="380" y1="325" y2="333" stroke="#16324f"/>
+<text x="380" y="353" font-size="15" text-anchor="middle">-4</text>
+<line x1="440" x2="440" y1="325" y2="333" stroke="#16324f"/>
+<text x="440" y="353" font-size="15" text-anchor="middle">-2</text>
+<line x1="500" x2="500" y1="325" y2="333" stroke="#16324f"/>
+<text x="500" y="353" font-size="15" text-anchor="middle">0</text>
+<line x1="560" x2="560" y1="325" y2="333" stroke="#16324f"/>
+<text x="560" y="353" font-size="15" text-anchor="middle">2</text>
+<line x1="620" x2="620" y1="325" y2="333" stroke="#16324f"/>
+<text x="620" y="353" font-size="15" text-anchor="middle">4</text>
+<line x1="680" x2="680" y1="325" y2="333" stroke="#16324f"/>
+<text x="680" y="353" font-size="15" text-anchor="middle">6</text>
+<line x1="740" x2="740" y1="325" y2="333" stroke="#16324f"/>
+<text x="740" y="353" font-size="15" text-anchor="middle">8</text>
+<line x1="800" x2="800" y1="325" y2="333" stroke="#16324f"/>
+<text x="800" y="353" font-size="15" text-anchor="middle">10</text>
+<text x="35" y="395" font-size="18">Hypothèses et erreurs non quantifiées restent à vérifier : ce dessin ne qualifie aucune horloge.</text></g></svg>

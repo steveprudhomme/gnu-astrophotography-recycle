@@ -204,6 +204,13 @@ Mandat du 18 novembre 2026 : terminer l'examen des 16 poses et s'arrêter avant 
 
 Ce travail ne livre pas le lot applicatif en pause et ne crée ni tag ni release. Les nouveaux détails d'observation restent privés.
 
+**Clôture ciblée effectuée.** Les 16 copies sont revues, avec quatre traces visuellement retenues : trois correspondances orbitales plausibles et une faible non identifiée.
+Les 935 propositions du complément sont conservées, sans être assimilées à des objets distincts ; son taux de fausses alertes réelles n'est pas validé.
+La conversion géodésique locale, la mesure native, les étoiles réservées et les empreintes sont contrôlées.
+Les plages temporelles sont conditionnelles : le contrôle par un passage distinct partage les références et n'est pas une qualification indépendante ou aveugle.
+Galerie et rapport détaillés restent privés. Le [guide illustré](docs/REVUE-TRACES-CIBLEE.md) et l'exemple fictif expliquent les résultats.
+**Point d'arrêt atteint : aucune grande analyse relancée.** Le lot général reste en pause.
+
 Complément préalable du calcul orbital ciblé : catalogue paginé complet, éléments datant de sept jours au plus de l'observation.
 Premier classement local sous l'hypothèse explicite que DATE-OBS représente UTC, fenêtre de −10 à +20 secondes autour de l'heure déclarée.
 Présélection à dix degrés du champ aux instants −10, 0, +10 et +20 secondes, puis calcul fin à 0,1 seconde pour les satellites retenus.

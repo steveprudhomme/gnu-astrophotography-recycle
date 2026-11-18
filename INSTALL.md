@@ -26,6 +26,12 @@ python -m gar inventory "D:\ArchivesFITS" --output ".\local\inventaire-02"
 
 L’installation locale modifiable du paquet a aussi été vérifiée : après les dépendances, exécuter `.\.venv\Scripts\python.exe -m pip install --no-deps -e .`, puis `.\.venv\Scripts\gar.exe --version`. Cette étape peut télécharger l’outil de construction setuptools. Les autres combinaisons de versions restent à valider. Aucun paquet PyPI ni binaire portable n’est publié. Le [tutoriel](docs/TUTORIEL.md) décrit un premier essai entièrement synthétique ; le [contrat](docs/CONTRAT-INVENTAIRE.md) détaille les erreurs, limites et sorties.
 
+## Reproduire un exemple temporel fictif
+
+Pour reproduire le raisonnement temporel de la revue ciblée sans FITS ni réseau, suivre le [guide des intervalles fictifs](docs/REVUE-TRACES-CIBLEE.md#6-refaire-cet-exemple-sur-ton-ordinateur).
+La commande `python examples/trace_time_intervals.py local/mon-exemple-intervalles-01.svg` utilise seulement la bibliothèque standard.
+Elle crée une illustration fictive et ne lance pas la fouille de l'archive.
+
 ## Regrouper un inventaire existant
 
 Aucune dépendance supplémentaire n’est nécessaire. Les commandes suivantes lisent un manifeste local ; elles ne refont pas l’inventaire et ne rouvrent pas les FITS :

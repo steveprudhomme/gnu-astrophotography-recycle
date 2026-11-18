@@ -1989,3 +1989,61 @@ Les autres traces faibles restent à mesurer avant une comparaison aussi précis
 
 Les rapports privés conservent le catalogue, les hypothèses nommées, les erreurs, les transformations et la figure.
 Les [sources orbitales](SOURCES.md#calcul-orbital-local) décrivent les outils utilisés. Aucun moteur historique ou résultat antérieur n'est modifié.
+
+## 41. Terminer la revue ciblée avant la grande fouille
+
+Le mainteneur demande de terminer les séries 3 et 4, puis de s'arrêter avant de relancer toute l'archive.
+Le plan et le point d'arrêt sont publiés avant le travail. Les moteurs historiques restent intacts.
+Le [guide pas à pas](REVUE-TRACES-CIBLEE.md) explique la méthode, les mots nouveaux et la lecture du bilan.
+
+### Résultat de l'examen ciblé
+
+Les 16 poses sont examinées. Quatre traces sont retenues visuellement avant la nouvelle comparaison orbitale.
+Trois donnent une correspondance plausible. Une quatrième est trop faible pour être associée de façon convaincante.
+Les noms, heures, coordonnées et vues réelles restent dans le dossier privé du mainteneur.
+Les douze autres poses n'ont pas de trace additionnelle nette dans cette revue ; leur absence n'est pas prouvée.
+
+Le complément par intégration de lignes retrouve les deux contrôles fictifs, dont une ligne faible.
+L'image de bruit seule ne propose aucune ligne. Pourtant, les vrais fonds produisent 935 propositions, souvent liées aux bordures ou aux résidus stellaires.
+Le score n'est pas une probabilité. Ce petit contrôle ne valide donc pas une performance sur le Seestar.
+Les propositions et les manques restent conservés ; les paramètres ne sont pas réglés après examen pour améliorer artificiellement le résultat.
+
+### Vérifier les mesures et les hypothèses
+
+Les quatre mesures utilisent les pixels natifs. Un cas fictif de mesure retrouve les extrémités à moins d'un pixel natif.
+Les étoiles réservées contrôlent le lien géométrique entre les séries. Le budget absolu complet reste ouvert.
+La hauteur cartographique est convertie localement avec la grille HT2 documentée ; l'aller-retour est vérifié.
+La hauteur exacte du télescope et le repère horizontal précis restent inconnus.
+Les prévisions orbitales sont dessinées sans les ajuster à la trace observée.
+
+Les plages d'heures compatibles sont calculées pour les conventions début, milieu et fin.
+Deux passages servent au premier calcul, puis un troisième passage distinct vérifie la cohérence.
+Ce contrôle a déjà été examiné et partage le catalogue et la géométrie : il n'est pas indépendant ou aveugle.
+L'hypothèse UTC et début de pose reste compatible. Cela ne qualifie pas l'horloge et ne justifie aucune modification des FITS.
+
+### Reproduire le raisonnement avec un exemple fictif
+
+![Trois plages entièrement fictives et leur intersection conditionnelle, sans donnée réelle Seestar](images/exemple-intervalles-fictifs.svg)
+
+**Lire sans image.** A accepte de −5 à +3 secondes ; B accepte de −6 à +1.
+Leur intersection est de −5 à +1. C accepte de −4 à +2 ; les trois cas laissent de −4 à +1.
+Ces nombres sont inventés pour expliquer le calcul. Ils ne sont pas les valeurs des observations du mainteneur.
+
+Depuis PowerShell à la racine du projet :
+
+```powershell
+.\.venv\Scripts\python.exe examples/trace_time_intervals.py local/mon-exemple-intervalles-01.svg
+```
+
+Le programme crée le SVG et affiche les plages, l'intersection et `clock_qualified: false`.
+Un fichier déjà présent provoque une erreur demandant un nouveau nom. Aucune observation ou requête externe n'est utilisée.
+L'exemple fonctionne avec la seule bibliothèque standard de Python. Il ne lance aucun moteur de fouille.
+
+### Fermer le travail ciblé
+
+La galerie privée réunit les 16 vues et quatre fiches, avec mesures, hypothèses orbitales, limites et provenance.
+Les empreintes des 16 FITS restent identiques. La figure publique est entièrement fictive ; les vues réelles nouvelles ne sont pas publiées.
+Les contrôles portent sur le calcul, les fichiers et l'affichage. Aucun essai avec un enfant ou audit complet d'accessibilité n'est annoncé.
+La suite applicative générale n'est pas relancée pour cette clôture ; son exécution précédente reste interrompue et ne vaut pas succès.
+
+**Arrêt avant la grande analyse, comme demandé.** Le lot applicatif général reste en pause, sans nouvelle version publiée, tag ou release.

@@ -2,6 +2,12 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
+## Étude ciblée — arrêt avant la grande fouille
+
+Clôture ciblée du 18 novembre 2026 : revue de deux séries, galerie et mesures privées, contrôles géodésiques et compatibilités temporelles conditionnelles.
+Le guide public illustré et `examples/trace_time_intervals.py` utilisent des valeurs fictives ; aucune nouvelle identité réelle n'est publiée.
+La grande fouille reste arrêtée. Le lot applicatif 0.17 en cours reste inachevé et non publié ; cette clôture ne crée ni tag ni release.
+
 ## À venir — planification du tracking des archives
 
 - Feuille de route de la phase 3 précisée : 14 tâches et quatre jalons pour examiner les séances complètes, puis l'archive.

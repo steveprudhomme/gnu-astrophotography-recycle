@@ -16,6 +16,10 @@ Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/i
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
+La [revue ciblée de deux séries](docs/REVUE-TRACES-CIBLEE.md) explique trois correspondances orbitales plausibles et une trace faible non identifiée.
+Elle fournit un exemple entièrement fictif de plages temporelles compatibles. Les résultats réels détaillés restent privés ; aucune identité ou horloge n'est confirmée.
+Cet examen est terminé et arrêté avant la grande fouille, qui reste en pause. Le lot applicatif général en cours n'est pas livré par cette publication documentaire.
+
 Le [contrôle Gaia des poses](docs/CONTRAT-GAIA-POSES.md) est livré dans le [commit `9bcf431`](https://github.com/steveprudhomme/gnu-astrophotography-recycle/commit/9bcf4318fc1fd1f5ffe2afe4ef72d7c364626f6e). Le lot applicatif 0.8 a passé **197 tests** ; ce résultat ne certifie ni l’horloge ni un budget d’erreur absolue complet.
 
 L’Alpha 0.9 ajoute [la préparation des preuves temporelles](docs/CONTRAT-PREUVES-TEMPS.md) et un [protocole illustré de mesure future](docs/PROTOCOLE-QUALIFICATION-TEMPS.md). **223 tests** passent ; aucune mesure instrumentale ou qualification d’horloge n’est annoncée.
