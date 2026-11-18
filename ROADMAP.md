@@ -202,6 +202,18 @@ Le commit de fusion **`b94cc9b`** est observé sur GitHub et correspond à la r�
 Aucun contrôle automatique GitHub n’est configuré pour cette PR ; les 51 tests et les reproductions sont locaux.
 Cette mise à jour de clôture ne modifie que les preuves et les Markdown. Aucun tag ou release, aucune reprise de la grande fouille.
 
+**Correction de reproduction détectée au contrôle final, 18 novembre 2026 — plan préalable.**
+Le CSV stellaire stocké par Git utilise LF, mais son empreinte publiée correspond aux octets CRLF du premier environnement Windows.
+Le premier rejeu avait réutilisé une copie Git déjà créée ; son état local masquait cette différence d’octets.
+Les seize FITS, les valeurs stellaires et les résultats scientifiques sont inchangés.
+
+- [ ] Corriger l’empreinte de calibration pour les octets LF réellement conservés dans Git, sans modifier les centres ou le WCS.
+- [ ] Contrôler les empreintes directement sur les octets Git, puis créer une copie Git entièrement nouvelle du commit corrigé.
+- [ ] Rejouer les six phases avec les références téléchargées déjà en cache ; comparer mesures, classements et neuf figures.
+- [ ] Remplacer la preuve initiale insuffisante par une preuve qui conserve l’explication de cette correction ; actualiser le tutoriel et intégrer par PR.
+
+Publier ce plan avant la correction. Aucun nouveau traitement d’archive, réglage, accès USB ou réseau astronomique.
+
 ### Essai AMOS adapté aux séries 3 et 4
 
 Plan préalable du 18 novembre 2026. Essai local distinct ; la fouille générale reste en pause.
