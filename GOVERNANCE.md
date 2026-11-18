@@ -31,7 +31,7 @@ Le diagnostic WCS 0.4 conserve la même distinction : cohérence numérique d’
 9. Publier les versions avec code source correspondant, avis tiers et journal des changements. Réviser la liste des personnes habilitées à chaque arrivée ou départ.
 
 **État au 17 novembre 2026.** Le dépôt est public depuis le 15 novembre.
-La version de développement est [0.12.0-alpha.1](VERSION), sans création de tag ou de release.
+La version de développement est [0.13.0-alpha.1](VERSION), sans création de tag ou de release.
 Le [journal](CHANGELOG.md) résume les changements. La [feuille de route](ROADMAP.md) conserve les plans et les preuves historiques.
 
 Le lot 23 utilise trois agents, avec coordination et revue internes. Le plan est publié avant le code.
@@ -46,7 +46,12 @@ Ces résultats ne qualifient pas la sensibilité scientifique ou l'identité d'u
 Le lot 24 ajoute un diagnostic sans nouvelle recherche réelle et un banc fictif irrégulier.
 Il conserve les trois manques brillants et leurs supports proches insuffisants.
 Les orientations du nouveau banc passent le contrôle de fabrication ; ses critères brillants restent manqués.
-La suite complète comporte maintenant 620 tests réussis. Les seuils et les moteurs historiques restent inchangés.
+Ce lot a passé 620 tests. Les seuils et les moteurs historiques restent inchangés.
+
+Le lot 25 trace les décisions du détecteur sur les dérivés fictifs existants, sans nouvelle recherche de trajectoire.
+Les six absences initiales n'ont aucun maximum local proche, malgré une réponse supérieure au seuil.
+Les dix photos suivantes possèdent un centre proche retenu. Les positions enregistrées et les scores sont conservés.
+La suite complète comporte maintenant 638 tests réussis. Le diagnostic numérique ne constitue pas une qualification scientifique.
 
 Les analyses utilisent des copies locales vérifiées. Les sources sélectionnées sont seulement lues pour les copier.
 Les nouveaux détails réels restent privés. Les cinq médias réels déjà autorisés gardent leur licence CC0 et leurs empreintes.

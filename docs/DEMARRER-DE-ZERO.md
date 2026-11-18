@@ -756,6 +756,21 @@ Les moteurs et leurs seuils restent les mêmes. Aucun support USB n'est nécessa
 **À vérifier avec tes mots :** pourquoi six photos sur 25 minutes échouent-elles si le programme demande 30 minutes ?
 Réponse : le nombre est suffisant, mais la durée reste trop courte. Les deux règles doivent être satisfaites.
 
+## Nouvelle mission : comprendre le sommet choisi par le détecteur
+
+Une petite bosse peut dépasser une ligne tout en restant plus basse que son voisinage.
+Le [parcours de trace des mobiles lents](TRACE-MOBILES-LENTS.md) explique cette idée avec les photos fictives déjà conservées.
+Quatre commandes tracent puis dessinent les décisions des deux fonds. Aucun branchement USB n'est nécessaire.
+
+![Décisions calculées sur les huit photos fictives, avec et sans ajout](images/exemple-trace-lents-etapes.png)
+
+**Lire sans image.** Les trois premières photos ajoutées n'ont aucun maximum proche. Les cinq suivantes ont un centre retenu.
+Les témoins servent à voir le fond sans le point ajouté. Le guide compare aussi les photos 1 et 4.
+Il donne les fichiers à vérifier et explique les erreurs, sans modifier les anciens résultats.
+
+**À expliquer avec tes mots :** pourquoi un point au-dessus du seuil peut-il manquer ?
+Réponse : le programme exige aussi un maximum local. Une valeur voisine plus haute peut empêcher cette étape.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :

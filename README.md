@@ -2,7 +2,7 @@
 
 **Donner une seconde vie scientifique aux archives du Seestar S50.**
 
-**Version de développement : [0.12.0-alpha.1](VERSION)**. Voir les [règles SemVer](VERSIONING.md) et le [journal des changements](CHANGELOG.md). Le paquet Python porte le numéro équivalent `0.12.0a1`. Cette mise à jour ne crée pas de release.
+**Version de développement : [0.13.0-alpha.1](VERSION)**. Voir les [règles SemVer](VERSIONING.md) et le [journal des changements](CHANGELOG.md). Le paquet Python porte le numéro équivalent `0.13.0a1`. Cette mise à jour ne crée pas de release.
 
 Les nouvelles pages et les sections révisées suivent le [guide de rédaction accessible](docs/REDACTION-ACCESSIBLE.md). Il réunit les références demandées par le mainteneur et les vérifications à faire. Une conformité complète et une compréhension dès 10 ans restent à vérifier avec les lecteurs.
 
@@ -12,7 +12,7 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : développement expérimental, 0.12.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et deux profils de recherche de mobiles. Un diagnostic séparé explique les mesures conservées des manques lents. Les 620 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
+**Statut : développement expérimental, 0.13.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et deux profils de recherche de mobiles. Des diagnostics séparés suivent les mesures et les décisions du détecteur. Les 638 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
@@ -88,6 +88,8 @@ Le [nouveau profil lent](docs/MOBILES-LENTS.md) garde ce moteur et ses anciens r
 Ces résultats sont conditionnels au recalage conservé. Les expériences réelles utilisent seulement des copies locales vérifiées ; aucune nouvelle image réelle n'est publiée. L'aptitude scientifique reste à établir avec un objet naturel connu, des temps contrôlés et d'autres contextes. Les ajouts artificiels ne sont pas des découvertes.
 
 Le [diagnostic des trois manques brillants](docs/DIAGNOSTIC-MOBILES-LENTS.md) suit les positions déjà enregistrées. Les supports proches restent insuffisants en nombre ou en durée. Un nouveau banc fictif sans grille régulière contrôle l'orientation avant les injections. Il retrouve 5/12 puis 6/12 ajouts, dont 5/6 brillants chacun, avec témoins sans candidat. Les deux critères restent manqués malgré une orientation conforme à la fabrication. Aucun moteur, seuil ou ancien résultat n'est changé ; aucune nouvelle injection réelle n'est réalisée.
+
+La [trace du détecteur lent](docs/TRACE-MOBILES-LENTS.md) explique une étape supplémentaire sur ces mêmes dérivés fictifs. Les six premières absences n'ont aucun maximum local proche proposé. La meilleure réponse du cercle principal dépasse pourtant le seuil, avec un échantillon voisin plus haut dans chaque cas. Dès la quatrième photo, un maximum proche est proposé et conservé. Les 32 rejeux, témoins compris, reproduisent toutes les positions enregistrées. Aucun seuil, score ou candidat n'est modifié.
 
 Ce lot ajoute 46 tests fictifs : **517 tests réussis en 210,82 s**. Reproduction depuis `61cac96` propre : neuf commandes aux codes 0, mêmes données, candidats, scores et figures sur deux fonds fictifs et deux réels ; refus du troisième contexte conservé. Les 24 copies réelles, anciens résultats et cinq médias CC0 restent intacts ; aucun accès au support pendant la reproduction. Les tests réussis n'annulent pas le résultat négatif sur les mouvements lents.
 
