@@ -153,3 +153,44 @@ Les travaux AMOS emploient alignement, différences d'images, recherche de segme
 Ils signalent les limites de précision et de validité des éléments TLE. Ces résultats sur un autre instrument ne valident pas le Seestar.
 Leur adaptation, les profils et les critères de sortie restent à évaluer dans le projet. Aucune dépendance n'est installée pour cette planification.
 Cette consultation documentaire ne transmet aucune image, date ou coordonnée des archives.
+
+## Identification ciblée des traînées
+
+Documentation consultée le 18 novembre 2026 pour les séries 3 et 4 :
+
+- [SatChecker, accès aux orbites historiques](https://satchecker.readthedocs.io/en/develop/tools_data_access.html) : éléments TLE à une date donnée, pagination et provenance. Une page reçue ne représente pas forcément tout le catalogue.
+- [International Meteor Organization, manuel photographique](https://www.imo.net/docs/01faint_meteors.pdf) : les traces d'avions, de météores et de satellites peuvent se ressembler. L'aspect seul ne fournit pas une identification certaine.
+- [Méthode présentée à AMOS](https://amostech.space/year/2022/automated-satellite-detection-and-sky-position-extraction-in-astronomical-images/) : comparaison des traces aux positions calculées par SGP4 depuis les éléments orbitaux ; limites de validité et de précision.
+
+Deux requêtes SatChecker autorisées transmettent uniquement la date d'observation, représentée à minuit, sans heure observée ni coordonnées.
+Elles expirent sans catalogue utilisable. Aucun élément orbital, identité de satellite ou succès de comparaison n'est déduit.
+Les calculs éventuels de lieu et de direction resteront locaux. Les observations, requêtes et erreurs détaillées restent privées.
+
+L'essai suivant reprend les étapes décrites dans le résumé technique AMOS : alignement, différences, composite avec indice temporel et recherche de lignes.
+Le lien vers le PDF complet des auteurs n'a pas pu être ouvert par l'outil de consultation.
+La recette privée est une adaptation indépendante à grille angulaire entière, pas une reproduction de leur transformée de Hough probabiliste.
+Les chiffres de performance de l'étude ne sont pas transférés au Seestar. Les intervalles de cinq minutes limitent aussi la continuité temporelle exploitable.
+
+## Calcul orbital local
+
+Références consultées le 18 novembre 2026 pour l'essai ciblé :
+
+- [Documentation SGP4 maintenue par l'auteur du paquet](https://pypi.org/project/sgp4/) : calcul depuis les éléments orbitaux, vecteur de contrôle et repère TEME. La bibliothèque ne réalise pas seule toutes les conversions célestes.
+- [Astropy : coordonnées des satellites terrestres](https://docs.astropy.org/en/stable/coordinates/satellites.html) : passage TEME vers ITRS, soustraction explicite de la position du lieu puis direction topocentrique, pour éviter une conversion incorrecte de l'aberration.
+- [SatChecker : données orbitales historiques](https://satchecker.readthedocs.io/en/develop/tools_data_access.html) : catalogue à une date donnée, pagination et provenance.
+
+Le calcul utilise Astropy 7.2.0 déjà installé et SGP4 2.27 dans un dossier privé de l'essai.
+Les éléments satellitaires peuvent être imparfaits ou anciens ; un passage proche ne devient pas une identification confirmée.
+Les résultats réels nommés et leurs illustrations ne sont pas publiés avec ces références.
+
+## Hauteurs et intervalles de la revue ciblée
+
+Références consultées le 18 novembre 2026 :
+
+- [PROJ, grilles géodésiques de RNCan](https://cdn.proj.org/ca_nrc_README.txt) et [catalogue des fichiers](https://cdn.proj.org/) : provenance et références de la grille HT2_2010v70. Le fichier est téléchargé sans coordonnées, puis utilisé localement sous sa licence d'origine ; il n'est pas redistribué dans le dépôt.
+- [PROJ, déplacement vertical par grille](https://proj.org/en/stable/operations/transformations/vgridshift.html) : sens du déplacement et multiplicateur. La conversion de l'essai utilise le sens CGVD28 vers hauteur ellipsoïdale et contrôle l'aller-retour.
+- [RNCan, spécifications du modèle CDEM](https://download-telecharger.services.geo.ca/pub/nrcan_rncan/elevation/cdem_mnec/doc/CDEM_product_specs.pdf) : référence verticale CGVD28 des altitudes cartographiques. Le terrain et la hauteur du télescope ne sont pas mesurés par cette conversion.
+
+Pyproj 3.8.0 et la grille sont placés dans les dossiers privés de l'essai. Les téléchargements automatiques de grilles sont désactivés.
+Le calcul d'intervalles fictifs est une explication originale du projet, sous hypothèses explicites ; ce n'est pas une méthode publiée de certification temporelle.
+Le passage distinct utilisé dans le bilan réel partage les références et a déjà été examiné. Il ne constitue pas une validation indépendante ou aveugle de l'horloge.

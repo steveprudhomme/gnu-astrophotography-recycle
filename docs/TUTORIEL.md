@@ -1856,3 +1856,194 @@ Le schéma a aussi été affiché dans un aperçu local pour vérifier son cadra
 La commande `git diff --check` ne signale aucune erreur d'espacement.
 Le code, les versions et les cinq médias réels déjà autorisés restent identiques.
 Ces vérifications portent sur la documentation. Elles ne valident aucune détection ni compréhension par un enfant.
+
+## 38. Examiner les traces des séries réelles 3 et 4
+
+Le mainteneur demande cet essai limité pendant la pause de la fouille générale. Cette pause reste en vigueur.
+Le but est de vérifier si les traces correspondent à des satellites connus, sans leur donner un nom trop vite.
+Une **orbite** décrit le trajet d'un satellite. Les **éléments orbitaux** permettent de prévoir ce trajet.
+
+![Schéma conceptuel : examiner les images, comparer aux références et conserver les incertitudes](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Nous examinons les pixels d'origine, les heures et la direction observée.
+Nous comparons ensuite les traces aux trajets calculés. Une ressemblance reste une hypothèse sans contrôles suffisants.
+Ce schéma présente une méthode ; il ne montre pas un satellite identifié dans ces séries.
+
+### Vérifier les informations disponibles
+
+Les deux séries contiennent 16 poses locales. Leurs empreintes concordent avec les rapports de copies.
+Chaque pose dure 10 secondes. Les heures sont distinctes et les informations de site sont constantes.
+L'échelle des heures n'est pas explicitement déclarée. Aucun modèle céleste complet n'est enregistré dans ces FITS.
+Le lien entre pixels et ciel devra donc être établi et contrôlé avant une comparaison précise.
+Les coordonnées du site restent privées et ne sont pas transmises.
+
+### Obtenir les orbites historiques
+
+Le mainteneur autorise SatChecker à recevoir seulement la date d'observation, sans heure précise.
+La recette privée appelle `/tools/tles-at-epoch/`, avec le jour julien de minuit et une pagination explicite.
+Un **jour julien** est un nombre représentant une date en astronomie. Minuit évite de transmettre l'heure observée.
+La première requête demande une page de 100 lignes. Après son expiration, une seconde demande une seule ligne.
+Les deux tentatives expirent sans réponse exploitable. Les requêtes et erreurs restent dans un dossier local ignoré par Git.
+Même reçue, une page ne constituerait pas un catalogue complet : pagination et dates des éléments devraient être vérifiées.
+
+### Examiner les autres explications
+
+Une trace peut venir d'un satellite, d'un avion, d'un météore ou d'un effet du capteur.
+Examiner largeur, interruptions et variations d'intensité, puis comparer aux images voisines et aux pixels bruts.
+Aucun de ces indices, pris seul, ne donne une identité certaine.
+Une trace présente dans le FITS brut ne peut pas être attribuée uniquement à l'alignement de l'affichage.
+
+**Résultat : aucun satellite identifié.** Le téléchargement indisponible ne prouve pas une absence de satellite dans les photos.
+Ces contrôles ne qualifient ni l'horloge ni l'astrométrie. Aucun moteur n'est modifié et aucun calcul orbital n'est exécuté sans référence.
+Consulter les [sources de cet essai](SOURCES.md#identification-ciblée-des-traînées) pour les orbites et les ambiguïtés visuelles.
+
+## 39. Essayer une adaptation de la méthode présentée à AMOS
+
+Cet essai concerne seulement les séries 3 et 4. La fouille générale reste en pause.
+Le [plan AMOS](../ROADMAP.md#essai-amos-adapté-aux-séries-3-et-4) est publié avant le prototype privé.
+L'étude utilise des images rapprochées. Nos poses durent 10 secondes, avec presque cinq minutes entre deux poses choisies.
+Nous ne pouvons donc pas supposer qu'un passage continue dans la pose suivante.
+
+![Schéma conceptuel du parcours : images, recherche, examen et références](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Nous alignons les étoiles, puis calculons une image de référence médiane.
+La différence avec cette référence fait ressortir les changements. Un accumulateur de **Hough** cherche ensuite des alignements de pixels lumineux.
+Ce calcul propose des lignes ; il ne reconnaît pas leur origine. Le dessin est conceptuel, sans résultat d'identification.
+
+### Préparer puis vérifier le prototype
+
+Les modèles de rotation et de translation déjà acceptés sont réutilisés sans nouvel ajustement.
+Les blocs de deux pixels par deux donnent une intensité moyenne, avec masque des blocs invalides ou saturés.
+Les images interpolées servent aux propositions exploratoires. Les positions finales devraient être remesurées sur les pixels natifs.
+La médiane est calculée sur les huit poses alignées ; sa soustraction peut aussi atténuer certains signaux.
+
+Avant l'essai réel, trois contrôles fictifs sont exécutés : trace horizontale, trace diagonale et étoiles fixes avec bruit.
+Les deux traces sont retrouvées. Le témoin fixe ne propose aucune ligne. Ce petit contrôle ne mesure pas une performance générale.
+Le seuil est fixé à cinq fois le bruit de la différence, avec des angles entiers de 0 à 179 degrés.
+Une proposition demande au moins 30 votes et une longueur d'au moins 24 pixels réduits.
+Ces paramètres restent identiques après examen des résultats réels. Ils ne sont pas présentés comme ceux des auteurs d'AMOS.
+
+### Lire le résultat réel
+
+La grande trace de la pose 8 de la série 3 est retrouvée. Sept ajustements de lignes sont conservés.
+Plusieurs ajustements suivent cette même trace : ils ne représentent pas sept objets distincts.
+La trace plus faible de la pose 3 n'est pas retrouvée. Aucune ligne n'est proposée dans la série 4.
+Ces résultats montrent des manques. Un zéro ne prouve pas une absence de trace ou de satellite.
+
+Le prototype conserve aussi le maximum de chaque pixel des différences et l'indice de la pose correspondante.
+Ces composites, différences et lignes dessinées restent privés avec les résultats numériques. Les empreintes des entrées restent inchangées.
+Les lignes dessinées sont des annotations calculées sur de vraies images, pas des objets ajoutés aux FITS.
+
+**La partie identification n'est pas exécutée.** Les téléchargements historiques restent indisponibles et la géométrie céleste doit être contrôlée.
+La comparaison future emploierait SGP4 pour prévoir les trajectoires et les confronter aux traces pendant les expositions.
+Le prototype reprend une partie des étapes publiées ; il ne reproduit ni tout le système AMOS ni ses performances annoncées.
+
+## 40. Comparer localement une trace aux orbites historiques
+
+Cet essai poursuit les seules séries 3 et 4. La fouille générale reste en pause.
+Le plan de comparaison et ses hypothèses sont committés et publiés avant le calcul.
+
+![Schéma conceptuel : examiner une proposition, comparer aux références, puis conserver les limites](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Une ligne mesurée est comparée à des passages calculés au même moment et depuis le même lieu supposé.
+Le rapprochement donne des hypothèses classées. Il ne donne pas automatiquement une identité certaine.
+Ce dessin est conceptuel ; les images réelles et les noms des hypothèses restent dans les rapports privés.
+
+### Télécharger et compter les références
+
+Un client HTTPS IPv4 réussit là où les premiers téléchargements avaient expiré. Seule la date autorisée est envoyée.
+Les 14 pages donnent 27 779 lignes, pour 27 714 identifiants de satellites distincts.
+Certains identifiants ont plusieurs éléments ; il existe aussi des répétitions exactes. Ces différences sont conservées dans le bilan.
+Les comptes de pages concordent avec le total annoncé. Cela ne prouve pas un catalogue complet de tous les satellites possibles.
+
+### Relier la ligne mesurée au ciel
+
+Les empreintes montrent que la première pose de la série 3 correspond à une pose déjà recalée sur une référence céleste locale.
+La transformation de la pose 8 vers cette première pose permet de réutiliser ce lien, sans nouveau téléchargement Gaia.
+La mesure de la grande trace utilise les pixels natifs ; 554 pixels lumineux soutiennent l'ajustement après contrôle des résidus.
+La trace atteint le bord du champ. Sa longueur visible ne doit donc pas être divisée simplement par dix secondes pour obtenir une vitesse.
+Le budget d'erreur absolue et l'horloge restent non qualifiés.
+
+### Calculer les passages sans envoyer le lieu
+
+SGP4 2.27 est installé dans un dossier privé dédié, sans changer les dépendances de l'application en pause.
+Un vecteur de référence publié est reproduit. Un contrôle de conversion des directions aller-retour passe aussi.
+Ces vérifications techniques ne prouvent pas la justesse des heures, du lieu ou des orbites réelles.
+Les transformations suivent le parcours TEME, ITRS puis direction topocentrique décrit par Astropy.
+**Topocentrique** signifie ici : vu depuis le lieu d'observation. Les coordonnées du lieu restent sur l'ordinateur.
+Les téléchargements automatiques de tables terrestres sont désactivés pendant le calcul ; les tables déjà fournies sont utilisées.
+
+Les éléments à plus de sept jours de l'observation sont écartés : 539 lignes, avec 27 240 jeux restants.
+Les erreurs de propagation sont conservées. Les jeux d'éléments ne sont pas comptés comme autant de satellites distincts.
+Le premier écran couvre les 16 poses. Pour la grande trace, 25 jeux passent à la grille fine et neuf restent dans le classement géométrique.
+Ce premier écran à dix degrés du champ n'est pas une identification des autres traces des séries.
+
+### Conserver le caractère conditionnel du résultat
+
+Une hypothèse se démarque pour la grande trace, mais reste non confirmée.
+DATE-OBS est interprété comme UTC pour cet essai. La fenêtre va de dix secondes avant à vingt secondes après, par pas de 0,1 seconde.
+L'altitude n'étant pas fournie, deux calculs distincts à 0 et 500 mètres montrent son effet sur le passage prévu.
+Ces hauteurs servent de contrôle de sensibilité ; aucune n'est ajustée pour faire coïncider la trajectoire avec la photo.
+La figure privée superpose la ligne native mesurée et les deux prévisions. Les trajectoires dessinées ne sont pas ajoutées aux FITS.
+Les autres traces faibles restent à mesurer avant une comparaison aussi précise.
+
+Les rapports privés conservent le catalogue, les hypothèses nommées, les erreurs, les transformations et la figure.
+Les [sources orbitales](SOURCES.md#calcul-orbital-local) décrivent les outils utilisés. Aucun moteur historique ou résultat antérieur n'est modifié.
+
+## 41. Terminer la revue ciblée avant la grande fouille
+
+Le mainteneur demande de terminer les séries 3 et 4, puis de s'arrêter avant de relancer toute l'archive.
+Le plan et le point d'arrêt sont publiés avant le travail. Les moteurs historiques restent intacts.
+Le [guide pas à pas](REVUE-TRACES-CIBLEE.md) explique la méthode, les mots nouveaux et la lecture du bilan.
+
+### Résultat de l'examen ciblé
+
+Les 16 poses sont examinées. Quatre traces sont retenues visuellement avant la nouvelle comparaison orbitale.
+Trois donnent une correspondance plausible. Une quatrième est trop faible pour être associée de façon convaincante.
+Les noms, heures, coordonnées et vues réelles restent dans le dossier privé du mainteneur.
+Les douze autres poses n'ont pas de trace additionnelle nette dans cette revue ; leur absence n'est pas prouvée.
+
+Le complément par intégration de lignes retrouve les deux contrôles fictifs, dont une ligne faible.
+L'image de bruit seule ne propose aucune ligne. Pourtant, les vrais fonds produisent 935 propositions, souvent liées aux bordures ou aux résidus stellaires.
+Le score n'est pas une probabilité. Ce petit contrôle ne valide donc pas une performance sur le Seestar.
+Les propositions et les manques restent conservés ; les paramètres ne sont pas réglés après examen pour améliorer artificiellement le résultat.
+
+### Vérifier les mesures et les hypothèses
+
+Les quatre mesures utilisent les pixels natifs. Un cas fictif de mesure retrouve les extrémités à moins d'un pixel natif.
+Les étoiles réservées contrôlent le lien géométrique entre les séries. Le budget absolu complet reste ouvert.
+La hauteur cartographique est convertie localement avec la grille HT2 documentée ; l'aller-retour est vérifié.
+La hauteur exacte du télescope et le repère horizontal précis restent inconnus.
+Les prévisions orbitales sont dessinées sans les ajuster à la trace observée.
+
+Les plages d'heures compatibles sont calculées pour les conventions début, milieu et fin.
+Deux passages servent au premier calcul, puis un troisième passage distinct vérifie la cohérence.
+Ce contrôle a déjà été examiné et partage le catalogue et la géométrie : il n'est pas indépendant ou aveugle.
+L'hypothèse UTC et début de pose reste compatible. Cela ne qualifie pas l'horloge et ne justifie aucune modification des FITS.
+
+### Reproduire le raisonnement avec un exemple fictif
+
+![Trois plages entièrement fictives et leur intersection conditionnelle, sans donnée réelle Seestar](images/exemple-intervalles-fictifs.svg)
+
+**Lire sans image.** A accepte de −5 à +3 secondes ; B accepte de −6 à +1.
+Leur intersection est de −5 à +1. C accepte de −4 à +2 ; les trois cas laissent de −4 à +1.
+Ces nombres sont inventés pour expliquer le calcul. Ils ne sont pas les valeurs des observations du mainteneur.
+
+Depuis PowerShell à la racine du projet :
+
+```powershell
+.\.venv\Scripts\python.exe examples/trace_time_intervals.py local/mon-exemple-intervalles-01.svg
+```
+
+Le programme crée le SVG et affiche les plages, l'intersection et `clock_qualified: false`.
+Un fichier déjà présent provoque une erreur demandant un nouveau nom. Aucune observation ou requête externe n'est utilisée.
+L'exemple fonctionne avec la seule bibliothèque standard de Python. Il ne lance aucun moteur de fouille.
+
+### Fermer le travail ciblé
+
+La galerie privée réunit les 16 vues et quatre fiches, avec mesures, hypothèses orbitales, limites et provenance.
+Les empreintes des 16 FITS restent identiques. La figure publique est entièrement fictive ; les vues réelles nouvelles ne sont pas publiées.
+Les contrôles portent sur le calcul, les fichiers et l'affichage. Aucun essai avec un enfant ou audit complet d'accessibilité n'est annoncé.
+La suite applicative générale n'est pas relancée pour cette clôture ; son exécution précédente reste interrompue et ne vaut pas succès.
+
+**Arrêt avant la grande analyse, comme demandé.** Le lot applicatif général reste en pause, sans nouvelle version publiée, tag ou release.

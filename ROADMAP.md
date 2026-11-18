@@ -77,7 +77,152 @@ Ces jalons ne portent pas de date promise. Ils ne constituent pas des fonctionna
 Chaque lot d'implémentation fera l'objet d'un plan committé et publié avant son code, avec SemVer et Markdown actualisés.
 Le [tutoriel](docs/TUTORIEL.md#37-planifier-la-fouille-et-le-tracking-des-archives) conserve une explication illustrée de cette orientation.
 
+## Lot 29 — fouille automatique et résultats exploratoires
+
+Plan du 18 novembre 2026. Mandat autonome du mainteneur avec trois agents.
+**État initial : à réaliser après publication de ce plan.** Ce lot met en œuvre les tâches TR, sans présumer leur validation scientifique.
+
+L'inventaire local compte 20 678 fichiers, dont 20 317 poses candidates. Les copies existantes contiennent 63 poses distinctes et un empilement.
+L'archive représente environ 86,5 Go ; le disque local ne dispose initialement que d'environ 7 Go libres.
+Le traitement doit donc annoncer sa couverture réelle et limiter son espace de travail. Aucune copie générale sans budget mesuré.
+
+| Étape | Travail et critère de fin | Responsable et fichiers |
+|---|---|---|
+| A29-01 | Accepter les deux formats d'inventaire locaux ; donner un état à chaque fichier, y compris sans copie. Garder provenance, empreintes, doublons et raisons. | Agent pipeline : `src/gar/archive_survey.py`, `tests/test_archive_survey.py` |
+| A29-02 | Grouper pour le repérage sans assimiler les heures déclarées à une horloge qualifiée. Parcourir les fenêtres recouvrantes, leur dernière pose et les séries courtes. | Agent pipeline, mêmes fichiers |
+| A29-03 | Ajouter un moteur distinct : points, formes diffuses, segments et addition décalée sur grille explicite. Fixer les paramètres avant les essais réservés. | Agent moteur : `src/gar/archive_detection.py`, `tests/test_archive_detection.py` |
+| A29-04 | Aligner avec étoiles de contrôle réservées ; conserver modèles, masques, zone commune et coordonnées natives. Documenter les recherches refusées ou partielles. | Coordinateur : `src/gar/archive_processing.py`, `tests/test_archive_processing.py` |
+| A29-05 | Produire une galerie locale : vues fixes, GIF utiles, mesures, temps déclarés, motifs, fichiers et statut. Aucune identification depuis le seul nom du dossier. | Agent galerie : `src/gar/archive_gallery.py`, `tests/test_archive_gallery.py`, `examples/make_archive_demo.py` |
+| A29-06 | Sauvegarder après chaque fenêtre, vérifier les résultats repris et refuser une reprise incompatible. Dédupliquer les occurrences sans confondre profils et objets. | Agent pipeline ; revue du coordinateur |
+| A29-07 | Comparer aux références locales puis, selon l'autorisation reçue, au JPL : seulement dates/heures et coordonnées célestes, calcul géocentrique, aucun lieu terrestre ou FITS transmis. Conserver les limites d'identification et l'absence éventuelle d'éléments orbitaux historiques de satellites. | Coordinateur : `src/gar/archive_identification.py`, tests associés et recettes privées |
+| A29-08 | Mesurer récupération et fausses alertes sur des exemples fictifs distincts, puis rechercher des passages dans toutes les copies réelles admissibles. Relever coûts, limites et refus ; aucun réglage pour effacer un échec réservé. | Trois agents puis revue intégrée du coordinateur |
+| A29-09 | Si des copies supplémentaires sont nécessaires et accessibles, sélectionner leurs chemins depuis les manifestes existants. Lecture seule des originaux, empreintes avant/après, analyse locale ; budget mémoire/disque explicite. | Coordinateur uniquement ; aucune exploration récursive du support |
+| A29-10 | Livrer commande documentée, bilan exhaustif des états, galerie réelle privée, démonstration publique fictive et tutoriel illustré. Faire les vérifications adaptées et publier par PR. | Coordinateur : CLI, contrats, README, INSTALL, tutoriel, sources, validation, changelog et versions |
+
+**Paramètres prévus.** Ancien moteur, anciens seuils, recettes et résultats restent intacts. Le nouveau profil de points garde le seuil 5σ.
+Le profil diffus emploie 5 fois le bruit après lissage ; cette autre statistique ne promet pas la même sensibilité ou le même taux de fausses alertes.
+Les associations exploratoires admettent au moins trois poses, un déplacement d'au moins 1,5 pixel réduit et des vitesses de 0,0001 à 0,15 pixel réduit par seconde déclarée.
+Les plafonds de calcul provoquent un état partiel ou un refus explicite, jamais un faux résultat complet sans candidat.
+L'addition décalée reste bornée par une grille indiquée et un budget mesuré ; elle ne couvre pas tous les mouvements possibles.
+
+**Livraison visée.** Fonctionnalité additive expérimentale : `0.17.0-alpha.1`, équivalent Python `0.17.0a1`.
+Les formats auront un contrat distinct ; aucun ancien rapport ne sera réécrit. Aucun tag ou release ne sera créé automatiquement.
+Les nouveaux médias réels et les réponses des services restent privés dans `local/` ; seules les illustrations fictives sont publiques.
+Le coordinateur publie ce plan avant le code, puis attribue des fichiers distincts aux agents et vérifie l'intégration.
+
+**Extension de stockage autorisée le 18 novembre.** Le mainteneur propose aussi D:, avec environ 24 Go libres mesurés.
+Un dossier de travail privé dédié peut y recevoir des copies et rapports. Garder une réserve de 3 Go et mesurer le coût avant généralisation.
+Les fichiers déjà présents sur D: ne doivent être ni déplacés ni supprimés. Les traitements restent sur des copies vérifiées.
+
+**Sous-étape ajoutée avant son code — recalage exploratoire distinct.** Le premier essai de développement sur les copies de comète conserve un refus strict : trop peu d'étoiles de contrôle.
+Ajouter une option séparée, désactivée par défaut, avec au moins trois associations d'ajustement et une de contrôle, résidu maximal de contrôle à 1,5 pixel natif.
+Ce contrôle faible ne valide ni toute la surface ni l'astrométrie absolue. Les domaines restent partiels et les candidats demandent une revue.
+Conserver le résultat strict, ses critères et les paramètres de luminosité. Vérifier ce nouveau mode sur données fictives avant le prochain essai réel.
+
+**Sous-étape de généralisation sur disque limité.** Traiter les groupes inventoriés l'un après l'autre dans le nouveau dossier dédié de D:.
+Copier leurs seuls chemins manifestés, vérifier les empreintes, analyser localement et conserver rapports, en-têtes et galerie.
+Après succès et vérification, les seules copies temporaires créées par ce traitement peuvent être libérées, avec leur liste et leurs empreintes conservées.
+Un groupe interrompu garde ses copies pour reprise. Ne supprimer aucun original, copie antérieure ou autre fichier du disque.
+Le bilan final distingue copie conservée, copie temporaire libérée, fichier refusé et fichier indisponible ; la reproduction exige parfois une nouvelle copie.
+
+**Génération visuelle et recherche profonde.** Les premiers bancs figés produisent de nombreuses propositions, surtout par addition décalée.
+Conserver tous les résultats de recherche. Générer d'abord un nombre explicite de fiches visuelles et inscrire les autres comme médias à produire, sans masquer leurs mesures.
+Permettre la génération locale d'un candidat choisi. L'addition décalée est une option distincte, désactivée dans la première fouille courante, conformément à TR-08.
+Ses essais déjà produits restent conservés avec les alertes non associées ; aucun changement de seuil pour les faire disparaître.
+Vérifier aussi le confinement des sorties privées, les statistiques par pose et l'état refusé lorsqu'aucune recherche n'aboutit.
+
+## Essai ciblé — traces des séries 3 et 4
+
+Plan du 18 novembre 2026, demandé pendant la pause de la fouille générale. Cette pause reste en vigueur.
+
+- [ ] Relever les traces dans les copies locales des deux séries, avec leurs poses et leurs empreintes.
+- [ ] Vérifier les heures déclarées, les informations de site et le lien entre pixels et ciel. Ne pas les qualifier par défaut.
+- [ ] Télécharger les orbites historiques disponibles depuis SatChecker. Autorisation explicite : seule la date d'observation, sans heure précise, lieu, champ ou image.
+- [ ] Vérifier la couverture et les dates des éléments orbitaux ; comparer localement les positions, orientations et durées si les références le permettent.
+- [ ] Examiner aussi les hypothèses avion, météore et effet du capteur. Une trace sans correspondance reste non identifiée.
+- [ ] Conserver mesures, réponses et illustrations réelles en privé ; documenter méthode et limites dans le tutoriel.
+
+Le calcul orbital local pourra employer SGP4. Aucun résultat d'identification n'est présumé, aucun moteur historique n'est modifié.
+Une absence d'orbites historiques ou d'informations temporelles suffisantes peut empêcher la comparaison.
+
+Premier contrôle : les 16 copies sont vérifiées par empreintes ; chaque pose dure 10 secondes et les informations de site sont constantes.
+Les heures restent déclarées sans échelle temporelle explicite ; aucune transformation céleste complète n'est présente dans ces FITS.
+Les deux requêtes historiques SatChecker, dont une minimale, expirent sans référence exploitable.
+Aucun satellite n'est identifié à ce stade. Les rapports restent locaux ; la fouille générale reste en pause.
+
 ## Premières tâches à ouvrir
+
+### Essai AMOS adapté aux séries 3 et 4
+
+Plan préalable du 18 novembre 2026. Essai local distinct ; la fouille générale reste en pause.
+La publication AMOS décrit alignement, différences d'images, composite conservant le maximum et l'indice temporel, recherche de lignes et comparaison TLE/SGP4.
+Les poses sélectionnées sont espacées de 291 à 313 secondes pour 10 secondes d'exposition : aucune continuité du passage n'est présumée.
+
+- [ ] Tester sur images fictives un prototype de différences et de recherche de lignes par accumulateur de Hough.
+- [ ] Réutiliser les huit modèles existants de chaque série, sans les réajuster ; conserver les masques et empreintes.
+- [ ] Produire les différences, le composite maximum avec indice de pose et des propositions par pose ; mesurer les limites de la grille angulaire.
+- [ ] Fixer avant essai : seuil cinq fois le bruit des différences, angles de 0 à 179 degrés par pas d'un degré, au moins 30 votes, longueur d'au moins 24 pixels réduits ; regrouper les maxima voisins sans modifier les moteurs historiques.
+- [ ] Conserver les propositions, limites et illustrations réelles en privé. Documenter les témoins fictifs, les réussites et les manques.
+- [ ] Comparer ultérieurement aux trajectoires SGP4 seulement avec des orbites historiques disponibles et une géométrie contrôlée ; ne pas déclarer une identité à partir d'une ligne détectée.
+
+Ce prototype évalue une adaptation des étapes publiées ; il ne reproduit pas intégralement le système AMOS ni ses performances.
+
+Résultat du premier essai : témoins fictifs horizontal, diagonal et fond stellaire fixe vérifiés avant les images réelles.
+Les 16 poses sont traitées avec modèles existants et empreintes inchangées. La pose 8 de la série 3 donne sept ajustements de lignes, principalement sur la même grande trace visible.
+La grille ne retrouve pas la trace faible de la pose 3 et ne propose aucune ligne dans la série 4 ; ces manques sont conservés.
+Composite maximum et indice de pose enregistrés en privé. Aucune comparaison orbitale ni identité confirmée ; étapes SGP4 et qualification géométrique restent ouvertes.
+
+### Tâches initiales du projet
+
+### Comparaison orbitale ciblée — plan préalable
+
+Le 18 novembre 2026, le mainteneur demande de poursuivre la comparaison des seules séries 3 et 4.
+La fouille générale reste en pause. Conserver les anciens essais et les seuils.
+
+- [ ] Retenter le catalogue historique SatChecker par un autre client HTTPS, avec la seule date déjà autorisée ; consigner accès, pagination et ancienneté.
+- [ ] Vérifier si le recalage et le WCS de référence déjà locaux permettent de relier la série 3 au ciel ; vérifier les empreintes et les modèles utilisés.
+- [ ] Mesurer les extrémités dans les pixels d'origine et préparer un contrôle céleste, sans assimiler cette préparation à une identification.
+- [ ] Si un catalogue approprié est disponible, calculer localement les passages SGP4 au lieu déclaré ; conserver erreurs, ambiguïtés de temps, différences angulaires et hypothèses concurrentes.
+- [ ] Sans catalogue exploitable, conserver l'état « comparaison non exécutée », un bilan reproductible et les étapes encore nécessaires.
+- [ ] Documenter le résultat et ses limites avec une figure explicative sans données privées publiées.
+
+### Tâches historiques
+
+### Clôture ciblée des séries 3 et 4 avant la grande fouille
+
+Mandat du 18 novembre 2026 : terminer l'examen des 16 poses et s'arrêter avant toute relance de l'archive générale.
+
+- [ ] Préserver le code et les résultats en pause ; utiliser uniquement les copies locales et le catalogue historique déjà reçu.
+- [ ] Convertir localement la hauteur cartographique CGVD28 avec une grille géodésique documentée ; garder les inconnues de terrain, hauteur du télescope et repère horizontal.
+- [ ] Examiner toutes les poses et dresser un registre illustré des traces proposées, y compris les manques du Hough initial. Garder les moteurs et résultats antérieurs.
+- [ ] Évaluer un complément distinct par intégration de lignes, sur plans réduits de quatre pixels natifs : angles tous les 0,5 degré, support d'au moins 100 cases, seuil de huit dispersions robustes de l'accumulateur. Ce score n'est pas une probabilité et ne remplace pas le seuil historique.
+- [ ] Contrôler le complément sur témoins fictifs avant essai réel, puis mesurer les traces proposées dans les pixels natifs ; conserver ambiguïtés et faux alignements possibles.
+- [ ] Contrôler la géométrie sur étoiles réservées pour relier chaque série au ciel ; classer les hypothèses orbitales avec les incertitudes et sans confirmation automatique.
+- [ ] Évaluer les plages temporelles compatibles, sous hypothèses début/milieu/fin, à partir de passages distincts. Ne pas qualifier l'horloge avec les seuls passages utilisés pour choisir les identités.
+- [ ] Produire galerie et rapport privés, tutoriel illustré avec figures publiques fictives, Markdown actualisés et publication documentaire vérifiée.
+- [ ] Arrêt obligatoire après le bilan ciblé : aucun lancement du traitement de toute l'archive, aucune nouvelle copie USB, aucune acquisition instrumentale.
+
+Ce travail ne livre pas le lot applicatif en pause et ne crée ni tag ni release. Les nouveaux détails d'observation restent privés.
+
+**Clôture ciblée effectuée.** Les 16 copies sont revues, avec quatre traces visuellement retenues : trois correspondances orbitales plausibles et une faible non identifiée.
+Les 935 propositions du complément sont conservées, sans être assimilées à des objets distincts ; son taux de fausses alertes réelles n'est pas validé.
+La conversion géodésique locale, la mesure native, les étoiles réservées et les empreintes sont contrôlées.
+Les plages temporelles sont conditionnelles : le contrôle par un passage distinct partage les références et n'est pas une qualification indépendante ou aveugle.
+Galerie et rapport détaillés restent privés. Le [guide illustré](docs/REVUE-TRACES-CIBLEE.md) et l'exemple fictif expliquent les résultats.
+**Point d'arrêt atteint : aucune grande analyse relancée.** Le lot général reste en pause.
+
+Complément préalable du calcul orbital ciblé : catalogue paginé complet, éléments datant de sept jours au plus de l'observation.
+Premier classement local sous l'hypothèse explicite que DATE-OBS représente UTC, fenêtre de −10 à +20 secondes autour de l'heure déclarée.
+Présélection à dix degrés du champ aux instants −10, 0, +10 et +20 secondes, puis calcul fin à 0,1 seconde pour les satellites retenus.
+La comparaison classe les distances angulaires et les orientations ; elle ne confirme pas automatiquement une identité.
+Les exclusions de catalogue, l'hypothèse temporelle et la possible coupure de la trace par le bord du champ restent explicites.
+
+Résultat de l'essai orbital ciblé : accès HTTPS IPv4 fonctionnel ; 14 pages reçues, 27 779 lignes et 27 714 identifiants distincts.
+Les doublons et éléments multiples sont conservés ; recevoir toutes les pages ne prouve pas un catalogue sans omission.
+539 lignes sont écartées pour ancienneté supérieure à sept jours ; 27 240 jeux d'éléments entrent dans le calcul, avec erreurs SGP4 signalées.
+Présélection effectuée pour les 16 poses. La comparaison fine concerne seulement la grande trace de la pose 8, série 3.
+Une hypothèse se démarque, sans identité confirmée. Les noms, coordonnées, heures, éléments orbitaux et illustrations réelles restent dans les rapports privés.
+L'altitude absente est testée séparément à 0 et 500 mètres, sans ajustement aux observations ; son effet est visible et doit rester dans le budget d'incertitude.
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
