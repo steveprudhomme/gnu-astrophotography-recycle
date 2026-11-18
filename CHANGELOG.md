@@ -2,7 +2,16 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
-## État de développement — 0.15.0-alpha.1
+## État de développement — 0.16.0-alpha.1
+
+- Préparation d'un contrôle positif : sélection déterministe de huit poses depuis l'inventaire exploratoire existant, copie vérifiée ou réutilisation locale, référence JPL minimale avec autorisation et bilan hors ligne. Aucun nouveau seuil ou moteur.
+- Copies intègres et contrat de configuration distingués. Préparation réelle bloquée par la configuration et une vitesse géocentrique hors du domaine conservé. Heures UTC supposées, astrométrie absolue et repère central non qualifiés ; aucun contrôle positif naturel validé ou nouvelle recherche lancé.
+- Référence brute conservée après un premier refus de format calendaire, puis relue hors ligne après prise en charge des formats documentés. Une seule requête JPL, limitée au nom fixé et huit dates, sans coordonnées du champ ou terrestres, image ou autre en-tête.
+- Exercice entièrement fictif à 250 secondes d'arc/h et référence absente ; trois PNG calculés et décrits, tutoriel dès 10 ans et règles de rédaction appliqués. 39 nouveaux tests fictifs passent en 5,81 s. Paquet `0.16.0a1`, sans tag/release.
+- Suite complète : **728 tests réussis en 341,74 s**, dont 39 nouveaux tests fictifs.
+- Reproduction depuis `f189c22` propre : mêmes neuf codes attendus, sources/copies fictives identiques et huit copies réelles réutilisées, mêmes sélections et décisions de trois préparations, trois CSV et neuf PNG identiques. Cache JPL initial inchangé, 163 anciens fichiers et cinq médias CC0 préservés. Audit de 280 fichiers publics, licences, liens, neuf commandes et 107 anciens fichiers Python hors version.
+
+## État antérieur de développement — 0.15.0-alpha.1
 
 - Pilote de quatre fenêtres préchoisies depuis le manifeste local ; copie vérifiée, index local, recherches et dessins. Profils 5 et 3 inchangés, modèles communs conservés, aucun seuil assoupli.
 - Premier essai réel : quatre recherches disponibles par profil, sur 32 poses distinctes de deux séances du même champ ; zéro candidat dans chaque série. Aucun ajout réel ni contrôle positif naturel. Nouveaux rapports et médias réels privés.

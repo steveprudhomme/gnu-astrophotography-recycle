@@ -1737,3 +1737,77 @@ La [PR nº 10](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pu
 Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré dans le dépôt.
 L'intégration conserve les deux plans publiés avant leur code et les preuves de reproduction.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+
+## 36. Préparer un contrôle positif avec une comète
+
+Le plan `3799e33` est publié avant le code. Le complément `a3b66df` précise la distinction entre copie intacte et configuration admissible.
+Le [guide illustré du contrôle positif](CONTROLE-POSITIF-REEL.md) explique les mots, les commandes et les refus.
+Un contrôle positif doit vérifier la récupération d'un objet réellement présent et connu par une référence indépendante.
+Ce lot prépare les conditions ; il ne lance aucune détection, aucun alignement ou recherche de trajet.
+
+Le mainteneur signale une comète. L'inventaire exploratoire local contient des séries identifiées par des étiquettes de comètes.
+Ces noms d'en-tête ne constituent pas une identification indépendante. Les groupes trop courts restent dans le rapport privé.
+La sélection fixe huit poses avant l'examen des images et de la référence.
+Elle respecte les espacements 240–360 secondes et la durée 1800–2700 secondes, sans changer les paramètres.
+Une recherche déterministe évite les intervalles incorrects qu'un simple arrondi aux repères pourrait produire.
+
+Les huit sources sélectionnées sont lues en mode `rb` pour créer des copies locales.
+Leur contenu concorde avant/après copie. Tailles et métadonnées correspondent à l'inventaire ancien.
+Cet inventaire exploratoire n'avait pas d'empreinte historique pour tous les pixels ; le rapport le précise.
+Le premier contrôle s'arrête après les copies : le contrat historique refuse la configuration du groupe.
+La préparation est précisée pour conserver ce refus séparément de l'intégrité des copies.
+Les mêmes copies sont ensuite réutilisées, sans nouvelle lecture du support ou modification des en-têtes.
+
+Le mainteneur autorise explicitement une requête JPL limitée au nom fixé et aux huit dates sélectionnées.
+Aucune coordonnée du champ ou terrestre, image ou autre en-tête n'est transmis. Le calcul est géocentrique.
+Les heures `DATE-OBS` sont interprétées conditionnellement comme UTC, sans correction de fuseau ou de milieu de pose.
+La réponse brute est reçue mais son format calendaire est d'abord refusé par le lecteur qui attendait des jours juliens.
+Le lecteur est corrigé pour les deux formats documentés. La même réponse est relue hors ligne, sans nouvelle requête.
+Les originaux de la réponse et du refus restent conservés ; un nouveau reçu décrit cette reprise.
+
+La référence donne une vitesse nominale hors du domaine 5–120 secondes d'arc/h du profil lent.
+Ce motif et le refus de configuration restent visibles. Aucun seuil ou moteur n'est adapté à cette série.
+Le contrôle positif naturel demeure non validé. Horloge, géométrie absolue et repère central ne sont pas qualifiés.
+Les vues réelles et les détails de la référence restent privés.
+
+![Préparation entièrement fictive : copies et cadence vérifiées, vitesse incompatible et contrôle non validé](images/exemple-controle-positif-conditions.png)
+
+**Description.** Les trois premières conditions sont satisfaites. La vitesse compatible et la validation du contrôle donnent « non ».
+L'horloge, l'astrométrie et le repère central restent non qualifiés. Cela ne prouve pas une horloge fausse ou un objet absent.
+
+![Huit vitesses fictives de 250 secondes d'arc/h, au-dessus du domaine de 5 à 120 conservé par le profil](images/exemple-controle-positif-rates.png)
+
+**Description.** Les points sont tous à 250. Les deux lignes pointillées encadrent le domaine actuel.
+La présence d'un objet visible ne suffit donc pas à rendre cette préparation admissible.
+Le guide montre aussi huit vues fictives et un cas sans référence, dont la vitesse reste inconnue.
+
+Les cinq commandes fictives et les quatre commandes locales réelles rendent les codes `0,2,0,2,0,0,0,2,0`.
+Le code 2 est attendu : la préparation est complète mais le contrôle n'est pas validé.
+Les 39 nouveaux tests fictifs passent en 5,81 secondes, avec une graine de développement distincte de l'exercice public.
+Ils vérifient choix de cadence, chemins, copies modifiées, références, confidentialité des paramètres et absence de recherche.
+Les gardes préservent 163 anciens fichiers et les médias CC0 surveillés. Aucun accès support/réseau ne survient pendant l'évaluation.
+Les seules nouvelles images produites pendant le parcours sont huit sources et huit copies entièrement fictives.
+La version compatible devient `0.16.0-alpha.1`, paquet `0.16.0a1`, sans tag ou release.
+
+La revue pédagogique rend les positions de la référence inventée cohérentes avec sa vitesse annoncée.
+Un test indépendant compare son déplacement angulaire à cette vitesse. Cette correction ne change pas la référence réelle ou les paramètres.
+Les trois images publiques sont inspectées et correspondent aux figures fictives calculées.
+L'audit vérifie 280 fichiers publics, leurs avis et liens, et les neuf commandes hors ligne.
+Les 107 anciens fichiers Python restent identiques, hors métadonnée de version ; quatre sources Photutils restent épinglées.
+
+### Reproduire la préparation sans support ou réseau
+
+La reproduction depuis le commit propre `f189c22` confirme les neuf codes `0,2,0,2,0,0,0,2,0`.
+Les huit sources fictives et leurs huit copies sont identiques. Les huit copies réelles restent intactes et sont réutilisées.
+Les sélections et les décisions des trois préparations sont identiques, ainsi que leurs trois CSV.
+Les chemins et métadonnées des JSON varient avec le dossier et le commit ; aucune égalité de ces chemins n'est annoncée.
+Les neuf PNG sont identiques, dont les trois images publiques. La réponse JPL brute initiale reste identique.
+Les 163 anciens fichiers surveillés restent intacts. Aucun réseau, support, détecteur, alignement ou association n'est appelé.
+Après reproduction, seuls les documents Markdown changent. Les sources et paramètres restent inchangés.
+
+Suite globale finale : **728 tests réussis en 341,74 secondes**, dont les 39 nouveaux tests fictifs. Aucun contrôle positif naturel n’est validé.
+
+La [PR nº 11](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/11) publie les 22 fichiers relus du lot.
+Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré dans le dépôt.
+L'intégration conserve les deux plans préalables et les preuves de reproduction.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.

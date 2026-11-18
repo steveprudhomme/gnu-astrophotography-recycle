@@ -31,7 +31,7 @@ Le diagnostic WCS 0.4 conserve la même distinction : cohérence numérique d’
 9. Publier les versions avec code source correspondant, avis tiers et journal des changements. Réviser la liste des personnes habilitées à chaque arrivée ou départ.
 
 **État au 17 novembre 2026.** Le dépôt est public depuis le 15 novembre.
-La version de développement est [0.15.0-alpha.1](VERSION), sans création de tag ou de release.
+La version de développement est [0.16.0-alpha.1](VERSION), sans création de tag ou de release.
 Le [journal](CHANGELOG.md) résume les changements. La [feuille de route](ROADMAP.md) conserve les plans et les preuves historiques.
 
 Le lot 23 utilise trois agents, avec coordination et revue internes. Le plan est publié avant le code.
@@ -61,7 +61,14 @@ Le coordinateur réalise la revue ; aucune validation indépendante n'est annonc
 Le lot 27 élargit l'essai à quatre fenêtres préchoisies, soit 32 poses distinctes de deux séances du même champ.
 Les alignements et les deux recherches sont disponibles ; chaque série donne zéro candidat avec chaque profil.
 Aucun seuil, moteur ou ancien résultat ne change. Aucun contrôle positif naturel n'est encore disponible.
-La suite complète comporte 689 tests. La revue du coordinateur reste interne.
+Ce lot a passé 689 tests. La revue du coordinateur reste interne.
+
+Le lot 28 prépare un contrôle avec une comète mentionnée par le mainteneur.
+Une requête limitée au nom et à huit dates est autorisée explicitement ; les réponses restent privées.
+La référence reste géocentrique, avec UTC supposé. Huit copies intègres gardent leur refus du contrat historique.
+La vitesse de référence sort aussi du domaine conservé. Aucun moteur, seuil ou en-tête n'est modifié.
+Aucun contrôle positif naturel n'est validé. La revue du coordinateur reste interne.
+La suite finale donne 728 tests réussis. Le parcours est reproduit hors ligne depuis `f189c22` propre.
 
 Les analyses utilisent des copies locales vérifiées. Les sources sélectionnées sont seulement lues pour les copier.
 Les nouveaux détails réels restent privés. Les cinq médias réels déjà autorisés gardent leur licence CC0 et leurs empreintes.
