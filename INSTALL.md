@@ -2,7 +2,7 @@
 
 ## Ce qui fonctionne aujourd’hui
 
-La version de développement [0.15.0-alpha.1](VERSION) contient l'inventaire, le regroupement, les diagnostics et les copies vérifiées. Elle comprend aussi les contrôles stellaires, la préparation temporelle et les profils expérimentaux de mobiles. L'installation depuis le code source est disponible. Le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
+La version de développement [0.16.0-alpha.1](VERSION) contient l'inventaire, le regroupement, les diagnostics et les copies vérifiées. Elle comprend aussi les contrôles stellaires, la préparation temporelle et les profils expérimentaux de mobiles. L'installation depuis le code source est disponible. Le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).
 
 ## Environnement depuis les sources
 
@@ -180,7 +180,7 @@ Les sorties restent dans de nouveaux dossiers sous `local/`.
 Un résultat de score peut donner le code 2 : le critère fictif prévu n'est pas atteint, même si le calcul termine.
 Le guide explique les deux échecs observés, les images fixes et l'animation facultative.
 Prévoir de l'espace pour 104 nouveaux plans de travail par contexte et pour chaque reproduction conservée.
-Le paquet installé affiche `0.15.0a1`, équivalent Python de la version SemVer `0.15.0-alpha.1`.
+Le paquet installé affiche `0.16.0a1`, équivalent Python de la version SemVer `0.16.0-alpha.1`.
 
 Le [diagnostic illustré des manques](docs/DIAGNOSTIC-MOBILES-LENTS.md) ajoute treize commandes avec les mêmes dépendances.
 Il lit d'abord les scores fictifs déjà produits, puis crée un nouveau banc sans grille régulière.
@@ -205,6 +205,14 @@ Le [guide de l'essai élargi](docs/ESSAI-SEESTAR-ELARGI.md) explique la prépara
 Il utilise les dépendances déjà nécessaires aux profils lents et aux dessins. Aucun nouveau paquet n'est requis.
 Le parcours public fictif fournit trois commandes. Le parcours réel ajoute une commande de planification et une commande de copie vérifiée.
 L'analyse et le dessin utilisent ensuite les seules copies locales. Garder les nouveaux rapports et médias réels dans `local/`.
+
+## Préparer un contrôle positif
+
+Suivre le [guide illustré du contrôle](docs/CONTROLE-POSITIF-REEL.md). Aucune nouvelle dépendance n'est ajoutée.
+La préparation emploie l'ancien inventaire exploratoire local et garde les refus du contrat de configuration.
+La copie peut réutiliser un workset local avec `--local-workset`, sans nouvelle lecture du support.
+La commande de référence exige `--allow-date-query` ; elle transmet seulement le nom fixé et huit dates à JPL Horizons.
+L'évaluation et le dessin restent hors ligne. Le code 2 conserve un contrôle non validé ; il ne signifie pas une erreur de lecture.
 
 ## Distribution portable prévue
 

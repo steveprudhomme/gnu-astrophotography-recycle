@@ -1,6 +1,6 @@
 # Versionnage du projet
 
-Depuis le 17 novembre 2026, le projet applique [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html). La version publique canonique est dans [VERSION](VERSION) : **0.15.0-alpha.1**. Elle ajoute un pilote pour comparer les profils existants sur plusieurs séries. Elle ne crée pas de release et ne change pas les anciens résultats scientifiques.
+Depuis le 17 novembre 2026, le projet applique [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html). La version publique canonique est dans [VERSION](VERSION) : **0.16.0-alpha.1**. Elle ajoute la préparation d’un contrôle positif et une référence géocentrique conditionnelle, sans changer les moteurs. Elle ne crée pas de release et ne change pas les anciens résultats scientifiques.
 
 ## Ce que la version décrit
 
@@ -20,7 +20,7 @@ Le projet garde deux écritures équivalentes, car les outils Python suivent [PE
 
 | Version publique et tag futur | Paquet Python |
 |---|---|
-| `0.15.0-alpha.1` / `v0.15.0-alpha.1` | `0.15.0a1` |
+| `0.16.0-alpha.1` / `v0.16.0-alpha.1` | `0.16.0a1` |
 | `1.2.3-beta.2` / `v1.2.3-beta.2` | `1.2.3b2` |
 | `1.2.3-rc.1` / `v1.2.3-rc.1` | `1.2.3rc1` |
 | `1.2.3` / `v1.2.3` | `1.2.3` |

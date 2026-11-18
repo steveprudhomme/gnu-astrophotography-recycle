@@ -800,6 +800,19 @@ Le guide montre aussi huit vignettes fixes et un GIF facultatif du point invent�
 Sur les vraies copies choisies pour le projet, les quatre séries donnent zéro candidat dans les deux profils.
 Cette absence ne prouve pas qu'aucun objet ne bouge dans le reste des archives.
 
+### Nouvelle mission — vérifier qu'un essai est possible
+
+Un contrôle positif utilise un objet connu dont la présence a été vérifiée.
+Le [nouvel atelier de préparation](CONTROLE-POSITIF-REEL.md) montre les conditions à remplir avant cet essai.
+Tu fabriques huit images entièrement fictives, puis tu compares une vitesse inventée aux limites du programme.
+Le point inventé avance à 250 secondes d'arc par heure. Le profil accepte de 5 à 120.
+
+![Exemple fictif : huit vitesses au-dessus de la limite conservée](images/exemple-controle-positif-rates.png)
+
+**Lire l'image.** Les huit points valent 250 et dépassent la ligne de 120. Le programme garde ce refus.
+Le guide montre aussi les copies vérifiées, les vues inventées et les informations encore inconnues.
+Une copie intacte ne suffit pas à rendre son groupe admissible. Une préparation terminée ne signifie pas un contrôle réussi.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :

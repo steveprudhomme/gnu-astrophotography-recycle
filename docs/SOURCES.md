@@ -134,3 +134,12 @@ Le [lot 21](ABSENCES-MAXIMA.md) s'appuie sur les sources **installées de Photut
 ## Mouvements représentatifs et échelle nominale
 
 Sources primaires du lot 22 consultées le 17 novembre 2026 : [notes scientifiques SkyBoT](https://ssp.imcce.fr/webservices/skybot/) et [spécifications officielles Seestar S50](https://www.seestar.com/products/seestar-s50). Les premières décrivent des mouvements de ceinture principale de quelques à plusieurs dizaines de secondes d'arc par heure ; le fabricant indique une focale S50 de 250 mm. Les tailles de pixels et focales réellement utilisées sont les déclarations des copies FITS, pas une nouvelle calibration instrumentale. La formule géométrique petit angle et les scénarios 10/30/60/900″ par heure sont des choix du protocole ; 900 n'est pas présenté comme typique de la ceinture principale. Aucun objet, éphéméride ou magnitude identifiée n'est injecté ; les contrôles techniques rapides restent distincts des scénarios astronomiques approximatifs.
+
+## Préparer un contrôle positif naturel
+
+Sources primaires consultées le 18 novembre 2026 : [API JPL Horizons](https://ssd-api.jpl.nasa.gov/doc/horizons.html), [manuel Horizons](https://ssd.jpl.nasa.gov/horizons/manual.html) et [présentation des comètes par la NASA](https://science.nasa.gov/solar-system/comets/facts/).
+L'API décrit les listes de dates TLIST et les sorties calendaires ou juliennes. Le manuel définit le géocentre `500@399`, les coordonnées astrométriques et les composantes de vitesse de la table observateur.
+La composante est fournie avec le facteur cosinus de déclinaison ; ce facteur n'est pas appliqué une deuxième fois. La norme des composantes sert seulement à la comparaison nominale au profil conservé.
+La documentation de l'API affiche 1.3 ; la réponse reçue annonce 1.2. Ses en-têtes et unités sont contrôlés, sans mettre à jour les dépendances du projet.
+Une référence géocentrique avec UTC supposé ne qualifie pas une position topocentrique ou l'horloge. La NASA distingue noyau, enveloppe et queues ; une tache centrale dans une image ne garantit pas que le noyau solide est résolu.
+La [préparation](CONTROLE-POSITIF-REEL.md), ses choix de cadence, états de refus et exemples sont propres au projet. Une seule requête est autorisée pour la série fixée ; les reprises utilisent son cache privé. Aucun contrôle positif naturel ou nouvelle recherche de mobile n'est validé par ces sources.

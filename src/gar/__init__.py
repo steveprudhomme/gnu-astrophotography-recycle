@@ -5,4 +5,4 @@
 # It is distributed WITHOUT ANY WARRANTY. See COPYING for the full license.
 """Local astronomical archive tools."""
 
-__version__ = "0.15.0a1"
+__version__ = "0.16.0a1"
