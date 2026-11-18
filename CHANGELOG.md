@@ -2,7 +2,7 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
-## Non publié — 0.14.0-alpha.1
+## État de développement — 0.14.0-alpha.1
 
 - Nouveau détecteur séparé : voisinage de 3 cases réduites au lieu de 5. Même seuil de luminosité, noyau, filtres de forme, masque et plafonds.
 - Comparaison des deux profils sur les mêmes pixels et modèles, réponses ouvertes après les 26 rapports candidats scellés. Deux nouveaux fonds fictifs réservés ; anciens dérivés fictifs et réels réutilisés sans modification.
@@ -11,6 +11,7 @@ Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique dé
 - Fonds réels locaux : résultats inchangés à 6/12 et 9/12, sans nouveau candidat naturel. Anciens dérivés réutilisés, sans USB ou nouvelle injection réelle.
 - Vérification : 30 nouveaux tests fictifs ; 668 tests réussis en 298,80 s. Les 21 commandes rendent 0 et les 2678 anciens fichiers surveillés restent intacts.
 - Guide pédagogique dès 10 ans, neuf commandes, trois PNG calculés et GIF facultatif avec équivalents fixes et textuels. Revue du coordinateur, sans qualification scientifique ou audit complet d'accessibilité.
+- Reproduction depuis `13b8faf` propre : mêmes 21 codes à zéro, 156 rapports candidats et six CSV identiques, mêmes mesures et décisions des six bilans, 24 médias identiques. Dix-sept sources historiques et quatre sources Photutils épinglées restent intactes. Audit de 261 fichiers publics, licences, liens et neuf commandes.
 
 ## État antérieur de développement — 0.13.0-alpha.1
 

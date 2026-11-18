@@ -11,11 +11,14 @@ Un voisinage plus petit peut laisser apparaître un sommet que le grand voisinag
 Il faut ensuite vérifier la forme du point et son trajet dans plusieurs photos.
 
 Une **case réduite** regroupe ici 2 × 2 pixels de l'image d'origine.
+Un **maximum** est un sommet local dans les valeurs calculées. Le programme propose ces sommets, puis ajuste leur centre.
 Le **voisinage** est la zone de comparaison utilisée pour proposer les maxima bruts.
 Ce nombre ne garantit pas une distance exacte entre les centres ajustés.
 
 Le **seuil de luminosité** reste égal à cinq fois le bruit mesuré.
 Le bruit et le fond sont calculés de la même façon sur les mêmes pixels, puis comparés entre les profils.
+Le **noyau** est une petite grille de nombres utilisée pour filtrer l'image.
+Le programme compare ensuite une réponse calculée au seuil effectif. Ce seuil de calcul reste identique entre les profils.
 Le noyau de calcul, la largeur prévue du point et les filtres de forme restent identiques.
 Seule la taille du voisinage change. L'ancien moteur garde son comportement.
 
@@ -60,11 +63,14 @@ Un code 2 conserve un contexte refusé. Garder le dossier et le motif ; ne pas r
 .\.venv\Scripts\python.exe examples/slow_motion_profile.py generate local/exercice-voisinage-fonds/context-s2026112601/baseline/baseline.json local/exercice-voisinage-injections-1
 ```
 
-La recette d'injection est inchangée. Elle prépare un témoin sans ajout et douze séries avec un point ajouté chacune.
-Les vitesses nominales sont 10, 30 et 60 secondes d'arc par heure. Deux amplitudes et deux trajets sont utilisés.
+La recette d'injection est inchangée. Un **témoin** est une série sans point ajouté, utilisée pour contrôler les fausses propositions.
+La recette prépare ce témoin et douze séries avec un point ajouté chacune.
+Les vitesses nominales sont 10, 30 et 60 secondes d'arc par heure.
+L'**amplitude** est la hauteur du point ajouté. Deux amplitudes et deux trajets sont utilisés.
 Leurs réponses restent dans `truth.json`. Les deux détecteurs recevront les mêmes pixels et modèles.
 
 **Vérifier :** le dossier contient un manifeste complet, les nouveaux plans de travail et le fichier de réponses.
+Un **dérivé** est un plan de travail calculé depuis une copie. L'image d'origine reste intacte.
 Les amplitudes six et douze fois le bruit initial ne sont pas des magnitudes astronomiques.
 
 ## 3. Analyser les deux profils sans les réponses
@@ -88,7 +94,8 @@ Une série refusée garde des comptes inconnus ; elle ne devient pas un zéro ca
 .\.venv\Scripts\python.exe examples/nearby_motion_profile.py score local/exercice-voisinage-injections-1/manifest.json local/exercice-voisinage-injections-1/truth.json local/exercice-voisinage-analyse-1/analysis.json local/exercice-voisinage-score-1
 ```
 
-Le score vérifie tous les candidats et les dérivés avant d'ouvrir les réponses.
+Le **score** est le bilan qui compare les candidats aux réponses connues.
+Il vérifie tous les candidats et les dérivés avant d'ouvrir les réponses.
 Il conserve les ajouts retrouvés, les manques, les indisponibles et les candidats sans correspondance.
 Les mesures de récupération gardent les mêmes limites de position et de vitesse que le lot précédent.
 
@@ -200,3 +207,11 @@ Les neuf commandes ci-dessus rendent 0. Douze commandes supplémentaires compare
 Les 2678 anciens fichiers surveillés restent intacts. Les gardes ne relèvent aucun accès USB ou réseau d'analyse.
 Les seuls nouveaux FITS et dérivés proviennent de la fabrication fictive. Les images réelles ne sont jamais réécrites.
 Les rapports, réponses et figures réels restent dans les dossiers locaux ignorés.
+
+La reproduction depuis le commit propre `13b8faf` confirme les 21 codes de retour à zéro.
+Les seize sources fictives et leurs seize copies sont identiques. Chaque nouveau fond conserve les mêmes 104 dérivés.
+Les 156 rapports candidats et six CSV sont identiques. Les six bilans donnent les mêmes mesures et décisions.
+Les 24 médias reproduits sont identiques, dont les quatre figures publiques.
+Les 17 sources applicatives historiques et quatre sources Photutils épinglées restent inchangées.
+L'audit vérifie 261 fichiers publics, leurs avis et leurs liens. Les neuf commandes correspondent aux arguments réellement exécutés.
+La revue est effectuée par le coordinateur. Elle ne constitue pas une validation indépendante.

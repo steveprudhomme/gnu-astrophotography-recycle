@@ -1639,3 +1639,17 @@ Les 2678 anciens fichiers surveillés et les cinq médias CC0 restent intacts.
 Les gardes ne relèvent aucun accès externe ou réseau d'analyse, écriture FITS réelle ou modification d'ancien dérivé.
 Seules seize nouvelles images sources fictives, leurs seize copies et leurs nouveaux dérivés sont créés.
 Les figures publiques proviennent du premier fond réservé, choisi avant résultat.
+
+### Reproduire depuis le code conservé
+
+La reproduction depuis le commit propre `13b8faf` confirme les 21 codes de retour à zéro.
+Les seize nouvelles images sources fictives et leurs seize copies sont identiques.
+Chaque nouveau fond conserve les mêmes 104 dérivés. Les 156 rapports candidats et six CSV sont identiques.
+Les six bilans donnent les mêmes mesures et décisions. Les 24 médias sont identiques, dont les quatre fichiers publics.
+Les deux critères réservés restent satisfaits. Les résultats réels restent inchangés et les 2678 anciens fichiers sont préservés.
+
+Les 17 sources applicatives historiques et quatre sources Photutils épinglées restent identiques.
+Les versions publique, Python et installée concordent. L'audit vérifie 261 fichiers publics, leurs licences et leurs liens.
+Les neuf commandes documentées correspondent aux arguments exécutés. Les trois PNG sont inspectés ; le GIF possède huit vues de 600 ms.
+La revue est réalisée par le coordinateur, sans validation indépendante ou essai enfant.
+Après reproduction, seuls les documents Markdown changent. Les nouvelles sources du profil restent identiques.
