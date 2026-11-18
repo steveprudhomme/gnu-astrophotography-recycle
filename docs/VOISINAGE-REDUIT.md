@@ -215,3 +215,6 @@ Les 24 médias reproduits sont identiques, dont les quatre figures publiques.
 Les 17 sources applicatives historiques et quatre sources Photutils épinglées restent inchangées.
 L'audit vérifie 261 fichiers publics, leurs avis et leurs liens. Les neuf commandes correspondent aux arguments réellement exécutés.
 La revue est effectuée par le coordinateur. Elle ne constitue pas une validation indépendante.
+
+La [proposition d'intégration nº 9](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/9) rassemble le profil, les tests et ces documents.
+Les contrôles décrits sont locaux. Après intégration, comparer `main` sur GitHub à la référence distante et à la copie locale.

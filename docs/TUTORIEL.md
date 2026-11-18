@@ -1432,6 +1432,8 @@ La revue interne vérifie les résultats, les licences et les données à garder
 Les tests sont locaux : aucun contrôle automatique GitHub n'est configuré.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
 
+Cette dernière vérification distingue une publication distante d'un simple commit local.
+
 ## 32. Comprendre les trois manques brillants du profil lent
 
 Le plan `13ded75` est publié avant le code. Les moteurs et les seuils des lots précédents restent gelés.
@@ -1653,3 +1655,8 @@ Les versions publique, Python et installée concordent. L'audit vérifie 261 fic
 Les neuf commandes documentées correspondent aux arguments exécutés. Les trois PNG sont inspectés ; le GIF possède huit vues de 600 ms.
 La revue est réalisée par le coordinateur, sans validation indépendante ou essai enfant.
 Après reproduction, seuls les documents Markdown changent. Les nouvelles sources du profil restent identiques.
+
+La [PR nº 9](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/9) publie les 21 fichiers relus du lot.
+Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré.
+L'intégration conserve les commits du plan et de la reproduction.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
