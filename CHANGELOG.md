@@ -10,6 +10,10 @@ La recherche retrouve les hypothèses historiques ; elle ne confirme aucune iden
 La surface applicative reste `0.16.0-alpha.1` : aucun moteur, seuil, contrat `gar`, tag ou release ne change.
 Les nouveaux outils scientifiques concernent seulement la recette dans `examples`, hors API stable selon VERSIONING.md.
 
+Correction documentaire de la recette : l’empreinte du CSV stellaire est alignée sur les octets LF publiés par Git.
+Reproduction depuis une copie entièrement nouvelle de `d0653a4`, avec contrôle direct des octets Git ; tous les résultats et les neuf figures restent identiques.
+La preuve initiale insuffisante est remplacée et son explication conservée. Aucun FITS ou moteur n’est modifié.
+
 Clôture ciblée du 18 novembre 2026 : revue de deux séries, galerie et mesures privées, contrôles géodésiques et compatibilités temporelles conditionnelles.
 Le guide public illustré et `examples/trace_time_intervals.py` utilisent des valeurs fictives ; aucune nouvelle identité réelle n'est publiée.
 La grande fouille reste arrêtée. Le lot applicatif 0.17 en cours reste inachevé et non publié ; cette clôture ne crée ni tag ni release.

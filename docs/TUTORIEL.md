@@ -23,11 +23,16 @@ Les plans `97060a4`, `6e4f821` et `8b49410` ont été publiés avant leur réali
 La recette est séparée des moteurs historiques. Elle ne relance pas l’analyse de toute l’archive.
 Le bilan de reproduction et les vérifications de publication sont consignés dans [ROADMAP.md](../ROADMAP.md).
 
-Rejeu depuis le commit propre `5a2b32b` : six phases terminées, seize empreintes préservées et neuf figures identiques.
+Rejeu vérifié depuis une copie Git entièrement nouvelle du commit `d0653a4` : six phases terminées, seize empreintes préservées et neuf figures identiques.
 Les mesures, classements et 935 propositions concordent avec le parcours utilisant les références fraîchement téléchargées.
 Les 51 contrôles ciblés réussissent. Ce sont des vérifications logicielles, pas une validation scientifique indépendante.
-La recette prend environ 32 secondes avec références en cache sur la machine de vérification ; installation et téléchargement sont exclus.
+La recette prend environ 31 secondes avec références en cache sur la machine de vérification ; installation et téléchargement sont exclus.
 La [preuve détaillée](../journal/reproduction-verification.json) garde les durées par phase.
+
+Le contrôle final a corrigé l’empreinte du CSV stellaire pour les fins de ligne LF réellement stockées par Git.
+Le premier rejeu `5a2b32b` conservait les mêmes résultats, mais ne prouvait pas cette identité d’octets après téléchargement.
+La nouvelle preuve compare directement le CSV de la copie aux octets du commit Git et conserve l’explication de la correction.
+Les centres stellaires, les FITS, les classements et les figures ne changent pas.
 
 La [PR nº 14](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/14) est fusionnée dans `main`.
 Son commit de fusion `b94cc9b` correspond à la référence GitHub récupérée localement après intégration.

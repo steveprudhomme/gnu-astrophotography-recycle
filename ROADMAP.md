@@ -192,7 +192,7 @@ Contrôles ciblés : **51 tests réussis en 12,59 s** ; aucun moteur historique 
 Manuscrit XeLaTeX/Biber de 11 pages, résumés français et anglais concordants, 11 références UQAM-APA et sept figures ; chaque page rendue et inspectée.
 Aucune identité, découverte ou horloge confirmée.
 
-Reproduction depuis le commit propre **`5a2b32b`** : six phases réussies, en environ 32 secondes avec références en cache, hors installation et téléchargement.
+Premier rejeu **`5a2b32b`** : six phases réussies, mais preuve de copie Git insuffisante pour les octets du CSV ; cette tentative est remplacée par le contrôle correctif ci-dessous.
 Les seize FITS restent intacts. Les mesures, classements, 935 propositions et neuf figures concordent avec le parcours à références fraîchement téléchargées.
 La référence stellaire est préservée comme octets pour maintenir son empreinte sur les autres systèmes ; seul Windows a été exécuté.
 La copie Git propre reste inchangée. Aucun accès USB, réseau de calcul ou lancement de la grande archive.
@@ -201,6 +201,23 @@ Publication intégrée par la [PR nº 14](https://github.com/steveprudhomme/gnu-
 Le commit de fusion **`b94cc9b`** est observé sur GitHub et correspond à la référence distante récupérée localement.
 Aucun contrôle automatique GitHub n’est configuré pour cette PR ; les 51 tests et les reproductions sont locaux.
 Cette mise à jour de clôture ne modifie que les preuves et les Markdown. Aucun tag ou release, aucune reprise de la grande fouille.
+
+**Correction de reproduction détectée au contrôle final, 18 novembre 2026 — plan préalable.**
+Le CSV stellaire stocké par Git utilise LF, mais son empreinte publiée correspond aux octets CRLF du premier environnement Windows.
+Le premier rejeu avait réutilisé une copie Git déjà créée ; son état local masquait cette différence d’octets.
+Les seize FITS, les valeurs stellaires et les résultats scientifiques sont inchangés.
+
+- [x] Corriger l’empreinte de calibration pour les octets LF réellement conservés dans Git, sans modifier les centres ou le WCS.
+- [x] Contrôler les empreintes directement sur les octets Git, puis créer une copie Git entièrement nouvelle du commit corrigé.
+- [x] Rejouer les six phases avec les références téléchargées déjà en cache ; comparer mesures, classements et neuf figures.
+- [x] Remplacer la preuve initiale insuffisante par une preuve qui conserve l’explication de cette correction ; actualiser le tutoriel et préparer l’intégration par PR.
+
+Publier ce plan avant la correction. Aucun nouveau traitement d’archive, réglage, accès USB ou réseau astronomique.
+
+Réalisation : plan **`c0ed984`** publié avant la correction. Nouvelle copie créée directement depuis **`d0653a4`**, sans réutilisation d’un ancien dossier Git.
+Le CSV extrait du commit et celui de la copie ont les mêmes octets LF et la même empreinte que `calibration.json`.
+Les six phases rendent zéro en **30,555 s**, références en cache. Les seize FITS, quatre mesures, quatre classements et neuf figures restent identiques.
+La preuve initiale est explicitement remplacée, avec sa raison conservée. Aucun résultat scientifique, modèle ou seuil n’est changé.
 
 ### Essai AMOS adapté aux séries 3 et 4
 

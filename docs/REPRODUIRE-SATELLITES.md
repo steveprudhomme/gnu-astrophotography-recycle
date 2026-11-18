@@ -46,7 +46,7 @@ Il te faut Windows 10 ou 11, Internet pour les installations et assez d’espace
 Prévois environ 2 Go libres pour les outils et plusieurs essais. Le calcul utilise quelques centaines de Mo de mémoire.
 La durée dépend de ton ordinateur et du service distant. Le téléchargement peut être temporairement indisponible.
 
-**Repère mesuré.** Le rejeu propre des six phases a pris environ 32 secondes sur l’ordinateur de vérification.
+**Repère mesuré.** Le rejeu propre des six phases a pris environ 31 secondes sur l’ordinateur de vérification.
 Ce temps exclut l’installation et le téléchargement. Il réutilise les références déjà obtenues.
 Le détail est conservé dans [la preuve de reproduction](../journal/reproduction-verification.json).
 Ton ordinateur peut prendre plus de temps. Une pause du terminal ne signifie pas forcément un échec.
@@ -202,6 +202,10 @@ Ils proviennent d’un empilement antérieur dont l’empreinte est indiquée.
 Le FITS empilé n’est pas nécessaire à cette recette et n’est pas publié avec les seize poses.
 Tu recalcules les transformations vers cette référence. Tu ne reconstruis pas indépendamment sa première carte céleste.
 La précision absolue complète de cette carte reste à établir.
+
+Le CSV publié utilise des fins de ligne LF. Sa notice donne l’empreinte de ces octets exacts.
+Une première empreinte calculée sur la variante Windows CRLF a été corrigée après le contrôle final.
+Les positions numériques n’ont pas changé. La nouvelle copie Git a été comparée directement aux octets du commit.
 
 ```powershell
 .\.venv\Scripts\python.exe examples/reproduce_series34.py images --run local/mon-essai

@@ -1,6 +1,6 @@
 {
   "public_files_reviewed": 69,
-  "relative_markdown_links_checked": 483,
+  "relative_markdown_links_checked": 484,
   "authorized_FITS": 16,
   "total_FITS_bytes": 66447360,
   "historical_source_unchanged": true,
@@ -9,9 +9,11 @@
   "checks": "51 synthetic and historical registration tests; end-to-end guided reproduction separately",
   "pdf_pages_visually_inspected": 11,
   "scientific_validation_independent": false,
+  "reference_CSV_bytes_equal_git_blob": true,
+  "reference_CSV_sha256": "9bcc8f4e69c97ba2d139931cb43db6f643bd3e1352eafda65323cc8949a37145",
   "integrated_pull_request": "https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/14",
-  "observed_merge_commit": "b94cc9b3bb14afe71456b7c964c3c70a91ed3f6d",
-  "fetched_remote_main_matches_merge": true,
+  "initial_merge_commit": "b94cc9b3bb14afe71456b7c964c3c70a91ed3f6d",
+  "calibration_correction_plan": "c0ed984b53621422a12498599f35702c28f4e24a",
   "github_automated_checks": 0,
   "large_archive_resumed": false
 }

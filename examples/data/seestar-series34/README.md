@@ -10,6 +10,11 @@ Les noms publics courts vont de `S03-01.fit` à `S03-08.fit`, puis de `S04-01.fi
 Le renommage des copies ne change aucun octet du contenu FITS.
 Les dates sont déclarées par l’appareil ; elles ne sont pas qualifiées par une horloge indépendante.
 
+La référence stellaire CSV garde les fins de ligne LF du dépôt.
+Son empreinte publiée a été corrigée après détection d’une différence LF/CRLF dans le premier environnement Windows.
+Les positions stellaires et les pixels FITS n’ont pas changé.
+La [nouvelle preuve de reproduction](../../../journal/reproduction-verification.json) compare le CSV aux octets du commit Git.
+
 ## Droits et autorisation
 
 Le 18 novembre 2026, le fournisseur a expressément autorisé la publication de ces seize FITS et de leurs en-têtes.
