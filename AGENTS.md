@@ -8,6 +8,8 @@
 
 - Mandat du lot 25 : tracer le détecteur sur les dérivés fictifs déjà locaux du lot 24. Six images sont la cible ; les photos suivantes et leurs témoins servent de comparaison. Le rejeu doit reproduire toutes les positions enregistrées avant le rapprochement avec les réponses. Seuils, moteurs, modèles, scores et recettes restent inchangés. Aucun nouvel ajout, trajet, accès USB ou réseau d'analyse ; aucune donnée réelle nouvelle publiée. Une explication peut rester partielle.
 
+- Mandat du lot 26 : ajouter un profil séparé avec voisinage de détection réduit de 5 à 3 cases réduites. Le seuil de luminosité reste à cinq fois le bruit, avec mêmes filtres de forme, masque, marge et plafonds. Les moteurs historiques restent intacts. De nouvelles comparaisons de trajectoires sont autorisées uniquement dans les nouveaux résultats, sur fonds fictifs réservés et dérivés réels déjà locaux. Aucun nouveau point ajouté dans les images réelles, accès USB ou catalogue externe. Les nouveaux détails réels restent privés ; aucun réglage après les essais réservés.
+
 - Versionner les prochaines livraisons selon SemVer 2.0.0 et `VERSIONING.md`. `VERSION` contient la version publique canonique ; le paquet conserve l'équivalent PEP 440 cohérent dans `pyproject.toml` et `gar.__version__`. Tenir CHANGELOG.md à jour, annoncer les ruptures de la surface publique et ne jamais remplacer un tag ou une version publiée. Les numéros de lot et schémas de données sont distincts des versions applicatives.
 
 - Avant un lot d’implémentation, réfléchir aux sous-étapes et ajouter les tâches nouvelles à ROADMAP.md. Faire un commit de planification avant de coder.
