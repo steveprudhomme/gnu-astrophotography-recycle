@@ -1732,3 +1732,8 @@ Les rapports complets et CSV peuvent différer par les chemins et les durées me
 Les 58 médias sont identiques, dont les quatre fichiers publics. Les 461 anciens fichiers surveillés restent intacts.
 Aucune lecture USB n'intervient dans cette reproduction. Seules des copies identiques et de nouvelles images fictives sont créées.
 Après reproduction, seuls les documents Markdown changent. La revue reste celle du coordinateur, sans validation indépendante.
+
+La [PR nº 10](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/10) publie les 22 fichiers relus du lot.
+Les tests sont locaux ; aucun contrôle automatique GitHub n'est configuré dans le dépôt.
+L'intégration conserve les deux plans publiés avant leur code et les preuves de reproduction.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.

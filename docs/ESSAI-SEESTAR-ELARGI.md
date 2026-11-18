@@ -187,3 +187,6 @@ L'audit contrôle 271 fichiers publics, leurs avis et leurs liens, ainsi que les
 Les 102 anciens fichiers Python vérifiés restent inchangés, hors métadonnée de version.
 Quatre sources Photutils restent épinglées. Les versions publique, Python et installée concordent.
 La revue est effectuée par le coordinateur ; elle ne constitue pas une validation indépendante.
+
+La [proposition d'intégration nº 10](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/10) rassemble les 22 fichiers relus du lot.
+Les tests décrits sont locaux. Après intégration, comparer `main` sur GitHub, la référence distante et la copie locale.
