@@ -77,6 +77,39 @@ Ces jalons ne portent pas de date promise. Ils ne constituent pas des fonctionna
 Chaque lot d'implémentation fera l'objet d'un plan committé et publié avant son code, avec SemVer et Markdown actualisés.
 Le [tutoriel](docs/TUTORIEL.md#37-planifier-la-fouille-et-le-tracking-des-archives) conserve une explication illustrée de cette orientation.
 
+## Lot 29 — fouille automatique et résultats exploratoires
+
+Plan du 18 novembre 2026. Mandat autonome du mainteneur avec trois agents.
+**État initial : à réaliser après publication de ce plan.** Ce lot met en œuvre les tâches TR, sans présumer leur validation scientifique.
+
+L'inventaire local compte 20 678 fichiers, dont 20 317 poses candidates. Les copies existantes contiennent 63 poses distinctes et un empilement.
+L'archive représente environ 86,5 Go ; le disque local ne dispose initialement que d'environ 7 Go libres.
+Le traitement doit donc annoncer sa couverture réelle et limiter son espace de travail. Aucune copie générale sans budget mesuré.
+
+| Étape | Travail et critère de fin | Responsable et fichiers |
+|---|---|---|
+| A29-01 | Accepter les deux formats d'inventaire locaux ; donner un état à chaque fichier, y compris sans copie. Garder provenance, empreintes, doublons et raisons. | Agent pipeline : `src/gar/archive_survey.py`, `tests/test_archive_survey.py` |
+| A29-02 | Grouper pour le repérage sans assimiler les heures déclarées à une horloge qualifiée. Parcourir les fenêtres recouvrantes, leur dernière pose et les séries courtes. | Agent pipeline, mêmes fichiers |
+| A29-03 | Ajouter un moteur distinct : points, formes diffuses, segments et addition décalée sur grille explicite. Fixer les paramètres avant les essais réservés. | Agent moteur : `src/gar/archive_detection.py`, `tests/test_archive_detection.py` |
+| A29-04 | Aligner avec étoiles de contrôle réservées ; conserver modèles, masques, zone commune et coordonnées natives. Documenter les recherches refusées ou partielles. | Coordinateur : `src/gar/archive_processing.py`, `tests/test_archive_processing.py` |
+| A29-05 | Produire une galerie locale : vues fixes, GIF utiles, mesures, temps déclarés, motifs, fichiers et statut. Aucune identification depuis le seul nom du dossier. | Agent galerie : `src/gar/archive_gallery.py`, `tests/test_archive_gallery.py`, `examples/make_archive_demo.py` |
+| A29-06 | Sauvegarder après chaque fenêtre, vérifier les résultats repris et refuser une reprise incompatible. Dédupliquer les occurrences sans confondre profils et objets. | Agent pipeline ; revue du coordinateur |
+| A29-07 | Comparer aux références locales puis, selon l'autorisation reçue, au JPL : seulement dates/heures et coordonnées célestes, calcul géocentrique, aucun lieu terrestre ou FITS transmis. Conserver les limites d'identification et l'absence éventuelle d'éléments orbitaux historiques de satellites. | Coordinateur : `src/gar/archive_identification.py`, tests associés et recettes privées |
+| A29-08 | Mesurer récupération et fausses alertes sur des exemples fictifs distincts, puis rechercher des passages dans toutes les copies réelles admissibles. Relever coûts, limites et refus ; aucun réglage pour effacer un échec réservé. | Trois agents puis revue intégrée du coordinateur |
+| A29-09 | Si des copies supplémentaires sont nécessaires et accessibles, sélectionner leurs chemins depuis les manifestes existants. Lecture seule des originaux, empreintes avant/après, analyse locale ; budget mémoire/disque explicite. | Coordinateur uniquement ; aucune exploration récursive du support |
+| A29-10 | Livrer commande documentée, bilan exhaustif des états, galerie réelle privée, démonstration publique fictive et tutoriel illustré. Faire les vérifications adaptées et publier par PR. | Coordinateur : CLI, contrats, README, INSTALL, tutoriel, sources, validation, changelog et versions |
+
+**Paramètres prévus.** Ancien moteur, anciens seuils, recettes et résultats restent intacts. Le nouveau profil de points garde le seuil 5σ.
+Le profil diffus emploie 5 fois le bruit après lissage ; cette autre statistique ne promet pas la même sensibilité ou le même taux de fausses alertes.
+Les associations exploratoires admettent au moins trois poses, un déplacement d'au moins 1,5 pixel réduit et des vitesses de 0,0001 à 0,15 pixel réduit par seconde déclarée.
+Les plafonds de calcul provoquent un état partiel ou un refus explicite, jamais un faux résultat complet sans candidat.
+L'addition décalée reste bornée par une grille indiquée et un budget mesuré ; elle ne couvre pas tous les mouvements possibles.
+
+**Livraison visée.** Fonctionnalité additive expérimentale : `0.17.0-alpha.1`, équivalent Python `0.17.0a1`.
+Les formats auront un contrat distinct ; aucun ancien rapport ne sera réécrit. Aucun tag ou release ne sera créé automatiquement.
+Les nouveaux médias réels et les réponses des services restent privés dans `local/` ; seules les illustrations fictives sont publiques.
+Le coordinateur publie ce plan avant le code, puis attribue des fichiers distincts aux agents et vérifie l'intégration.
+
 ## Premières tâches à ouvrir
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
