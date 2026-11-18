@@ -2,7 +2,7 @@
 
 **Donner une seconde vie scientifique aux archives du Seestar S50.**
 
-**Version de développement : [0.14.0-alpha.1](VERSION)**. Voir les [règles SemVer](VERSIONING.md) et le [journal des changements](CHANGELOG.md). Le paquet Python porte le numéro équivalent `0.14.0a1`. Cette mise à jour ne crée pas de release.
+**Version de développement : [0.15.0-alpha.1](VERSION)**. Voir les [règles SemVer](VERSIONING.md) et le [journal des changements](CHANGELOG.md). Le paquet Python porte le numéro équivalent `0.15.0a1`. Cette mise à jour ne crée pas de release.
 
 Les nouvelles pages et les sections révisées suivent le [guide de rédaction accessible](docs/REDACTION-ACCESSIBLE.md). Il réunit les références demandées par le mainteneur et les vérifications à faire. Une conformité complète et une compréhension dès 10 ans restent à vérifier avec les lecteurs.
 
@@ -12,7 +12,7 @@ Projet de logiciel **libre, à distribution gratuite**, sous **GNU GPL version 3
 
 Exception documentaire : les [images et le GIF Seestar réels autorisés](docs/images/reels/LICENCE.md) sont mis à disposition sous **CC0 1.0** ; leur notice précise les cinq fichiers concernés. Le code conserve GPL-3.0-or-later.
 
-**Statut : développement expérimental, 0.14.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et trois profils de recherche de mobiles. Des diagnostics séparés suivent les mesures et les décisions du détecteur. Les 668 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
+**Statut : développement expérimental, 0.15.0-alpha.1.** L'application contient l'inventaire, les contrôles stellaires, la préparation temporelle et trois profils de recherche de mobiles. Des diagnostics séparés suivent les mesures et les décisions du détecteur. Les 689 tests logiciels passent. L'horloge, les performances scientifiques sur mobiles réels, la photométrie et la distribution portable restent à qualifier ou développer.
 
 **Tu débutes ?** Suis [Construire l’application, pas à pas](docs/DEMARRER-DE-ZERO.md), un parcours illustré pour apprendre dès 10 ans : installer, récupérer tout le code, reconstruire l’application et reproduire chaque module sur de fausses images. Les commandes, résultats attendus et solutions aux erreurs y sont expliqués.
 
@@ -94,6 +94,8 @@ La [trace du détecteur lent](docs/TRACE-MOBILES-LENTS.md) explique une étape s
 Ce lot ajoute 46 tests fictifs : **517 tests réussis en 210,82 s**. Reproduction depuis `61cac96` propre : neuf commandes aux codes 0, mêmes données, candidats, scores et figures sur deux fonds fictifs et deux réels ; refus du troisième contexte conservé. Les 24 copies réelles, anciens résultats et cinq médias CC0 restent intacts ; aucun accès au support pendant la reproduction. Les tests réussis n'annulent pas le résultat négatif sur les mouvements lents.
 
 Le [profil à voisinage réduit](docs/VOISINAGE-REDUIT.md) compare trois cases à cinq, sur les mêmes pixels et modèles. Le seuil de luminosité et les moteurs historiques restent inchangés. Sur deux nouveaux fonds fictifs réservés, il retrouve les six ajouts brillants de chacun, sans faux candidat ou perte de récupération. Les totaux passent de 4/12 à 6/12, puis de 3/12 à 8/12. Sur les deux fonds Seestar locaux, les résultats restent 6/12 et 9/12 ; aucun nouveau candidat naturel n'apparaît. Le guide fournit neuf commandes et quatre médias fictifs décrits.
+
+L'[essai élargi Seestar](docs/ESSAI-SEESTAR-ELARGI.md) prépare quatre fenêtres depuis le manifeste existant, puis compare les profils sans changer leurs seuils. Les 32 poses distinctes de deux séances du même champ donnent zéro candidat dans chaque série et chaque profil. Le nouveau parcours fictif propose un candidat par série ; ses images restent distinctes des observations réelles privées. Aucun mobile naturel connu n'a encore servi de contrôle positif.
 
 ## Démarrer
 
