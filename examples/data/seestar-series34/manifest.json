@@ -1,0 +1,186 @@
+{
+  "dataset_schema_version": "1.0",
+  "owner": "Steve Prud'Homme",
+  "license": "CC0-1.0",
+  "explicit_publication_authorization_date": "2026-11-18",
+  "frames": [
+    {
+      "frame_id": "S03-01",
+      "file": "S03-01.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-201548.fit",
+      "sha256": "d1ea783dd4904db289bc9e862f37fc4eec0cc08c938cfb97e5026b1ceea4e513",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:15:34.072594",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 1
+    },
+    {
+      "frame_id": "S03-02",
+      "file": "S03-02.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-202052.fit",
+      "sha256": "b8e695af6661a52aa2519e049d36ebf8cc10cd662b6276f53c7d7d962ec143f3",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:20:37.879294",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 2
+    },
+    {
+      "frame_id": "S03-03",
+      "file": "S03-03.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-202544.fit",
+      "sha256": "c65b3d8fd631364201188f2afaaf14987911937187d4d7c280f7219a2e8fdce6",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:25:29.904624",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 3
+    },
+    {
+      "frame_id": "S03-04",
+      "file": "S03-04.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-203056.fit",
+      "sha256": "542b64920a4857fa33209780d01c56310472da0bb360cadc5c4ae74ddd3eaa38",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:30:42.353177",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 4
+    },
+    {
+      "frame_id": "S03-05",
+      "file": "S03-05.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-203550.fit",
+      "sha256": "77e8d6aef3ca76c8270fce77ec36ae5150f9ea6d979f7894a3e9c0bca79cc59b",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:35:34.905155",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 5
+    },
+    {
+      "frame_id": "S03-06",
+      "file": "S03-06.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-204053.fit",
+      "sha256": "505b456c10d800e30067cd4e9c7d98d7b80470956401ac8a4540cc779e4263e1",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:40:39.247585",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 6
+    },
+    {
+      "frame_id": "S03-07",
+      "file": "S03-07.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-204547.fit",
+      "sha256": "4603a36a5c18875fe592644f32bbab4fe35b4e81dcdf9060635f76b920f19f4e",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:45:31.845550",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 7
+    },
+    {
+      "frame_id": "S03-08",
+      "file": "S03-08.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-205050.fit",
+      "sha256": "cae088746ab8387a1e00387afd647423f08092db76f87b1249a8b50c02acf980",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:50:36.029572",
+      "exposure_seconds": 10.0,
+      "series": "S03",
+      "pose": 8
+    },
+    {
+      "frame_id": "S04-01",
+      "file": "S04-01.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-205554.fit",
+      "sha256": "194ca09534e5bb58b1ea1284fd0a59785804e2b9513f302b4b001860b2d8cfe5",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T00:55:39.726212",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 1
+    },
+    {
+      "frame_id": "S04-02",
+      "file": "S04-02.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-210047.fit",
+      "sha256": "feb9a5b5b27c13f806ab3d28dd08b449e5705dbbb4324be4d918e05f029cdf86",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:00:32.521206",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 2
+    },
+    {
+      "frame_id": "S04-03",
+      "file": "S04-03.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-210549.fit",
+      "sha256": "9b8e522fe3e6544d53f93ddeec19492182c18f3d002fd98cc0fba54a53a1b20a",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:05:34.968233",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 3
+    },
+    {
+      "frame_id": "S04-04",
+      "file": "S04-04.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-211041.fit",
+      "sha256": "3ca53f84a5566e98626c54f8304f65edba204c36487408607fde08038b9a9000",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:10:26.594465",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 4
+    },
+    {
+      "frame_id": "S04-05",
+      "file": "S04-05.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-211549.fit",
+      "sha256": "ba88c972e9137665619477569a864f93518a41322eefac8775a347d339bad68a",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:15:34.175355",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 5
+    },
+    {
+      "frame_id": "S04-06",
+      "file": "S04-06.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-212052.fit",
+      "sha256": "99878e40bd4eedde9e7b731cd8c295d536942e8dd27e174ead49b329ad7b2e49",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:20:37.333475",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 6
+    },
+    {
+      "frame_id": "S04-07",
+      "file": "S04-07.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-212545.fit",
+      "sha256": "71cc77f2e81afa2b71dd53f6d2efe944c2db30ad42f987a41b3eee6088b239dc",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:25:29.879944",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 7
+    },
+    {
+      "frame_id": "S04-08",
+      "file": "S04-08.fit",
+      "original_name": "Light_IC 342_10.0s_IRCUT_20250919-213051.fit",
+      "sha256": "e389c8f20cbffcc166335f7c0452d9514776900e06372ff2fa80cbc2e367dc55",
+      "bytes": 4152960,
+      "date_obs": "2025-09-20T01:30:36.238535",
+      "exposure_seconds": 10.0,
+      "series": "S04",
+      "pose": 8
+    }
+  ],
+  "header_information_is_public": true,
+  "other_archives_not_authorized": true
+}

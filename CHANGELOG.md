@@ -4,6 +4,12 @@ Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique dé
 
 ## Étude ciblée — arrêt avant la grande fouille
 
+Publication reproductible du 18 novembre 2026 : journal de trois associations plausibles, seize FITS intacts autorisés avec leurs en-têtes, et neuf figures décrites.
+Recette séparée, tutoriel depuis zéro, manuscrit LaTeX/PDF illustré, résumé français, abstract anglais et références UQAM-APA.
+La recherche retrouve les hypothèses historiques ; elle ne confirme aucune identité ni horloge.
+La surface applicative reste `0.16.0-alpha.1` : aucun moteur, seuil, contrat `gar`, tag ou release ne change.
+Les nouveaux outils scientifiques concernent seulement la recette dans `examples`, hors API stable selon VERSIONING.md.
+
 Clôture ciblée du 18 novembre 2026 : revue de deux séries, galerie et mesures privées, contrôles géodésiques et compatibilités temporelles conditionnelles.
 Le guide public illustré et `examples/trace_time_intervals.py` utilisent des valeurs fictives ; aucune nouvelle identité réelle n'est publiée.
 La grande fouille reste arrêtée. Le lot applicatif 0.17 en cours reste inachevé et non publié ; cette clôture ne crée ni tag ni release.

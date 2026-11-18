@@ -2,7 +2,26 @@
 
 **Tu commences, même à 10 ans ? Ouvre d’abord [Construire l’application, pas à pas](DEMARRER-DE-ZERO.md).** Ce parcours fait partie du tutoriel : images à chaque grande mission, mots expliqués, installation depuis zéro, commandes à copier, résultats attendus et dépannage pour tous les modules disponibles. Le présent fichier est le carnet détaillé des étapes de développement ; les contrats permettent ensuite d’approfondir.
 
-Ce guide suit les modules livrés jusqu’à l’Alpha 0.10. Les figures publiques sont des schémas identifiés, des résultats synthétiques ou les deux [rendus Seestar réels expressément autorisés sous CC0](images/reels/LICENCE.md). Les FITS exacts, en-têtes, coordonnées et rapports restent privés ; les tests sont entièrement synthétiques.
+Ce carnet conserve l’historique des modules et des vérifications.
+Les figures distinguent schémas, résultats fictifs et médias réels autorisés.
+Depuis le 18 novembre 2026, les [seize FITS des séries 3 et 4](../examples/data/seestar-series34/README.md) sont publics, avec leurs en-têtes.
+Les autres archives restent privées. Les tests logiciels de la nouvelle recette utilisent des données fictives.
+
+**Nouveau parcours complet : [reproduire les trois passages possibles depuis zéro](REPRODUIRE-SATELLITES.md).**
+Il explique installation, copies, empreintes, références, étalonnage fourni, mesures natives, recherche orbitale et lecture des résultats.
+Il comprend neuf figures réelles ou calculées, avec descriptions textuelles.
+Le [journal](../JOURNAL-CANDIDATS.md) conserve trois associations plausibles ; aucune identité n’est confirmée.
+Le [manuscrit scientifique](article-satellites/README.md) est illustré, avec résumé français, abstract anglais et bibliographie UQAM-APA.
+
+![Extrait réel STARLINK-1301 proposé : image seule, puis mesure et prévision](images/satellites/S03-08-comparison.png)
+
+**Lire sans image.** S03-08 contient une trace brillante. La ligne mesurée est proche de la prévision de STARLINK-1301.
+La première vue ne contient pas de ligne ajoutée. La seconde superpose des calculs à la même vraie photo.
+Le rapprochement reste plausible, sans identification ou horloge qualifiée.
+
+Les plans `97060a4`, `6e4f821` et `8b49410` ont été publiés avant leur réalisation respective.
+La recette est séparée des moteurs historiques. Elle ne relance pas l’analyse de toute l’archive.
+Le bilan de reproduction et les vérifications de publication sont consignés dans [ROADMAP.md](../ROADMAP.md).
 
 Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales), [fiche de campagne](#16-préparer-la-fiche-opérationnelle-de-campagne-temporelle).
 

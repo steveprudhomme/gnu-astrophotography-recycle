@@ -1,0 +1,32 @@
+{
+  "expected": [
+    {
+      "frame_id": "S03-03",
+      "norad_id": 65153,
+      "name": "KUIPER-00116",
+      "median_cross_track_arcsec": 60.051507117211145,
+      "orientation_difference_degrees": 0.05617780506126307,
+      "identity_confirmed": false
+    },
+    {
+      "frame_id": "S03-08",
+      "norad_id": 45361,
+      "name": "STARLINK-1301",
+      "median_cross_track_arcsec": 33.654701127285676,
+      "orientation_difference_degrees": 0.05674718743256565,
+      "identity_confirmed": false
+    },
+    {
+      "frame_id": "S04-04",
+      "norad_id": 62582,
+      "name": "CENTISPACE-1 S13",
+      "median_cross_track_arcsec": 29.739842079948055,
+      "orientation_difference_degrees": 0.11406105513889046,
+      "identity_confirmed": false
+    }
+  ],
+  "use_only_after_search": true,
+  "cross_track_tolerance_arcsec": 2,
+  "orientation_tolerance_degrees": 0.05,
+  "references_may_change": true
+}

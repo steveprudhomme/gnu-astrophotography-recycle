@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "selection": [
+    {
+      "frame_id": "S03-03",
+      "initial_native_endpoints": [
+        [
+          -14.028561380906886,
+          1361.5110028457518
+        ],
+        [
+          1072.0358270960805,
+          1655.5499688720843
+        ]
+      ],
+      "visual_status": "visible_linear_feature",
+      "selection_method": "visual_review_before_new_orbital_comparison_not_blind_detection"
+    },
+    {
+      "frame_id": "S03-08",
+      "initial_native_endpoints": [
+        [
+          7.0,
+          642.8010324313962
+        ],
+        [
+          1079.0,
+          676.8670315205966
+        ]
+      ],
+      "visual_status": "visible_linear_feature",
+      "selection_method": "visual_review_before_new_orbital_comparison_not_blind_detection"
+    },
+    {
+      "frame_id": "S04-01",
+      "initial_native_endpoints": [
+        [
+          1.5,
+          944.325817122205
+        ],
+        [
+          1077.5,
+          1263.0515377014035
+        ]
+      ],
+      "visual_status": "weak_doubtful",
+      "selection_method": "visual_review_before_new_orbital_comparison_not_blind_detection"
+    },
+    {
+      "frame_id": "S04-04",
+      "initial_native_endpoints": [
+        [
+          0.3112365598110095,
+          1523.2885603955765
+        ],
+        [
+          1079.1560646686949,
+          1555.553921712403
+        ]
+      ],
+      "visual_status": "visible_linear_feature",
+      "selection_method": "visual_review_before_new_orbital_comparison_not_blind_detection"
+    }
+  ]
+}

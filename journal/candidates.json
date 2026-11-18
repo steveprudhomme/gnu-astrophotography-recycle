@@ -1,0 +1,509 @@
+{
+  "journal_schema_version": "1.0",
+  "entries": [
+    {
+      "candidate_id": "GAR-2026-0001",
+      "status": "plausible_association_known_satellite",
+      "first_public_record_date": "2026-11-18",
+      "observation": {
+        "frame_id": "S03-03",
+        "file": "S03-03.fit",
+        "original_name": "Light_IC 342_10.0s_IRCUT_20250919-202544.fit",
+        "sha256": "c65b3d8fd631364201188f2afaaf14987911937187d4d7c280f7219a2e8fdce6",
+        "bytes": 4152960,
+        "date_obs": "2025-09-20T00:25:29.904624",
+        "exposure_seconds": 10.0,
+        "series": "S03",
+        "pose": 3
+      },
+      "measurement": {
+        "frame_id": "S03-03",
+        "sha256": "c65b3d8fd631364201188f2afaaf14987911937187d4d7c280f7219a2e8fdce6",
+        "date_obs": "2025-09-20T00:25:29.904624",
+        "exptime": 10.0,
+        "measurement": {
+          "native_endpoints": [
+            [
+              0.0,
+              1363.209683257998
+            ],
+            [
+              1079.0,
+              1660.1086903184066
+            ]
+          ],
+          "slope_y_per_x": 0.27516126696979487,
+          "mean_clipped_native_signal": 0.31292804534630386,
+          "parallel_control_signals": [
+            -0.012103310122344401,
+            -0.019621434763372574,
+            -0.08520978680749508,
+            -0.030515123990813124,
+            -0.024142461043182517,
+            -0.018513411912616264
+          ],
+          "signals_in_three_spatial_parts": [
+            0.3735415005000984,
+            0.4811239170383565,
+            0.3719234137906245
+          ],
+          "noise_sigma": 109.87482190434453,
+          "centroid_is_model_fit_not_independent_pixel_detections": true,
+          "field_truncated": true
+        },
+        "visual_status": "visible_linear_feature",
+        "sky_endpoints": [
+          {
+            "ra_deg": 57.856669746430434,
+            "dec_deg": 68.15954885816691
+          },
+          {
+            "ra_deg": 56.90707931691245,
+            "dec_deg": 67.513647014812
+          }
+        ],
+        "identity_confirmed": false,
+        "clock_qualified": false
+      },
+      "hypothesis": {
+        "norad_id": 65153,
+        "name": "KUIPER-00116",
+        "source": "celestrak",
+        "median_cross_track_arcsec": 60.051507117211145,
+        "minimum_cross_track_arcsec": 59.412639688575844,
+        "orientation_difference_degrees": 0.05617780506126307,
+        "orbital_element_age_days": 0.10404981959190607,
+        "time_compatibility": {
+          "predicted_field_entry_offset_seconds": 2.6062856140955235,
+          "predicted_field_exit_offset_seconds": 4.351920022860674,
+          "beginning_timestamp_offset_interval": [
+            -5.648079977139326,
+            2.6062856140955235
+          ],
+          "midpoint_timestamp_offset_interval": [
+            -0.648079977139326,
+            7.6062856140955235
+          ],
+          "ending_timestamp_offset_interval": [
+            4.351920022860674,
+            12.606285614095523
+          ],
+          "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+        },
+        "tle_sha256": "b46ef2b9b35ae7b640a67acab179ac943e1b56c333077dbb1b980db86e915249",
+        "status": "ranked_hypothesis_not_confirmed"
+      },
+      "alternatives": [
+        {
+          "norad_id": 65222,
+          "name": "STARLINK-34999",
+          "source": "celestrak",
+          "median_cross_track_arcsec": 6602.836136219864,
+          "minimum_cross_track_arcsec": 6383.522608966067,
+          "orientation_difference_degrees": 9.858398763526365,
+          "orbital_element_age_days": 0.07828054959190611,
+          "time_compatibility": {
+            "predicted_field_entry_offset_seconds": 13.292286221657518,
+            "predicted_field_exit_offset_seconds": 14.967664589979098,
+            "beginning_timestamp_offset_interval": [
+              4.967664589979098,
+              13.292286221657518
+            ],
+            "midpoint_timestamp_offset_interval": [
+              9.967664589979098,
+              18.29228622165752
+            ],
+            "ending_timestamp_offset_interval": [
+              14.967664589979098,
+              23.29228622165752
+            ],
+            "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+          },
+          "tle_sha256": "68cc06b569db0e09691fe5c614086c6ffa3a09fbe0a9c8a995bea075d15108ee",
+          "status": "ranked_hypothesis_not_confirmed"
+        },
+        {
+          "norad_id": 49747,
+          "name": "STARLINK-3247",
+          "source": "celestrak",
+          "median_cross_track_arcsec": 12259.76938435365,
+          "minimum_cross_track_arcsec": 12003.214989993716,
+          "orientation_difference_degrees": 11.140669988402747,
+          "orbital_element_age_days": 0.2081933395919061,
+          "time_compatibility": {
+            "predicted_field_entry_offset_seconds": 17.582611113243768,
+            "predicted_field_exit_offset_seconds": 19.522883237462956,
+            "beginning_timestamp_offset_interval": [
+              9.522883237462956,
+              17.582611113243768
+            ],
+            "midpoint_timestamp_offset_interval": [
+              14.522883237462956,
+              22.582611113243768
+            ],
+            "ending_timestamp_offset_interval": [
+              19.522883237462956,
+              27.582611113243768
+            ],
+            "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+          },
+          "tle_sha256": "3a4498a9ae856770fad8e4215985e36f6d17fa0e025eab2a42487999277cb4bf",
+          "status": "ranked_hypothesis_not_confirmed"
+        }
+      ],
+      "identity_confirmed": false,
+      "new_object_discovery": false,
+      "clock_qualified": false,
+      "selection": "manual_visual_review_before_new_orbital_search_not_blind",
+      "catalogue_provenance": "examples/data/seestar-series34/orbital-provenance.json",
+      "figure": "docs/images/satellites/S03-03-comparison.png",
+      "revision_history": [
+        {
+          "date": "2026-11-18",
+          "action": "record_initial",
+          "reason": "guided_public_reproduction_of_existing_scoped_review",
+          "responsibility": "project_maintainer_and_software_assistance_not_independent_validation"
+        }
+      ]
+    },
+    {
+      "candidate_id": "GAR-2026-0002",
+      "status": "plausible_association_known_satellite",
+      "first_public_record_date": "2026-11-18",
+      "observation": {
+        "frame_id": "S03-08",
+        "file": "S03-08.fit",
+        "original_name": "Light_IC 342_10.0s_IRCUT_20250919-205050.fit",
+        "sha256": "cae088746ab8387a1e00387afd647423f08092db76f87b1249a8b50c02acf980",
+        "bytes": 4152960,
+        "date_obs": "2025-09-20T00:50:36.029572",
+        "exposure_seconds": 10.0,
+        "series": "S03",
+        "pose": 8
+      },
+      "measurement": {
+        "frame_id": "S03-08",
+        "sha256": "cae088746ab8387a1e00387afd647423f08092db76f87b1249a8b50c02acf980",
+        "date_obs": "2025-09-20T00:50:36.029572",
+        "exptime": 10.0,
+        "measurement": {
+          "native_endpoints": [
+            [
+              0.0,
+              642.5775311865712
+            ],
+            [
+              1079.0,
+              676.6646226466701
+            ]
+          ],
+          "slope_y_per_x": 0.031591372993604115,
+          "mean_clipped_native_signal": 1.8314245787931238,
+          "parallel_control_signals": [
+            -0.08045972655942428,
+            -0.2813558724468208,
+            -0.35692847393429417,
+            -0.3622172913907623,
+            -0.3094123549316059,
+            -0.10122974606963094
+          ],
+          "signals_in_three_spatial_parts": [
+            2.332070803091,
+            2.2501174703250615,
+            2.299030986125841
+          ],
+          "noise_sigma": 106.8278341344014,
+          "centroid_is_model_fit_not_independent_pixel_detections": true,
+          "field_truncated": true
+        },
+        "visual_status": "visible_linear_feature",
+        "sky_endpoints": [
+          {
+            "ra_deg": 56.894668563852946,
+            "dec_deg": 68.50454631463316
+          },
+          {
+            "ra_deg": 55.74199771501091,
+            "dec_deg": 67.93442818374575
+          }
+        ],
+        "identity_confirmed": false,
+        "clock_qualified": false
+      },
+      "hypothesis": {
+        "norad_id": 45361,
+        "name": "STARLINK-1301",
+        "source": "celestrak",
+        "median_cross_track_arcsec": 33.654701127285676,
+        "minimum_cross_track_arcsec": 32.909966086992746,
+        "orientation_difference_degrees": 0.05674718743256565,
+        "orbital_element_age_days": 0.22562534101127152,
+        "time_compatibility": {
+          "predicted_field_entry_offset_seconds": 4.169482811622336,
+          "predicted_field_exit_offset_seconds": 5.793869328676236,
+          "beginning_timestamp_offset_interval": [
+            -4.206130671323764,
+            4.169482811622336
+          ],
+          "midpoint_timestamp_offset_interval": [
+            0.7938693286762364,
+            9.169482811622336
+          ],
+          "ending_timestamp_offset_interval": [
+            5.793869328676236,
+            14.169482811622336
+          ],
+          "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+        },
+        "tle_sha256": "a14aab4cfcb314f20ac78a0bd467d2f15bda6f7db5018f611249f83bcd94f7f7",
+        "status": "ranked_hypothesis_not_confirmed"
+      },
+      "alternatives": [
+        {
+          "norad_id": 30370,
+          "name": "FENGYUN 1C DEB",
+          "source": "spacetrack",
+          "median_cross_track_arcsec": 1423.1057214840407,
+          "minimum_cross_track_arcsec": 350.84699622393765,
+          "orientation_difference_degrees": 39.96678119121743,
+          "orbital_element_age_days": 0.33883117101127147,
+          "time_compatibility": {
+            "predicted_field_entry_offset_seconds": -1.4201255502990624,
+            "predicted_field_exit_offset_seconds": 2.3130526716365503,
+            "beginning_timestamp_offset_interval": [
+              -7.68694732836345,
+              -1.4201255502990624
+            ],
+            "midpoint_timestamp_offset_interval": [
+              -2.6869473283634497,
+              3.5798744497009376
+            ],
+            "ending_timestamp_offset_interval": [
+              2.3130526716365503,
+              8.579874449700938
+            ],
+            "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+          },
+          "tle_sha256": "bc918fa8d10db0faf8dedf1dadc688941d13ae73c7a9dafa300e20051c380ab4",
+          "status": "ranked_hypothesis_not_confirmed"
+        },
+        {
+          "norad_id": 32334,
+          "name": "FENGYUN 1C DEB",
+          "source": "spacetrack",
+          "median_cross_track_arcsec": 12946.662274145141,
+          "minimum_cross_track_arcsec": 11843.365072131997,
+          "orientation_difference_degrees": 41.8468517810836,
+          "orbital_element_age_days": 0.4392744110112715,
+          "time_compatibility": {
+            "predicted_field_entry_offset_seconds": -5.347346175810067,
+            "predicted_field_exit_offset_seconds": -1.8285944548191797,
+            "beginning_timestamp_offset_interval": [
+              -11.82859445481918,
+              -5.347346175810067
+            ],
+            "midpoint_timestamp_offset_interval": [
+              -6.8285944548191795,
+              -0.3473461758100669
+            ],
+            "ending_timestamp_offset_interval": [
+              -1.8285944548191797,
+              4.652653824189933
+            ],
+            "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+          },
+          "tle_sha256": "a430bbc07b25ba77c008564aeabb3aa2c38257199642076c0ab0257829d68674",
+          "status": "ranked_hypothesis_not_confirmed"
+        }
+      ],
+      "identity_confirmed": false,
+      "new_object_discovery": false,
+      "clock_qualified": false,
+      "selection": "manual_visual_review_before_new_orbital_search_not_blind",
+      "catalogue_provenance": "examples/data/seestar-series34/orbital-provenance.json",
+      "figure": "docs/images/satellites/S03-08-comparison.png",
+      "revision_history": [
+        {
+          "date": "2026-11-18",
+          "action": "record_initial",
+          "reason": "guided_public_reproduction_of_existing_scoped_review",
+          "responsibility": "project_maintainer_and_software_assistance_not_independent_validation"
+        }
+      ]
+    },
+    {
+      "candidate_id": "GAR-2026-0003",
+      "status": "plausible_association_known_satellite",
+      "first_public_record_date": "2026-11-18",
+      "observation": {
+        "frame_id": "S04-04",
+        "file": "S04-04.fit",
+        "original_name": "Light_IC 342_10.0s_IRCUT_20250919-211041.fit",
+        "sha256": "3ca53f84a5566e98626c54f8304f65edba204c36487408607fde08038b9a9000",
+        "bytes": 4152960,
+        "date_obs": "2025-09-20T01:10:26.594465",
+        "exposure_seconds": 10.0,
+        "series": "S04",
+        "pose": 4
+      },
+      "measurement": {
+        "frame_id": "S04-04",
+        "sha256": "3ca53f84a5566e98626c54f8304f65edba204c36487408607fde08038b9a9000",
+        "date_obs": "2025-09-20T01:10:26.594465",
+        "exptime": 10.0,
+        "measurement": {
+          "native_endpoints": [
+            [
+              0.0,
+              1520.90412112534
+            ],
+            [
+              1079.0,
+              1553.726991776162
+            ]
+          ],
+          "slope_y_per_x": 0.030419713300113276,
+          "mean_clipped_native_signal": 0.2978291874375877,
+          "parallel_control_signals": [
+            -0.007679642461290892,
+            -0.030629125207678992,
+            -0.05361032829711284,
+            -0.040158435339155106,
+            -0.06277713823435885,
+            -0.0027828426533647835
+          ],
+          "signals_in_three_spatial_parts": [
+            0.3281249346217328,
+            0.4462298257562966,
+            0.3657484166929267
+          ],
+          "noise_sigma": 103.24240654260956,
+          "centroid_is_model_fit_not_independent_pixel_detections": true,
+          "field_truncated": true
+        },
+        "visual_status": "visible_linear_feature",
+        "sky_endpoints": [
+          {
+            "ra_deg": 58.04024191345743,
+            "dec_deg": 68.16208293081881
+          },
+          {
+            "ra_deg": 56.975321398740284,
+            "dec_deg": 67.57332861151917
+          }
+        ],
+        "identity_confirmed": false,
+        "clock_qualified": false
+      },
+      "hypothesis": {
+        "norad_id": 62582,
+        "name": "CENTISPACE-1 S13",
+        "source": "spacetrack",
+        "median_cross_track_arcsec": 29.739842079948055,
+        "minimum_cross_track_arcsec": 27.855188120572105,
+        "orientation_difference_degrees": 0.11406105513889046,
+        "orbital_element_age_days": 0.4338563373094928,
+        "time_compatibility": {
+          "predicted_field_entry_offset_seconds": 2.0294912182506057,
+          "predicted_field_exit_offset_seconds": 4.169676471919546,
+          "beginning_timestamp_offset_interval": [
+            -5.830323528080454,
+            2.0294912182506057
+          ],
+          "midpoint_timestamp_offset_interval": [
+            -0.830323528080454,
+            7.029491218250605
+          ],
+          "ending_timestamp_offset_interval": [
+            4.169676471919546,
+            12.029491218250605
+          ],
+          "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+        },
+        "tle_sha256": "cf60608f0a2cf974e53e3b684e3836e9dcd7bef6346a61b55a685541bce6bcd7",
+        "status": "ranked_hypothesis_not_confirmed"
+      },
+      "alternatives": [
+        {
+          "norad_id": 64274,
+          "name": "STARLINK-34272",
+          "source": "celestrak",
+          "median_cross_track_arcsec": 11867.274359778274,
+          "minimum_cross_track_arcsec": 11805.56735566895,
+          "orientation_difference_degrees": 2.98835507061765,
+          "orbital_element_age_days": 0.3220439173094928,
+          "time_compatibility": {
+            "predicted_field_entry_offset_seconds": 11.773970267805952,
+            "predicted_field_exit_offset_seconds": 13.067336984750897,
+            "beginning_timestamp_offset_interval": [
+              3.067336984750897,
+              11.773970267805952
+            ],
+            "midpoint_timestamp_offset_interval": [
+              8.067336984750897,
+              16.77397026780595
+            ],
+            "ending_timestamp_offset_interval": [
+              13.067336984750897,
+              21.77397026780595
+            ],
+            "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+          },
+          "tle_sha256": "20b1f75071d644bb8e38b78d5674663ac12cea9d54ceef6a7b00154528eb3415",
+          "status": "ranked_hypothesis_not_confirmed"
+        },
+        {
+          "norad_id": 64665,
+          "name": "STARLINK-34555",
+          "source": "celestrak",
+          "median_cross_track_arcsec": 22764.29867146609,
+          "minimum_cross_track_arcsec": 22737.931453898247,
+          "orientation_difference_degrees": 1.2649841522973757,
+          "orbital_element_age_days": 0.3241272473094928,
+          "time_compatibility": {
+            "predicted_field_entry_offset_seconds": 5.335564141739377,
+            "predicted_field_exit_offset_seconds": 6.9630878310067885,
+            "beginning_timestamp_offset_interval": [
+              -3.0369121689932115,
+              5.335564141739377
+            ],
+            "midpoint_timestamp_offset_interval": [
+              1.9630878310067885,
+              10.335564141739377
+            ],
+            "ending_timestamp_offset_interval": [
+              6.9630878310067885,
+              15.335564141739377
+            ],
+            "uncertainty": "conditional_interval_ignores_unquantified_orbit_geometry_clock_errors"
+          },
+          "tle_sha256": "d245d256f163cbb4e168dbab410ad7f48cfa0b7ffcdd947d64e5bc3412fa23e4",
+          "status": "ranked_hypothesis_not_confirmed"
+        }
+      ],
+      "identity_confirmed": false,
+      "new_object_discovery": false,
+      "clock_qualified": false,
+      "selection": "manual_visual_review_before_new_orbital_search_not_blind",
+      "catalogue_provenance": "examples/data/seestar-series34/orbital-provenance.json",
+      "figure": "docs/images/satellites/S04-04-comparison.png",
+      "revision_history": [
+        {
+          "date": "2026-11-18",
+          "action": "record_initial",
+          "reason": "guided_public_reproduction_of_existing_scoped_review",
+          "responsibility": "project_maintainer_and_software_assistance_not_independent_validation"
+        }
+      ]
+    }
+  ],
+  "rejected_or_uncertain": [
+    {
+      "frame_id": "S04-01",
+      "status": "weak_doubtful_unidentified",
+      "not_new_discovery": true,
+      "closest_numeric_rank_is_not_plausible": true,
+      "reason": "orientation_73.603_degrees_and_cross_track_2903.675_arcsec"
+    }
+  ]
+}

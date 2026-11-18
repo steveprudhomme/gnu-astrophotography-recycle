@@ -1,5 +1,11 @@
 # Écrire une documentation facile à suivre
 
+**Références scientifiques, précision du 18 novembre 2026.** Utiliser le [style UQAM-APA officiel](https://style-apa.uqam.ca/).
+Vérifier auteurs, dates, titres et liens dans les sources primaires.
+Employer les citations auteur-date, les initiales et l’ordre alphabétique ; écrire « et » et mettre *et al.* en italique.
+La [bibliographie de l’étude](SOURCES-SATELLITES.md) et son fichier `.bib` appliquent ces choix.
+Un résumé français et un abstract anglais doivent conserver les mêmes résultats et limites.
+
 Cette règle concerne les nouveaux documents et les sections révisées du projet. Elle commence le **17 novembre 2026**.
 Le parcours principal vise les personnes débutantes, dès 10 ans. Les détails techniques restent disponibles après les explications simples.
 

@@ -5,3 +5,8 @@
 *.yml text eol=lf
 *.bat text eol=crlf
 COPYING -text
+*.fit binary
+*.png binary
+*.pdf binary
+*.tex text eol=lf
+*.bib text eol=lf

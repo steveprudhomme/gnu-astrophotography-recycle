@@ -1,5 +1,10 @@
 # Installation et utilisation sur Windows 11
 
+Pour refaire l’étude sur les seize FITS autorisés, suivre le [tutoriel depuis zéro](docs/REPRODUIRE-SATELLITES.md).
+Il utilise `requirements/satellite-tutorial.txt`, avec SGP4 et PyProj en plus des outils d’image.
+Ces outils sont propres à la recette expérimentale ; les dépendances de la commande `gar` restent intactes.
+La [reconstruction LaTeX du manuscrit](docs/article-satellites/README.md) est facultative pour cette analyse.
+
 ## Ce qui fonctionne aujourd’hui
 
 La version de développement [0.16.0-alpha.1](VERSION) contient l'inventaire, le regroupement, les diagnostics et les copies vérifiées. Elle comprend aussi les contrôles stellaires, la préparation temporelle et les profils expérimentaux de mobiles. L'installation depuis le code source est disponible. Le paquet portable et les performances scientifiques sur mobiles réels restent à valider. Pour un premier atelier dès 10 ans, suivre le [parcours pédagogique illustré](docs/DEMARRER-DE-ZERO.md).

@@ -158,17 +158,17 @@ Mandat du 18 novembre 2026. Plan à committer et publier avant réalisation.
 Le mainteneur rend publics les 16 FITS sélectionnés des séries 3 et 4 ; leurs en-têtes contiennent notamment dates et coordonnées du site.
 L'exception ne s'étend pas aux autres archives. La grande analyse reste en pause.
 
-- [ ] Travailler dans une copie Git isolée et préserver les modifications applicatives générales en pause.
-- [ ] Préparer un manifeste public des 16 FITS intacts : identifiants simples, noms d'origine, tailles, SHA-256 et notice de droits ; publier seulement ces entrées.
-- [ ] Fournir les références de calibration nécessaires sans ajouter un autre FITS brut au périmètre autorisé ; expliquer leur origine et ce qu'elles ne qualifient pas.
-- [ ] Créer un journal lisible et structuré, avec identifiants durables, statuts, provenance, dates, mesures, hypothèses alternatives et historique des changements.
-- [ ] Inscrire les trois correspondances plausibles existantes ; distinguer observation d'un objet connu, identité confirmée et découverte nouvelle.
-- [ ] Rendre la recette autonome : vérifier/copier les entrées, afficher les poses, retrouver les étoiles, recalculer les transformations, examiner les lignes et mesurer les traces natives.
-- [ ] Documenter la sélection visuelle guidée, conserver les limites des recherches automatiques et ne pas présenter ce rejeu comme une détection aveugle.
-- [ ] Fournir la récupération contrôlée du catalogue orbital historique et de la grille géodésique, avec cache, pagination et provenance ; permettre l'emploi du cache historique déjà local sans le redistribuer arbitrairement.
-- [ ] Recalculer localement les passages, classer les candidats et reproduire les trois hypothèses avec les incertitudes géométriques et temporelles explicites.
-- [ ] Écrire un tutoriel depuis zéro, accessible aux débutants : installation, dossiers, commandes exactes, durée indicative mesurée, résultats attendus, erreurs et petites vérifications ; illustrer chaque phase utile.
-- [ ] Faire un essai dans une installation propre à partir des seules entrées publiques et des références téléchargées ; contrôler les empreintes, les licences, les liens et l'affichage.
+- [x] Travailler dans une copie Git isolée et préserver les modifications applicatives générales en pause.
+- [x] Préparer un manifeste public des 16 FITS intacts : identifiants simples, noms d'origine, tailles, SHA-256 et notice de droits ; publier seulement ces entrées.
+- [x] Fournir les références de calibration nécessaires sans ajouter un autre FITS brut au périmètre autorisé ; expliquer leur origine et ce qu'elles ne qualifient pas.
+- [x] Créer un journal lisible et structuré, avec identifiants durables, statuts, provenance, dates, mesures, hypothèses alternatives et historique des changements.
+- [x] Inscrire les trois correspondances plausibles existantes ; distinguer observation d'un objet connu, identité confirmée et découverte nouvelle.
+- [x] Rendre la recette autonome : vérifier/copier les entrées, afficher les poses, retrouver les étoiles, recalculer les transformations, examiner les lignes et mesurer les traces natives.
+- [x] Documenter la sélection visuelle guidée, conserver les limites des recherches automatiques et ne pas présenter ce rejeu comme une détection aveugle.
+- [x] Fournir la récupération contrôlée du catalogue orbital historique et de la grille géodésique, avec cache, pagination et provenance ; permettre l'emploi du cache historique déjà local sans le redistribuer arbitrairement.
+- [x] Recalculer localement les passages, classer les candidats et reproduire les trois hypothèses avec les incertitudes géométriques et temporelles explicites.
+- [x] Écrire un tutoriel depuis zéro, accessible aux débutants : installation, dossiers, commandes exactes, durée indicative mesurée, résultats attendus, erreurs et petites vérifications ; illustrer chaque phase utile.
+- [x] Faire un essai dans une installation propre à partir des seules entrées publiques et des références téléchargées ; contrôler les empreintes, les licences, les liens et l'affichage.
 - [ ] Actualiser les Markdown concernés, publier une PR avec preuves et limites, puis fusionner et vérifier les commits distants et locaux.
 
 La recette pédagogique indépendante et le journal ne livrent pas le moteur général en pause. Les versions et tags existants restent immuables.
@@ -176,14 +176,16 @@ Critère de fin : une personne peut refaire les étapes conduisant aux trois cor
 
 #### Article scientifique de science citoyenne ajouté au mandat
 
-- [ ] Rédiger un manuscrit français standard : résumé français et abstract anglais, hypothèses, données, méthode, résultats, discussion, limites, conclusion et disponibilité des données et du code. Les deux résumés conservent les mêmes résultats et limites.
-- [ ] Présenter une réidentification exploratoire de satellites connus, sans annoncer de nouveaux objets ni d'identification confirmée.
-- [ ] Décrire le rôle du citoyen observateur, la sélection manuelle, les contrôles, les droits, les contributions et l'assistance logicielle/IA, avec les limites et retours à la communauté.
-- [ ] Vérifier les noms officiels de la Société d'Astronomie de Montréal et du Club d'Astronomie Bois de Belle-Rivière-Mirabel. Mentionner l'adhésion déclarée par l'auteur, sans endossement des organismes.
-- [ ] Illustrer avec extraits des vraies poses, superpositions mesurées/prévues, graphiques d'écarts et de compatibilité temporelle, et schéma de méthode ; identifier explicitement réel, calculé et fictif.
-- [ ] Appliquer le style bibliographique UQAM-APA : citations auteur-date et références vérifiées, liens/DOI, ordre et typographie contrôlés selon le guide officiel.
-- [ ] Livrer sources LaTeX, bibliographie et PDF compilé ; fournir les commandes de reconstruction et vérifier visuellement chaque page rendue.
+- [x] Rédiger un manuscrit français standard : résumé français et abstract anglais, hypothèses, données, méthode, résultats, discussion, limites, conclusion et disponibilité des données et du code. Les deux résumés conservent les mêmes résultats et limites.
+- [x] Présenter une réidentification exploratoire de satellites connus, sans annoncer de nouveaux objets ni d'identification confirmée.
+- [x] Décrire le rôle du citoyen observateur, la sélection manuelle, les contrôles, les droits, les contributions et l'assistance logicielle/IA, avec les limites et retours à la communauté.
+- [x] Vérifier les noms officiels de la Société d'Astronomie de Montréal et du Club d'Astronomie Bois de Belle-Rivière-Mirabel. Mentionner l'adhésion déclarée par l'auteur, sans endossement des organismes.
+- [x] Illustrer avec extraits des vraies poses, superpositions mesurées/prévues, graphiques d'écarts et de compatibilité temporelle, et schéma de méthode ; identifier explicitement réel, calculé et fictif.
+- [x] Appliquer le style bibliographique UQAM-APA : citations auteur-date et références vérifiées, liens/DOI, ordre et typographie contrôlés selon le guide officiel.
+- [x] Livrer sources LaTeX, bibliographie et PDF compilé ; fournir les commandes de reconstruction et vérifier visuellement chaque page rendue.
 - [ ] Intégrer le manuscrit comme document de travail non évalué par les pairs, avec références au journal et au tutoriel ; fusionner l'ensemble sur GitHub après vérification.
+
+Réalisation avant intégration : plans publiés 97060a4, 6e4f821 et 8b49410. Seize FITS identiques par SHA-256, 696 centres de référence fournis et neuf figures décrites. Installation Python 3.13 isolée ; rejeux avec cache historique puis références fraîchement téléchargées : mêmes quatre classements, trois associations plausibles et 935 propositions. Les 27 779 lignes orbitales reçues sont identiques, malgré une sérialisation JSON différente. Deux interruptions réseau conservées avant reprise des seules pages manquantes. Contrôles ciblés : 51 tests fictifs et historiques de recalage réussis ; aucun moteur historique modifié. Manuscrit XeLaTeX/Biber de 11 pages, résumé français et abstract anglais concordants, 11 références UQAM-APA, sept figures dans le PDF ; chaque page rendue et inspectée. Aucune identité, découverte ou horloge confirmée. La reproduction depuis commit propre et les références de PR seront ajoutées après vérification.
 
 ### Essai AMOS adapté aux séries 3 et 4
 

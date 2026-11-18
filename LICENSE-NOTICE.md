@@ -1,6 +1,7 @@
 # Application de la licence au projet
 
-Les contenus originaux de ce dépôt sont proposés sous **GNU General Public License, version 3 ou, à votre choix, toute version ultérieure** : identifiant SPDX `GPL-3.0-or-later`, à l’exception des médias réels expressément listés sous [CC0-1.0](docs/images/reels/LICENCE.md).
+Les contenus originaux de ce dépôt sont proposés sous **GNU General Public License, version 3 ou ultérieure** : `GPL-3.0-or-later`.
+Les exceptions CC0-1.0 couvrent les [cinq médias initiaux](docs/images/reels/LICENCE.md), les [seize FITS autorisés et leurs références propres au projet](examples/data/seestar-series34/README.md), et les [figures de cette étude](docs/images/satellites/LICENCE.md).
 
 Le fichier [COPYING](COPYING) contient le texte officiel intégral, téléchargé depuis https://www.gnu.org/licenses/gpl-3.0.txt le 15 novembre 2026. Il est conservé sans modification ; le choix « ou ultérieure » est exprimé ici et dans les avis des fichiers, sans réécrire la licence.
 
@@ -9,6 +10,12 @@ Les dépendances, citations et autres éléments tiers conservent leurs droits e
 Le mainteneur a autorisé puis réaffirmé le 17 novembre 2026 la diffusion des rendus réels sous **CC0 1.0 Universal**, y compris le GIF du pilote et ses illustrations. Leur notice séparée décrit les cinq fichiers couverts, la provenance et le rendu. Cette dédicace ne s'étend pas aux archives FITS, en-têtes, chemins ou rapports privés et ne relicencie pas le code.
 
 Copyright (C) 2026 Steve Prud'Homme pour les contenus originaux initiaux du projet. Les contributions ultérieures conservent leurs titulaires respectifs.
+
+**Exception supplémentaire du 18 novembre 2026.** Le mainteneur rend publics les seize FITS exactement listés dans `examples/data/seestar-series34/manifest.json`, avec leurs en-têtes.
+Il autorise leurs figures, mesures et références de calibration nécessaires à la reproduction ciblée.
+Les dates et coordonnées inscrites dans ces fichiers sont donc publiques. Les autres archives et chemins personnels restent privés.
+Le journal et le manuscrit restent sous GPL-3.0-or-later ; les données et figures autorisées portent leur notice CC0.
+Les TLE, grilles et documents tiers gardent leurs propres droits. Aucune dédicace CC0 ne leur est appliquée.
 
 Mainteneur initial : [steveprudhomme](https://github.com/steveprudhomme). Les échanges publics passent par les issues du dépôt ; aucune adresse de courriel privée n’est publiée. Renseigner dans les avis des futurs fichiers source le titulaire et l’année applicables.
 

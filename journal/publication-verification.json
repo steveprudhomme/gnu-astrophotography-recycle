@@ -1,0 +1,12 @@
+{
+  "public_files_reviewed": 65,
+  "relative_markdown_links_checked": 475,
+  "authorized_FITS": 16,
+  "total_FITS_bytes": 66447360,
+  "historical_source_unchanged": true,
+  "new_absolute_private_paths": 0,
+  "source_hashes_equal": true,
+  "checks": "51 synthetic and historical registration tests; end-to-end guided reproduction separately",
+  "pdf_pages_visually_inspected": 11,
+  "scientific_validation_independent": false
+}

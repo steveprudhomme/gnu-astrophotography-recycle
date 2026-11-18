@@ -1,7 +1,10 @@
 # Examiner deux séries avant de traiter toute l'archive
 
 Cette page explique l'examen ciblé des séries 3 et 4. Le travail sur les 16 poses est terminé.
-La grande fouille reste arrêtée. Les résultats réels détaillés et les images restent dans le dossier privé du mainteneur.
+La grande fouille reste arrêtée.
+Depuis l’autorisation du 18 novembre 2026, les seules seize poses sélectionnées sont publiques avec leurs en-têtes.
+Le [journal réel](../JOURNAL-CANDIDATS.md), le [tutoriel complet](REPRODUIRE-SATELLITES.md) et le [manuscrit illustré](article-satellites/README.md) complètent cette page.
+L’exemple ci-dessous reste entièrement fictif. Les autres archives restent privées.
 
 Tu peux reproduire l'exemple fictif ci-dessous avec Python et le code du projet.
 Tu n'as besoin ni du télescope, ni des photos personnelles, ni d'un compte sur un service astronomique.

@@ -1,0 +1,13 @@
+{
+  "source": "IAU CPS SatChecker",
+  "endpoint": "https://satchecker.cps.iau.org/tools/tles-at-epoch/",
+  "epoch_jd": "2460938.5",
+  "page_size": 2000,
+  "historical_received_rows": 27779,
+  "historical_unique_satellites": 27714,
+  "historical_unique_element_sets": 27764,
+  "original_cache_sha256": "ce11532b3fdfc9eb54fd34fb0b2ed00319d9b70adce386f14b774a11ebab3db3",
+  "raw_catalogue_redistributed": false,
+  "raw_catalogue_not_project_CC0": true,
+  "request_discloses": "observation_calendar_date_only_no_site_or_image"
+}

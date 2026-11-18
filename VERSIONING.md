@@ -1,5 +1,10 @@
 # Versionnage du projet
 
+La publication documentaire ciblée du 18 novembre 2026 ajoute un journal, des données autorisées, un manuscrit et une recette expérimentale dans `examples`.
+Elle conserve la surface `gar`, ses contrats et la version `0.16.0-alpha.1`.
+Les schémas du jeu public et du journal sont distincts de la version applicative.
+Le lot général 0.17 en cours reste en pause et non livré. Aucun ancien tag ou numéro publié n’est remplacé.
+
 Depuis le 17 novembre 2026, le projet applique [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html). La version publique canonique est dans [VERSION](VERSION) : **0.16.0-alpha.1**. Elle ajoute la préparation d’un contrôle positif et une référence géocentrique conditionnelle, sans changer les moteurs. Elle ne crée pas de release et ne change pas les anciens résultats scientifiques.
 
 ## Ce que la version décrit
