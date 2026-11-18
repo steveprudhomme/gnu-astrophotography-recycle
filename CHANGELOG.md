@@ -10,6 +10,7 @@ Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique dé
 - Sur les six absences, aucun maximum brut proche et première porte vide « maximum local », aux deux rayons. La meilleure réponse du cercle principal vaut environ 1,72 à 2,03 fois le seuil. Un échantillon voisin plus haut est signalé dans chaque cas ; aucune identité ou cause physique unique attribuée.
 - Les dix photos suivantes ont un centre retenu. Les 32 traces reproduisent les positions enregistrées ; les anciens scores et candidats sont inchangés.
 - Vérification : 18 nouveaux tests fictifs, 638 tests réussis au total. Trois PNG publics calculés et décrits ; quatre commandes exécutées. Aucun accès USB, écriture FITS/NPY ou nouvelle association.
+- Reproduction depuis `c7230a0` propre : mêmes 32 traces, seize preuves après rejeu, bilans, CSV et six PNG. Les anciens résultats, seize sources applicatives historiques et quatre sources Photutils épinglées sont préservés.
 
 ## État antérieur de développement — 0.12.0-alpha.1
 

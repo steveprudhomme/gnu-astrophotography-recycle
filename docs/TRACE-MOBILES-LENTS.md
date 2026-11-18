@@ -169,3 +169,9 @@ Aucune écriture FITS/NPY, connexion d'analyse externe, nouvelle injection, asso
 Les dessins sont testés avec les appels du détecteur et de convolution bloqués.
 Les seize sources applicatives historiques et les quatre sources Photutils épinglées restent inchangées.
 La revue du coordinateur ne constitue pas une validation indépendante ou une preuve de sensibilité sur des mobiles réels.
+
+La reproduction depuis le commit propre `c7230a0` donne les mêmes quatre codes 0.
+Les 32 traces brutes, seize preuves après rejeu, deux bilans, deux CSV et six PNG sont identiques.
+Les trois PNG publiés correspondent exactement aux fichiers reproduits.
+Les six absences et dix présences restent conservées, avec tous les anciens scores.
+La revue porte sur 252 fichiers publics, leurs avis, leurs liens et les quatre commandes du guide.

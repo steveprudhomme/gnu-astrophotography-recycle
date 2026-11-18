@@ -1572,4 +1572,8 @@ Seize sources applicatives historiques et quatre sources Photutils épinglées s
 Les trois PNG sont inspectés. Ils proviennent du premier fond fictif ; leurs descriptions ne reposent pas seulement sur les couleurs.
 La carte filtrée est limitée de 0 à 3 fois le seuil pour l'affichage ; les valeurs complètes restent conservées.
 Les croix de la vignette ne marquent que les centres proches du cercle. Les traces conservent toutes les positions.
-La reproduction depuis un commit propre et la publication restent à consigner après leur contrôle.
+La reproduction depuis le commit propre `c7230a0` confirme les quatre codes 0.
+Les 32 traces brutes, seize preuves après rejeu, deux bilans et deux CSV sont identiques.
+Les six PNG sont identiques, dont les trois figures publiques.
+Les six absences et dix présences restent conservées. Les anciens scores et les 2554 fichiers surveillés restent intacts.
+L'audit porte sur 252 fichiers publics, leurs avis, leurs liens et les quatre commandes rapprochées des arguments exécutés.
