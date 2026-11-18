@@ -176,7 +176,7 @@ Critère de fin : une personne peut refaire les étapes conduisant aux trois cor
 
 #### Article scientifique de science citoyenne ajouté au mandat
 
-- [ ] Rédiger un manuscrit français standard : résumé, hypothèses, données, méthode, résultats, discussion, limites, conclusion et disponibilité des données et du code.
+- [ ] Rédiger un manuscrit français standard : résumé français et abstract anglais, hypothèses, données, méthode, résultats, discussion, limites, conclusion et disponibilité des données et du code. Les deux résumés conservent les mêmes résultats et limites.
 - [ ] Présenter une réidentification exploratoire de satellites connus, sans annoncer de nouveaux objets ni d'identification confirmée.
 - [ ] Décrire le rôle du citoyen observateur, la sélection manuelle, les contrôles, les droits, les contributions et l'assistance logicielle/IA, avec les limites et retours à la communauté.
 - [ ] Vérifier les noms officiels de la Société d'Astronomie de Montréal et du Club d'Astronomie Bois de Belle-Rivière-Mirabel. Mentionner l'adhésion déclarée par l'auteur, sans endossement des organismes.
