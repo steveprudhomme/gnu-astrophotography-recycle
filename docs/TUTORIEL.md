@@ -1509,3 +1509,8 @@ Les deux anciens scores réels gardent leurs résultats. Aucune nouvelle recherc
 Dix sources historiques sont identiques à celles de `8c1b9e6`. Les versions publique, Python et installée concordent.
 L'audit vérifie 245 fichiers publics, leurs licences et leurs liens. Les treize commandes correspondent aux arguments réellement exécutés.
 La revue est effectuée par le coordinateur. Elle ne remplace pas une validation scientifique indépendante.
+
+La [PR nº 7](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/7) publie les 20 fichiers relus du lot.
+Après la reproduction, seules les notes Markdown changent. Les moteurs et les sources du nouvel exercice restent identiques.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+L'absence de contrôle automatique GitHub ne remplace pas les tests locaux et les preuves conservées.
