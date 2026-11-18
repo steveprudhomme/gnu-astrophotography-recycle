@@ -188,6 +188,22 @@ La fouille générale reste en pause. Conserver les anciens essais et les seuils
 
 ### Tâches historiques
 
+### Clôture ciblée des séries 3 et 4 avant la grande fouille
+
+Mandat du 18 novembre 2026 : terminer l'examen des 16 poses et s'arrêter avant toute relance de l'archive générale.
+
+- [ ] Préserver le code et les résultats en pause ; utiliser uniquement les copies locales et le catalogue historique déjà reçu.
+- [ ] Convertir localement la hauteur cartographique CGVD28 avec une grille géodésique documentée ; garder les inconnues de terrain, hauteur du télescope et repère horizontal.
+- [ ] Examiner toutes les poses et dresser un registre illustré des traces proposées, y compris les manques du Hough initial. Garder les moteurs et résultats antérieurs.
+- [ ] Évaluer un complément distinct par intégration de lignes, sur plans réduits de quatre pixels natifs : angles tous les 0,5 degré, support d'au moins 100 cases, seuil de huit dispersions robustes de l'accumulateur. Ce score n'est pas une probabilité et ne remplace pas le seuil historique.
+- [ ] Contrôler le complément sur témoins fictifs avant essai réel, puis mesurer les traces proposées dans les pixels natifs ; conserver ambiguïtés et faux alignements possibles.
+- [ ] Contrôler la géométrie sur étoiles réservées pour relier chaque série au ciel ; classer les hypothèses orbitales avec les incertitudes et sans confirmation automatique.
+- [ ] Évaluer les plages temporelles compatibles, sous hypothèses début/milieu/fin, à partir de passages distincts. Ne pas qualifier l'horloge avec les seuls passages utilisés pour choisir les identités.
+- [ ] Produire galerie et rapport privés, tutoriel illustré avec figures publiques fictives, Markdown actualisés et publication documentaire vérifiée.
+- [ ] Arrêt obligatoire après le bilan ciblé : aucun lancement du traitement de toute l'archive, aucune nouvelle copie USB, aucune acquisition instrumentale.
+
+Ce travail ne livre pas le lot applicatif en pause et ne crée ni tag ni release. Les nouveaux détails d'observation restent privés.
+
 Complément préalable du calcul orbital ciblé : catalogue paginé complet, éléments datant de sept jours au plus de l'observation.
 Premier classement local sous l'hypothèse explicite que DATE-OBS représente UTC, fenêtre de −10 à +20 secondes autour de l'heure déclarée.
 Présélection à dix degrés du champ aux instants −10, 0, +10 et +20 secondes, puis calcul fin à 0,1 seconde pour les satellites retenus.
