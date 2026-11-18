@@ -771,6 +771,21 @@ Il donne les fichiers à vérifier et explique les erreurs, sans modifier les an
 **À expliquer avec tes mots :** pourquoi un point au-dessus du seuil peut-il manquer ?
 Réponse : le programme exige aussi un maximum local. Une valeur voisine plus haute peut empêcher cette étape.
 
+## Nouvelle mission : essayer un voisinage plus petit
+
+Le [parcours du voisinage réduit](VOISINAGE-REDUIT.md) compare deux détecteurs sur les mêmes images fictives.
+Un seul nombre change : le voisinage passe de cinq à trois cases de travail.
+Le seuil de luminosité reste le même. Les points doivent encore satisfaire les règles de forme et de trajet.
+
+![Résultats calculés du premier nouveau fond fictif, avec référence et variante à voisinage réduit](images/exemple-voisinage-bilan.png)
+
+**Lire sans image.** La variante retrouve les six ajouts brillants du premier fond ; la référence en retrouve quatre.
+Aucun ajout faible n'est retrouvé dans ce fond. Le témoin ne produit aucun candidat.
+Le guide contient neuf commandes, les fichiers à vérifier, les erreurs et une comparaison fixe des photos 1 et 4.
+
+**À expliquer avec tes mots :** pourquoi faut-il aussi lire le témoin ?
+Réponse : retrouver plus de points ne suffit pas. Il faut vérifier si le programme propose aussi des trajets sans objet ajouté.
+
 ## 14. Comprendre ce que tu as reconstruit
 
 Tu as maintenant installé l’application entière depuis ses recettes publiques et essayé les modules disponibles. Voici où regarder le code pour comprendre chaque brique :

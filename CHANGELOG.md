@@ -2,7 +2,17 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
-## Non publié — 0.13.0-alpha.1
+## Non publié — 0.14.0-alpha.1
+
+- Nouveau détecteur séparé : voisinage de 3 cases réduites au lieu de 5. Même seuil de luminosité, noyau, filtres de forme, masque et plafonds.
+- Comparaison des deux profils sur les mêmes pixels et modèles, réponses ouvertes après les 26 rapports candidats scellés. Deux nouveaux fonds fictifs réservés ; anciens dérivés fictifs et réels réutilisés sans modification.
+- Guide, tutoriel illustré et critères de récupération/fausses propositions. Version Python `0.14.0a1`, sans tag ou release.
+- Deux fonds fictifs réservés : 4/12 contre 6/12, puis 3/12 contre 8/12. Les six brillants sont retrouvés dans chacun avec la variante, sans faux candidat ou perte de référence. Les faibles restent partiels.
+- Fonds réels locaux : résultats inchangés à 6/12 et 9/12, sans nouveau candidat naturel. Anciens dérivés réutilisés, sans USB ou nouvelle injection réelle.
+- Vérification : 30 nouveaux tests fictifs ; 668 tests réussis en 298,80 s. Les 21 commandes rendent 0 et les 2678 anciens fichiers surveillés restent intacts.
+- Guide pédagogique dès 10 ans, neuf commandes, trois PNG calculés et GIF facultatif avec équivalents fixes et textuels. Revue du coordinateur, sans qualification scientifique ou audit complet d'accessibilité.
+
+## État antérieur de développement — 0.13.0-alpha.1
 
 - Trace descriptive du détecteur sur les six absences initiales des deux fonds fictifs irréguliers. Les photos suivantes et les témoins servent de comparaison.
 - Rejeu comparé à toutes les positions enregistrées, puis rapprochement avec les réponses. Aucun seuil modifié, nouveau candidat, ajout ou recalage.

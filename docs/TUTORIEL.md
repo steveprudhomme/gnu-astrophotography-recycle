@@ -1431,7 +1431,6 @@ Les derniers ajouts après reproduction concernent seulement les documents Markd
 La revue interne vérifie les résultats, les licences et les données à garder privées.
 Les tests sont locaux : aucun contrôle automatique GitHub n'est configuré.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
-Cette dernière vérification distingue une publication distante d'un simple commit local.
 
 ## 32. Comprendre les trois manques brillants du profil lent
 
@@ -1582,3 +1581,61 @@ L'audit porte sur 252 fichiers publics, leurs avis, leurs liens et les quatre co
 La [PR nº 8](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/8) publie les 19 fichiers relus du lot.
 Après reproduction, seuls les documents Markdown changent. Aucun contrôle automatique GitHub n'est configuré ; les tests sont locaux.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
+
+## 34. Comparer un voisinage de trois cases à la référence
+
+Le plan `785b9de` est publié avant le code. Un nouveau profil séparé réduit le voisinage de cinq à trois cases réduites.
+Le seuil reste à cinq fois le bruit. Les noyaux, seuils effectifs et plages de forme sont comparés et doivent rester identiques.
+Les masques, marges, plafonds, modèles et règles de trajectoire sont conservés.
+Le [guide illustré du voisinage réduit](VOISINAGE-REDUIT.md) décrit les neuf commandes et leurs erreurs.
+
+Deux nouveaux fonds fictifs sont réservés, graines 2026112601 et 2026112602.
+La recette irrégulière et le générateur d'injections restent inchangés. Les deux détecteurs reçoivent les mêmes pixels.
+Les vingt-six rapports candidats d'un contexte sont scellés avant l'ouverture des réponses pour le score.
+Aucune position connue n'est fournie au détecteur ou à l'association.
+
+Les fonds réservés passent de 4/12 à 6/12, puis de 3/12 à 8/12 ajouts retrouvés.
+La variante retrouve les six brillants dans chacun, sans faux candidat fictif, indisponibilité ou perte d'un cas retrouvé par la référence.
+Les deux critères réservés sont satisfaits. Les faibles restent partiels : zéro puis deux retrouvés sur six.
+
+![Comparaison calculée sur le premier fond fictif réservé : tous les cas brillants retrouvés avec le voisinage réduit](images/exemple-voisinage-bilan.png)
+
+**Description.** Dans ce premier fond, aucun profil ne retrouve les faibles.
+Pour les brillants, la référence retrouve 1/2, 1/2 puis 2/2 aux trois vitesses. La variante retrouve 2/2 dans chaque groupe.
+Les témoins et les candidats non associés restent à zéro. Ces résultats concernent des ajouts artificiels.
+
+![Photos fictives 1 et 4, comparées avec les mêmes pixels et deux tailles de voisinage](images/exemple-voisinage-comparaison.png)
+
+**Description.** Dans la première photo, une croix proche apparaît pour la variante. Dans la quatrième, les deux profils en possèdent une.
+Le cercle marque la réponse connue après la recherche. Une croix est une mesure, pas une identité d'objet.
+Les croix sont limitées aux mesures proches du cercle pour rendre la vignette lisible.
+
+Le [GIF fictif](images/exemple-voisinage-animation.gif) montre les huit photos à une cadence artificielle de 600 ms.
+Les images fixes et les tableaux donnent aussi le résultat sans animation.
+
+Les deux anciens fonds irréguliers donnent 5/12 contre 6/12, puis 6/12 contre 8/12.
+Les anciennes références reproduisent leurs rapports ; aucun résultat historique n'est remplacé.
+Les deux anciens trajets brillants manqués possèdent huit mesures avec la variante, dont les six absences initiales.
+Sur les deux fonds réels locaux, les résultats restent 6/12 et 9/12 pour les deux profils, avec six brillants retrouvés chacun.
+Aucun candidat naturel ou non associé supplémentaire n'est relevé. Aucune nouvelle injection réelle ou lecture USB n'est réalisée.
+
+La version compatible devient `0.14.0-alpha.1`, avec `0.14.0a1` pour Python. Aucun tag ou release n'est créé.
+Les moteurs historiques restent intacts. Une amélioration sur ces exemples ne qualifie pas la sensibilité scientifique générale.
+
+### Vérifications de la comparaison
+
+Les 30 nouveaux tests fictifs passent en 24,82 secondes. La suite complète donne **668 tests réussis en 298,80 secondes**.
+Les données de développement sont distinctes des deux nouveaux fonds réservés.
+Les tests vérifient le paramètre changé, les signatures du détecteur, les plafonds et les refus de fichiers modifiés.
+Ils vérifient aussi les réponses ouvertes après les rapports, les comptes inconnus et les dessins sans recherche.
+
+Un premier test supposait qu'un exemple simple serait manqué par la référence. Il était déjà visible.
+Le test conserve cette visibilité ; un exemple distinct vérifie l'effet du voisinage sur deux sommets rapprochés.
+Les paramètres du programme ne changent pas après les essais réservés.
+
+Les neuf commandes publiques et douze commandes de contexte rendent 0, soit 21 commandes.
+Les quatre références historiques reproduisent leurs candidats et leurs scores.
+Les 2678 anciens fichiers surveillés et les cinq médias CC0 restent intacts.
+Les gardes ne relèvent aucun accès externe ou réseau d'analyse, écriture FITS réelle ou modification d'ancien dérivé.
+Seules seize nouvelles images sources fictives, leurs seize copies et leurs nouveaux dérivés sont créés.
+Les figures publiques proviennent du premier fond réservé, choisi avant résultat.
