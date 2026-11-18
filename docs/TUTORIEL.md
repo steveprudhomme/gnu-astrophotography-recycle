@@ -1937,3 +1937,55 @@ Les lignes dessinées sont des annotations calculées sur de vraies images, pas 
 **La partie identification n'est pas exécutée.** Les téléchargements historiques restent indisponibles et la géométrie céleste doit être contrôlée.
 La comparaison future emploierait SGP4 pour prévoir les trajectoires et les confronter aux traces pendant les expositions.
 Le prototype reprend une partie des étapes publiées ; il ne reproduit ni tout le système AMOS ni ses performances annoncées.
+
+## 40. Comparer localement une trace aux orbites historiques
+
+Cet essai poursuit les seules séries 3 et 4. La fouille générale reste en pause.
+Le plan de comparaison et ses hypothèses sont committés et publiés avant le calcul.
+
+![Schéma conceptuel : examiner une proposition, comparer aux références, puis conserver les limites](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Une ligne mesurée est comparée à des passages calculés au même moment et depuis le même lieu supposé.
+Le rapprochement donne des hypothèses classées. Il ne donne pas automatiquement une identité certaine.
+Ce dessin est conceptuel ; les images réelles et les noms des hypothèses restent dans les rapports privés.
+
+### Télécharger et compter les références
+
+Un client HTTPS IPv4 réussit là où les premiers téléchargements avaient expiré. Seule la date autorisée est envoyée.
+Les 14 pages donnent 27 779 lignes, pour 27 714 identifiants de satellites distincts.
+Certains identifiants ont plusieurs éléments ; il existe aussi des répétitions exactes. Ces différences sont conservées dans le bilan.
+Les comptes de pages concordent avec le total annoncé. Cela ne prouve pas un catalogue complet de tous les satellites possibles.
+
+### Relier la ligne mesurée au ciel
+
+Les empreintes montrent que la première pose de la série 3 correspond à une pose déjà recalée sur une référence céleste locale.
+La transformation de la pose 8 vers cette première pose permet de réutiliser ce lien, sans nouveau téléchargement Gaia.
+La mesure de la grande trace utilise les pixels natifs ; 554 pixels lumineux soutiennent l'ajustement après contrôle des résidus.
+La trace atteint le bord du champ. Sa longueur visible ne doit donc pas être divisée simplement par dix secondes pour obtenir une vitesse.
+Le budget d'erreur absolue et l'horloge restent non qualifiés.
+
+### Calculer les passages sans envoyer le lieu
+
+SGP4 2.27 est installé dans un dossier privé dédié, sans changer les dépendances de l'application en pause.
+Un vecteur de référence publié est reproduit. Un contrôle de conversion des directions aller-retour passe aussi.
+Ces vérifications techniques ne prouvent pas la justesse des heures, du lieu ou des orbites réelles.
+Les transformations suivent le parcours TEME, ITRS puis direction topocentrique décrit par Astropy.
+**Topocentrique** signifie ici : vu depuis le lieu d'observation. Les coordonnées du lieu restent sur l'ordinateur.
+Les téléchargements automatiques de tables terrestres sont désactivés pendant le calcul ; les tables déjà fournies sont utilisées.
+
+Les éléments à plus de sept jours de l'observation sont écartés : 539 lignes, avec 27 240 jeux restants.
+Les erreurs de propagation sont conservées. Les jeux d'éléments ne sont pas comptés comme autant de satellites distincts.
+Le premier écran couvre les 16 poses. Pour la grande trace, 25 jeux passent à la grille fine et neuf restent dans le classement géométrique.
+Ce premier écran à dix degrés du champ n'est pas une identification des autres traces des séries.
+
+### Conserver le caractère conditionnel du résultat
+
+Une hypothèse se démarque pour la grande trace, mais reste non confirmée.
+DATE-OBS est interprété comme UTC pour cet essai. La fenêtre va de dix secondes avant à vingt secondes après, par pas de 0,1 seconde.
+L'altitude n'étant pas fournie, deux calculs distincts à 0 et 500 mètres montrent son effet sur le passage prévu.
+Ces hauteurs servent de contrôle de sensibilité ; aucune n'est ajustée pour faire coïncider la trajectoire avec la photo.
+La figure privée superpose la ligne native mesurée et les deux prévisions. Les trajectoires dessinées ne sont pas ajoutées aux FITS.
+Les autres traces faibles restent à mesurer avant une comparaison aussi précise.
+
+Les rapports privés conservent le catalogue, les hypothèses nommées, les erreurs, les transformations et la figure.
+Les [sources orbitales](SOURCES.md#calcul-orbital-local) décrivent les outils utilisés. Aucun moteur historique ou résultat antérieur n'est modifié.

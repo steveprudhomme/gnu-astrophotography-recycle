@@ -170,3 +170,15 @@ L'essai suivant reprend les étapes décrites dans le résumé technique AMOS : 
 Le lien vers le PDF complet des auteurs n'a pas pu être ouvert par l'outil de consultation.
 La recette privée est une adaptation indépendante à grille angulaire entière, pas une reproduction de leur transformée de Hough probabiliste.
 Les chiffres de performance de l'étude ne sont pas transférés au Seestar. Les intervalles de cinq minutes limitent aussi la continuité temporelle exploitable.
+
+## Calcul orbital local
+
+Références consultées le 18 novembre 2026 pour l'essai ciblé :
+
+- [Documentation SGP4 maintenue par l'auteur du paquet](https://pypi.org/project/sgp4/) : calcul depuis les éléments orbitaux, vecteur de contrôle et repère TEME. La bibliothèque ne réalise pas seule toutes les conversions célestes.
+- [Astropy : coordonnées des satellites terrestres](https://docs.astropy.org/en/stable/coordinates/satellites.html) : passage TEME vers ITRS, soustraction explicite de la position du lieu puis direction topocentrique, pour éviter une conversion incorrecte de l'aberration.
+- [SatChecker : données orbitales historiques](https://satchecker.readthedocs.io/en/develop/tools_data_access.html) : catalogue à une date donnée, pagination et provenance.
+
+Le calcul utilise Astropy 7.2.0 déjà installé et SGP4 2.27 dans un dossier privé de l'essai.
+Les éléments satellitaires peuvent être imparfaits ou anciens ; un passage proche ne devient pas une identification confirmée.
+Les résultats réels nommés et leurs illustrations ne sont pas publiés avec ces références.

@@ -194,6 +194,13 @@ Présélection à dix degrés du champ aux instants −10, 0, +10 et +20 seconde
 La comparaison classe les distances angulaires et les orientations ; elle ne confirme pas automatiquement une identité.
 Les exclusions de catalogue, l'hypothèse temporelle et la possible coupure de la trace par le bord du champ restent explicites.
 
+Résultat de l'essai orbital ciblé : accès HTTPS IPv4 fonctionnel ; 14 pages reçues, 27 779 lignes et 27 714 identifiants distincts.
+Les doublons et éléments multiples sont conservés ; recevoir toutes les pages ne prouve pas un catalogue sans omission.
+539 lignes sont écartées pour ancienneté supérieure à sept jours ; 27 240 jeux d'éléments entrent dans le calcul, avec erreurs SGP4 signalées.
+Présélection effectuée pour les 16 poses. La comparaison fine concerne seulement la grande trace de la pose 8, série 3.
+Une hypothèse se démarque, sans identité confirmée. Les noms, coordonnées, heures, éléments orbitaux et illustrations réelles restent dans les rapports privés.
+L'altitude absente est testée séparément à 0 et 500 mètres, sans ajustement aux observations ; son effet est visible et doit rester dans le budget d'incertitude.
+
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
 - P1-02 : générer des FITS synthétiques : valide, tronqué, multi-HDU, métadonnées absentes et doublons.
 - P1-03 : implémenter l’inventaire sans écriture des entrées ; tester chemins Unicode, liens et accès refusé.
