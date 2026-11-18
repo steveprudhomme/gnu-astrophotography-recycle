@@ -131,7 +131,6 @@ Permettre la génération locale d'un candidat choisi. L'addition décalée est 
 Ses essais déjà produits restent conservés avec les alertes non associées ; aucun changement de seuil pour les faire disparaître.
 Vérifier aussi le confinement des sorties privées, les statistiques par pose et l'état refusé lorsqu'aucune recherche n'aboutit.
 
-## Premières tâches à ouvrir
 ## Essai ciblé — traces des séries 3 et 4
 
 Plan du 18 novembre 2026, demandé pendant la pause de la fouille générale. Cette pause reste en vigueur.
@@ -145,6 +144,11 @@ Plan du 18 novembre 2026, demandé pendant la pause de la fouille générale. Ce
 
 Le calcul orbital local pourra employer SGP4. Aucun résultat d'identification n'est présumé, aucun moteur historique n'est modifié.
 Une absence d'orbites historiques ou d'informations temporelles suffisantes peut empêcher la comparaison.
+
+Premier contrôle : les 16 copies sont vérifiées par empreintes ; chaque pose dure 10 secondes et les informations de site sont constantes.
+Les heures restent déclarées sans échelle temporelle explicite ; aucune transformation céleste complète n'est présente dans ces FITS.
+Les deux requêtes historiques SatChecker, dont une minimale, expirent sans référence exploitable.
+Aucun satellite n'est identifié à ce stade. Les rapports restent locaux ; la fouille générale reste en pause.
 
 ## Premières tâches à ouvrir
 

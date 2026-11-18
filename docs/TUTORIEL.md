@@ -1856,3 +1856,43 @@ Le schéma a aussi été affiché dans un aperçu local pour vérifier son cadra
 La commande `git diff --check` ne signale aucune erreur d'espacement.
 Le code, les versions et les cinq médias réels déjà autorisés restent identiques.
 Ces vérifications portent sur la documentation. Elles ne valident aucune détection ni compréhension par un enfant.
+
+## 38. Examiner les traces des séries réelles 3 et 4
+
+Le mainteneur demande cet essai limité pendant la pause de la fouille générale. Cette pause reste en vigueur.
+Le but est de vérifier si les traces correspondent à des satellites connus, sans leur donner un nom trop vite.
+Une **orbite** décrit le trajet d'un satellite. Les **éléments orbitaux** permettent de prévoir ce trajet.
+
+![Schéma conceptuel : examiner les images, comparer aux références et conserver les incertitudes](images/schema-tracking-archives.svg)
+
+**Lire sans image.** Nous examinons les pixels d'origine, les heures et la direction observée.
+Nous comparons ensuite les traces aux trajets calculés. Une ressemblance reste une hypothèse sans contrôles suffisants.
+Ce schéma présente une méthode ; il ne montre pas un satellite identifié dans ces séries.
+
+### Vérifier les informations disponibles
+
+Les deux séries contiennent 16 poses locales. Leurs empreintes concordent avec les rapports de copies.
+Chaque pose dure 10 secondes. Les heures sont distinctes et les informations de site sont constantes.
+L'échelle des heures n'est pas explicitement déclarée. Aucun modèle céleste complet n'est enregistré dans ces FITS.
+Le lien entre pixels et ciel devra donc être établi et contrôlé avant une comparaison précise.
+Les coordonnées du site restent privées et ne sont pas transmises.
+
+### Obtenir les orbites historiques
+
+Le mainteneur autorise SatChecker à recevoir seulement la date d'observation, sans heure précise.
+La recette privée appelle `/tools/tles-at-epoch/`, avec le jour julien de minuit et une pagination explicite.
+Un **jour julien** est un nombre représentant une date en astronomie. Minuit évite de transmettre l'heure observée.
+La première requête demande une page de 100 lignes. Après son expiration, une seconde demande une seule ligne.
+Les deux tentatives expirent sans réponse exploitable. Les requêtes et erreurs restent dans un dossier local ignoré par Git.
+Même reçue, une page ne constituerait pas un catalogue complet : pagination et dates des éléments devraient être vérifiées.
+
+### Examiner les autres explications
+
+Une trace peut venir d'un satellite, d'un avion, d'un météore ou d'un effet du capteur.
+Examiner largeur, interruptions et variations d'intensité, puis comparer aux images voisines et aux pixels bruts.
+Aucun de ces indices, pris seul, ne donne une identité certaine.
+Une trace présente dans le FITS brut ne peut pas être attribuée uniquement à l'alignement de l'affichage.
+
+**Résultat : aucun satellite identifié.** Le téléchargement indisponible ne prouve pas une absence de satellite dans les photos.
+Ces contrôles ne qualifient ni l'horloge ni l'astrométrie. Aucun moteur n'est modifié et aucun calcul orbital n'est exécuté sans référence.
+Consulter les [sources de cet essai](SOURCES.md#identification-ciblée-des-traînées) pour les orbites et les ambiguïtés visuelles.

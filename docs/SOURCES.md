@@ -153,3 +153,15 @@ Les travaux AMOS emploient alignement, différences d'images, recherche de segme
 Ils signalent les limites de précision et de validité des éléments TLE. Ces résultats sur un autre instrument ne valident pas le Seestar.
 Leur adaptation, les profils et les critères de sortie restent à évaluer dans le projet. Aucune dépendance n'est installée pour cette planification.
 Cette consultation documentaire ne transmet aucune image, date ou coordonnée des archives.
+
+## Identification ciblée des traînées
+
+Documentation consultée le 18 novembre 2026 pour les séries 3 et 4 :
+
+- [SatChecker, accès aux orbites historiques](https://satchecker.readthedocs.io/en/develop/tools_data_access.html) : éléments TLE à une date donnée, pagination et provenance. Une page reçue ne représente pas forcément tout le catalogue.
+- [International Meteor Organization, manuel photographique](https://www.imo.net/docs/01faint_meteors.pdf) : les traces d'avions, de météores et de satellites peuvent se ressembler. L'aspect seul ne fournit pas une identification certaine.
+- [Méthode présentée à AMOS](https://amostech.space/year/2022/automated-satellite-detection-and-sky-position-extraction-in-astronomical-images/) : comparaison des traces aux positions calculées par SGP4 depuis les éléments orbitaux ; limites de validité et de précision.
+
+Deux requêtes SatChecker autorisées transmettent uniquement la date d'observation, représentée à minuit, sans heure observée ni coordonnées.
+Elles expirent sans catalogue utilisable. Aucun élément orbital, identité de satellite ou succès de comparaison n'est déduit.
+Les calculs éventuels de lieu et de direction resteront locaux. Les observations, requêtes et erreurs détaillées restent privées.
