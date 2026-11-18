@@ -1,5 +1,22 @@
 # Préaudit des licences et procédure de distribution
 
+## Recette des satellites — 18 novembre 2026
+
+La recette facultative ajoute SGP4 2.27 et PyProj 3.8.0, déclarés MIT dans les distributions installées.
+Voir [SGP4 2.27 et son exemple de référence](https://pypi.org/project/sgp4/2.27/) et [la licence PyProj 3.8.0](https://raw.githubusercontent.com/pyproj4/pyproj/3.8.0/LICENSE).
+Pillow 13.0.0 déclare MIT-CMU ; voir [sa notice officielle](https://pillow.readthedocs.io/en/stable/about.html#license).
+Ces bibliothèques sont installées séparément. Le dépôt ne redistribue pas leurs roues ou exécutables.
+Les exigences d’une future distribution portable restent distinctes.
+
+Le manuscrit utilise TeX Live, BibLaTeX et des polices TeX Gyre/Latin Modern installées.
+Leurs licences restent propres à leurs composants ; le texte et ses illustrations ne les relicencient pas.
+La GUST Font License est fournie dans la documentation des polices TeX Live.
+Les programmes TeX et les fichiers de police complets ne sont pas joints au dépôt.
+Les grilles géodésiques et le catalogue orbital sont récupérés auprès de leurs fournisseurs, avec leurs propres droits.
+Les [seize FITS du mainteneur](../examples/data/seestar-series34/README.md) et les [figures autorisées](images/satellites/LICENCE.md) ont une notice CC0 séparée.
+
+## Préaudit historique du socle
+
 État au 15 novembre 2026 : sources officielles consultées et première combinaison de développement spécifiée dans `requirements/dev-tested.txt`. Les dépendances transitives, roues natives et paquet portable n’ont pas encore fait l’objet d’un audit exhaustif de redistribution. Une licence principale n’épuise pas les obligations des composants embarqués. Les conclusions ci-dessous sont des orientations à confirmer sur les artefacts exacts.
 
 | Élément | Preuve officielle | Compatibilité envisagée / action |

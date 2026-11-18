@@ -185,7 +185,19 @@ Critère de fin : une personne peut refaire les étapes conduisant aux trois cor
 - [x] Livrer sources LaTeX, bibliographie et PDF compilé ; fournir les commandes de reconstruction et vérifier visuellement chaque page rendue.
 - [ ] Intégrer le manuscrit comme document de travail non évalué par les pairs, avec références au journal et au tutoriel ; fusionner l'ensemble sur GitHub après vérification.
 
-Réalisation avant intégration : plans publiés 97060a4, 6e4f821 et 8b49410. Seize FITS identiques par SHA-256, 696 centres de référence fournis et neuf figures décrites. Installation Python 3.13 isolée ; rejeux avec cache historique puis références fraîchement téléchargées : mêmes quatre classements, trois associations plausibles et 935 propositions. Les 27 779 lignes orbitales reçues sont identiques, malgré une sérialisation JSON différente. Deux interruptions réseau conservées avant reprise des seules pages manquantes. Contrôles ciblés : 51 tests fictifs et historiques de recalage réussis ; aucun moteur historique modifié. Manuscrit XeLaTeX/Biber de 11 pages, résumé français et abstract anglais concordants, 11 références UQAM-APA, sept figures dans le PDF ; chaque page rendue et inspectée. Aucune identité, découverte ou horloge confirmée. La reproduction depuis commit propre et les références de PR seront ajoutées après vérification.
+Plans publiés : `97060a4`, `6e4f821` et `8b49410`. Seize FITS identiques par SHA-256, 696 centres de référence fournis et neuf figures décrites.
+Installation Python 3.13 isolée ; rejeux avec cache historique puis références fraîchement téléchargées : mêmes quatre classements, trois associations plausibles et 935 propositions.
+Les 27 779 lignes orbitales reçues sont identiques, malgré une sérialisation JSON différente. Deux interruptions réseau sont conservées avant reprise des seules pages manquantes.
+Contrôles ciblés : **51 tests réussis en 12,59 s** ; aucun moteur historique modifié. La suite complète historique n’a pas été rejouée dans ce lot.
+Manuscrit XeLaTeX/Biber de 11 pages, résumés français et anglais concordants, 11 références UQAM-APA et sept figures ; chaque page rendue et inspectée.
+Aucune identité, découverte ou horloge confirmée.
+
+Reproduction depuis le commit propre **`5a2b32b`** : six phases réussies, en environ 32 secondes avec références en cache, hors installation et téléchargement.
+Les seize FITS restent intacts. Les mesures, classements, 935 propositions et neuf figures concordent avec le parcours à références fraîchement téléchargées.
+La référence stellaire est préservée comme octets pour maintenir son empreinte sur les autres systèmes ; seul Windows a été exécuté.
+La copie Git propre reste inchangée. Aucun accès USB, réseau de calcul ou lancement de la grande archive.
+Les [preuves de reproduction](journal/reproduction-verification.json) et de [revue de publication](journal/publication-verification.json) sont conservées.
+L’intégration et le contrôle des commits GitHub restent à effectuer.
 
 ### Essai AMOS adapté aux séries 3 et 4
 

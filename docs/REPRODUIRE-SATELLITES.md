@@ -46,6 +46,11 @@ Il te faut Windows 10 ou 11, Internet pour les installations et assez d’espace
 Prévois environ 2 Go libres pour les outils et plusieurs essais. Le calcul utilise quelques centaines de Mo de mémoire.
 La durée dépend de ton ordinateur et du service distant. Le téléchargement peut être temporairement indisponible.
 
+**Repère mesuré.** Le rejeu propre des six phases a pris environ 32 secondes sur l’ordinateur de vérification.
+Ce temps exclut l’installation et le téléchargement. Il réutilise les références déjà obtenues.
+Le détail est conservé dans [la preuve de reproduction](../journal/reproduction-verification.json).
+Ton ordinateur peut prendre plus de temps. Une pause du terminal ne signifie pas forcément un échec.
+
 Installe [Python 3.13](https://www.python.org/downloads/windows/) depuis le site officiel.
 Installe aussi [Git pour Windows](https://git-scm.com/downloads/win).
 Ces outils sont gratuits. Fais-toi aider pour l’installation si nécessaire.

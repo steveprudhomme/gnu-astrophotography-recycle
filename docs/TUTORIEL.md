@@ -23,6 +23,12 @@ Les plans `97060a4`, `6e4f821` et `8b49410` ont été publiés avant leur réali
 La recette est séparée des moteurs historiques. Elle ne relance pas l’analyse de toute l’archive.
 Le bilan de reproduction et les vérifications de publication sont consignés dans [ROADMAP.md](../ROADMAP.md).
 
+Rejeu depuis le commit propre `5a2b32b` : six phases terminées, seize empreintes préservées et neuf figures identiques.
+Les mesures, classements et 935 propositions concordent avec le parcours utilisant les références fraîchement téléchargées.
+Les 51 contrôles ciblés réussissent. Ce sont des vérifications logicielles, pas une validation scientifique indépendante.
+La recette prend environ 32 secondes avec références en cache sur la machine de vérification ; installation et téléchargement sont exclus.
+La [preuve détaillée](../journal/reproduction-verification.json) garde les durées par phase.
+
 Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales), [fiche de campagne](#16-préparer-la-fiche-opérationnelle-de-campagne-temporelle).
 
 ## 1. Planifier avant de coder
