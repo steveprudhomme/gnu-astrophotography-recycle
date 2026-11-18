@@ -1514,3 +1514,71 @@ La [PR nº 7](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pul
 Après la reproduction, seules les notes Markdown changent. Les moteurs et les sources du nouvel exercice restent identiques.
 Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.
 L'absence de contrôle automatique GitHub ne remplace pas les tests locaux et les preuves conservées.
+
+## 33. Suivre le détecteur avant les positions manquantes
+
+Le plan `61fc2b8` est publié avant le code. Ce contrôle utilise seulement les deux fonds fictifs irréguliers déjà conservés.
+Le [guide de trace des mobiles lents](TRACE-MOBILES-LENTS.md) contient les quatre commandes et leurs erreurs possibles.
+Dans chaque fond, les trois premières photos du cas `r10-a12-p1` sont la cible.
+Les dix photos suivantes et les seize témoins servent de comparaison.
+
+Le programme vérifie les anciens fichiers et rejoue le détecteur sans position forcée.
+Pour chaque fond, seize traces brutes sont terminées avant l'ouverture des réponses.
+Leurs positions finales doivent reproduire toutes les positions enregistrées à 10⁻⁹ pixel natif près.
+Une différence donne un refus. Les réponses ne servent qu'aux rapprochements après ce gel.
+
+![Décisions du premier fond fictif, avec trois absences de maximum proche puis cinq centres retenus](images/exemple-trace-lents-etapes.png)
+
+**Description.** Aux deux rayons, les photos ajoutées 1 à 3 n'ont pas de maximum brut proche.
+Les photos 4 à 8 ont un centre retenu. Les témoins n'ont aucun maximum proche dans le cercle comparé.
+Le second fond donne les mêmes comptes. Les six absences et les dix présences restent conservées.
+
+Le seuil est un niveau minimal de réponse. Un maximum local doit aussi satisfaire une comparaison avec les valeurs voisines.
+Les six images initiales ont une meilleure réponse du cercle principal d'environ 1,72 à 2,03 fois le seuil effectif.
+Elles n'ont pourtant pas de maximum brut proche. La trace enregistre un échantillon voisin plus haut dans chacune.
+Aucun rejet de forme ou de marge proche n'explique ces six absences observées.
+
+![Valeurs filtrées et seuil du premier fond fictif : dépasser le seuil ne suffit pas à proposer un maximum](images/exemple-trace-lents-reponses.png)
+
+**Description.** La ligne du seuil vaut 1. Les réponses ajoutées la dépassent ; celles du témoin restent en dessous.
+Des échantillons voisins plus hauts apparaissent dans les trois premières photos.
+Ce voisin est une valeur calculée, sans identité astrophysique attribuée. Ces rapports ne sont pas des magnitudes calibrées.
+
+![Comparaison calculée des photos fictives 1 et 4, avec cercle connu et centre retenu marqué par une croix](images/exemple-trace-lents-photos.png)
+
+**Description.** La première ligne montre la photo 1, la seconde la photo 4.
+Dans les deux, le cercle indique la position connue après le rejeu. La croix n'apparaît que lorsque le centre est retenu.
+Les cartes filtrées complètent les intensités ; aucun nouvel appel du détecteur n'est nécessaire pour dessiner ces vues.
+Les pixels et le voisinage changent entre les photos, tandis que les règles restent identiques.
+
+Les traces conservent aussi bruit, seuils, métriques de forme existantes et positions entre les cases.
+Ces observations ne prouvent pas une cause physique unique ni une identité de source.
+La version de développement devient `0.13.0-alpha.1`, avec `0.13.0a1` pour Python.
+Les moteurs et les seuils restent inchangés. Aucun tag ou release n'est créé.
+
+### Vérifications et limites du rejeu
+
+Les 18 nouveaux tests fictifs passent en 31,10 secondes. La suite complète donne **638 tests réussis en 375,49 secondes**.
+Les tests utilisent des données de développement distinctes des deux fonds étudiés.
+Ils vérifient les divergences, les corruptions, l'ordre de lecture des réponses et les dessins sans appel de détection.
+Un premier test mélangeait les seize traces brutes et les huit preuves après rejeu dans son comptage.
+Il est corrigé pour séparer ces deux catégories, sans changer le détecteur ou ses critères.
+
+Les quatre commandes des deux contextes rendent 0. Les 32 rejeux reproduisent toutes les positions natives enregistrées.
+Les six absences et les dix présences sont conservées. Les seize témoins n'ont pas de maximum proche dans le cercle principal.
+Les 2554 anciens fichiers surveillés et les cinq médias CC0 restent intacts.
+Les gardes ne relèvent aucun accès externe/réseau, écriture FITS/NPY, recalage, association ou injection.
+Seize sources applicatives historiques et quatre sources Photutils épinglées sont inchangées.
+
+Les trois PNG sont inspectés. Ils proviennent du premier fond fictif ; leurs descriptions ne reposent pas seulement sur les couleurs.
+La carte filtrée est limitée de 0 à 3 fois le seuil pour l'affichage ; les valeurs complètes restent conservées.
+Les croix de la vignette ne marquent que les centres proches du cercle. Les traces conservent toutes les positions.
+La reproduction depuis le commit propre `c7230a0` confirme les quatre codes 0.
+Les 32 traces brutes, seize preuves après rejeu, deux bilans et deux CSV sont identiques.
+Les six PNG sont identiques, dont les trois figures publiques.
+Les six absences et dix présences restent conservées. Les anciens scores et les 2554 fichiers surveillés restent intacts.
+L'audit porte sur 252 fichiers publics, leurs avis, leurs liens et les quatre commandes rapprochées des arguments exécutés.
+
+La [PR nº 8](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/8) publie les 19 fichiers relus du lot.
+Après reproduction, seuls les documents Markdown changent. Aucun contrôle automatique GitHub n'est configuré ; les tests sont locaux.
+Après l'intégration, comparer le commit de `main` sur GitHub, la référence distante et la copie locale.

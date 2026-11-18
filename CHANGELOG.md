@@ -2,7 +2,17 @@
 
 Le journal commence avec l'adoption de [SemVer](VERSIONING.md). L'historique détaillé antérieur reste dans [ROADMAP.md](ROADMAP.md) et les commits ; aucune ancienne release n'est inventée.
 
-## Non publié — 0.12.0-alpha.1
+## Non publié — 0.13.0-alpha.1
+
+- Trace descriptive du détecteur sur les six absences initiales des deux fonds fictifs irréguliers. Les photos suivantes et les témoins servent de comparaison.
+- Rejeu comparé à toutes les positions enregistrées, puis rapprochement avec les réponses. Aucun seuil modifié, nouveau candidat, ajout ou recalage.
+- Figures et tutoriel expliquant maximum local, seuil et voisinage. Version Python `0.13.0a1`, sans tag ou release.
+- Sur les six absences, aucun maximum brut proche et première porte vide « maximum local », aux deux rayons. La meilleure réponse du cercle principal vaut environ 1,72 à 2,03 fois le seuil. Un échantillon voisin plus haut est signalé dans chaque cas ; aucune identité ou cause physique unique attribuée.
+- Les dix photos suivantes ont un centre retenu. Les 32 traces reproduisent les positions enregistrées ; les anciens scores et candidats sont inchangés.
+- Vérification : 18 nouveaux tests fictifs, 638 tests réussis au total. Trois PNG publics calculés et décrits ; quatre commandes exécutées. Aucun accès USB, écriture FITS/NPY ou nouvelle association.
+- Reproduction depuis `c7230a0` propre : mêmes 32 traces, seize preuves après rejeu, bilans, CSV et six PNG. Les anciens résultats, seize sources applicatives historiques et quatre sources Photutils épinglées sont préservés.
+
+## État antérieur de développement — 0.12.0-alpha.1
 
 - Nouveau diagnostic des positions déjà enregistrées pour les trois ajouts brillants manqués. Aucun nouveau candidat ou changement des anciens scores.
 - Contrôle de l'orientation par comparaison à la fabrication connue, puis nouveau banc fictif avec positions irrégulières. Les moteurs et seuils restent inchangés.
