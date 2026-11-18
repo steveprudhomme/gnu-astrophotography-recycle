@@ -1723,3 +1723,12 @@ Les gardes préservent 461 anciens fichiers et les cinq médias CC0. Aucun accè
 Les seules créations FITS sont les images fictives et des copies identiques, dans les nouveaux dossiers locaux.
 L'audit vérifie 271 fichiers publics, leurs avis et liens, ainsi que les sept commandes.
 Les 102 anciens fichiers Python contrôlés restent identiques, hors métadonnée de version ; quatre sources Photutils restent épinglées.
+
+La suite finale complète donne **689 tests réussis en 367,19 secondes**.
+La reproduction depuis le commit propre `86410ab` confirme les sept codes de retour à zéro.
+Les 32 sources fictives, leurs 32 copies et 32 nouvelles copies réelles sont identiques.
+Les mêmes sélections et modèles donnent les mêmes mesures et propositions dans huit rapports, pour seize recherches.
+Les rapports complets et CSV peuvent différer par les chemins et les durées mesurées ; leurs comptes sont identiques.
+Les 58 médias sont identiques, dont les quatre fichiers publics. Les 461 anciens fichiers surveillés restent intacts.
+Aucune lecture USB n'intervient dans cette reproduction. Seules des copies identiques et de nouvelles images fictives sont créées.
+Après reproduction, seuls les documents Markdown changent. La revue reste celle du coordinateur, sans validation indépendante.

@@ -169,3 +169,21 @@ Ces mesures locales ne permettent pas encore de prédire le coût de toute une a
 
 Le parcours applique le [guide de rédaction accessible](REDACTION-ACCESSIBLE.md).
 Les heures, l'échelle et la photométrie restent à qualifier. Aucun audit complet ou essai avec un enfant n'est revendiqué.
+
+## Vérifications et reproduction
+
+La suite complète donne **689 tests réussis en 367,19 secondes**, dont 21 nouveaux tests fictifs.
+Les sept commandes du guide rendent zéro. Les trois images fixes sont inspectées ; le GIF possède huit vues de 600 ms.
+
+La reproduction depuis le commit propre `86410ab` confirme les mêmes sélections et modèles.
+Les 32 sources fictives, leurs 32 copies et les 32 nouvelles copies réelles sont identiques.
+Les huit rapports de comparaison donnent les mêmes mesures et propositions pour les seize recherches.
+Leur contenu complet diffère par les chemins et les temps de calcul ; aucune égalité des durées n'est exigée.
+Les 58 médias sont identiques, dont les quatre fichiers publics.
+Les 461 anciens fichiers surveillés et les cinq médias CC0 restent intacts.
+Cette reproduction ne lit pas l'USB et ne réécrit aucun pixel réel.
+
+L'audit contrôle 271 fichiers publics, leurs avis et leurs liens, ainsi que les sept commandes.
+Les 102 anciens fichiers Python vérifiés restent inchangés, hors métadonnée de version.
+Quatre sources Photutils restent épinglées. Les versions publique, Python et installée concordent.
+La revue est effectuée par le coordinateur ; elle ne constitue pas une validation indépendante.
