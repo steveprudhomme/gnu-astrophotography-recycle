@@ -110,6 +110,10 @@ Les formats auront un contrat distinct ; aucun ancien rapport ne sera réécrit.
 Les nouveaux médias réels et les réponses des services restent privés dans `local/` ; seules les illustrations fictives sont publiques.
 Le coordinateur publie ce plan avant le code, puis attribue des fichiers distincts aux agents et vérifie l'intégration.
 
+**Extension de stockage autorisée le 18 novembre.** Le mainteneur propose aussi D:, avec environ 24 Go libres mesurés.
+Un dossier de travail privé dédié peut y recevoir des copies et rapports. Garder une réserve de 3 Go et mesurer le coût avant généralisation.
+Les fichiers déjà présents sur D: ne doivent être ni déplacés ni supprimés. Les traitements restent sur des copies vérifiées.
+
 ## Premières tâches à ouvrir
 
 - P1-01 : définir le manifeste `frame_id`/HDU, provenance et statuts d’erreur.
