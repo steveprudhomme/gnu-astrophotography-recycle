@@ -29,6 +29,11 @@ Les 51 contrôles ciblés réussissent. Ce sont des vérifications logicielles, 
 La recette prend environ 32 secondes avec références en cache sur la machine de vérification ; installation et téléchargement sont exclus.
 La [preuve détaillée](../journal/reproduction-verification.json) garde les durées par phase.
 
+La [PR nº 14](https://github.com/steveprudhomme/gnu-astrophotography-recycle/pull/14) est fusionnée dans `main`.
+Son commit de fusion `b94cc9b` correspond à la référence GitHub récupérée localement après intégration.
+Les tests sont locaux ; aucun contrôle automatique GitHub n’est annoncé.
+Le manuscrit reste un document de travail non évalué par les pairs.
+
 Accès direct : [installation](#2-installation-et-exécution), [recalage des poses](#12-recaler-trois-poses-locales-avec-un-contrôle-réservé), [comparaison Gaia](#13-comparer-les-trois-poses-à-gaia-sans-réajuster-les-modèles), [publication GitHub](#14-mettre-à-jour-github-et-vérifier-la-publication), [préparation temporelle](#15-préparer-la-qualification-des-horodatages-sur-les-copies-locales), [fiche de campagne](#16-préparer-la-fiche-opérationnelle-de-campagne-temporelle).
 
 ## 1. Planifier avant de coder
